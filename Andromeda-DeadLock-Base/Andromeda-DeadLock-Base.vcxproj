@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{48af1b19-4cf7-4ba8-a009-cfd8868cc646}</ProjectGuid>
+    <RootNamespace>AndromedaDeadLock</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>MultiByte</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(MSBuildProjectDirectory)\Andromeda-DeadLock\;$(MSBuildProjectDirectory)\Andromeda-DeadLock\Common\Include\;$(IncludePath)</IncludePath>
+    <GenerateManifest>false</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;ANDROMEDADEADLOCK_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;ANDROMEDADEADLOCK_EXPORTS;_WINDOWS;_USRDLL;RELEASE_BUILD;STB_IMAGE_STATIC;STB_IMAGE_IMPLEMENTATION;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <LanguageStandard_C>stdc17</LanguageStandard_C>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFont.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFontManager.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Fonts\FontAwesomeIcon.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\GUI\CAndromedaMenu.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Helpers\CPlayUISound.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Render\CRender.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Render\CRenderStackSystem.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Resources\UI_Sounds\UI_Click.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Resources\UI_Sounds\UI_Hover.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Settings\CSettingsJson.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\AndromedaClient\Settings\Settings.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Base64.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\CDelay.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Common.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\CrashLog.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\DevLog.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Helpers\ModuleLoaderHelper.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Helpers\StringHelper.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\Config.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\Fnv1a\Hash_Fnv1a_Constexpr.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ft2build.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1ColorRGBA.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1DWriteRenderTarget.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1Factory.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1FontWrapper.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1GlyphAtlas.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1GlyphProvider.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1GlyphRenderStates.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1GlyphSheet.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1GlyphVertexDrawer.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1Object.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1StateSaver.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1TextGeometry.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\CFW1TextRenderer.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\FW1CompileSettings.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\FW1FontWrapper.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\FW1FontWrapper\FW1Precompiled.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ImGui\imconfig.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ImGui\imgui.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ImGui\imgui_internal.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ImGui\imstb_textedit.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ImGui\imstb_truetype.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\ImGui\Misc\freetype\imgui_freetype.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\lodepng\lodepng.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\MinHook\buffer.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde32.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde64.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\MinHook\hde\pstdint.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\MinHook\hde\table32.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\MinHook\hde\table64.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\MinHook\MinHook.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\MinHook\trampoline.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\allocators.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\cursorstreamwrapper.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\document.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\encodedstream.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\encodings.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\error\en.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\error\error.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\filereadstream.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\filewritestream.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\fwd.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\biginteger.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\clzll.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\diyfp.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\dtoa.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\ieee754.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\itoa.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\meta.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\pow10.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\regex.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\stack.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\strfunc.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\strtod.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\internal\swap.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\istreamwrapper.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\memorybuffer.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\memorystream.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\msinttypes\inttypes.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\msinttypes\stdint.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\ostreamwrapper.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\pointer.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\prettywriter.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\rapidjson.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\reader.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\schema.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\stream.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\stringbuffer.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\uri.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\rapidjson\writer.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\stb\stb_image.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamapplist.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamapps.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamappticket.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamclient.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamcontroller.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamdualsense.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamfriends.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamgamecoordinator.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamgameserver.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamgameserverstats.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamhtmlsurface.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamhttp.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteaminput.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteaminventory.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteammatchmaking.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteammusic.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteammusicremote.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamnetworking.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamnetworkingmessages.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamnetworkingsockets.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamnetworkingutils.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamparentalsettings.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamps3overlayrenderer.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamremoteplay.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamremotestorage.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamscreenshots.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamugc.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamuser.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamuserstats.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamutils.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\isteamvideo.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\matchmakingtypes.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steamclientpublic.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steamencryptedappticket.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steamhttpenums.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steamnetworkingfakeip.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steamnetworkingtypes.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steamps3params.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steamtypes.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steamuniverse.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steam_api.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steam_api_common.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steam_api_flat.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steam_api_internal.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\SteamAPI\steam_gameserver.h" />
+    <ClInclude Include="Andromeda-DeadLock\Common\Include\XorStr\XorStr.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\Common\MemoryEngine.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\CBasePattern.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\CHook_Loader.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\CSDK_Loader.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateMove.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnClientOutput.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ParseMessage.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\base_gcmessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\base_modifier.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_clientmessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gameevents.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gamemessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gcmessages_client.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gcmessages_common.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gcmessages_server.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_usercmd.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_usermessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\clientmessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\connectionless_netmessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\c_peer2peer_netmessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\demo.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\econ_gcmessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\econ_shared_enums.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\engine_gcmessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\enums_clientserver.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\gameevents.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\gcsdk_gcmessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\gcsystemmsgs.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\netmessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\networkbasetypes.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\networksystem_protomessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\network_connection.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\prediction_events.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steamdatagram_messages_auth.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steamdatagram_messages_sdr.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_cloud.steamworkssdk.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_gamenetworkingui.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_helprequest.steamworkssdk.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_int.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_oauth.steamworkssdk.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_player.steamworkssdk.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_publishedfile.steamworkssdk.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_steamlearn.steamworkssdk.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_unified_base.steamworkssdk.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steamnetworkingsockets_messages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steamnetworkingsockets_messages_certs.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steamnetworkingsockets_messages_udp.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\te.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\uifontfile_format.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\usercmd.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\usermessages.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\valveextensions.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\AppFramework\IAppSystem.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\CFunctionList.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\CSchemaOffset.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\FunctionListSDK.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CGameEntitySystem.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CInputSystem.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CShemaSystemSDK.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\CSoundOpSystem.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IEngineToClient.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IGameEvent.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Interface\Interface.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Math.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Matrix.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\QAngle.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Rect_t.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector2.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector3.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector4.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Network\CNetworkMessages.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\SDK.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\SDL3\SDL3_Functions.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CBaseTypes.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CEntityData.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CHandle.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\Color.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CStrongHandle.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlFixedMemory.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlLinkedList.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlMap.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlMemory.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlString.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlStringToken.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlSymbol.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlSymbolLarge.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\CUtlVector.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Types\TIer0Memory.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Update\CCitadelInput.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Update\CUserCmd.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\SDK\Update\Offsets.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DllLauncher.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\DllMain.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\GameClient\CL_Bones.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerController.hpp" />
+    <ClInclude Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerPawn.hpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaClient.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\CAndromedaGUI.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Features\CVisual\CVisual.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFont.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Fonts\CFontManager.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\GUI\CAndromedaMenu.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Helpers\CPlayUISound.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Render\CRender.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Render\CRenderStackSystem.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\AndromedaClient\Settings\CSettingsJson.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Base64.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\CrashLog.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\DevLog.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Helpers\ModuleLoaderHelper.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Helpers\StringHelper.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\ImGui\imgui.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\ImGui\Misc\freetype\imgui_freetype.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\lodepng\lodepng.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\buffer.c" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde32.c" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\hde\hde64.c" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\MinHook.c" />
+    <ClCompile Include="Andromeda-DeadLock\Common\Include\MinHook\trampoline.c" />
+    <ClCompile Include="Andromeda-DeadLock\Common\MemoryEngine.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\CBasePattern.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\CHook_Loader.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\CSDK_Loader.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateMove.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_CreateSwapChain.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_FireEventClientSide.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_GetMatricesForView.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_IsRelativeMouseMode.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_MouseInputEnabled.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnAddEntity.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnClientOutput.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_OnRemoveEntity.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ParseMessage.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_Present.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Hook\Hook_ResizeBuffers.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\base_gcmessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\base_modifier.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_clientmessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gameevents.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gamemessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gcmessages_client.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gcmessages_common.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_gcmessages_server.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_usercmd.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\citadel_usermessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\clientmessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\connectionless_netmessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\c_peer2peer_netmessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\demo.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\econ_gcmessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\econ_shared_enums.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\engine_gcmessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\enums_clientserver.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\gameevents.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\gcsdk_gcmessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\gcsystemmsgs.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\netmessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\networkbasetypes.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\networksystem_protomessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\network_connection.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\prediction_events.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steamdatagram_messages_auth.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steamdatagram_messages_sdr.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_cloud.steamworkssdk.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_gamenetworkingui.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_helprequest.steamworkssdk.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_int.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_oauth.steamworkssdk.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_player.steamworkssdk.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_publishedfile.steamworkssdk.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_steamlearn.steamworkssdk.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages_unified_base.steamworkssdk.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steamnetworkingsockets_messages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steamnetworkingsockets_messages_certs.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steamnetworkingsockets_messages_udp.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\te.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\uifontfile_format.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\usercmd.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\usermessages.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\valveextensions.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\CFunctionList.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\CSchemaOffset.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Interface\IGameEvent.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Interface\Interface.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Math.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Matrix.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\QAngle.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector3.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Math\Vector4.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\SDK.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\SDL3\SDL3_Functions.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Types\CEntityData.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\SDK\Types\CHandle.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DllLauncher.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\DllMain.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\GameClient\CEntityCache\CEntityCache.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\GameClient\CL_Bones.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerController.cpp" />
+    <ClCompile Include="Andromeda-DeadLock\GameClient\CL_CitadelPlayerPawn.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
