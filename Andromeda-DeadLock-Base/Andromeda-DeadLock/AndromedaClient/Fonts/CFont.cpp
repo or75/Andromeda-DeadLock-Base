@@ -57,7 +57,52 @@ auto CFont::DrawString( int x , int y , ImColor Color , int Flags , const char* 
 
 	if ( m_pFontWrapper )
 	{
-		const auto fw1Flags = Flags | FW1_ALIASED;
+		const auto fw1Flags = Flags | FW1_ALIASED | FW1_RESTORESTATE;
+
+		ID3D11DeviceContext* pContext = GetAndromedaGUI()->GetDeviceContext();
+
+		ID3D11BlendState* pOldBlendState = nullptr;
+		FLOAT oldBlendFactor[4];
+		UINT oldSampleMask;
+
+		pContext->OMGetBlendState( &pOldBlendState , oldBlendFactor , &oldSampleMask );
+
+		D3D11_VIEWPORT oldViewport;
+		UINT viewportCount = 1;
+
+		pContext->RSGetViewports( &viewportCount , &oldViewport );
+
+		D3D11_VIEWPORT viewport;
+
+		viewport.Width = ImGui::GetIO().DisplaySize.x;
+		viewport.Height = ImGui::GetIO().DisplaySize.y;
+		viewport.MinDepth = 0.0f;
+		viewport.MaxDepth = 1.0f;
+		viewport.TopLeftX = 0.0f;
+		viewport.TopLeftY = 0.0f;
+		pContext->RSSetViewports( 1 , &viewport );
+
+		D3D11_BLEND_DESC blendDesc = {};
+
+		blendDesc.AlphaToCoverageEnable = FALSE;
+		blendDesc.IndependentBlendEnable = FALSE;
+		blendDesc.RenderTarget[0].BlendEnable = TRUE;
+		blendDesc.RenderTarget[0].SrcBlend = D3D11_BLEND_SRC_ALPHA;
+		blendDesc.RenderTarget[0].DestBlend = D3D11_BLEND_INV_SRC_ALPHA;
+		blendDesc.RenderTarget[0].BlendOp = D3D11_BLEND_OP_ADD;
+		blendDesc.RenderTarget[0].SrcBlendAlpha = D3D11_BLEND_ONE;
+		blendDesc.RenderTarget[0].DestBlendAlpha = D3D11_BLEND_ZERO;
+		blendDesc.RenderTarget[0].BlendOpAlpha = D3D11_BLEND_OP_ADD;
+		blendDesc.RenderTarget[0].RenderTargetWriteMask = D3D11_COLOR_WRITE_ENABLE_ALL;
+
+		ID3D11BlendState* pBlendState = nullptr;
+		GetAndromedaGUI()->GetDevice()->CreateBlendState( &blendDesc , &pBlendState );
+
+		if ( pBlendState )
+		{
+			pContext->OMSetBlendState( pBlendState , nullptr , 0xffffffff );
+			pBlendState->Release();
+		}
 
 		auto RenderFontWrapperText = [&]( const float x_pos , const float y_pos , DWORD color )
 		{
@@ -72,6 +117,9 @@ auto CFont::DrawString( int x , int y , ImColor Color , int Flags , const char* 
 		RenderFontWrapperText( static_cast<FLOAT>( x ) + 1.f , static_cast<FLOAT>( y ) - 1.f , D3DCOLOR_ABGR( 255 , 0 , 0 , 0 ) );
 
 		RenderFontWrapperText( static_cast<FLOAT>( x ) , static_cast<FLOAT>( y ) , dwColor );
+
+		if ( pOldBlendState )
+			pOldBlendState->Release();
 	}
 }
 
