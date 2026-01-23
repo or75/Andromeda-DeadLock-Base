@@ -7,7 +7,7 @@
 #define CONFIG_FILE					"config.json"
 
 #define CHEAT_NAME					"Andromeda DeadLock"
-#define CHEAT_VERSION				"1.0.0"
+#define CHEAT_VERSION				"1.1.0"
 
 // Project Buid Config:
 
@@ -18,7 +18,7 @@
 #define ENABLE_CPP_EH_EXCEPTION		0
 
 #define LOG_SDK						1
-#define LOG_SDK_PATTERN				1
+#define LOG_SDK_PATTERN				0
 
 #define ENABLE_XOR_STR				0
 #define ENABLE_XOR_VMP_STR			0

@@ -10,7 +10,7 @@
 namespace IVEngineToClient_Search
 {
 	inline CBasePattern IsInGameFn = { VmpStr( "IVEngineToClient::IsInGame" ) , VmpStr( "48 8B ? ? ? ? ? 48 85 C0 74 15 80 B8 ? ? ? ? ? 75 0C 83 B8 ? ? ? ? 06" ) , ENGINE2_DLL };
-	inline CBasePattern ExecuteClientCmdFn = { VmpStr( "IVEngineToClient::ExecuteClientCmd" ) , VmpStr( "48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 41 56 48 81 EC ? ? ? ? 8D 42 ? 41 0F B6 E9" ) , ENGINE2_DLL };
+	inline CBasePattern ExecuteClientCmdFn = { VmpStr( "IVEngineToClient::ExecuteClientCmd" ) , VmpStr( "48 8B C4 48 89 58 ? 48 89 68 ? 48 89 70 ? 57 41 56 41 57 48 81 EC ? ? ? ? 0F 29 70 ? 41 0F B6 E9" ) , ENGINE2_DLL };
 }
 
 class IVEngineToClient

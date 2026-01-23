@@ -131,7 +131,7 @@ GetGameEntitySystemPointer:;
 	{
 		if ( !g_ppCUserCmd )
 		{
-			auto ppCUserCmd = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B 0D ? ? ? ? E8 ? ? ? ? 49 8B CC" ) ) );
+			auto ppCUserCmd = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B 0D ? ? ? ? E8 ? ? ? ? 48 8B CF 48 8B F0" ) ) );
 
 			if ( !ppCUserCmd )
 				return nullptr;

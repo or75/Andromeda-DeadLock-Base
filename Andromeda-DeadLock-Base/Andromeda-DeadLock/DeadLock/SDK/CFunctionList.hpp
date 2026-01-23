@@ -21,7 +21,7 @@ public:
 
 public:
 	CBasePattern CSkeletonInstance_CalcWorldSpaceBones = { VmpStr( "CSkeletonInstance::CalcWorldSpaceBones" ) , VmpStr( "48 89 4C 24 ? 55 53 56 57 41 54 41 55 41 56 41 57 B8 ? ? ? ? E8 ? ? ? ? 48 2B E0 48 8D 6C 24 ? 48 8B 81" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
-	CBasePattern ScreenTransform = { VmpStr( "ScreenTransform" ) , VmpStr( "48 89 5C 24 ? 57 48 83 EC ? 48 8B F9 48 8B DA 48 8B 0D ? ? ? ? 48 85 C9 0F 84" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern ScreenTransform = { VmpStr( "ScreenTransform" ) , VmpStr( "33 C0 48 39 05 ? ? ? ? 0F 84" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern CCitadelInput_GetViewAngles = { VmpStr( "CCitadelInput::GetViewAngles" ) , VmpStr( "E8 ? ? ? ? EB ? 48 8B 01 48 8D 54 24" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };
 	CBasePattern CGameEntitySystem_GetBaseEntity = { VmpStr( "CGameEntitySystem::GetBaseEntity" ) , VmpStr( "4C 8D 49 ? 81 FA ? ? ? ? 77" ) , CLIENT_DLL };
 	CBasePattern CGameEntitySystem_GetLocalCitadelPlayerController = { VmpStr( "CGameEntitySystem::GetLocalCitadelPlayerController" ) , VmpStr( "E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 48 3B C3 0F 84" ) , CLIENT_DLL , 0 , SEARCH_TYPE_CALL };

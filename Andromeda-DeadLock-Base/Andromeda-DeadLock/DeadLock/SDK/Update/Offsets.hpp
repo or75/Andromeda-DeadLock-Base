@@ -11,11 +11,14 @@
 00007FFA8708715 | mov r14d,dword ptr ds:[rcx+0x44]                      |
 00007FFA8708715 | test rax,rax                                          |
 */
-// client.dll -> 44 8B A8 ? ? ? ? 41 8B D5
-static constexpr auto g_OFFSET_CUserCmdArray_m_nSequenceNumber = 0x6318;
+// client.dll -> 44 8B B0 ? ? ? ? 41 8B D6
+static constexpr auto g_OFFSET_CUserCmdArray_m_nSequenceNumber = 0x6270;
 
 static constexpr auto g_OFFSET_CDemoRecorder_ParseMessage_pProtobuf = 0x30;
 static constexpr auto g_OFFSET_CMsgSosStartSoundEvent_SoundPos = 0x12;
 
+// client.dll -> 0F B7 40 ? 48 83 C4 20 5B C3 33 C0 48 83 C4 20 5B C3
+static constexpr auto g_CCollisionProperty_UnknownMask = 0x38;
+
 // client.dll -> FF 89 ? ? ? ? EB ? 48 85 F6
-static constexpr auto g_OFFSET_CGameEntitySystem_GetHighestEntityIndex = 0x20F0;
+static constexpr auto g_OFFSET_CGameEntitySystem_GetHighestEntityIndex = 0x20A0;
