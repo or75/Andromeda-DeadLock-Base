@@ -170,6 +170,12 @@ extern CMsgGCGetPersonaNames_ResponseDefaultTypeInternal _CMsgGCGetPersonaNames_
 class CMsgGCGetPersonaNames_Response_PersonaName;
 struct CMsgGCGetPersonaNames_Response_PersonaNameDefaultTypeInternal;
 extern CMsgGCGetPersonaNames_Response_PersonaNameDefaultTypeInternal _CMsgGCGetPersonaNames_Response_PersonaName_default_instance_;
+class CMsgGCHAccountPhoneNumberChange;
+struct CMsgGCHAccountPhoneNumberChangeDefaultTypeInternal;
+extern CMsgGCHAccountPhoneNumberChangeDefaultTypeInternal _CMsgGCHAccountPhoneNumberChange_default_instance_;
+class CMsgGCHAccountTwoFactorChange;
+struct CMsgGCHAccountTwoFactorChangeDefaultTypeInternal;
+extern CMsgGCHAccountTwoFactorChangeDefaultTypeInternal _CMsgGCHAccountTwoFactorChange_default_instance_;
 class CMsgGCHAccountVacStatusChange;
 struct CMsgGCHAccountVacStatusChangeDefaultTypeInternal;
 extern CMsgGCHAccountVacStatusChangeDefaultTypeInternal _CMsgGCHAccountVacStatusChange_default_instance_;
@@ -329,6 +335,8 @@ template<> ::CMsgGCGetEmailTemplateResponse* Arena::CreateMaybeMessage<::CMsgGCG
 template<> ::CMsgGCGetPersonaNames* Arena::CreateMaybeMessage<::CMsgGCGetPersonaNames>(Arena*);
 template<> ::CMsgGCGetPersonaNames_Response* Arena::CreateMaybeMessage<::CMsgGCGetPersonaNames_Response>(Arena*);
 template<> ::CMsgGCGetPersonaNames_Response_PersonaName* Arena::CreateMaybeMessage<::CMsgGCGetPersonaNames_Response_PersonaName>(Arena*);
+template<> ::CMsgGCHAccountPhoneNumberChange* Arena::CreateMaybeMessage<::CMsgGCHAccountPhoneNumberChange>(Arena*);
+template<> ::CMsgGCHAccountTwoFactorChange* Arena::CreateMaybeMessage<::CMsgGCHAccountTwoFactorChange>(Arena*);
 template<> ::CMsgGCHAccountVacStatusChange* Arena::CreateMaybeMessage<::CMsgGCHAccountVacStatusChange>(Arena*);
 template<> ::CMsgGCHAppCheersGetAllowedTypes* Arena::CreateMaybeMessage<::CMsgGCHAppCheersGetAllowedTypes>(Arena*);
 template<> ::CMsgGCHAppCheersGetAllowedTypesResponse* Arena::CreateMaybeMessage<::CMsgGCHAppCheersGetAllowedTypesResponse>(Arena*);
@@ -13537,6 +13545,416 @@ class CMsgGCHVacVerificationChange final :
 };
 // -------------------------------------------------------------------
 
+class CMsgGCHAccountPhoneNumberChange final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCHAccountPhoneNumberChange) */ {
+ public:
+  inline CMsgGCHAccountPhoneNumberChange() : CMsgGCHAccountPhoneNumberChange(nullptr) {}
+  ~CMsgGCHAccountPhoneNumberChange() override;
+  explicit PROTOBUF_CONSTEXPR CMsgGCHAccountPhoneNumberChange(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgGCHAccountPhoneNumberChange(const CMsgGCHAccountPhoneNumberChange& from);
+  CMsgGCHAccountPhoneNumberChange(CMsgGCHAccountPhoneNumberChange&& from) noexcept
+    : CMsgGCHAccountPhoneNumberChange() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgGCHAccountPhoneNumberChange& operator=(const CMsgGCHAccountPhoneNumberChange& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgGCHAccountPhoneNumberChange& operator=(CMsgGCHAccountPhoneNumberChange&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgGCHAccountPhoneNumberChange& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgGCHAccountPhoneNumberChange* internal_default_instance() {
+    return reinterpret_cast<const CMsgGCHAccountPhoneNumberChange*>(
+               &_CMsgGCHAccountPhoneNumberChange_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    67;
+
+  friend void swap(CMsgGCHAccountPhoneNumberChange& a, CMsgGCHAccountPhoneNumberChange& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgGCHAccountPhoneNumberChange* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgGCHAccountPhoneNumberChange* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgGCHAccountPhoneNumberChange* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgGCHAccountPhoneNumberChange>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgGCHAccountPhoneNumberChange& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgGCHAccountPhoneNumberChange& from) {
+    CMsgGCHAccountPhoneNumberChange::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgGCHAccountPhoneNumberChange* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgGCHAccountPhoneNumberChange";
+  }
+  protected:
+  explicit CMsgGCHAccountPhoneNumberChange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSteamidFieldNumber = 1,
+    kPhoneIdFieldNumber = 3,
+    kAppidFieldNumber = 2,
+    kIsVerifiedFieldNumber = 4,
+    kIsIdentifyingFieldNumber = 5,
+  };
+  // optional fixed64 steamid = 1;
+  bool has_steamid() const;
+  private:
+  bool _internal_has_steamid() const;
+  public:
+  void clear_steamid();
+  uint64_t steamid() const;
+  void set_steamid(uint64_t value);
+  private:
+  uint64_t _internal_steamid() const;
+  void _internal_set_steamid(uint64_t value);
+  public:
+
+  // optional uint64 phone_id = 3;
+  bool has_phone_id() const;
+  private:
+  bool _internal_has_phone_id() const;
+  public:
+  void clear_phone_id();
+  uint64_t phone_id() const;
+  void set_phone_id(uint64_t value);
+  private:
+  uint64_t _internal_phone_id() const;
+  void _internal_set_phone_id(uint64_t value);
+  public:
+
+  // optional uint32 appid = 2;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  uint32_t appid() const;
+  void set_appid(uint32_t value);
+  private:
+  uint32_t _internal_appid() const;
+  void _internal_set_appid(uint32_t value);
+  public:
+
+  // optional bool is_verified = 4;
+  bool has_is_verified() const;
+  private:
+  bool _internal_has_is_verified() const;
+  public:
+  void clear_is_verified();
+  bool is_verified() const;
+  void set_is_verified(bool value);
+  private:
+  bool _internal_is_verified() const;
+  void _internal_set_is_verified(bool value);
+  public:
+
+  // optional bool is_identifying = 5;
+  bool has_is_identifying() const;
+  private:
+  bool _internal_has_is_identifying() const;
+  public:
+  void clear_is_identifying();
+  bool is_identifying() const;
+  void set_is_identifying(bool value);
+  private:
+  bool _internal_is_identifying() const;
+  void _internal_set_is_identifying(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgGCHAccountPhoneNumberChange)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t steamid_;
+    uint64_t phone_id_;
+    uint32_t appid_;
+    bool is_verified_;
+    bool is_identifying_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fint_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgGCHAccountTwoFactorChange final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCHAccountTwoFactorChange) */ {
+ public:
+  inline CMsgGCHAccountTwoFactorChange() : CMsgGCHAccountTwoFactorChange(nullptr) {}
+  ~CMsgGCHAccountTwoFactorChange() override;
+  explicit PROTOBUF_CONSTEXPR CMsgGCHAccountTwoFactorChange(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgGCHAccountTwoFactorChange(const CMsgGCHAccountTwoFactorChange& from);
+  CMsgGCHAccountTwoFactorChange(CMsgGCHAccountTwoFactorChange&& from) noexcept
+    : CMsgGCHAccountTwoFactorChange() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgGCHAccountTwoFactorChange& operator=(const CMsgGCHAccountTwoFactorChange& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgGCHAccountTwoFactorChange& operator=(CMsgGCHAccountTwoFactorChange&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgGCHAccountTwoFactorChange& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgGCHAccountTwoFactorChange* internal_default_instance() {
+    return reinterpret_cast<const CMsgGCHAccountTwoFactorChange*>(
+               &_CMsgGCHAccountTwoFactorChange_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    68;
+
+  friend void swap(CMsgGCHAccountTwoFactorChange& a, CMsgGCHAccountTwoFactorChange& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgGCHAccountTwoFactorChange* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgGCHAccountTwoFactorChange* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgGCHAccountTwoFactorChange* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgGCHAccountTwoFactorChange>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgGCHAccountTwoFactorChange& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgGCHAccountTwoFactorChange& from) {
+    CMsgGCHAccountTwoFactorChange::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgGCHAccountTwoFactorChange* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgGCHAccountTwoFactorChange";
+  }
+  protected:
+  explicit CMsgGCHAccountTwoFactorChange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kSteamidFieldNumber = 1,
+    kAppidFieldNumber = 2,
+    kTwofactorEnabledFieldNumber = 3,
+  };
+  // optional fixed64 steamid = 1;
+  bool has_steamid() const;
+  private:
+  bool _internal_has_steamid() const;
+  public:
+  void clear_steamid();
+  uint64_t steamid() const;
+  void set_steamid(uint64_t value);
+  private:
+  uint64_t _internal_steamid() const;
+  void _internal_set_steamid(uint64_t value);
+  public:
+
+  // optional uint32 appid = 2;
+  bool has_appid() const;
+  private:
+  bool _internal_has_appid() const;
+  public:
+  void clear_appid();
+  uint32_t appid() const;
+  void set_appid(uint32_t value);
+  private:
+  uint32_t _internal_appid() const;
+  void _internal_set_appid(uint32_t value);
+  public:
+
+  // optional bool twofactor_enabled = 3;
+  bool has_twofactor_enabled() const;
+  private:
+  bool _internal_has_twofactor_enabled() const;
+  public:
+  void clear_twofactor_enabled();
+  bool twofactor_enabled() const;
+  void set_twofactor_enabled(bool value);
+  private:
+  bool _internal_twofactor_enabled() const;
+  void _internal_set_twofactor_enabled(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgGCHAccountTwoFactorChange)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t steamid_;
+    uint32_t appid_;
+    bool twofactor_enabled_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_steammessages_5fint_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgGCCheckClanMembership final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgGCCheckClanMembership) */ {
  public:
@@ -13592,7 +14010,7 @@ class CMsgGCCheckClanMembership final :
                &_CMsgGCCheckClanMembership_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    69;
 
   friend void swap(CMsgGCCheckClanMembership& a, CMsgGCCheckClanMembership& b) {
     a.Swap(&b);
@@ -13767,7 +14185,7 @@ class CMsgGCCheckClanMembership_Response final :
                &_CMsgGCCheckClanMembership_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    70;
 
   friend void swap(CMsgGCCheckClanMembership_Response& a, CMsgGCCheckClanMembership_Response& b) {
     a.Swap(&b);
@@ -13927,7 +14345,7 @@ class CMsgGCHAppCheersReceived_CheerTypeAmount final :
                &_CMsgGCHAppCheersReceived_CheerTypeAmount_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    71;
 
   friend void swap(CMsgGCHAppCheersReceived_CheerTypeAmount& a, CMsgGCHAppCheersReceived_CheerTypeAmount& b) {
     a.Swap(&b);
@@ -14102,7 +14520,7 @@ class CMsgGCHAppCheersReceived_CheerTarget final :
                &_CMsgGCHAppCheersReceived_CheerTarget_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    72;
 
   friend void swap(CMsgGCHAppCheersReceived_CheerTarget& a, CMsgGCHAppCheersReceived_CheerTarget& b) {
     a.Swap(&b);
@@ -14282,7 +14700,7 @@ class CMsgGCHAppCheersReceived final :
                &_CMsgGCHAppCheersReceived_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    73;
 
   friend void swap(CMsgGCHAppCheersReceived& a, CMsgGCHAppCheersReceived& b) {
     a.Swap(&b);
@@ -14465,7 +14883,7 @@ class CMsgGCHAppCheersGetAllowedTypes final :
                &_CMsgGCHAppCheersGetAllowedTypes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    74;
 
   friend void swap(CMsgGCHAppCheersGetAllowedTypes& a, CMsgGCHAppCheersGetAllowedTypes& b) {
     a.Swap(&b);
@@ -14640,7 +15058,7 @@ class CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps final :
                &_CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    75;
 
   friend void swap(CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps& a, CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps& b) {
     a.Swap(&b);
@@ -14839,7 +15257,7 @@ class CMsgGCHAppCheersGetAllowedTypesResponse final :
                &_CMsgGCHAppCheersGetAllowedTypesResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    76;
 
   friend void swap(CMsgGCHAppCheersGetAllowedTypesResponse& a, CMsgGCHAppCheersGetAllowedTypesResponse& b) {
     a.Swap(&b);
@@ -15045,7 +15463,7 @@ class CWorkshop_AddSpecialPayment_Request final :
                &_CWorkshop_AddSpecialPayment_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    77;
 
   friend void swap(CWorkshop_AddSpecialPayment_Request& a, CWorkshop_AddSpecialPayment_Request& b) {
     a.Swap(&b);
@@ -15269,7 +15687,7 @@ class CWorkshop_AddSpecialPayment_Response final :
                &_CWorkshop_AddSpecialPayment_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    78;
 
   friend void swap(CWorkshop_AddSpecialPayment_Response& a, CWorkshop_AddSpecialPayment_Response& b) {
     a.Swap(&b);
@@ -15395,7 +15813,7 @@ class CWorkshop_GetSpecialPayments_Request final :
                &_CWorkshop_GetSpecialPayments_Request_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    79;
 
   friend void swap(CWorkshop_GetSpecialPayments_Request& a, CWorkshop_GetSpecialPayments_Request& b) {
     a.Swap(&b);
@@ -15590,7 +16008,7 @@ class CWorkshop_GetSpecialPayments_Response_SpecialPayment final :
                &_CWorkshop_GetSpecialPayments_Response_SpecialPayment_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    80;
 
   friend void swap(CWorkshop_GetSpecialPayments_Response_SpecialPayment& a, CWorkshop_GetSpecialPayments_Response_SpecialPayment& b) {
     a.Swap(&b);
@@ -15815,7 +16233,7 @@ class CWorkshop_GetSpecialPayments_Response final :
                &_CWorkshop_GetSpecialPayments_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    81;
 
   friend void swap(CWorkshop_GetSpecialPayments_Response& a, CWorkshop_GetSpecialPayments_Response& b) {
     a.Swap(&b);
@@ -23842,6 +24260,238 @@ inline void CMsgGCHVacVerificationChange::set_is_verified(bool value) {
 
 // -------------------------------------------------------------------
 
+// CMsgGCHAccountPhoneNumberChange
+
+// optional fixed64 steamid = 1;
+inline bool CMsgGCHAccountPhoneNumberChange::_internal_has_steamid() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgGCHAccountPhoneNumberChange::has_steamid() const {
+  return _internal_has_steamid();
+}
+inline void CMsgGCHAccountPhoneNumberChange::clear_steamid() {
+  _impl_.steamid_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t CMsgGCHAccountPhoneNumberChange::_internal_steamid() const {
+  return _impl_.steamid_;
+}
+inline uint64_t CMsgGCHAccountPhoneNumberChange::steamid() const {
+  // @@protoc_insertion_point(field_get:CMsgGCHAccountPhoneNumberChange.steamid)
+  return _internal_steamid();
+}
+inline void CMsgGCHAccountPhoneNumberChange::_internal_set_steamid(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.steamid_ = value;
+}
+inline void CMsgGCHAccountPhoneNumberChange::set_steamid(uint64_t value) {
+  _internal_set_steamid(value);
+  // @@protoc_insertion_point(field_set:CMsgGCHAccountPhoneNumberChange.steamid)
+}
+
+// optional uint32 appid = 2;
+inline bool CMsgGCHAccountPhoneNumberChange::_internal_has_appid() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgGCHAccountPhoneNumberChange::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CMsgGCHAccountPhoneNumberChange::clear_appid() {
+  _impl_.appid_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgGCHAccountPhoneNumberChange::_internal_appid() const {
+  return _impl_.appid_;
+}
+inline uint32_t CMsgGCHAccountPhoneNumberChange::appid() const {
+  // @@protoc_insertion_point(field_get:CMsgGCHAccountPhoneNumberChange.appid)
+  return _internal_appid();
+}
+inline void CMsgGCHAccountPhoneNumberChange::_internal_set_appid(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.appid_ = value;
+}
+inline void CMsgGCHAccountPhoneNumberChange::set_appid(uint32_t value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CMsgGCHAccountPhoneNumberChange.appid)
+}
+
+// optional uint64 phone_id = 3;
+inline bool CMsgGCHAccountPhoneNumberChange::_internal_has_phone_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgGCHAccountPhoneNumberChange::has_phone_id() const {
+  return _internal_has_phone_id();
+}
+inline void CMsgGCHAccountPhoneNumberChange::clear_phone_id() {
+  _impl_.phone_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint64_t CMsgGCHAccountPhoneNumberChange::_internal_phone_id() const {
+  return _impl_.phone_id_;
+}
+inline uint64_t CMsgGCHAccountPhoneNumberChange::phone_id() const {
+  // @@protoc_insertion_point(field_get:CMsgGCHAccountPhoneNumberChange.phone_id)
+  return _internal_phone_id();
+}
+inline void CMsgGCHAccountPhoneNumberChange::_internal_set_phone_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.phone_id_ = value;
+}
+inline void CMsgGCHAccountPhoneNumberChange::set_phone_id(uint64_t value) {
+  _internal_set_phone_id(value);
+  // @@protoc_insertion_point(field_set:CMsgGCHAccountPhoneNumberChange.phone_id)
+}
+
+// optional bool is_verified = 4;
+inline bool CMsgGCHAccountPhoneNumberChange::_internal_has_is_verified() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgGCHAccountPhoneNumberChange::has_is_verified() const {
+  return _internal_has_is_verified();
+}
+inline void CMsgGCHAccountPhoneNumberChange::clear_is_verified() {
+  _impl_.is_verified_ = false;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline bool CMsgGCHAccountPhoneNumberChange::_internal_is_verified() const {
+  return _impl_.is_verified_;
+}
+inline bool CMsgGCHAccountPhoneNumberChange::is_verified() const {
+  // @@protoc_insertion_point(field_get:CMsgGCHAccountPhoneNumberChange.is_verified)
+  return _internal_is_verified();
+}
+inline void CMsgGCHAccountPhoneNumberChange::_internal_set_is_verified(bool value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.is_verified_ = value;
+}
+inline void CMsgGCHAccountPhoneNumberChange::set_is_verified(bool value) {
+  _internal_set_is_verified(value);
+  // @@protoc_insertion_point(field_set:CMsgGCHAccountPhoneNumberChange.is_verified)
+}
+
+// optional bool is_identifying = 5;
+inline bool CMsgGCHAccountPhoneNumberChange::_internal_has_is_identifying() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgGCHAccountPhoneNumberChange::has_is_identifying() const {
+  return _internal_has_is_identifying();
+}
+inline void CMsgGCHAccountPhoneNumberChange::clear_is_identifying() {
+  _impl_.is_identifying_ = false;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline bool CMsgGCHAccountPhoneNumberChange::_internal_is_identifying() const {
+  return _impl_.is_identifying_;
+}
+inline bool CMsgGCHAccountPhoneNumberChange::is_identifying() const {
+  // @@protoc_insertion_point(field_get:CMsgGCHAccountPhoneNumberChange.is_identifying)
+  return _internal_is_identifying();
+}
+inline void CMsgGCHAccountPhoneNumberChange::_internal_set_is_identifying(bool value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.is_identifying_ = value;
+}
+inline void CMsgGCHAccountPhoneNumberChange::set_is_identifying(bool value) {
+  _internal_set_is_identifying(value);
+  // @@protoc_insertion_point(field_set:CMsgGCHAccountPhoneNumberChange.is_identifying)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgGCHAccountTwoFactorChange
+
+// optional fixed64 steamid = 1;
+inline bool CMsgGCHAccountTwoFactorChange::_internal_has_steamid() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgGCHAccountTwoFactorChange::has_steamid() const {
+  return _internal_has_steamid();
+}
+inline void CMsgGCHAccountTwoFactorChange::clear_steamid() {
+  _impl_.steamid_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t CMsgGCHAccountTwoFactorChange::_internal_steamid() const {
+  return _impl_.steamid_;
+}
+inline uint64_t CMsgGCHAccountTwoFactorChange::steamid() const {
+  // @@protoc_insertion_point(field_get:CMsgGCHAccountTwoFactorChange.steamid)
+  return _internal_steamid();
+}
+inline void CMsgGCHAccountTwoFactorChange::_internal_set_steamid(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.steamid_ = value;
+}
+inline void CMsgGCHAccountTwoFactorChange::set_steamid(uint64_t value) {
+  _internal_set_steamid(value);
+  // @@protoc_insertion_point(field_set:CMsgGCHAccountTwoFactorChange.steamid)
+}
+
+// optional uint32 appid = 2;
+inline bool CMsgGCHAccountTwoFactorChange::_internal_has_appid() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgGCHAccountTwoFactorChange::has_appid() const {
+  return _internal_has_appid();
+}
+inline void CMsgGCHAccountTwoFactorChange::clear_appid() {
+  _impl_.appid_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgGCHAccountTwoFactorChange::_internal_appid() const {
+  return _impl_.appid_;
+}
+inline uint32_t CMsgGCHAccountTwoFactorChange::appid() const {
+  // @@protoc_insertion_point(field_get:CMsgGCHAccountTwoFactorChange.appid)
+  return _internal_appid();
+}
+inline void CMsgGCHAccountTwoFactorChange::_internal_set_appid(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.appid_ = value;
+}
+inline void CMsgGCHAccountTwoFactorChange::set_appid(uint32_t value) {
+  _internal_set_appid(value);
+  // @@protoc_insertion_point(field_set:CMsgGCHAccountTwoFactorChange.appid)
+}
+
+// optional bool twofactor_enabled = 3;
+inline bool CMsgGCHAccountTwoFactorChange::_internal_has_twofactor_enabled() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgGCHAccountTwoFactorChange::has_twofactor_enabled() const {
+  return _internal_has_twofactor_enabled();
+}
+inline void CMsgGCHAccountTwoFactorChange::clear_twofactor_enabled() {
+  _impl_.twofactor_enabled_ = false;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline bool CMsgGCHAccountTwoFactorChange::_internal_twofactor_enabled() const {
+  return _impl_.twofactor_enabled_;
+}
+inline bool CMsgGCHAccountTwoFactorChange::twofactor_enabled() const {
+  // @@protoc_insertion_point(field_get:CMsgGCHAccountTwoFactorChange.twofactor_enabled)
+  return _internal_twofactor_enabled();
+}
+inline void CMsgGCHAccountTwoFactorChange::_internal_set_twofactor_enabled(bool value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.twofactor_enabled_ = value;
+}
+inline void CMsgGCHAccountTwoFactorChange::set_twofactor_enabled(bool value) {
+  _internal_set_twofactor_enabled(value);
+  // @@protoc_insertion_point(field_set:CMsgGCHAccountTwoFactorChange.twofactor_enabled)
+}
+
+// -------------------------------------------------------------------
+
 // CMsgGCCheckClanMembership
 
 // optional fixed64 steamid = 1;
@@ -24969,6 +25619,10 @@ CWorkshop_GetSpecialPayments_Response::special_payments() const {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

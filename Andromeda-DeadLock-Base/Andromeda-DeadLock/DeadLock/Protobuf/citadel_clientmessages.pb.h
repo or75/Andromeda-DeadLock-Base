@@ -84,9 +84,12 @@ extern CCitadelClientMsg_HideoutSpawnDefaultTypeInternal _CCitadelClientMsg_Hide
 class CCitadelClientMsg_HideoutStart;
 struct CCitadelClientMsg_HideoutStartDefaultTypeInternal;
 extern CCitadelClientMsg_HideoutStartDefaultTypeInternal _CCitadelClientMsg_HideoutStart_default_instance_;
-class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus;
-struct CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatusDefaultTypeInternal;
-extern CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatusDefaultTypeInternal _CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus_default_instance_;
+class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally;
+struct CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTallyDefaultTypeInternal;
+extern CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTallyDefaultTypeInternal _CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_default_instance_;
+class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry;
+struct CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntryDefaultTypeInternal;
+extern CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntryDefaultTypeInternal _CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry_default_instance_;
 class CCitadelClientMsg_HitMismatch;
 struct CCitadelClientMsg_HitMismatchDefaultTypeInternal;
 extern CCitadelClientMsg_HitMismatchDefaultTypeInternal _CCitadelClientMsg_HitMismatch_default_instance_;
@@ -130,7 +133,8 @@ template<> ::CCitadelClientMsg_HideoutMatchmakingState* Arena::CreateMaybeMessag
 template<> ::CCitadelClientMsg_HideoutMenuState* Arena::CreateMaybeMessage<::CCitadelClientMsg_HideoutMenuState>(Arena*);
 template<> ::CCitadelClientMsg_HideoutSpawn* Arena::CreateMaybeMessage<::CCitadelClientMsg_HideoutSpawn>(Arena*);
 template<> ::CCitadelClientMsg_HideoutStart* Arena::CreateMaybeMessage<::CCitadelClientMsg_HideoutStart>(Arena*);
-template<> ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus* Arena::CreateMaybeMessage<::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus>(Arena*);
+template<> ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally* Arena::CreateMaybeMessage<::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally>(Arena*);
+template<> ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* Arena::CreateMaybeMessage<::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry>(Arena*);
 template<> ::CCitadelClientMsg_HitMismatch* Arena::CreateMaybeMessage<::CCitadelClientMsg_HitMismatch>(Arena*);
 template<> ::CCitadelClientMsg_MapLine* Arena::CreateMaybeMessage<::CCitadelClientMsg_MapLine>(Arena*);
 template<> ::CCitadelClientMsg_MapPing* Arena::CreateMaybeMessage<::CCitadelClientMsg_MapPing>(Arena*);
@@ -188,11 +192,11 @@ enum ECitadelClientMessages : int {
   CITADEL_CM_HideoutSpawn = 1019,
   CITADEL_CM_HideoutMatchmakingState = 1020,
   CITADEL_CM_PlayerStatsUpdated = 1021,
-  CITADEL_CM_HideoutUpdateHeroReleaseVoteStatus = 1022
+  CITADEL_CM_HideoutUpdateHeroReleaseVoteTally = 1022
 };
 bool ECitadelClientMessages_IsValid(int value);
 constexpr ECitadelClientMessages ECitadelClientMessages_MIN = CITADEL_CM_MapPing;
-constexpr ECitadelClientMessages ECitadelClientMessages_MAX = CITADEL_CM_HideoutUpdateHeroReleaseVoteStatus;
+constexpr ECitadelClientMessages ECitadelClientMessages_MAX = CITADEL_CM_HideoutUpdateHeroReleaseVoteTally;
 constexpr int ECitadelClientMessages_ARRAYSIZE = ECitadelClientMessages_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECitadelClientMessages_descriptor();
@@ -4384,24 +4388,24 @@ class CCitadelClientMsg_PlayerStatsUpdated final :
 };
 // -------------------------------------------------------------------
 
-class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus) */ {
+class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry) */ {
  public:
-  inline CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus() : CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus(nullptr) {}
-  ~CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus() override;
-  explicit PROTOBUF_CONSTEXPR CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry() : CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry(nullptr) {}
+  ~CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry() override;
+  explicit PROTOBUF_CONSTEXPR CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus(const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus& from);
-  CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus&& from) noexcept
-    : CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus() {
+  CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry(const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& from);
+  CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry&& from) noexcept
+    : CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry() {
     *this = ::std::move(from);
   }
 
-  inline CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus& operator=(const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus& from) {
+  inline CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& operator=(const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus& operator=(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus&& from) noexcept {
+  inline CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& operator=(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -4431,20 +4435,20 @@ class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus& default_instance() {
+  static const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus* internal_default_instance() {
-    return reinterpret_cast<const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus*>(
-               &_CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus_default_instance_);
+  static inline const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* internal_default_instance() {
+    return reinterpret_cast<const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry*>(
+               &_CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     22;
 
-  friend void swap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus& a, CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus& b) {
+  friend void swap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& a, CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& b) {
     a.Swap(&b);
   }
-  inline void Swap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus* other) {
+  inline void Swap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -4457,7 +4461,7 @@ class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus* other) {
+  void UnsafeArenaSwap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -4465,14 +4469,14 @@ class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus final :
 
   // implements Message ----------------------------------------------
 
-  CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus>(arena);
+  CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus& from);
+  void CopyFrom(const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus& from) {
-    CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus::MergeImpl(*this, from);
+  void MergeFrom( const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& from) {
+    CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -4490,15 +4494,15 @@ class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus* other);
+  void InternalSwap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus";
+    return "CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry";
   }
   protected:
-  explicit CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -4512,22 +4516,41 @@ class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus final :
   // accessors -------------------------------------------------------
 
   enum : int {
-    kVotesCastTotalFieldNumber = 1,
+    kValueFieldNumber = 2,
+    kKeyFieldNumber = 1,
   };
-  // optional uint32 votes_cast_total = 1;
-  bool has_votes_cast_total() const;
+  // optional .CMsgHeroReleaseVoteTally value = 2;
+  bool has_value() const;
   private:
-  bool _internal_has_votes_cast_total() const;
+  bool _internal_has_value() const;
   public:
-  void clear_votes_cast_total();
-  uint32_t votes_cast_total() const;
-  void set_votes_cast_total(uint32_t value);
+  void clear_value();
+  const ::CMsgHeroReleaseVoteTally& value() const;
+  PROTOBUF_NODISCARD ::CMsgHeroReleaseVoteTally* release_value();
+  ::CMsgHeroReleaseVoteTally* mutable_value();
+  void set_allocated_value(::CMsgHeroReleaseVoteTally* value);
   private:
-  uint32_t _internal_votes_cast_total() const;
-  void _internal_set_votes_cast_total(uint32_t value);
+  const ::CMsgHeroReleaseVoteTally& _internal_value() const;
+  ::CMsgHeroReleaseVoteTally* _internal_mutable_value();
+  public:
+  void unsafe_arena_set_allocated_value(
+      ::CMsgHeroReleaseVoteTally* value);
+  ::CMsgHeroReleaseVoteTally* unsafe_arena_release_value();
+
+  // optional uint32 key = 1;
+  bool has_key() const;
+  private:
+  bool _internal_has_key() const;
+  public:
+  void clear_key();
+  uint32_t key() const;
+  void set_key(uint32_t value);
+  private:
+  uint32_t _internal_key() const;
+  void _internal_set_key(uint32_t value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus)
+  // @@protoc_insertion_point(class_scope:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry)
  private:
   class _Internal;
 
@@ -4537,7 +4560,174 @@ class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    uint32_t votes_cast_total_;
+    ::CMsgHeroReleaseVoteTally* value_;
+    uint32_t key_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_citadel_5fclientmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally) */ {
+ public:
+  inline CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally() : CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally(nullptr) {}
+  ~CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally() override;
+  explicit PROTOBUF_CONSTEXPR CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally(const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& from);
+  CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally&& from) noexcept
+    : CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally() {
+    *this = ::std::move(from);
+  }
+
+  inline CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& operator=(const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& operator=(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally* internal_default_instance() {
+    return reinterpret_cast<const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally*>(
+               &_CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    23;
+
+  friend void swap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& a, CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& from) {
+    CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally";
+  }
+  protected:
+  explicit CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry VoteRoundToTallyEntry;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVoteRoundToTallyFieldNumber = 1,
+  };
+  // repeated .CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry vote_round_to_tally = 1;
+  int vote_round_to_tally_size() const;
+  private:
+  int _internal_vote_round_to_tally_size() const;
+  public:
+  void clear_vote_round_to_tally();
+  ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* mutable_vote_round_to_tally(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry >*
+      mutable_vote_round_to_tally();
+  private:
+  const ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& _internal_vote_round_to_tally(int index) const;
+  ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* _internal_add_vote_round_to_tally();
+  public:
+  const ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& vote_round_to_tally(int index) const;
+  ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* add_vote_round_to_tally();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry >&
+      vote_round_to_tally() const;
+
+  // @@protoc_insertion_point(class_scope:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry > vote_round_to_tally_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fclientmessages_2eproto;
@@ -6820,39 +7010,172 @@ inline void CCitadelClientMsg_HideoutMatchmakingState::set_is_matchmaking(bool v
 
 // -------------------------------------------------------------------
 
-// CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus
+// CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry
 
-// optional uint32 votes_cast_total = 1;
-inline bool CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus::_internal_has_votes_cast_total() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+// optional uint32 key = 1;
+inline bool CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::_internal_has_key() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus::has_votes_cast_total() const {
-  return _internal_has_votes_cast_total();
+inline bool CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::has_key() const {
+  return _internal_has_key();
 }
-inline void CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus::clear_votes_cast_total() {
-  _impl_.votes_cast_total_ = 0u;
+inline void CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::clear_key() {
+  _impl_.key_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::_internal_key() const {
+  return _impl_.key_;
+}
+inline uint32_t CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::key() const {
+  // @@protoc_insertion_point(field_get:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry.key)
+  return _internal_key();
+}
+inline void CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::_internal_set_key(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.key_ = value;
+}
+inline void CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::set_key(uint32_t value) {
+  _internal_set_key(value);
+  // @@protoc_insertion_point(field_set:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry.key)
+}
+
+// optional .CMsgHeroReleaseVoteTally value = 2;
+inline bool CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::_internal_has_value() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.value_ != nullptr);
+  return value;
+}
+inline bool CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::has_value() const {
+  return _internal_has_value();
+}
+inline const ::CMsgHeroReleaseVoteTally& CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::_internal_value() const {
+  const ::CMsgHeroReleaseVoteTally* p = _impl_.value_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CMsgHeroReleaseVoteTally&>(
+      ::_CMsgHeroReleaseVoteTally_default_instance_);
+}
+inline const ::CMsgHeroReleaseVoteTally& CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::value() const {
+  // @@protoc_insertion_point(field_get:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry.value)
+  return _internal_value();
+}
+inline void CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::unsafe_arena_set_allocated_value(
+    ::CMsgHeroReleaseVoteTally* value) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  _impl_.value_ = value;
+  if (value) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry.value)
+}
+inline ::CMsgHeroReleaseVoteTally* CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::release_value() {
   _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgHeroReleaseVoteTally* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
 }
-inline uint32_t CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus::_internal_votes_cast_total() const {
-  return _impl_.votes_cast_total_;
+inline ::CMsgHeroReleaseVoteTally* CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::unsafe_arena_release_value() {
+  // @@protoc_insertion_point(field_release:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry.value)
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  ::CMsgHeroReleaseVoteTally* temp = _impl_.value_;
+  _impl_.value_ = nullptr;
+  return temp;
 }
-inline uint32_t CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus::votes_cast_total() const {
-  // @@protoc_insertion_point(field_get:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus.votes_cast_total)
-  return _internal_votes_cast_total();
-}
-inline void CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus::_internal_set_votes_cast_total(uint32_t value) {
+inline ::CMsgHeroReleaseVoteTally* CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::_internal_mutable_value() {
   _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.votes_cast_total_ = value;
+  if (_impl_.value_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CMsgHeroReleaseVoteTally>(GetArenaForAllocation());
+    _impl_.value_ = p;
+  }
+  return _impl_.value_;
 }
-inline void CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus::set_votes_cast_total(uint32_t value) {
-  _internal_set_votes_cast_total(value);
-  // @@protoc_insertion_point(field_set:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteStatus.votes_cast_total)
+inline ::CMsgHeroReleaseVoteTally* CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::mutable_value() {
+  ::CMsgHeroReleaseVoteTally* _msg = _internal_mutable_value();
+  // @@protoc_insertion_point(field_mutable:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry.value)
+  return _msg;
+}
+inline void CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry::set_allocated_value(::CMsgHeroReleaseVoteTally* value) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete reinterpret_cast< ::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.value_);
+  }
+  if (value) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(
+                reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(value));
+    if (message_arena != submessage_arena) {
+      value = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, value, submessage_arena);
+    }
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.value_ = value;
+  // @@protoc_insertion_point(field_set_allocated:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry.value)
+}
+
+// -------------------------------------------------------------------
+
+// CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally
+
+// repeated .CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.VoteRoundToTallyEntry vote_round_to_tally = 1;
+inline int CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::_internal_vote_round_to_tally_size() const {
+  return _impl_.vote_round_to_tally_.size();
+}
+inline int CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::vote_round_to_tally_size() const {
+  return _internal_vote_round_to_tally_size();
+}
+inline void CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::clear_vote_round_to_tally() {
+  _impl_.vote_round_to_tally_.Clear();
+}
+inline ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::mutable_vote_round_to_tally(int index) {
+  // @@protoc_insertion_point(field_mutable:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.vote_round_to_tally)
+  return _impl_.vote_round_to_tally_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry >*
+CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::mutable_vote_round_to_tally() {
+  // @@protoc_insertion_point(field_mutable_list:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.vote_round_to_tally)
+  return &_impl_.vote_round_to_tally_;
+}
+inline const ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::_internal_vote_round_to_tally(int index) const {
+  return _impl_.vote_round_to_tally_.Get(index);
+}
+inline const ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::vote_round_to_tally(int index) const {
+  // @@protoc_insertion_point(field_get:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.vote_round_to_tally)
+  return _internal_vote_round_to_tally(index);
+}
+inline ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::_internal_add_vote_round_to_tally() {
+  return _impl_.vote_round_to_tally_.Add();
+}
+inline ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::add_vote_round_to_tally() {
+  ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry* _add = _internal_add_vote_round_to_tally();
+  // @@protoc_insertion_point(field_add:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.vote_round_to_tally)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry >&
+CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally::vote_round_to_tally() const {
+  // @@protoc_insertion_point(field_list:CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally.vote_round_to_tally)
+  return _impl_.vote_round_to_tally_;
 }
 
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

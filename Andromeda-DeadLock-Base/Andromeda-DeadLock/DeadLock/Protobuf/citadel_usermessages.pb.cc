@@ -166,6 +166,22 @@ struct CCitadelUserMsg_QuickResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_QuickResponseDefaultTypeInternal _CCitadelUserMsg_QuickResponse_default_instance_;
+PROTOBUF_CONSTEXPR CCitadelUserMsg_ItemDraftReaction::CCitadelUserMsg_ItemDraftReaction(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.ping_data_)*/nullptr
+  , /*decltype(_impl_.rare_)*/false
+  , /*decltype(_impl_.legendary_)*/false} {}
+struct CCitadelUserMsg_ItemDraftReactionDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CCitadelUserMsg_ItemDraftReactionDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CCitadelUserMsg_ItemDraftReactionDefaultTypeInternal() {}
+  union {
+    CCitadelUserMsg_ItemDraftReaction _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_ItemDraftReactionDefaultTypeInternal _CCitadelUserMsg_ItemDraftReaction_default_instance_;
 PROTOBUF_CONSTEXPR CCitadelUserMsg_MapLine::CCitadelUserMsg_MapLine(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -600,6 +616,7 @@ PROTOBUF_CONSTEXPR CCitadelEntityMsg_BreakablePropSpawnDebris::CCitadelEntityMsg
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.entity_msg_)*/nullptr
   , /*decltype(_impl_.damage_pos_)*/nullptr
+  , /*decltype(_impl_.damage_force_)*/nullptr
   , /*decltype(_impl_.damage_)*/0} {}
 struct CCitadelEntityMsg_BreakablePropSpawnDebrisDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CCitadelEntityMsg_BreakablePropSpawnDebrisDefaultTypeInternal()
@@ -726,7 +743,7 @@ PROTOBUF_CONSTEXPR CCitadelUserMsg_PostProcessingAnim::CCitadelUserMsg_PostProce
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.clear_all_states_)*/false
   , /*decltype(_impl_.state_)*/0
-  , /*decltype(_impl_.start_time_)*/0
+  , /*decltype(_impl_.delay_)*/0
   , /*decltype(_impl_.fade_in_time_)*/0
   , /*decltype(_impl_.hold_time_)*/0
   , /*decltype(_impl_.fade_out_time_)*/0
@@ -805,28 +822,31 @@ struct CCitadelUserMsg_PlayerLifetimeStatInfoDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_PlayerLifetimeStatInfoDefaultTypeInternal _CCitadelUserMsg_PlayerLifetimeStatInfo_default_instance_;
-PROTOBUF_CONSTEXPR CCitadelUserMsg_StaminaDrained::CCitadelUserMsg_StaminaDrained(
+PROTOBUF_CONSTEXPR CCitadelUserMsg_StaminaConsumed::CCitadelUserMsg_StaminaConsumed(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.stamina_before_)*/0
   , /*decltype(_impl_.stamina_after_)*/0
-  , /*decltype(_impl_.entindex_victim_)*/-1} {}
-struct CCitadelUserMsg_StaminaDrainedDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CCitadelUserMsg_StaminaDrainedDefaultTypeInternal()
+  , /*decltype(_impl_.drained_)*/false
+  , /*decltype(_impl_.stamina_max_)*/0
+  , /*decltype(_impl_.gametime_)*/0
+  , /*decltype(_impl_.entindex_target_)*/-1} {}
+struct CCitadelUserMsg_StaminaConsumedDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CCitadelUserMsg_StaminaConsumedDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CCitadelUserMsg_StaminaDrainedDefaultTypeInternal() {}
+  ~CCitadelUserMsg_StaminaConsumedDefaultTypeInternal() {}
   union {
-    CCitadelUserMsg_StaminaDrained _instance;
+    CCitadelUserMsg_StaminaConsumed _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_StaminaDrainedDefaultTypeInternal _CCitadelUserMsg_StaminaDrained_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_StaminaConsumedDefaultTypeInternal _CCitadelUserMsg_StaminaConsumed_default_instance_;
 PROTOBUF_CONSTEXPR CCitadelUserMessage_AbilityNotify::CCitadelUserMessage_AbilityNotify(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.ability_id_)*/0u
-  , /*decltype(_impl_.modifier_state_)*/0
+  , /*decltype(_impl_.status_impact_)*/0u
   , /*decltype(_impl_.entindex_victim_)*/-1
   , /*decltype(_impl_.entindex_attacker_)*/-1} {}
 struct CCitadelUserMessage_AbilityNotifyDefaultTypeInternal {
@@ -1055,7 +1075,9 @@ PROTOBUF_CONSTEXPR CCitadelUserMsg_KillStreak::CCitadelUserMsg_KillStreak(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.num_kills_)*/0
   , /*decltype(_impl_.is_first_blood_)*/false
-  , /*decltype(_impl_.player_pawn_)*/16777215u} {}
+  , /*decltype(_impl_.streak_ended_)*/false
+  , /*decltype(_impl_.player_pawn_)*/16777215u
+  , /*decltype(_impl_.duration_)*/5} {}
 struct CCitadelUserMsg_KillStreakDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CCitadelUserMsg_KillStreakDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -1158,21 +1180,21 @@ struct CCitadelUserMessage_ItemPurchaseNotificationDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMessage_ItemPurchaseNotificationDefaultTypeInternal _CCitadelUserMessage_ItemPurchaseNotification_default_instance_;
-PROTOBUF_CONSTEXPR CCitadelUserMsg_SeasonalAchievementUnlocked::CCitadelUserMsg_SeasonalAchievementUnlocked(
+PROTOBUF_CONSTEXPR CCitadelUserMsg_SeasonalKill::CCitadelUserMsg_SeasonalKill(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.account_id_)*/0u
-  , /*decltype(_impl_.hero_id_)*/0u} {}
-struct CCitadelUserMsg_SeasonalAchievementUnlockedDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CCitadelUserMsg_SeasonalAchievementUnlockedDefaultTypeInternal()
+  , /*decltype(_impl_.killer_)*/16777215u
+  , /*decltype(_impl_.victim_)*/16777215u} {}
+struct CCitadelUserMsg_SeasonalKillDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CCitadelUserMsg_SeasonalKillDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CCitadelUserMsg_SeasonalAchievementUnlockedDefaultTypeInternal() {}
+  ~CCitadelUserMsg_SeasonalKillDefaultTypeInternal() {}
   union {
-    CCitadelUserMsg_SeasonalAchievementUnlocked _instance;
+    CCitadelUserMsg_SeasonalKill _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_SeasonalAchievementUnlockedDefaultTypeInternal _CCitadelUserMsg_SeasonalAchievementUnlocked_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_SeasonalKillDefaultTypeInternal _CCitadelUserMsg_SeasonalKill_default_instance_;
 PROTOBUF_CONSTEXPR CCitadelUserMsg_MusicQueue::CCitadelUserMsg_MusicQueue(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -1218,7 +1240,58 @@ struct CCitadelUserMsg_EntityPortalledDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_EntityPortalledDefaultTypeInternal _CCitadelUserMsg_EntityPortalled_default_instance_;
-static ::_pb::Metadata file_level_metadata_citadel_5fusermessages_2eproto[70];
+PROTOBUF_CONSTEXPR CCitadelUserMsg_StreetBrawlScoring::CCitadelUserMsg_StreetBrawlScoring(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.scoring_team_)*/0
+  , /*decltype(_impl_.just_a_test_)*/false
+  , /*decltype(_impl_.sapphire_score_)*/0
+  , /*decltype(_impl_.amber_score_)*/0} {}
+struct CCitadelUserMsg_StreetBrawlScoringDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CCitadelUserMsg_StreetBrawlScoringDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CCitadelUserMsg_StreetBrawlScoringDefaultTypeInternal() {}
+  union {
+    CCitadelUserMsg_StreetBrawlScoring _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_StreetBrawlScoringDefaultTypeInternal _CCitadelUserMsg_StreetBrawlScoring_default_instance_;
+PROTOBUF_CONSTEXPR CCitadelUserMsg_HudGameAnnouncement::CCitadelUserMsg_HudGameAnnouncement(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.classname_)*/{}
+  , /*decltype(_impl_.dialog_variable_name_)*/{}
+  , /*decltype(_impl_.dialog_variable_locstring_)*/{}
+  , /*decltype(_impl_.title_locstring_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.description_locstring_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}} {}
+struct CCitadelUserMsg_HudGameAnnouncementDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CCitadelUserMsg_HudGameAnnouncementDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CCitadelUserMsg_HudGameAnnouncementDefaultTypeInternal() {}
+  union {
+    CCitadelUserMsg_HudGameAnnouncement _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_HudGameAnnouncementDefaultTypeInternal _CCitadelUserMsg_HudGameAnnouncement_default_instance_;
+PROTOBUF_CONSTEXPR CCitadelUserMessage_ImportantAbilityUsed::CCitadelUserMessage_ImportantAbilityUsed(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.ability_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
+  , /*decltype(_impl_.player_)*/16777215u
+  , /*decltype(_impl_.caster_)*/16777215u} {}
+struct CCitadelUserMessage_ImportantAbilityUsedDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CCitadelUserMessage_ImportantAbilityUsedDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CCitadelUserMessage_ImportantAbilityUsedDefaultTypeInternal() {}
+  union {
+    CCitadelUserMessage_ImportantAbilityUsed _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMessage_ImportantAbilityUsedDefaultTypeInternal _CCitadelUserMessage_ImportantAbilityUsed_default_instance_;
+static ::_pb::Metadata file_level_metadata_citadel_5fusermessages_2eproto[74];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_citadel_5fusermessages_2eproto[10];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_citadel_5fusermessages_2eproto = nullptr;
 
@@ -1374,6 +1447,18 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   0,
   1,
   3,
+  2,
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_ItemDraftReaction, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_ItemDraftReaction, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_ItemDraftReaction, _impl_.ping_data_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_ItemDraftReaction, _impl_.rare_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_ItemDraftReaction, _impl_.legendary_),
+  0,
+  1,
   2,
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_MapLine, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_MapLine, _internal_metadata_),
@@ -1760,8 +1845,10 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::CCitadelEntityMsg_BreakablePropSpawnDebris, _impl_.entity_msg_),
   PROTOBUF_FIELD_OFFSET(::CCitadelEntityMsg_BreakablePropSpawnDebris, _impl_.damage_pos_),
   PROTOBUF_FIELD_OFFSET(::CCitadelEntityMsg_BreakablePropSpawnDebris, _impl_.damage_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelEntityMsg_BreakablePropSpawnDebris, _impl_.damage_force_),
   0,
   1,
+  3,
   2,
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_ReturnIdol, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_ReturnIdol, _internal_metadata_),
@@ -1856,7 +1943,7 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_PostProcessingAnim, _impl_.entindex_owner_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_PostProcessingAnim, _impl_.clear_all_states_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_PostProcessingAnim, _impl_.state_),
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_PostProcessingAnim, _impl_.start_time_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_PostProcessingAnim, _impl_.delay_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_PostProcessingAnim, _impl_.fade_in_time_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_PostProcessingAnim, _impl_.hold_time_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_PostProcessingAnim, _impl_.fade_out_time_),
@@ -1921,18 +2008,24 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   0,
   1,
   2,
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaDrained, _impl_._has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaDrained, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaConsumed, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaConsumed, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaDrained, _impl_.entindex_victim_),
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaDrained, _impl_.stamina_before_),
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaDrained, _impl_.stamina_after_),
-  2,
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaConsumed, _impl_.entindex_target_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaConsumed, _impl_.stamina_before_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaConsumed, _impl_.stamina_after_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaConsumed, _impl_.drained_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaConsumed, _impl_.stamina_max_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StaminaConsumed, _impl_.gametime_),
+  5,
   0,
   1,
+  2,
+  3,
+  4,
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_AbilityNotify, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_AbilityNotify, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1942,7 +2035,7 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_AbilityNotify, _impl_.entindex_victim_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_AbilityNotify, _impl_.entindex_attacker_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_AbilityNotify, _impl_.ability_id_),
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_AbilityNotify, _impl_.modifier_state_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_AbilityNotify, _impl_.status_impact_),
   2,
   3,
   0,
@@ -2118,9 +2211,13 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_KillStreak, _impl_.player_pawn_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_KillStreak, _impl_.num_kills_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_KillStreak, _impl_.is_first_blood_),
-  2,
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_KillStreak, _impl_.streak_ended_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_KillStreak, _impl_.duration_),
+  3,
   0,
   1,
+  2,
+  4,
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_TeamMsg, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_TeamMsg, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2187,14 +2284,14 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   0,
   1,
   2,
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_SeasonalAchievementUnlocked, _impl_._has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_SeasonalAchievementUnlocked, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_SeasonalKill, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_SeasonalKill, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_SeasonalAchievementUnlocked, _impl_.account_id_),
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_SeasonalAchievementUnlocked, _impl_.hero_id_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_SeasonalKill, _impl_.killer_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_SeasonalKill, _impl_.victim_),
   0,
   1,
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_MusicQueue, _impl_._has_bits_),
@@ -2227,6 +2324,48 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_EntityPortalled, _impl_.portal_transform_),
   1,
   0,
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StreetBrawlScoring, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StreetBrawlScoring, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StreetBrawlScoring, _impl_.scoring_team_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StreetBrawlScoring, _impl_.just_a_test_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StreetBrawlScoring, _impl_.sapphire_score_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_StreetBrawlScoring, _impl_.amber_score_),
+  0,
+  1,
+  2,
+  3,
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_HudGameAnnouncement, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_HudGameAnnouncement, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_HudGameAnnouncement, _impl_.title_locstring_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_HudGameAnnouncement, _impl_.description_locstring_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_HudGameAnnouncement, _impl_.classname_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_HudGameAnnouncement, _impl_.dialog_variable_name_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_HudGameAnnouncement, _impl_.dialog_variable_locstring_),
+  0,
+  1,
+  ~0u,
+  ~0u,
+  ~0u,
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_ImportantAbilityUsed, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_ImportantAbilityUsed, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_ImportantAbilityUsed, _impl_.player_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_ImportantAbilityUsed, _impl_.caster_),
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMessage_ImportantAbilityUsed, _impl_.ability_name_),
+  1,
+  2,
+  0,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, -1, sizeof(::CUserMessageEmpty)},
@@ -2236,69 +2375,73 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 114, 122, -1, sizeof(::CCitadelUserMsg_PingWheel)},
   { 124, 134, -1, sizeof(::CCitadelUserMsg_AbilityPing)},
   { 138, 148, -1, sizeof(::CCitadelUserMsg_QuickResponse)},
-  { 152, 160, -1, sizeof(::CCitadelUserMsg_MapLine)},
-  { 162, 171, -1, sizeof(::CCitadelUserMsg_TeamRewards)},
-  { 174, 187, -1, sizeof(::CCitadelUserMsg_TriggerDamageFlash)},
-  { 194, 203, -1, sizeof(::CCitadelUserMsg_AbilitiesChanged)},
-  { 206, 217, -1, sizeof(::CCitadelUserMsg_AbilityInterrupted)},
-  { 222, 231, -1, sizeof(::CCitadelUserMsg_AbilityLateFailure)},
-  { 234, 252, -1, sizeof(::CCitadelUserMsg_RecentDamageSummary_DamageRecord)},
-  { 264, 276, -1, sizeof(::CCitadelUserMsg_RecentDamageSummary_ModifierRecord)},
-  { 282, 295, -1, sizeof(::CCitadelUserMsg_RecentDamageSummary)},
-  { 302, 309, -1, sizeof(::CCitadelUserMsg_SpectatorTeamChanged)},
-  { 310, 323, -1, sizeof(::CCitadelUserMsg_ChatWheel)},
-  { 330, 340, -1, sizeof(::CCitadelUserMsg_ChatMsg)},
-  { 344, 353, -1, sizeof(::CCitadelUserMsg_GoldHistory_GoldRecord)},
-  { 356, 364, -1, sizeof(::CCitadelUserMsg_GoldHistory_MinuteRecord)},
-  { 366, 374, -1, sizeof(::CCitadelUserMsg_GoldHistory)},
-  { 376, 383, -1, sizeof(::CCitadelUserMsg_CameraController_Maintain)},
-  { 384, 397, -1, sizeof(::CCitadelUserMsg_CameraController_Approach)},
-  { 404, 415, -1, sizeof(::CCitadelUserMsg_CameraController_Spring)},
-  { 420, 433, -1, sizeof(::CCitadelUserMsg_CameraController_Lerp)},
-  { 440, 451, -1, sizeof(::CCitadelUserMsg_CameraController_Lag)},
-  { 456, 475, -1, sizeof(::CCitadelUserMsg_CameraController)},
-  { 488, 495, -1, sizeof(::CCitadelUserMsg_PostMatchDetails)},
-  { 496, 505, -1, sizeof(::CCitadelUserMsg_ChatEvent)},
-  { 508, 521, -1, sizeof(::CCitadelUserMsg_HeroKilled)},
-  { 528, 537, -1, sizeof(::CCitadelEntityMsg_BreakablePropSpawnDebris)},
-  { 540, 549, -1, sizeof(::CCitadelUserMsg_ReturnIdol)},
-  { 552, 560, -1, sizeof(::CCitadelUserMsg_SetClientCameraAngles)},
-  { 562, 573, -1, sizeof(::CCitadelUserMessage_BulletHit)},
-  { 578, 586, -1, sizeof(::CCitadelUserMessage_ObjectiveMask)},
-  { 588, 597, -1, sizeof(::CCitadelUserMessage_ModifierApplied)},
-  { 600, 612, -1, sizeof(::CCitadelUserMessage_AuraModifierApplied)},
-  { 618, -1, -1, sizeof(::CCitadelUserMsg_ObstructedShotFired)},
-  { 624, 638, -1, sizeof(::CCitadelUserMsg_PostProcessingAnim)},
-  { 646, 655, -1, sizeof(::CCitadelUserMsg_DeathReplayData)},
-  { 658, -1, -1, sizeof(::CCitadelUserMsg_ForceShopClosed)},
-  { 664, 677, -1, sizeof(::CCitadelUserMsg_PlayerLifetimeStatInfo_Stat)},
-  { 684, 694, -1, sizeof(::CCitadelUserMsg_PlayerLifetimeStatInfo)},
-  { 698, 707, -1, sizeof(::CCitadelUserMsg_StaminaDrained)},
-  { 710, 720, -1, sizeof(::CCitadelUserMessage_AbilityNotify)},
-  { 724, 740, -1, sizeof(::CCitadelUserMessage_CurrencyChanged)},
-  { 750, 758, -1, sizeof(::CCitadelUserMessage_GameOver)},
-  { 760, -1, -1, sizeof(::CCitadelUserMsg_GetDamageStatsResponse_StatType)},
-  { 768, 778, -1, sizeof(::CCitadelUserMsg_GetDamageStatsResponse)},
-  { 782, 790, -1, sizeof(::CCitadelUserMsg_ParticipantStartSoundEvent)},
-  { 792, 800, -1, sizeof(::CCitadelUserMsg_ParticipantStopSoundEvent)},
-  { 802, 810, -1, sizeof(::CCitadelUserMsg_ParticipantStopSoundEventHash)},
-  { 812, 820, -1, sizeof(::CCitadelUserMsg_ParticipantSetSoundEventParams)},
-  { 822, 830, -1, sizeof(::CCitadelUserMsg_ParticipantSetLibraryStackFields)},
-  { 832, 846, -1, sizeof(::CCitadelUserMsg_BossKilled)},
-  { 854, 863, -1, sizeof(::CCitadelUserMsg_BossDamaged)},
-  { 866, -1, -1, sizeof(::CCitadelUserMsg_MidBossSpawned)},
-  { 872, 882, -1, sizeof(::CCitadelUserMsg_RejuvStatus)},
-  { 886, 895, -1, sizeof(::CCitadelUserMsg_KillStreak)},
-  { 898, 908, -1, sizeof(::CCitadelUserMsg_TeamMsg)},
-  { 912, 920, -1, sizeof(::CCitadelUserMsg_PlayerRespawned)},
-  { 922, 929, -1, sizeof(::CCitadelUserMsg_CallCheaterVote)},
-  { 930, 938, -1, sizeof(::CCitadelUserMessage_MeleeHit)},
-  { 940, 948, -1, sizeof(::CCitadelUserMsg_FlexSlotUnlocked)},
-  { 950, 960, -1, sizeof(::CCitadelUserMessage_ItemPurchaseNotification)},
-  { 964, 972, -1, sizeof(::CCitadelUserMsg_SeasonalAchievementUnlocked)},
-  { 974, 982, -1, sizeof(::CCitadelUserMsg_MusicQueue)},
-  { 984, 992, -1, sizeof(::CCitadelUserMsg_AG2ParamTrigger)},
-  { 994, 1002, -1, sizeof(::CCitadelUserMsg_EntityPortalled)},
+  { 152, 161, -1, sizeof(::CCitadelUserMsg_ItemDraftReaction)},
+  { 164, 172, -1, sizeof(::CCitadelUserMsg_MapLine)},
+  { 174, 183, -1, sizeof(::CCitadelUserMsg_TeamRewards)},
+  { 186, 199, -1, sizeof(::CCitadelUserMsg_TriggerDamageFlash)},
+  { 206, 215, -1, sizeof(::CCitadelUserMsg_AbilitiesChanged)},
+  { 218, 229, -1, sizeof(::CCitadelUserMsg_AbilityInterrupted)},
+  { 234, 243, -1, sizeof(::CCitadelUserMsg_AbilityLateFailure)},
+  { 246, 264, -1, sizeof(::CCitadelUserMsg_RecentDamageSummary_DamageRecord)},
+  { 276, 288, -1, sizeof(::CCitadelUserMsg_RecentDamageSummary_ModifierRecord)},
+  { 294, 307, -1, sizeof(::CCitadelUserMsg_RecentDamageSummary)},
+  { 314, 321, -1, sizeof(::CCitadelUserMsg_SpectatorTeamChanged)},
+  { 322, 335, -1, sizeof(::CCitadelUserMsg_ChatWheel)},
+  { 342, 352, -1, sizeof(::CCitadelUserMsg_ChatMsg)},
+  { 356, 365, -1, sizeof(::CCitadelUserMsg_GoldHistory_GoldRecord)},
+  { 368, 376, -1, sizeof(::CCitadelUserMsg_GoldHistory_MinuteRecord)},
+  { 378, 386, -1, sizeof(::CCitadelUserMsg_GoldHistory)},
+  { 388, 395, -1, sizeof(::CCitadelUserMsg_CameraController_Maintain)},
+  { 396, 409, -1, sizeof(::CCitadelUserMsg_CameraController_Approach)},
+  { 416, 427, -1, sizeof(::CCitadelUserMsg_CameraController_Spring)},
+  { 432, 445, -1, sizeof(::CCitadelUserMsg_CameraController_Lerp)},
+  { 452, 463, -1, sizeof(::CCitadelUserMsg_CameraController_Lag)},
+  { 468, 487, -1, sizeof(::CCitadelUserMsg_CameraController)},
+  { 500, 507, -1, sizeof(::CCitadelUserMsg_PostMatchDetails)},
+  { 508, 517, -1, sizeof(::CCitadelUserMsg_ChatEvent)},
+  { 520, 533, -1, sizeof(::CCitadelUserMsg_HeroKilled)},
+  { 540, 550, -1, sizeof(::CCitadelEntityMsg_BreakablePropSpawnDebris)},
+  { 554, 563, -1, sizeof(::CCitadelUserMsg_ReturnIdol)},
+  { 566, 574, -1, sizeof(::CCitadelUserMsg_SetClientCameraAngles)},
+  { 576, 587, -1, sizeof(::CCitadelUserMessage_BulletHit)},
+  { 592, 600, -1, sizeof(::CCitadelUserMessage_ObjectiveMask)},
+  { 602, 611, -1, sizeof(::CCitadelUserMessage_ModifierApplied)},
+  { 614, 626, -1, sizeof(::CCitadelUserMessage_AuraModifierApplied)},
+  { 632, -1, -1, sizeof(::CCitadelUserMsg_ObstructedShotFired)},
+  { 638, 652, -1, sizeof(::CCitadelUserMsg_PostProcessingAnim)},
+  { 660, 669, -1, sizeof(::CCitadelUserMsg_DeathReplayData)},
+  { 672, -1, -1, sizeof(::CCitadelUserMsg_ForceShopClosed)},
+  { 678, 691, -1, sizeof(::CCitadelUserMsg_PlayerLifetimeStatInfo_Stat)},
+  { 698, 708, -1, sizeof(::CCitadelUserMsg_PlayerLifetimeStatInfo)},
+  { 712, 724, -1, sizeof(::CCitadelUserMsg_StaminaConsumed)},
+  { 730, 740, -1, sizeof(::CCitadelUserMessage_AbilityNotify)},
+  { 744, 760, -1, sizeof(::CCitadelUserMessage_CurrencyChanged)},
+  { 770, 778, -1, sizeof(::CCitadelUserMessage_GameOver)},
+  { 780, -1, -1, sizeof(::CCitadelUserMsg_GetDamageStatsResponse_StatType)},
+  { 788, 798, -1, sizeof(::CCitadelUserMsg_GetDamageStatsResponse)},
+  { 802, 810, -1, sizeof(::CCitadelUserMsg_ParticipantStartSoundEvent)},
+  { 812, 820, -1, sizeof(::CCitadelUserMsg_ParticipantStopSoundEvent)},
+  { 822, 830, -1, sizeof(::CCitadelUserMsg_ParticipantStopSoundEventHash)},
+  { 832, 840, -1, sizeof(::CCitadelUserMsg_ParticipantSetSoundEventParams)},
+  { 842, 850, -1, sizeof(::CCitadelUserMsg_ParticipantSetLibraryStackFields)},
+  { 852, 866, -1, sizeof(::CCitadelUserMsg_BossKilled)},
+  { 874, 883, -1, sizeof(::CCitadelUserMsg_BossDamaged)},
+  { 886, -1, -1, sizeof(::CCitadelUserMsg_MidBossSpawned)},
+  { 892, 902, -1, sizeof(::CCitadelUserMsg_RejuvStatus)},
+  { 906, 917, -1, sizeof(::CCitadelUserMsg_KillStreak)},
+  { 922, 932, -1, sizeof(::CCitadelUserMsg_TeamMsg)},
+  { 936, 944, -1, sizeof(::CCitadelUserMsg_PlayerRespawned)},
+  { 946, 953, -1, sizeof(::CCitadelUserMsg_CallCheaterVote)},
+  { 954, 962, -1, sizeof(::CCitadelUserMessage_MeleeHit)},
+  { 964, 972, -1, sizeof(::CCitadelUserMsg_FlexSlotUnlocked)},
+  { 974, 984, -1, sizeof(::CCitadelUserMessage_ItemPurchaseNotification)},
+  { 988, 996, -1, sizeof(::CCitadelUserMsg_SeasonalKill)},
+  { 998, 1006, -1, sizeof(::CCitadelUserMsg_MusicQueue)},
+  { 1008, 1016, -1, sizeof(::CCitadelUserMsg_AG2ParamTrigger)},
+  { 1018, 1026, -1, sizeof(::CCitadelUserMsg_EntityPortalled)},
+  { 1028, 1038, -1, sizeof(::CCitadelUserMsg_StreetBrawlScoring)},
+  { 1042, 1053, -1, sizeof(::CCitadelUserMsg_HudGameAnnouncement)},
+  { 1058, 1067, -1, sizeof(::CCitadelUserMessage_ImportantAbilityUsed)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2309,6 +2452,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CCitadelUserMsg_PingWheel_default_instance_._instance,
   &::_CCitadelUserMsg_AbilityPing_default_instance_._instance,
   &::_CCitadelUserMsg_QuickResponse_default_instance_._instance,
+  &::_CCitadelUserMsg_ItemDraftReaction_default_instance_._instance,
   &::_CCitadelUserMsg_MapLine_default_instance_._instance,
   &::_CCitadelUserMsg_TeamRewards_default_instance_._instance,
   &::_CCitadelUserMsg_TriggerDamageFlash_default_instance_._instance,
@@ -2346,7 +2490,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CCitadelUserMsg_ForceShopClosed_default_instance_._instance,
   &::_CCitadelUserMsg_PlayerLifetimeStatInfo_Stat_default_instance_._instance,
   &::_CCitadelUserMsg_PlayerLifetimeStatInfo_default_instance_._instance,
-  &::_CCitadelUserMsg_StaminaDrained_default_instance_._instance,
+  &::_CCitadelUserMsg_StaminaConsumed_default_instance_._instance,
   &::_CCitadelUserMessage_AbilityNotify_default_instance_._instance,
   &::_CCitadelUserMessage_CurrencyChanged_default_instance_._instance,
   &::_CCitadelUserMessage_GameOver_default_instance_._instance,
@@ -2368,10 +2512,13 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CCitadelUserMessage_MeleeHit_default_instance_._instance,
   &::_CCitadelUserMsg_FlexSlotUnlocked_default_instance_._instance,
   &::_CCitadelUserMessage_ItemPurchaseNotification_default_instance_._instance,
-  &::_CCitadelUserMsg_SeasonalAchievementUnlocked_default_instance_._instance,
+  &::_CCitadelUserMsg_SeasonalKill_default_instance_._instance,
   &::_CCitadelUserMsg_MusicQueue_default_instance_._instance,
   &::_CCitadelUserMsg_AG2ParamTrigger_default_instance_._instance,
   &::_CCitadelUserMsg_EntityPortalled_default_instance_._instance,
+  &::_CCitadelUserMsg_StreetBrawlScoring_default_instance_._instance,
+  &::_CCitadelUserMsg_HudGameAnnouncement_default_instance_._instance,
+  &::_CCitadelUserMessage_ImportantAbilityUsed_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_citadel_5fusermessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -2404,7 +2551,7 @@ const char descriptor_table_protodef_citadel_5fusermessages_2eproto[] PROTOBUF_S
   "ender_player_slot\030\004 \001(\005:\002-1\022\026\n\016speech_co"
   "ncept\030\005 \001(\005\022\027\n\017response_chosen\030\006 \001(\t\022\025\n\r"
   "cooldown_time\030\007 \001(\002\"\267\002\n\027CCitadelUserMsg_"
-  "MapPing\022\"\n\tping_data\030\001 \002(\0132\017.PingCommonD"
+  "MapPing\022\"\n\tping_data\030\001 \001(\0132\017.PingCommonD"
   "ata\022\022\n\nevent_type\030\002 \001(\r\022`\n\032ping_marker_a"
   "nd_sound_info\030\003 \001(\0162\026.ChatMsgPingMarkerI"
   "nfo:$k_EPingMarkerInfo_ShowMarkerAndSoun"
@@ -2412,7 +2559,7 @@ const char descriptor_table_protodef_citadel_5fusermessages_2eproto[] PROTOBUF_S
   "_entity_class\030\005 \001(\r\022\027\n\017is_minimap_ping\030\006"
   " \001(\010\022\030\n\020pinged_hero_name\030\007 \001(\t\022\025\n\ris_bli"
   "nd_ping\030\010 \001(\010\"]\n\031CCitadelUserMsg_PingWhe"
-  "el\022\"\n\tping_data\030\001 \002(\0132\017.PingCommonData\022\034"
+  "el\022\"\n\tping_data\030\001 \001(\0132\017.PingCommonData\022\034"
   "\n\024ping_wheel_option_id\030\002 \001(\r\"\321\001\n\033CCitade"
   "lUserMsg_AbilityPing\022\"\n\tping_data\030\001 \001(\0132"
   "\017.PingCommonData\022\022\n\nability_id\030\002 \001(\r\022\030\n\020"
@@ -2420,326 +2567,349 @@ const char descriptor_table_protodef_citadel_5fusermessages_2eproto[] PROTOBUF_S
   "d_sound_info\030\004 \001(\0162\026.ChatMsgPingMarkerIn"
   "fo:$k_EPingMarkerInfo_ShowMarkerAndSound"
   "\"\313\001\n\035CCitadelUserMsg_QuickResponse\022\"\n\tpi"
-  "ng_data\030\001 \002(\0132\017.PingCommonData\022%\n\035respon"
+  "ng_data\030\001 \001(\0132\017.PingCommonData\022%\n\035respon"
   "ding_to_ping_message_id\030\002 \001(\r\022%\n\031respond"
   "ing_to_player_slot\030\003 \001(\005:\002-1\0228\n\nlane_col"
   "or\030\004 \001(\0162\016.CMsgLaneColor:\024k_ELaneColor_I"
-  "nvalid\"X\n\027CCitadelUserMsg_MapLine\022\036\n\022sen"
-  "der_player_slot\030\001 \001(\005:\002-1\022\035\n\007mapline\030\002 \001"
-  "(\0132\014.CMsgMapLine\"G\n\033CCitadelUserMsg_Team"
-  "Rewards\022\n\n\002xp\030\001 \001(\r\022\014\n\004gold\030\002 \001(\r\022\016\n\006win"
-  "ner\030\003 \001(\010\"\360\001\n\"CCitadelUserMsg_TriggerDam"
-  "ageFlash\022!\n\025entindex_flash_victim\030\001 \001(\005:"
-  "\002-1\022#\n\027entindex_flash_attacker\030\002 \001(\005:\002-1"
-  "\022\037\n\027entindex_flash_hitgroup\030\003 \001(\005\022\023\n\013fla"
-  "sh_value\030\004 \001(\r\022\022\n\nflash_type\030\005 \001(\r\022\023\n\013fl"
-  "ash_flags\030\006 \001(\r\022#\n\016flash_position\030\007 \001(\0132"
-  "\013.CMsgVector\"\224\002\n CCitadelUserMsg_Abiliti"
-  "esChanged\022!\n\025purchaser_player_slot\030\001 \001(\005"
-  ":\002-1\022\022\n\nability_id\030\002 \001(\r\022B\n\006change\030\003 \001(\016"
-  "2(.CCitadelUserMsg_AbilitiesChanged.Chan"
-  "ge:\010EInvalid\"u\n\006Change\022\025\n\010EInvalid\020\377\377\377\377\377"
-  "\377\377\377\377\001\022\016\n\nEPurchased\020\000\022\r\n\tEUpgraded\020\001\022\t\n\005"
-  "ESold\020\002\022\034\n\030ESwappedActivatedAbility\020\003\022\014\n"
-  "\010EFailure\020\004\"\300\001\n\"CCitadelUserMsg_AbilityI"
-  "nterrupted\022\033\n\017entindex_victim\030\001 \001(\005:\002-1\022"
-  " \n\024entindex_interrupter\030\002 \001(\005:\002-1\022\036\n\026abi"
-  "lity_id_interrupted\030\003 \001(\r\022\036\n\026ability_id_"
-  "interrupter\030\004 \001(\r\022\033\n\023hero_id_interrupter"
-  "\030\005 \001(\r\"u\n\"CCitadelUserMsg_AbilityLateFai"
-  "lure\022\033\n\017entindex_caster\030\001 \001(\005:\002-1\022\034\n\020ent"
-  "index_ability\030\002 \001(\005:\002-1\022\024\n\014failure_type\030"
-  "\003 \001(\r\"\312\005\n#CCitadelUserMsg_RecentDamageSu"
-  "mmary\022\027\n\013player_slot\030\001 \001(\005:\002-1\022I\n\016damage"
-  "_records\030\002 \003(\01321.CCitadelUserMsg_RecentD"
-  "amageSummary.DamageRecord\022\022\n\nstart_time\030"
-  "\003 \001(\002\022\020\n\010end_time\030\004 \001(\002\022\024\n\014total_damage\030"
-  "\005 \001(\005\022\021\n\tlost_gold\030\006 \001(\005\022M\n\020modifier_rec"
-  "ords\030\007 \003(\01323.CCitadelUserMsg_RecentDamag"
-  "eSummary.ModifierRecord\032\214\002\n\014DamageRecord"
-  "\022\016\n\006damage\030\001 \001(\005\022\014\n\004hits\030\002 \001(\005\022\023\n\013damage"
-  "_type\030\003 \001(\r\022\017\n\007hero_id\030\004 \001(\r\022\022\n\nability_"
-  "id\030\005 \001(\r\022\026\n\016attacker_class\030\006 \001(\r\022\027\n\017dama"
-  "ge_absorbed\030\007 \001(\002\022\027\n\017is_killing_blow\030\010 \001"
-  "(\010\022\026\n\016victim_hero_id\030\t \001(\r\022\031\n\021is_seconda"
-  "ry_stat\030\n \001(\010\022\022\n\npre_damage\030\013 \001(\002\022\023\n\013cri"
-  "t_damage\030\014 \001(\002\032\221\001\n\016ModifierRecord\022\022\n\nabi"
-  "lity_id\030\001 \001(\r\022\030\n\020modifier_type_id\030\002 \001(\r\022"
-  "\033\n\017entindex_caster\030\003 \001(\005:\002-1\022\022\n\nstart_ti"
-  "me\030\004 \001(\002\022\020\n\010end_time\030\005 \001(\002\022\016\n\006debuff\030\006 \001"
-  "(\010\":\n$CCitadelUserMsg_SpectatorTeamChang"
-  "ed\022\022\n\nteamnumber\030\001 \001(\005\"\330\001\n\031CCitadelUserM"
-  "sg_ChatWheel\022\027\n\017chat_message_id\030\001 \001(\r\022\027\n"
-  "\013player_slot\030\002 \001(\005:\002-1\022\031\n\rpawn_entindex\030"
-  "\003 \001(\005:\002-1\022\022\n\naccount_id\030\004 \001(\r\022\017\n\007hero_id"
-  "\030\005 \001(\r\022\017\n\007param_1\030\006 \001(\t\0228\n\nlane_color\030\007 "
-  "\001(\0162\016.CMsgLaneColor:\024k_ELaneColor_Invali"
-  "d\"\214\001\n\027CCitadelUserMsg_ChatMsg\022\027\n\013player_"
-  "slot\030\001 \001(\005:\002-1\022\014\n\004text\030\002 \001(\t\022\020\n\010all_chat"
-  "\030\003 \001(\010\0228\n\nlane_color\030\004 \001(\0162\016.CMsgLaneCol"
-  "or:\024k_ELaneColor_Invalid\"\247\002\n\033CCitadelUse"
-  "rMsg_GoldHistory\022\033\n\017entindex_player\030\001 \001("
-  "\005:\002-1\022A\n\016minute_records\030\002 \003(\0132).CCitadel"
-  "UserMsg_GoldHistory.MinuteRecord\032C\n\nGold"
-  "Record\022\027\n\017currency_source\030\001 \001(\005\022\014\n\004gold\030"
-  "\002 \001(\005\022\016\n\006events\030\003 \001(\005\032c\n\014MinuteRecord\022\024\n"
-  "\014match_minute\030\001 \001(\005\022=\n\014gold_records\030\002 \003("
-  "\0132\'.CCitadelUserMsg_GoldHistory.GoldReco"
-  "rd\"\272\n\n CCitadelUserMsg_CameraController\022"
-  ".\n\006action\030\001 \002(\0162\r.CameraAction:\017k_EActio"
-  "n_AddOp\0229\n\toperation\030\002 \001(\0162\020.CameraOpera"
-  "tion:\024k_ECameraOp_Maintain\0221\n\005param\030\003 \001("
-  "\0162\014.CameraParam:\024k_EParam_ClearAllOps\022D\n"
-  "\nparam_mode\030\014 \001(\0162\020.CameraParamMode:\036k_E"
-  "ParamMode_AllowInOneContext\022\r\n\005delay\030\004 \001"
-  "(\002\022\027\n\017relative_values\030\013 \001(\010\022\031\n\021context_s"
-  "ymbol_id\030\005 \001(\r\022\023\n\010priority\030\r \001(\r:\0011\022<\n\010m"
-  "aintain\030\006 \001(\0132*.CCitadelUserMsg_CameraCo"
-  "ntroller.Maintain\022<\n\010approach\030\007 \001(\0132*.CC"
-  "itadelUserMsg_CameraController.Approach\022"
-  "8\n\006spring\030\010 \001(\0132(.CCitadelUserMsg_Camera"
-  "Controller.Spring\0224\n\004lerp\030\t \001(\0132&.CCitad"
-  "elUserMsg_CameraController.Lerp\0222\n\003lag\030\n"
-  " \001(\0132%.CCitadelUserMsg_CameraController."
-  "Lag\032\037\n\010Maintain\022\023\n\010duration\030\001 \001(\002:\0010\032\304\001\n"
-  "\010Approach\022\022\n\005speed\030\001 \001(\002:\003600\022\032\n\rdefault"
-  "_speed\030\002 \001(\002:\003600\022\032\n\014acceleration\030\003 \001(\002:"
-  "\0041000\022\027\n\014min_duration\030\004 \001(\002:\0010\022\026\n\016approa"
-  "ch_float\030\005 \001(\002\022$\n\017approach_vector\030\006 \001(\0132"
-  "\013.CMsgVector\022\025\n\rchase_default\030\007 \001(\010\032\216\001\n\006"
-  "Spring\022\033\n\017spring_strength\030\001 \001(\002:\00210\022\024\n\tm"
-  "in_speed\030\004 \001(\002:\0010\022\027\n\014max_duration\030\005 \001(\002:"
-  "\0010\022\024\n\014target_float\030\006 \001(\002\022\"\n\rtarget_vecto"
-  "r\030\007 \001(\0132\013.CMsgVector\032\243\001\n\004Lerp\022\023\n\013start_f"
-  "loat\030\001 \001(\002\022!\n\014start_vector\030\002 \001(\0132\013.CMsgV"
-  "ector\022\021\n\tend_float\030\003 \001(\002\022\037\n\nend_vector\030\004"
-  " \001(\0132\013.CMsgVector\022\014\n\004bias\030\005 \001(\002\022\014\n\004gain\030"
-  "\006 \001(\002\022\023\n\010duration\030\007 \001(\002:\0011\032\232\001\n\003Lag\022\024\n\014mi"
-  "n_duration\030\001 \001(\002\022\020\n\010lag_time\030\002 \001(\002\022\021\n\tma"
-  "x_speed\030\003 \001(\002\022\027\n\017spring_strength\030\004 \001(\002\022\?"
-  "\n1increase_spring_strength_to_keep_targe"
-  "t_on_screen\030\005 \001(\010:\004true\"9\n CCitadelUserM"
-  "sg_PostMatchDetails\022\025\n\rmatch_details\030\001 \001"
-  "(\014\"\215\001\n\031CCitadelUserMsg_ChatEvent\022J\n\004type"
-  "\030\001 \001(\0162\024.ECitadelChatMessage:&CITADEL_CH"
-  "AT_MESSAGE_UNPAUSE_COUNTDOWN\022\016\n\006values\030\002"
-  " \003(\r\022\024\n\014player_slots\030\003 \003(\005\"\345\001\n\032CCitadelU"
-  "serMsg_HeroKilled\022\033\n\017entindex_victim\030\001 \001"
-  "(\005:\002-1\022\036\n\022entindex_inflictor\030\002 \001(\005:\002-1\022\035"
-  "\n\021entindex_attacker\030\003 \001(\005:\002-1\022\032\n\022entinde"
-  "x_assisters\030\004 \003(\005\022\033\n\017entindex_scorer\030\005 \001"
-  "(\005:\002-1\022\026\n\016respawn_reason\030\006 \001(\005\022\032\n\022victim"
-  "_team_number\030\007 \001(\005\"~\n*CCitadelEntityMsg_"
-  "BreakablePropSpawnDebris\022\037\n\nentity_msg\030\001"
-  " \001(\0132\013.CEntityMsg\022\037\n\ndamage_pos\030\002 \001(\0132\013."
-  "CMsgVector\022\016\n\006damage\030\003 \001(\002\"t\n\032CCitadelUs"
-  "erMsg_ReturnIdol\022\026\n\016location_index\030\001 \001(\005"
-  "\022$\n\017return_location\030\002 \001(\0132\013.CMsgVector\022\030"
-  "\n\020location_enabled\030\003 \001(\010\"d\n%CCitadelUser"
-  "Msg_SetClientCameraAngles\022\027\n\013player_slot"
-  "\030\001 \001(\005:\002-1\022\"\n\rcamera_angles\030\002 \001(\0132\013.CMsg"
-  "QAngle\"\214\001\n\035CCitadelUserMessage_BulletHit"
-  "\022\016\n\006shotid\030\001 \001(\005\022\016\n\006pellet\030\002 \001(\005\022\030\n\014hit_"
-  "entindex\030\003 \001(\005:\002-1\022\033\n\017weapon_entindex\030\004 "
-  "\001(\005:\002-1\022\024\n\014is_predicted\030\005 \001(\010\"_\n!CCitade"
-  "lUserMessage_ObjectiveMask\022\034\n\024objective_"
-  "mask_team0\030\002 \001(\004\022\034\n\024objective_mask_team1"
-  "\030\003 \001(\004\"v\n#CCitadelUserMessage_ModifierAp"
-  "plied\022\033\n\017entindex_caster\030\001 \001(\005:\002-1\022\033\n\017en"
-  "tindex_parent\030\002 \001(\005:\002-1\022\025\n\rserial_number"
-  "\030\003 \001(\005\"\315\001\n\'CCitadelUserMessage_AuraModif"
-  "ierApplied\022\033\n\017entindex_caster\030\001 \001(\005:\002-1\022"
-  "\033\n\017entindex_target\030\002 \001(\005:\002-1\022\030\n\020modifier"
-  "_type_id\030\003 \001(\r\022\036\n\026modifier_serial_number"
-  "\030\004 \001(\005\022\027\n\017aura_start_time\030\005 \001(\002\022\025\n\raura_"
-  "end_time\030\006 \001(\002\"%\n#CCitadelUserMsg_Obstru"
-  "ctedShotFired\"\375\001\n\"CCitadelUserMsg_PostPr"
-  "ocessingAnim\022\032\n\016entindex_owner\030\001 \001(\005:\002-1"
-  "\022\030\n\020clear_all_states\030\002 \001(\010\022>\n\005state\030\003 \001("
-  "\0162\031.PostProcessingGameStates:\024PostProcSt"
-  "ate_Killed\022\022\n\nstart_time\030\004 \001(\002\022\024\n\014fade_i"
-  "n_time\030\005 \001(\002\022\021\n\thold_time\030\006 \001(\002\022\025\n\rfade_"
-  "out_time\030\007 \001(\002\022\r\n\005scale\030\010 \001(\002\"\230\001\n\037CCitad"
-  "elUserMsg_DeathReplayData\022\031\n\rkiller_scor"
-  "er\030\001 \001(\005:\002-1\022\034\n\020killer_inflictor\030\002 \001(\005:\002"
-  "-1\022<\n\016damage_summary\030\003 \001(\0132$.CCitadelUse"
-  "rMsg_RecentDamageSummary\"!\n\037CCitadelUser"
-  "Msg_ForceShopClosed\"\307\002\n&CCitadelUserMsg_"
-  "PlayerLifetimeStatInfo\022;\n\005stats\030\001 \003(\0132,."
-  "CCitadelUserMsg_PlayerLifetimeStatInfo.S"
-  "tat\022\020\n\010match_id\030\002 \001(\004\022\024\n\014end_of_match\030\003 "
-  "\001(\010\022\031\n\021is_official_match\030\004 \001(\010\032\234\001\n\004Stat\022"
-  "\021\n\tstat_name\030\001 \001(\t\022\023\n\013match_total\030\002 \001(\r\022"
-  "\026\n\016lifetime_value\030\003 \001(\r\022\020\n\010priority\030\004 \001("
-  "\r\022\031\n\021prev_lifetime_max\030\005 \001(\r\022\021\n\tstat_typ"
-  "e\030\006 \001(\r\022\024\n\014stat_type_id\030\007 \001(\r\"l\n\036CCitade"
-  "lUserMsg_StaminaDrained\022\033\n\017entindex_vict"
-  "im\030\001 \001(\005:\002-1\022\026\n\016stamina_before\030\003 \001(\002\022\025\n\r"
-  "stamina_after\030\004 \001(\002\"\213\001\n!CCitadelUserMess"
-  "age_AbilityNotify\022\033\n\017entindex_victim\030\001 \001"
-  "(\005:\002-1\022\035\n\021entindex_attacker\030\002 \001(\005:\002-1\022\022\n"
-  "\nability_id\030\003 \001(\r\022\026\n\016modifier_state\030\004 \001("
-  "\005\"\206\002\n#CCitadelUserMessage_CurrencyChange"
-  "d\022\022\n\006userid\030\001 \001(\005:\002-1\022\025\n\rcurrency_type\030\002"
-  " \001(\005\022\027\n\017currency_source\030\003 \001(\005\022\r\n\005delta\030\004"
-  " \001(\005\022\024\n\014notification\030\005 \001(\010\022\033\n\017entindex_v"
-  "ictim\030\006 \001(\005:\002-1\022\037\n\nvictim_pos\030\007 \001(\0132\013.CM"
-  "sgVector\022\021\n\tplaysound\030\010 \001(\005\022\022\n\nability_i"
-  "d\030\t \001(\r\022\021\n\tnew_value\030\n \001(\r\"I\n\034CCitadelUs"
-  "erMessage_GameOver\022\024\n\014winning_team\030\001 \001(\005"
-  "\022\023\n\013just_a_test\030\002 \001(\010\"\227\002\n&CCitadelUserMs"
-  "g_GetDamageStatsResponse\022\023\n\013player_slot\030"
-  "\001 \001(\r\022\024\n\014ability_name\030\002 \001(\t\022@\n\006damage\030\003 "
-  "\001(\01320.CCitadelUserMsg_GetDamageStatsResp"
-  "onse.StatType\022A\n\007healing\030\004 \001(\01320.CCitade"
-  "lUserMsg_GetDamageStatsResponse.StatType"
-  "\032=\n\010StatType\022\036\n\022target_player_slot\030\001 \003(\r"
-  "B\002\020\001\022\021\n\005value\030\002 \003(\rB\002\020\001\"j\n*CCitadelUserM"
-  "sg_ParticipantStartSoundEvent\022&\n\005event\030\001"
-  " \002(\0132\027.CMsgSosStartSoundEvent\022\024\n\014player_"
-  "slots\030\002 \003(\005\"h\n)CCitadelUserMsg_Participa"
-  "ntStopSoundEvent\022%\n\005event\030\001 \002(\0132\026.CMsgSo"
-  "sStopSoundEvent\022\024\n\014player_slots\030\002 \003(\005\"p\n"
-  "-CCitadelUserMsg_ParticipantStopSoundEve"
-  "ntHash\022)\n\005event\030\001 \002(\0132\032.CMsgSosStopSound"
-  "EventHash\022\024\n\014player_slots\030\002 \003(\005\"r\n.CCita"
-  "delUserMsg_ParticipantSetSoundEventParam"
-  "s\022*\n\005event\030\001 \002(\0132\033.CMsgSosSetSoundEventP"
-  "arams\022\024\n\014player_slots\030\002 \003(\005\"v\n0CCitadelU"
-  "serMsg_ParticipantSetLibraryStackFields\022"
-  ",\n\005event\030\001 \002(\0132\035.CMsgSosSetLibraryStackF"
-  "ields\022\024\n\014player_slots\030\002 \003(\005\"\204\002\n\032CCitadel"
-  "UserMsg_BossKilled\022\026\n\016objective_team\030\001 \001"
-  "(\005\022\035\n\025objective_mask_change\030\002 \001(\005\022\037\n\rent"
-  "ity_killed\030\003 \001(\r:\01016777215\022\033\n\023entity_kil"
-  "led_class\030\004 \001(\005\022\037\n\rentity_killer\030\005 \001(\r:\010"
-  "16777215\022\020\n\010gametime\030\006 \001(\002\022\030\n\020bosses_rem"
-  "aining\030\007 \001(\005\022$\n\017entity_position\030\010 \001(\0132\013."
-  "CMsgVector\"m\n\033CCitadelUserMsg_BossDamage"
-  "d\022\026\n\016objective_team\030\001 \002(\005\022\024\n\014objective_i"
-  "d\030\002 \002(\005\022 \n\016entity_damaged\030\003 \002(\r:\0101677721"
-  "5\" \n\036CCitadelUserMsg_MidBossSpawned\"y\n\033C"
-  "CitadelUserMsg_RejuvStatus\022\024\n\014killing_te"
-  "am\030\001 \001(\005\022\035\n\013player_pawn\030\002 \002(\r:\01016777215\022"
-  "\021\n\tuser_team\030\003 \002(\005\022\022\n\nevent_type\030\004 \002(\005\"f"
-  "\n\032CCitadelUserMsg_KillStreak\022\035\n\013player_p"
-  "awn\030\001 \002(\r:\01016777215\022\021\n\tnum_kills\030\002 \002(\005\022\026"
-  "\n\016is_first_blood\030\003 \002(\010\"{\n\027CCitadelUserMs"
-  "g_TeamMsg\022\022\n\nevent_type\030\001 \002(\005\022\023\n\013team_nu"
-  "mber\030\002 \002(\005\022\022\n\nlane_color\030\003 \002(\005\022#\n\021player"
-  "_controller\030\004 \002(\r:\01016777215\"T\n\037CCitadelU"
-  "serMsg_PlayerRespawned\022\035\n\013player_pawn\030\001 "
-  "\002(\r:\01016777215\022\022\n\nfacing_yaw\030\002 \002(\002\":\n\037CCi"
-  "tadelUserMsg_CallCheaterVote\022\027\n\013player_s"
-  "lot\030\001 \002(\005:\002-1\"G\n\034CCitadelUserMessage_Mel"
-  "eeHit\022\030\n\014hit_entindex\030\001 \001(\005:\002-1\022\r\n\005heavy"
-  "\030\002 \001(\010\"R\n CCitadelUserMsg_FlexSlotUnlock"
-  "ed\022\023\n\013team_number\030\001 \001(\005\022\031\n\021flexslot_unlo"
-  "cked\030\002 \001(\005\"v\n,CCitadelUserMessage_ItemPu"
-  "rchaseNotification\022\022\n\006userid\030\001 \001(\005:\002-1\022\022"
-  "\n\nability_id\030\002 \001(\r\022\014\n\004sell\030\003 \001(\010\022\020\n\010quic"
-  "kbuy\030\004 \001(\010\"R\n+CCitadelUserMsg_SeasonalAc"
-  "hievementUnlocked\022\022\n\naccount_id\030\001 \001(\r\022\017\n"
-  "\007hero_id\030\002 \001(\r\"C\n\032CCitadelUserMsg_MusicQ"
-  "ueue\022\023\n\013music_state\030\001 \002(\005\022\020\n\010override\030\002 "
-  "\001(\010\"H\n\037CCitadelUserMsg_AG2ParamTrigger\022\020"
-  "\n\010param_id\030\001 \001(\t\022\023\n\013param_value\030\002 \001(\t\"o\n"
-  "\037CCitadelUserMsg_EntityPortalled\022\"\n\020enti"
-  "ty_portalled\030\001 \001(\r:\01016777215\022(\n\020portal_t"
-  "ransform\030\002 \001(\0132\016.CMsgTransform*\334\016\n\025Citad"
-  "elUserMessageIds\022\026\n\021k_EUserMsg_Damage\020\254\002"
-  "\022\027\n\022k_EUserMsg_MapPing\020\257\002\022\033\n\026k_EUserMsg_"
-  "TeamRewards\020\260\002\022\035\n\030k_EUserMsg_AbilityFail"
-  "ed\020\262\002\022\"\n\035k_EUserMsg_TriggerDamageFlash\020\264"
-  "\002\022 \n\033k_EUserMsg_AbilitiesChanged\020\265\002\022#\n\036k"
-  "_EUserMsg_RecentDamageSummary\020\266\002\022$\n\037k_EU"
-  "serMsg_SpectatorTeamChanged\020\267\002\022\031\n\024k_EUse"
-  "rMsg_ChatWheel\020\270\002\022\033\n\026k_EUserMsg_GoldHist"
-  "ory\020\271\002\022\027\n\022k_EUserMsg_ChatMsg\020\272\002\022\035\n\030k_EUs"
-  "erMsg_QuickResponse\020\273\002\022 \n\033k_EUserMsg_Pos"
-  "tMatchDetails\020\274\002\022\031\n\024k_EUserMsg_ChatEvent"
-  "\020\275\002\022\"\n\035k_EUserMsg_AbilityInterrupted\020\276\002\022"
-  "\032\n\025k_EUserMsg_HeroKilled\020\277\002\022\032\n\025k_EUserMs"
-  "g_ReturnIdol\020\300\002\022%\n k_EUserMsg_SetClientC"
-  "ameraAngles\020\301\002\022\027\n\022k_EUserMsg_MapLine\020\302\002\022"
-  "\031\n\024k_EUserMsg_BulletHit\020\303\002\022\035\n\030k_EUserMsg"
-  "_ObjectiveMask\020\304\002\022\037\n\032k_EUserMsg_Modifier"
-  "Applied\020\305\002\022 \n\033k_EUserMsg_CameraControlle"
-  "r\020\306\002\022#\n\036k_EUserMsg_AuraModifierApplied\020\307"
-  "\002\022#\n\036k_EUserMsg_ObstructedShotFired\020\311\002\022\""
-  "\n\035k_EUserMsg_AbilityLateFailure\020\312\002\022\033\n\026k_"
-  "EUserMsg_AbilityPing\020\313\002\022\"\n\035k_EUserMsg_Po"
-  "stProcessingAnim\020\314\002\022\037\n\032k_EUserMsg_DeathR"
-  "eplayData\020\315\002\022&\n!k_EUserMsg_PlayerLifetim"
-  "eStatInfo\020\316\002\022\037\n\032k_EUserMsg_ForceShopClos"
-  "ed\020\320\002\022\036\n\031k_EUserMsg_StaminaDrained\020\321\002\022\035\n"
-  "\030k_EUserMsg_AbilityNotify\020\322\002\022&\n!k_EUserM"
-  "sg_GetDamageStatsResponse\020\323\002\022*\n%k_EUserM"
-  "sg_ParticipantStartSoundEvent\020\324\002\022)\n$k_EU"
-  "serMsg_ParticipantStopSoundEvent\020\325\002\022-\n(k"
-  "_EUserMsg_ParticipantStopSoundEventHash\020"
-  "\326\002\022.\n)k_EUserMsg_ParticipantSetSoundEven"
-  "tParams\020\327\002\0220\n+k_EUserMsg_ParticipantSetL"
-  "ibraryStackFields\020\330\002\022\037\n\032k_EUserMsg_Curre"
-  "ncyChanged\020\331\002\022\030\n\023k_EUserMsg_GameOver\020\332\002\022"
-  "\032\n\025k_EUserMsg_BossKilled\020\333\002\022\033\n\026k_EUserMs"
-  "g_BossDamaged\020\334\002\022\036\n\031k_EUserMsg_MidBossSp"
-  "awned\020\335\002\022\033\n\026k_EUserMsg_RejuvStatus\020\336\002\022\032\n"
-  "\025k_EUserMsg_KillStreak\020\337\002\022\027\n\022k_EUserMsg_"
-  "TeamMsg\020\340\002\022\037\n\032k_EUserMsg_PlayerRespawned"
-  "\020\341\002\022\037\n\032k_EUserMsg_CallCheaterVote\020\342\002\022\030\n\023"
-  "k_EUserMsg_MeleeHit\020\343\002\022 \n\033k_EUserMsg_Fle"
-  "xSlotUnlocked\020\344\002\022+\n&k_EUserMsg_SeasonalA"
-  "chievementUnlocked\020\345\002\022\032\n\025k_EUserMsg_Musi"
-  "cQueue\020\346\002\022\037\n\032k_EUserMsg_AG2ParamTrigger\020"
-  "\347\002\022(\n#k_EUserMsg_ItemPurchaseNotificatio"
-  "n\020\350\002\022\037\n\032k_EUserMsg_EntityPortalled\020\351\002*E\n"
-  "\027CitadelEntityMessageIds\022*\n%k_EEntityMsg"
-  "_BreakablePropSpawnDebris\020\364\003*\360\003\n\025ChatMsg"
-  "PingMarkerInfo\022o\n$k_EPingMarkerInfo_Show"
-  "MarkerAndSound\020\000\032E\302>BShow Ping Indicator"
-  " at Ping Location, Play Ping Sound, and "
-  "Play VO\022p\n$k_EPingMarkerInfo_ShowMarkerO"
-  "nSender\020\001\032F\302>CShow Ping Indicator on Pin"
-  "ging Player, Play Ping Sound, and Play V"
-  "O\022I\n$k_EPingMarkerInfo_HideMarkerAndSoun"
-  "d\020\002\032\037\302>\034No Marker or Sound (just VO)\022b\n "
-  "k_EPingMarkerInfo_OnlyShowMarker\020\003\032<\302>9O"
-  "nly Show Ping Indicator at Ping Location"
-  " (no ping sound)\022E\n\037k_EPingMarkerInfo_On"
-  "lyPlaySound\020\004\032 \302>\035Only Play Ping Sound ("
-  "and VO)*\210\001\n\017CameraOperation\022\030\n\024k_ECamera"
-  "Op_Maintain\020\002\022\030\n\024k_ECameraOp_Approach\020\003\022"
-  "\026\n\022k_ECameraOp_Spring\020\004\022\024\n\020k_ECameraOp_L"
-  "erp\020\005\022\023\n\017k_ECameraOp_Lag\020\006*\304\001\n\013CameraPar"
-  "am\022\030\n\024k_EParam_ClearAllOps\020\000\022\"\n\036k_EParam"
-  "_ClearAllOpsForContext\020\001\022\025\n\021k_EParam_Dis"
-  "tance\020\002\022\020\n\014k_EParam_FOV\020\003\022\033\n\027k_EParam_Ta"
-  "rgetPosition\020\004\022\027\n\023k_EParam_VertOffset\020\005\022"
-  "\030\n\024k_EParam_HorizOffset\020\006*_\n\017CameraParam"
-  "Mode\022\"\n\036k_EParamMode_AllowInOneContext\020\000"
-  "\022(\n$k_EParamMode_AllowInMultipleContexts"
-  "\020\001*`\n\014CameraAction\022\023\n\017k_EAction_AddOp\020\000\022"
-  "\031\n\025k_EAction_ClearAllOps\020\001\022 \n\034k_EAction_"
-  "ClearOpsForContext\020\002*\231\004\n\023ECitadelChatMes"
-  "sage\022*\n&CITADEL_CHAT_MESSAGE_UNPAUSE_COU"
-  "NTDOWN\020\001\022!\n\035CITADEL_CHAT_MESSAGE_UNPAUSE"
-  "D\020\002\022&\n\"CITADEL_CHAT_MESSAGE_AUTO_UNPAUSE"
-  "D\020\003\022(\n$CITADEL_CHAT_MESSAGE_PAUSE_COUNTD"
-  "OWN\020\004\022\037\n\033CITADEL_CHAT_MESSAGE_PAUSED\020\005\022\""
-  "\n\036CITADEL_CHAT_MESSAGE_YOUPAUSED\020\006\022\"\n\036CI"
-  "TADEL_CHAT_MESSAGE_CANTPAUSE\020\007\022(\n$CITADE"
-  "L_CHAT_MESSAGE_CANTUNPAUSETEAM\020\010\022%\n!CITA"
-  "DEL_CHAT_MESSAGE_NOPAUSESLEFT\020\t\022%\n!CITAD"
-  "EL_CHAT_MESSAGE_CANTPAUSEYET\020\n\022*\n&CITADE"
-  "L_CHAT_MESSAGE_PREGAME_COUNTDOWN\020\013\022)\n%CI"
-  "TADEL_CHAT_MESSAGE_NOTEAMPAUSESLEFT\020\014\022)\n"
-  "%CITADEL_CHAT_MESSAGE_COMMS_RESTRICTED\020\r"
-  "*\267\001\n\030PostProcessingGameStates\022\030\n\024PostPro"
-  "cState_Killed\020\000\022\027\n\023PostProcState_Black\020\001"
-  "\022$\n PostProcState_DoormanHotelVictim\020\002\022\031"
-  "\n\025PostProcState_Blinded\020\003\022\'\n#PostProcSta"
-  "te_DrifterDarknessCaster\020\004"
+  "nvalid\"h\n!CCitadelUserMsg_ItemDraftReact"
+  "ion\022\"\n\tping_data\030\001 \001(\0132\017.PingCommonData\022"
+  "\014\n\004rare\030\002 \001(\010\022\021\n\tlegendary\030\003 \001(\010\"X\n\027CCit"
+  "adelUserMsg_MapLine\022\036\n\022sender_player_slo"
+  "t\030\001 \001(\005:\002-1\022\035\n\007mapline\030\002 \001(\0132\014.CMsgMapLi"
+  "ne\"G\n\033CCitadelUserMsg_TeamRewards\022\n\n\002xp\030"
+  "\001 \001(\r\022\014\n\004gold\030\002 \001(\r\022\016\n\006winner\030\003 \001(\010\"\360\001\n\""
+  "CCitadelUserMsg_TriggerDamageFlash\022!\n\025en"
+  "tindex_flash_victim\030\001 \001(\005:\002-1\022#\n\027entinde"
+  "x_flash_attacker\030\002 \001(\005:\002-1\022\037\n\027entindex_f"
+  "lash_hitgroup\030\003 \001(\005\022\023\n\013flash_value\030\004 \001(\r"
+  "\022\022\n\nflash_type\030\005 \001(\r\022\023\n\013flash_flags\030\006 \001("
+  "\r\022#\n\016flash_position\030\007 \001(\0132\013.CMsgVector\"\224"
+  "\002\n CCitadelUserMsg_AbilitiesChanged\022!\n\025p"
+  "urchaser_player_slot\030\001 \001(\005:\002-1\022\022\n\nabilit"
+  "y_id\030\002 \001(\r\022B\n\006change\030\003 \001(\0162(.CCitadelUse"
+  "rMsg_AbilitiesChanged.Change:\010EInvalid\"u"
+  "\n\006Change\022\025\n\010EInvalid\020\377\377\377\377\377\377\377\377\377\001\022\016\n\nEPurc"
+  "hased\020\000\022\r\n\tEUpgraded\020\001\022\t\n\005ESold\020\002\022\034\n\030ESw"
+  "appedActivatedAbility\020\003\022\014\n\010EFailure\020\004\"\300\001"
+  "\n\"CCitadelUserMsg_AbilityInterrupted\022\033\n\017"
+  "entindex_victim\030\001 \001(\005:\002-1\022 \n\024entindex_in"
+  "terrupter\030\002 \001(\005:\002-1\022\036\n\026ability_id_interr"
+  "upted\030\003 \001(\r\022\036\n\026ability_id_interrupter\030\004 "
+  "\001(\r\022\033\n\023hero_id_interrupter\030\005 \001(\r\"u\n\"CCit"
+  "adelUserMsg_AbilityLateFailure\022\033\n\017entind"
+  "ex_caster\030\001 \001(\005:\002-1\022\034\n\020entindex_ability\030"
+  "\002 \001(\005:\002-1\022\024\n\014failure_type\030\003 \001(\r\"\312\005\n#CCit"
+  "adelUserMsg_RecentDamageSummary\022\027\n\013playe"
+  "r_slot\030\001 \001(\005:\002-1\022I\n\016damage_records\030\002 \003(\013"
+  "21.CCitadelUserMsg_RecentDamageSummary.D"
+  "amageRecord\022\022\n\nstart_time\030\003 \001(\002\022\020\n\010end_t"
+  "ime\030\004 \001(\002\022\024\n\014total_damage\030\005 \001(\005\022\021\n\tlost_"
+  "gold\030\006 \001(\005\022M\n\020modifier_records\030\007 \003(\01323.C"
+  "CitadelUserMsg_RecentDamageSummary.Modif"
+  "ierRecord\032\214\002\n\014DamageRecord\022\016\n\006damage\030\001 \001"
+  "(\005\022\014\n\004hits\030\002 \001(\005\022\023\n\013damage_type\030\003 \001(\r\022\017\n"
+  "\007hero_id\030\004 \001(\r\022\022\n\nability_id\030\005 \001(\r\022\026\n\016at"
+  "tacker_class\030\006 \001(\r\022\027\n\017damage_absorbed\030\007 "
+  "\001(\002\022\027\n\017is_killing_blow\030\010 \001(\010\022\026\n\016victim_h"
+  "ero_id\030\t \001(\r\022\031\n\021is_secondary_stat\030\n \001(\010\022"
+  "\022\n\npre_damage\030\013 \001(\002\022\023\n\013crit_damage\030\014 \001(\002"
+  "\032\221\001\n\016ModifierRecord\022\022\n\nability_id\030\001 \001(\r\022"
+  "\030\n\020modifier_type_id\030\002 \001(\r\022\033\n\017entindex_ca"
+  "ster\030\003 \001(\005:\002-1\022\022\n\nstart_time\030\004 \001(\002\022\020\n\010en"
+  "d_time\030\005 \001(\002\022\016\n\006debuff\030\006 \001(\010\":\n$CCitadel"
+  "UserMsg_SpectatorTeamChanged\022\022\n\nteamnumb"
+  "er\030\001 \001(\005\"\330\001\n\031CCitadelUserMsg_ChatWheel\022\027"
+  "\n\017chat_message_id\030\001 \001(\r\022\027\n\013player_slot\030\002"
+  " \001(\005:\002-1\022\031\n\rpawn_entindex\030\003 \001(\005:\002-1\022\022\n\na"
+  "ccount_id\030\004 \001(\r\022\017\n\007hero_id\030\005 \001(\r\022\017\n\007para"
+  "m_1\030\006 \001(\t\0228\n\nlane_color\030\007 \001(\0162\016.CMsgLane"
+  "Color:\024k_ELaneColor_Invalid\"\214\001\n\027CCitadel"
+  "UserMsg_ChatMsg\022\027\n\013player_slot\030\001 \001(\005:\002-1"
+  "\022\014\n\004text\030\002 \001(\t\022\020\n\010all_chat\030\003 \001(\010\0228\n\nlane"
+  "_color\030\004 \001(\0162\016.CMsgLaneColor:\024k_ELaneCol"
+  "or_Invalid\"\247\002\n\033CCitadelUserMsg_GoldHisto"
+  "ry\022\033\n\017entindex_player\030\001 \001(\005:\002-1\022A\n\016minut"
+  "e_records\030\002 \003(\0132).CCitadelUserMsg_GoldHi"
+  "story.MinuteRecord\032C\n\nGoldRecord\022\027\n\017curr"
+  "ency_source\030\001 \001(\005\022\014\n\004gold\030\002 \001(\005\022\016\n\006event"
+  "s\030\003 \001(\005\032c\n\014MinuteRecord\022\024\n\014match_minute\030"
+  "\001 \001(\005\022=\n\014gold_records\030\002 \003(\0132\'.CCitadelUs"
+  "erMsg_GoldHistory.GoldRecord\"\272\n\n CCitade"
+  "lUserMsg_CameraController\022.\n\006action\030\001 \001("
+  "\0162\r.CameraAction:\017k_EAction_AddOp\0229\n\tope"
+  "ration\030\002 \001(\0162\020.CameraOperation:\024k_ECamer"
+  "aOp_Maintain\0221\n\005param\030\003 \001(\0162\014.CameraPara"
+  "m:\024k_EParam_ClearAllOps\022D\n\nparam_mode\030\014 "
+  "\001(\0162\020.CameraParamMode:\036k_EParamMode_Allo"
+  "wInOneContext\022\r\n\005delay\030\004 \001(\002\022\027\n\017relative"
+  "_values\030\013 \001(\010\022\031\n\021context_symbol_id\030\005 \001(\r"
+  "\022\023\n\010priority\030\r \001(\r:\0011\022<\n\010maintain\030\006 \001(\0132"
+  "*.CCitadelUserMsg_CameraController.Maint"
+  "ain\022<\n\010approach\030\007 \001(\0132*.CCitadelUserMsg_"
+  "CameraController.Approach\0228\n\006spring\030\010 \001("
+  "\0132(.CCitadelUserMsg_CameraController.Spr"
+  "ing\0224\n\004lerp\030\t \001(\0132&.CCitadelUserMsg_Came"
+  "raController.Lerp\0222\n\003lag\030\n \001(\0132%.CCitade"
+  "lUserMsg_CameraController.Lag\032\037\n\010Maintai"
+  "n\022\023\n\010duration\030\001 \001(\002:\0010\032\304\001\n\010Approach\022\022\n\005s"
+  "peed\030\001 \001(\002:\003600\022\032\n\rdefault_speed\030\002 \001(\002:\003"
+  "600\022\032\n\014acceleration\030\003 \001(\002:\0041000\022\027\n\014min_d"
+  "uration\030\004 \001(\002:\0010\022\026\n\016approach_float\030\005 \001(\002"
+  "\022$\n\017approach_vector\030\006 \001(\0132\013.CMsgVector\022\025"
+  "\n\rchase_default\030\007 \001(\010\032\216\001\n\006Spring\022\033\n\017spri"
+  "ng_strength\030\001 \001(\002:\00210\022\024\n\tmin_speed\030\004 \001(\002"
+  ":\0010\022\027\n\014max_duration\030\005 \001(\002:\0010\022\024\n\014target_f"
+  "loat\030\006 \001(\002\022\"\n\rtarget_vector\030\007 \001(\0132\013.CMsg"
+  "Vector\032\243\001\n\004Lerp\022\023\n\013start_float\030\001 \001(\002\022!\n\014"
+  "start_vector\030\002 \001(\0132\013.CMsgVector\022\021\n\tend_f"
+  "loat\030\003 \001(\002\022\037\n\nend_vector\030\004 \001(\0132\013.CMsgVec"
+  "tor\022\014\n\004bias\030\005 \001(\002\022\014\n\004gain\030\006 \001(\002\022\023\n\010durat"
+  "ion\030\007 \001(\002:\0011\032\232\001\n\003Lag\022\024\n\014min_duration\030\001 \001"
+  "(\002\022\020\n\010lag_time\030\002 \001(\002\022\021\n\tmax_speed\030\003 \001(\002\022"
+  "\027\n\017spring_strength\030\004 \001(\002\022\?\n1increase_spr"
+  "ing_strength_to_keep_target_on_screen\030\005 "
+  "\001(\010:\004true\"A\n CCitadelUserMsg_PostMatchDe"
+  "tails\022\025\n\rmatch_details\030\001 \001(\014:\006\200\265\030\300\204=\"\215\001\n"
+  "\031CCitadelUserMsg_ChatEvent\022J\n\004type\030\001 \001(\016"
+  "2\024.ECitadelChatMessage:&CITADEL_CHAT_MES"
+  "SAGE_UNPAUSE_COUNTDOWN\022\016\n\006values\030\002 \003(\r\022\024"
+  "\n\014player_slots\030\003 \003(\005\"\345\001\n\032CCitadelUserMsg"
+  "_HeroKilled\022\033\n\017entindex_victim\030\001 \001(\005:\002-1"
+  "\022\036\n\022entindex_inflictor\030\002 \001(\005:\002-1\022\035\n\021enti"
+  "ndex_attacker\030\003 \001(\005:\002-1\022\032\n\022entindex_assi"
+  "sters\030\004 \003(\005\022\033\n\017entindex_scorer\030\005 \001(\005:\002-1"
+  "\022\026\n\016respawn_reason\030\006 \001(\005\022\032\n\022victim_team_"
+  "number\030\007 \001(\005\"\241\001\n*CCitadelEntityMsg_Break"
+  "ablePropSpawnDebris\022\037\n\nentity_msg\030\001 \001(\0132"
+  "\013.CEntityMsg\022\037\n\ndamage_pos\030\002 \001(\0132\013.CMsgV"
+  "ector\022\016\n\006damage\030\003 \001(\002\022!\n\014damage_force\030\004 "
+  "\001(\0132\013.CMsgVector\"t\n\032CCitadelUserMsg_Retu"
+  "rnIdol\022\026\n\016location_index\030\001 \001(\005\022$\n\017return"
+  "_location\030\002 \001(\0132\013.CMsgVector\022\030\n\020location"
+  "_enabled\030\003 \001(\010\"d\n%CCitadelUserMsg_SetCli"
+  "entCameraAngles\022\027\n\013player_slot\030\001 \001(\005:\002-1"
+  "\022\"\n\rcamera_angles\030\002 \001(\0132\013.CMsgQAngle\"\214\001\n"
+  "\035CCitadelUserMessage_BulletHit\022\016\n\006shotid"
+  "\030\001 \001(\005\022\016\n\006pellet\030\002 \001(\005\022\030\n\014hit_entindex\030\003"
+  " \001(\005:\002-1\022\033\n\017weapon_entindex\030\004 \001(\005:\002-1\022\024\n"
+  "\014is_predicted\030\005 \001(\010\"_\n!CCitadelUserMessa"
+  "ge_ObjectiveMask\022\034\n\024objective_mask_team0"
+  "\030\002 \001(\004\022\034\n\024objective_mask_team1\030\003 \001(\004\"v\n#"
+  "CCitadelUserMessage_ModifierApplied\022\033\n\017e"
+  "ntindex_caster\030\001 \001(\005:\002-1\022\033\n\017entindex_par"
+  "ent\030\002 \001(\005:\002-1\022\025\n\rserial_number\030\003 \001(\005\"\315\001\n"
+  "\'CCitadelUserMessage_AuraModifierApplied"
+  "\022\033\n\017entindex_caster\030\001 \001(\005:\002-1\022\033\n\017entinde"
+  "x_target\030\002 \001(\005:\002-1\022\030\n\020modifier_type_id\030\003"
+  " \001(\r\022\036\n\026modifier_serial_number\030\004 \001(\005\022\027\n\017"
+  "aura_start_time\030\005 \001(\002\022\025\n\raura_end_time\030\006"
+  " \001(\002\"%\n#CCitadelUserMsg_ObstructedShotFi"
+  "red\"\370\001\n\"CCitadelUserMsg_PostProcessingAn"
+  "im\022\032\n\016entindex_owner\030\001 \001(\005:\002-1\022\030\n\020clear_"
+  "all_states\030\002 \001(\010\022>\n\005state\030\003 \001(\0162\031.PostPr"
+  "ocessingGameStates:\024PostProcState_Killed"
+  "\022\r\n\005delay\030\004 \001(\002\022\024\n\014fade_in_time\030\005 \001(\002\022\021\n"
+  "\thold_time\030\006 \001(\002\022\025\n\rfade_out_time\030\007 \001(\002\022"
+  "\r\n\005scale\030\010 \001(\002\"\230\001\n\037CCitadelUserMsg_Death"
+  "ReplayData\022\031\n\rkiller_scorer\030\001 \001(\005:\002-1\022\034\n"
+  "\020killer_inflictor\030\002 \001(\005:\002-1\022<\n\016damage_su"
+  "mmary\030\003 \001(\0132$.CCitadelUserMsg_RecentDama"
+  "geSummary\"!\n\037CCitadelUserMsg_ForceShopCl"
+  "osed\"\307\002\n&CCitadelUserMsg_PlayerLifetimeS"
+  "tatInfo\022;\n\005stats\030\001 \003(\0132,.CCitadelUserMsg"
+  "_PlayerLifetimeStatInfo.Stat\022\020\n\010match_id"
+  "\030\002 \001(\004\022\024\n\014end_of_match\030\003 \001(\010\022\031\n\021is_offic"
+  "ial_match\030\004 \001(\010\032\234\001\n\004Stat\022\021\n\tstat_name\030\001 "
+  "\001(\t\022\023\n\013match_total\030\002 \001(\r\022\026\n\016lifetime_val"
+  "ue\030\003 \001(\r\022\020\n\010priority\030\004 \001(\r\022\031\n\021prev_lifet"
+  "ime_max\030\005 \001(\r\022\021\n\tstat_type\030\006 \001(\r\022\024\n\014stat"
+  "_type_id\030\007 \001(\r\"\245\001\n\037CCitadelUserMsg_Stami"
+  "naConsumed\022\033\n\017entindex_target\030\001 \001(\005:\002-1\022"
+  "\026\n\016stamina_before\030\003 \001(\002\022\025\n\rstamina_after"
+  "\030\004 \001(\002\022\017\n\007drained\030\005 \001(\010\022\023\n\013stamina_max\030\006"
+  " \001(\002\022\020\n\010gametime\030\007 \001(\002\"\212\001\n!CCitadelUserM"
+  "essage_AbilityNotify\022\033\n\017entindex_victim\030"
+  "\001 \001(\005:\002-1\022\035\n\021entindex_attacker\030\002 \001(\005:\002-1"
+  "\022\022\n\nability_id\030\003 \001(\r\022\025\n\rstatus_impact\030\004 "
+  "\001(\r\"\206\002\n#CCitadelUserMessage_CurrencyChan"
+  "ged\022\022\n\006userid\030\001 \001(\005:\002-1\022\025\n\rcurrency_type"
+  "\030\002 \001(\005\022\027\n\017currency_source\030\003 \001(\005\022\r\n\005delta"
+  "\030\004 \001(\005\022\024\n\014notification\030\005 \001(\010\022\033\n\017entindex"
+  "_victim\030\006 \001(\005:\002-1\022\037\n\nvictim_pos\030\007 \001(\0132\013."
+  "CMsgVector\022\021\n\tplaysound\030\010 \001(\005\022\022\n\nability"
+  "_id\030\t \001(\r\022\021\n\tnew_value\030\n \001(\r\"I\n\034CCitadel"
+  "UserMessage_GameOver\022\024\n\014winning_team\030\001 \001"
+  "(\005\022\023\n\013just_a_test\030\002 \001(\010\"\227\002\n&CCitadelUser"
+  "Msg_GetDamageStatsResponse\022\023\n\013player_slo"
+  "t\030\001 \001(\r\022\024\n\014ability_name\030\002 \001(\t\022@\n\006damage\030"
+  "\003 \001(\01320.CCitadelUserMsg_GetDamageStatsRe"
+  "sponse.StatType\022A\n\007healing\030\004 \001(\01320.CCita"
+  "delUserMsg_GetDamageStatsResponse.StatTy"
+  "pe\032=\n\010StatType\022\036\n\022target_player_slot\030\001 \003"
+  "(\rB\002\020\001\022\021\n\005value\030\002 \003(\rB\002\020\001\"j\n*CCitadelUse"
+  "rMsg_ParticipantStartSoundEvent\022&\n\005event"
+  "\030\001 \001(\0132\027.CMsgSosStartSoundEvent\022\024\n\014playe"
+  "r_slots\030\002 \003(\005\"h\n)CCitadelUserMsg_Partici"
+  "pantStopSoundEvent\022%\n\005event\030\001 \001(\0132\026.CMsg"
+  "SosStopSoundEvent\022\024\n\014player_slots\030\002 \003(\005\""
+  "p\n-CCitadelUserMsg_ParticipantStopSoundE"
+  "ventHash\022)\n\005event\030\001 \001(\0132\032.CMsgSosStopSou"
+  "ndEventHash\022\024\n\014player_slots\030\002 \003(\005\"r\n.CCi"
+  "tadelUserMsg_ParticipantSetSoundEventPar"
+  "ams\022*\n\005event\030\001 \001(\0132\033.CMsgSosSetSoundEven"
+  "tParams\022\024\n\014player_slots\030\002 \003(\005\"v\n0CCitade"
+  "lUserMsg_ParticipantSetLibraryStackField"
+  "s\022,\n\005event\030\001 \001(\0132\035.CMsgSosSetLibraryStac"
+  "kFields\022\024\n\014player_slots\030\002 \003(\005\"\204\002\n\032CCitad"
+  "elUserMsg_BossKilled\022\026\n\016objective_team\030\001"
+  " \001(\005\022\035\n\025objective_mask_change\030\002 \001(\005\022\037\n\re"
+  "ntity_killed\030\003 \001(\r:\01016777215\022\033\n\023entity_k"
+  "illed_class\030\004 \001(\005\022\037\n\rentity_killer\030\005 \001(\r"
+  ":\01016777215\022\020\n\010gametime\030\006 \001(\002\022\030\n\020bosses_r"
+  "emaining\030\007 \001(\005\022$\n\017entity_position\030\010 \001(\0132"
+  "\013.CMsgVector\"m\n\033CCitadelUserMsg_BossDama"
+  "ged\022\026\n\016objective_team\030\001 \001(\005\022\024\n\014objective"
+  "_id\030\002 \001(\005\022 \n\016entity_damaged\030\003 \001(\r:\01016777"
+  "215\" \n\036CCitadelUserMsg_MidBossSpawned\"y\n"
+  "\033CCitadelUserMsg_RejuvStatus\022\024\n\014killing_"
+  "team\030\001 \001(\005\022\035\n\013player_pawn\030\002 \001(\r:\0101677721"
+  "5\022\021\n\tuser_team\030\003 \001(\005\022\022\n\nevent_type\030\004 \001(\005"
+  "\"\221\001\n\032CCitadelUserMsg_KillStreak\022\035\n\013playe"
+  "r_pawn\030\001 \001(\r:\01016777215\022\021\n\tnum_kills\030\002 \001("
+  "\005\022\026\n\016is_first_blood\030\003 \001(\010\022\024\n\014streak_ende"
+  "d\030\004 \001(\010\022\023\n\010duration\030\005 \001(\002:\0015\"{\n\027CCitadel"
+  "UserMsg_TeamMsg\022\022\n\nevent_type\030\001 \001(\005\022\023\n\013t"
+  "eam_number\030\002 \001(\005\022\022\n\nlane_color\030\003 \001(\005\022#\n\021"
+  "player_controller\030\004 \001(\r:\01016777215\"T\n\037CCi"
+  "tadelUserMsg_PlayerRespawned\022\035\n\013player_p"
+  "awn\030\001 \001(\r:\01016777215\022\022\n\nfacing_yaw\030\002 \001(\002\""
+  ":\n\037CCitadelUserMsg_CallCheaterVote\022\027\n\013pl"
+  "ayer_slot\030\001 \001(\005:\002-1\"G\n\034CCitadelUserMessa"
+  "ge_MeleeHit\022\030\n\014hit_entindex\030\001 \001(\005:\002-1\022\r\n"
+  "\005heavy\030\002 \001(\010\"R\n CCitadelUserMsg_FlexSlot"
+  "Unlocked\022\023\n\013team_number\030\001 \001(\005\022\031\n\021flexslo"
+  "t_unlocked\030\002 \001(\005\"v\n,CCitadelUserMessage_"
+  "ItemPurchaseNotification\022\022\n\006userid\030\001 \001(\005"
+  ":\002-1\022\022\n\nability_id\030\002 \001(\r\022\014\n\004sell\030\003 \001(\010\022\020"
+  "\n\010quickbuy\030\004 \001(\010\"R\n\034CCitadelUserMsg_Seas"
+  "onalKill\022\030\n\006killer\030\001 \001(\r:\01016777215\022\030\n\006vi"
+  "ctim\030\002 \001(\r:\01016777215\"C\n\032CCitadelUserMsg_"
+  "MusicQueue\022\023\n\013music_state\030\001 \001(\005\022\020\n\010overr"
+  "ide\030\002 \001(\010\"H\n\037CCitadelUserMsg_AG2ParamTri"
+  "gger\022\020\n\010param_id\030\001 \001(\t\022\023\n\013param_value\030\002 "
+  "\001(\t\"o\n\037CCitadelUserMsg_EntityPortalled\022\""
+  "\n\020entity_portalled\030\001 \001(\r:\01016777215\022(\n\020po"
+  "rtal_transform\030\002 \001(\0132\016.CMsgTransform\"|\n\""
+  "CCitadelUserMsg_StreetBrawlScoring\022\024\n\014sc"
+  "oring_team\030\001 \001(\005\022\023\n\013just_a_test\030\002 \001(\010\022\026\n"
+  "\016sapphire_score\030\003 \001(\005\022\023\n\013amber_score\030\004 \001"
+  "(\005\"\261\001\n#CCitadelUserMsg_HudGameAnnounceme"
+  "nt\022\027\n\017title_locstring\030\001 \001(\t\022\035\n\025descripti"
+  "on_locstring\030\002 \001(\t\022\021\n\tclassname\030\003 \003(\t\022\034\n"
+  "\024dialog_variable_name\030\004 \003(\t\022!\n\031dialog_va"
+  "riable_locstring\030\005 \003(\t\"t\n(CCitadelUserMe"
+  "ssage_ImportantAbilityUsed\022\030\n\006player\030\001 \001"
+  "(\r:\01016777215\022\030\n\006caster\030\002 \001(\r:\01016777215\022\024"
+  "\n\014ability_name\030\003 \001(\t*\340\017\n\025CitadelUserMess"
+  "ageIds\022\026\n\021k_EUserMsg_Damage\020\254\002\022\027\n\022k_EUse"
+  "rMsg_MapPing\020\257\002\022\033\n\026k_EUserMsg_TeamReward"
+  "s\020\260\002\022\035\n\030k_EUserMsg_AbilityFailed\020\262\002\022\"\n\035k"
+  "_EUserMsg_TriggerDamageFlash\020\264\002\022 \n\033k_EUs"
+  "erMsg_AbilitiesChanged\020\265\002\022#\n\036k_EUserMsg_"
+  "RecentDamageSummary\020\266\002\022$\n\037k_EUserMsg_Spe"
+  "ctatorTeamChanged\020\267\002\022\031\n\024k_EUserMsg_ChatW"
+  "heel\020\270\002\022\033\n\026k_EUserMsg_GoldHistory\020\271\002\022\027\n\022"
+  "k_EUserMsg_ChatMsg\020\272\002\022\035\n\030k_EUserMsg_Quic"
+  "kResponse\020\273\002\022 \n\033k_EUserMsg_PostMatchDeta"
+  "ils\020\274\002\022\031\n\024k_EUserMsg_ChatEvent\020\275\002\022\"\n\035k_E"
+  "UserMsg_AbilityInterrupted\020\276\002\022\032\n\025k_EUser"
+  "Msg_HeroKilled\020\277\002\022\032\n\025k_EUserMsg_ReturnId"
+  "ol\020\300\002\022%\n k_EUserMsg_SetClientCameraAngle"
+  "s\020\301\002\022\027\n\022k_EUserMsg_MapLine\020\302\002\022\031\n\024k_EUser"
+  "Msg_BulletHit\020\303\002\022\035\n\030k_EUserMsg_Objective"
+  "Mask\020\304\002\022\037\n\032k_EUserMsg_ModifierApplied\020\305\002"
+  "\022 \n\033k_EUserMsg_CameraController\020\306\002\022#\n\036k_"
+  "EUserMsg_AuraModifierApplied\020\307\002\022#\n\036k_EUs"
+  "erMsg_ObstructedShotFired\020\311\002\022\"\n\035k_EUserM"
+  "sg_AbilityLateFailure\020\312\002\022\033\n\026k_EUserMsg_A"
+  "bilityPing\020\313\002\022\"\n\035k_EUserMsg_PostProcessi"
+  "ngAnim\020\314\002\022\037\n\032k_EUserMsg_DeathReplayData\020"
+  "\315\002\022&\n!k_EUserMsg_PlayerLifetimeStatInfo\020"
+  "\316\002\022\037\n\032k_EUserMsg_ForceShopClosed\020\320\002\022\037\n\032k"
+  "_EUserMsg_StaminaConsumed\020\321\002\022\035\n\030k_EUserM"
+  "sg_AbilityNotify\020\322\002\022&\n!k_EUserMsg_GetDam"
+  "ageStatsResponse\020\323\002\022*\n%k_EUserMsg_Partic"
+  "ipantStartSoundEvent\020\324\002\022)\n$k_EUserMsg_Pa"
+  "rticipantStopSoundEvent\020\325\002\022-\n(k_EUserMsg"
+  "_ParticipantStopSoundEventHash\020\326\002\022.\n)k_E"
+  "UserMsg_ParticipantSetSoundEventParams\020\327"
+  "\002\0220\n+k_EUserMsg_ParticipantSetLibrarySta"
+  "ckFields\020\330\002\022\037\n\032k_EUserMsg_CurrencyChange"
+  "d\020\331\002\022\030\n\023k_EUserMsg_GameOver\020\332\002\022\032\n\025k_EUse"
+  "rMsg_BossKilled\020\333\002\022\033\n\026k_EUserMsg_BossDam"
+  "aged\020\334\002\022\036\n\031k_EUserMsg_MidBossSpawned\020\335\002\022"
+  "\033\n\026k_EUserMsg_RejuvStatus\020\336\002\022\032\n\025k_EUserM"
+  "sg_KillStreak\020\337\002\022\027\n\022k_EUserMsg_TeamMsg\020\340"
+  "\002\022\037\n\032k_EUserMsg_PlayerRespawned\020\341\002\022\037\n\032k_"
+  "EUserMsg_CallCheaterVote\020\342\002\022\030\n\023k_EUserMs"
+  "g_MeleeHit\020\343\002\022 \n\033k_EUserMsg_FlexSlotUnlo"
+  "cked\020\344\002\022\034\n\027k_EUserMsg_SeasonalKill\020\345\002\022\032\n"
+  "\025k_EUserMsg_MusicQueue\020\346\002\022\037\n\032k_EUserMsg_"
+  "AG2ParamTrigger\020\347\002\022(\n#k_EUserMsg_ItemPur"
+  "chaseNotification\020\350\002\022\037\n\032k_EUserMsg_Entit"
+  "yPortalled\020\351\002\022\"\n\035k_EUserMsg_StreetBrawlS"
+  "coring\020\352\002\022#\n\036k_EUserMsg_HudGameAnnouncem"
+  "ent\020\353\002\022!\n\034k_EUserMsg_ItemDraftReaction\020\354"
+  "\002\022$\n\037k_EUserMsg_ImportantAbilityUsed\020\355\002*"
+  "E\n\027CitadelEntityMessageIds\022*\n%k_EEntityM"
+  "sg_BreakablePropSpawnDebris\020\364\003*\300\004\n\025ChatM"
+  "sgPingMarkerInfo\022o\n$k_EPingMarkerInfo_Sh"
+  "owMarkerAndSound\020\000\032E\302>BShow Ping Indicat"
+  "or at Ping Location, Play Ping Sound, an"
+  "d Play VO\022p\n$k_EPingMarkerInfo_ShowMarke"
+  "rOnSender\020\001\032F\302>CShow Ping Indicator on P"
+  "inging Player, Play Ping Sound, and Play"
+  " VO\022I\n$k_EPingMarkerInfo_HideMarkerAndSo"
+  "und\020\002\032\037\302>\034No Marker or Sound (just VO)\022b"
+  "\n k_EPingMarkerInfo_OnlyShowMarker\020\003\032<\302>"
+  "9Only Show Ping Indicator at Ping Locati"
+  "on (no ping sound)\022E\n\037k_EPingMarkerInfo_"
+  "OnlyPlaySound\020\004\032 \302>\035Only Play Ping Sound"
+  " (and VO)\022N\n\035k_EPingMarkerInfo_OnlyMiniM"
+  "ap\020\005\032+\302>(Only show on Minimap, no world,"
+  " no sound*\210\001\n\017CameraOperation\022\030\n\024k_ECame"
+  "raOp_Maintain\020\002\022\030\n\024k_ECameraOp_Approach\020"
+  "\003\022\026\n\022k_ECameraOp_Spring\020\004\022\024\n\020k_ECameraOp"
+  "_Lerp\020\005\022\023\n\017k_ECameraOp_Lag\020\006*\304\001\n\013CameraP"
+  "aram\022\030\n\024k_EParam_ClearAllOps\020\000\022\"\n\036k_EPar"
+  "am_ClearAllOpsForContext\020\001\022\025\n\021k_EParam_D"
+  "istance\020\002\022\020\n\014k_EParam_FOV\020\003\022\033\n\027k_EParam_"
+  "TargetPosition\020\004\022\027\n\023k_EParam_VertOffset\020"
+  "\005\022\030\n\024k_EParam_HorizOffset\020\006*_\n\017CameraPar"
+  "amMode\022\"\n\036k_EParamMode_AllowInOneContext"
+  "\020\000\022(\n$k_EParamMode_AllowInMultipleContex"
+  "ts\020\001*`\n\014CameraAction\022\023\n\017k_EAction_AddOp\020"
+  "\000\022\031\n\025k_EAction_ClearAllOps\020\001\022 \n\034k_EActio"
+  "n_ClearOpsForContext\020\002*\231\004\n\023ECitadelChatM"
+  "essage\022*\n&CITADEL_CHAT_MESSAGE_UNPAUSE_C"
+  "OUNTDOWN\020\001\022!\n\035CITADEL_CHAT_MESSAGE_UNPAU"
+  "SED\020\002\022&\n\"CITADEL_CHAT_MESSAGE_AUTO_UNPAU"
+  "SED\020\003\022(\n$CITADEL_CHAT_MESSAGE_PAUSE_COUN"
+  "TDOWN\020\004\022\037\n\033CITADEL_CHAT_MESSAGE_PAUSED\020\005"
+  "\022\"\n\036CITADEL_CHAT_MESSAGE_YOUPAUSED\020\006\022\"\n\036"
+  "CITADEL_CHAT_MESSAGE_CANTPAUSE\020\007\022(\n$CITA"
+  "DEL_CHAT_MESSAGE_CANTUNPAUSETEAM\020\010\022%\n!CI"
+  "TADEL_CHAT_MESSAGE_NOPAUSESLEFT\020\t\022%\n!CIT"
+  "ADEL_CHAT_MESSAGE_CANTPAUSEYET\020\n\022*\n&CITA"
+  "DEL_CHAT_MESSAGE_PREGAME_COUNTDOWN\020\013\022)\n%"
+  "CITADEL_CHAT_MESSAGE_NOTEAMPAUSESLEFT\020\014\022"
+  ")\n%CITADEL_CHAT_MESSAGE_COMMS_RESTRICTED"
+  "\020\r*\325\001\n\030PostProcessingGameStates\022\030\n\024PostP"
+  "rocState_Killed\020\000\022\027\n\023PostProcState_Black"
+  "\020\001\022$\n PostProcState_DoormanHotelVictim\020\002"
+  "\022\031\n\025PostProcState_Blinded\020\003\022\'\n#PostProcS"
+  "tate_DrifterDarknessCaster\020\004\022\034\n\030PostProc"
+  "State_MatchIntro\020\005"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fusermessages_2eproto_deps[4] = {
   &::descriptor_table_citadel_5fgcmessages_5fcommon_2eproto,
@@ -2749,9 +2919,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fusermessa
 };
 static ::_pbi::once_flag descriptor_table_citadel_5fusermessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_citadel_5fusermessages_2eproto = {
-    false, false, 14586, descriptor_table_protodef_citadel_5fusermessages_2eproto,
+    false, false, 15498, descriptor_table_protodef_citadel_5fusermessages_2eproto,
     "citadel_usermessages.proto",
-    &descriptor_table_citadel_5fusermessages_2eproto_once, descriptor_table_citadel_5fusermessages_2eproto_deps, 4, 70,
+    &descriptor_table_citadel_5fusermessages_2eproto_once, descriptor_table_citadel_5fusermessages_2eproto_deps, 4, 74,
     schemas, file_default_instances, TableStruct_citadel_5fusermessages_2eproto::offsets,
     file_level_metadata_citadel_5fusermessages_2eproto, file_level_enum_descriptors_citadel_5fusermessages_2eproto,
     file_level_service_descriptors_citadel_5fusermessages_2eproto,
@@ -2853,6 +3023,10 @@ bool CitadelUserMessageIds_IsValid(int value) {
     case 359:
     case 360:
     case 361:
+    case 362:
+    case 363:
+    case 364:
+    case 365:
       return true;
     default:
       return false;
@@ -2883,6 +3057,7 @@ bool ChatMsgPingMarkerInfo_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+    case 5:
       return true;
     default:
       return false;
@@ -2990,6 +3165,7 @@ bool PostProcessingGameStates_IsValid(int value) {
     case 2:
     case 3:
     case 4:
+    case 5:
       return true;
     default:
       return false;
@@ -4740,9 +4916,6 @@ class CCitadelUserMsg_MapPing::_Internal {
   static void set_has_is_blind_ping(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000002) ^ 0x00000002) != 0;
-  }
 };
 
 const ::PingCommonData&
@@ -4861,7 +5034,7 @@ const char* CCitadelUserMsg_MapPing::_InternalParse(const char* ptr, ::_pbi::Par
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .PingCommonData ping_data = 1;
+      // optional .PingCommonData ping_data = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_ping_data(), ptr);
@@ -4970,7 +5143,7 @@ uint8_t* CCitadelUserMsg_MapPing::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .PingCommonData ping_data = 1;
+  // optional .PingCommonData ping_data = 1;
   if (cached_has_bits & 0x00000002u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, _Internal::ping_data(this),
@@ -5036,25 +5209,26 @@ size_t CCitadelUserMsg_MapPing::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_MapPing)
   size_t total_size = 0;
 
-  // required .PingCommonData ping_data = 1;
-  if (_internal_has_ping_data()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.ping_data_);
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional string pinged_hero_name = 7;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
-        this->_internal_pinged_hero_name());
-  }
+  if (cached_has_bits & 0x000000ffu) {
+    // optional string pinged_hero_name = 7;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_pinged_hero_name());
+    }
 
-  if (cached_has_bits & 0x000000fcu) {
+    // optional .PingCommonData ping_data = 1;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.ping_data_);
+    }
+
     // optional uint32 event_type = 2;
     if (cached_has_bits & 0x00000004u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_event_type());
@@ -5145,7 +5319,6 @@ void CCitadelUserMsg_MapPing::CopyFrom(const CCitadelUserMsg_MapPing& from) {
 }
 
 bool CCitadelUserMsg_MapPing::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -5184,9 +5357,6 @@ class CCitadelUserMsg_PingWheel::_Internal {
   }
   static void set_has_ping_wheel_option_id(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -5270,7 +5440,7 @@ const char* CCitadelUserMsg_PingWheel::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .PingCommonData ping_data = 1;
+      // optional .PingCommonData ping_data = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_ping_data(), ptr);
@@ -5318,7 +5488,7 @@ uint8_t* CCitadelUserMsg_PingWheel::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .PingCommonData ping_data = 1;
+  // optional .PingCommonData ping_data = 1;
   if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, _Internal::ping_data(this),
@@ -5343,22 +5513,25 @@ size_t CCitadelUserMsg_PingWheel::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_PingWheel)
   size_t total_size = 0;
 
-  // required .PingCommonData ping_data = 1;
-  if (_internal_has_ping_data()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.ping_data_);
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional uint32 ping_wheel_option_id = 2;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000002u) {
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ping_wheel_option_id());
-  }
+  if (cached_has_bits & 0x00000003u) {
+    // optional .PingCommonData ping_data = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.ping_data_);
+    }
 
+    // optional uint32 ping_wheel_option_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ping_wheel_option_id());
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -5399,7 +5572,6 @@ void CCitadelUserMsg_PingWheel::CopyFrom(const CCitadelUserMsg_PingWheel& from) 
 }
 
 bool CCitadelUserMsg_PingWheel::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -5754,9 +5926,6 @@ class CCitadelUserMsg_QuickResponse::_Internal {
   static void set_has_lane_color(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
-  }
 };
 
 const ::PingCommonData&
@@ -5850,7 +6019,7 @@ const char* CCitadelUserMsg_QuickResponse::_InternalParse(const char* ptr, ::_pb
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .PingCommonData ping_data = 1;
+      // optional .PingCommonData ping_data = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_ping_data(), ptr);
@@ -5920,7 +6089,7 @@ uint8_t* CCitadelUserMsg_QuickResponse::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .PingCommonData ping_data = 1;
+  // optional .PingCommonData ping_data = 1;
   if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, _Internal::ping_data(this),
@@ -5958,18 +6127,19 @@ size_t CCitadelUserMsg_QuickResponse::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_QuickResponse)
   size_t total_size = 0;
 
-  // required .PingCommonData ping_data = 1;
-  if (_internal_has_ping_data()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.ping_data_);
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000eu) {
+  if (cached_has_bits & 0x0000000fu) {
+    // optional .PingCommonData ping_data = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.ping_data_);
+    }
+
     // optional uint32 responding_to_ping_message_id = 2;
     if (cached_has_bits & 0x00000002u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_responding_to_ping_message_id());
@@ -6033,7 +6203,6 @@ void CCitadelUserMsg_QuickResponse::CopyFrom(const CCitadelUserMsg_QuickResponse
 }
 
 bool CCitadelUserMsg_QuickResponse::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -6054,6 +6223,285 @@ void CCitadelUserMsg_QuickResponse::InternalSwap(CCitadelUserMsg_QuickResponse* 
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
       file_level_metadata_citadel_5fusermessages_2eproto[6]);
+}
+
+// ===================================================================
+
+class CCitadelUserMsg_ItemDraftReaction::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CCitadelUserMsg_ItemDraftReaction>()._impl_._has_bits_);
+  static const ::PingCommonData& ping_data(const CCitadelUserMsg_ItemDraftReaction* msg);
+  static void set_has_ping_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_rare(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_legendary(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+const ::PingCommonData&
+CCitadelUserMsg_ItemDraftReaction::_Internal::ping_data(const CCitadelUserMsg_ItemDraftReaction* msg) {
+  return *msg->_impl_.ping_data_;
+}
+CCitadelUserMsg_ItemDraftReaction::CCitadelUserMsg_ItemDraftReaction(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CCitadelUserMsg_ItemDraftReaction)
+}
+CCitadelUserMsg_ItemDraftReaction::CCitadelUserMsg_ItemDraftReaction(const CCitadelUserMsg_ItemDraftReaction& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CCitadelUserMsg_ItemDraftReaction* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ping_data_){nullptr}
+    , decltype(_impl_.rare_){}
+    , decltype(_impl_.legendary_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  if (from._internal_has_ping_data()) {
+    _this->_impl_.ping_data_ = new ::PingCommonData(*from._impl_.ping_data_);
+  }
+  ::memcpy(&_impl_.rare_, &from._impl_.rare_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.legendary_) -
+    reinterpret_cast<char*>(&_impl_.rare_)) + sizeof(_impl_.legendary_));
+  // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_ItemDraftReaction)
+}
+
+inline void CCitadelUserMsg_ItemDraftReaction::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ping_data_){nullptr}
+    , decltype(_impl_.rare_){false}
+    , decltype(_impl_.legendary_){false}
+  };
+}
+
+CCitadelUserMsg_ItemDraftReaction::~CCitadelUserMsg_ItemDraftReaction() {
+  // @@protoc_insertion_point(destructor:CCitadelUserMsg_ItemDraftReaction)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CCitadelUserMsg_ItemDraftReaction::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  if (this != internal_default_instance()) delete _impl_.ping_data_;
+}
+
+void CCitadelUserMsg_ItemDraftReaction::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CCitadelUserMsg_ItemDraftReaction::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCitadelUserMsg_ItemDraftReaction)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    GOOGLE_DCHECK(_impl_.ping_data_ != nullptr);
+    _impl_.ping_data_->Clear();
+  }
+  ::memset(&_impl_.rare_, 0, static_cast<size_t>(
+      reinterpret_cast<char*>(&_impl_.legendary_) -
+      reinterpret_cast<char*>(&_impl_.rare_)) + sizeof(_impl_.legendary_));
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCitadelUserMsg_ItemDraftReaction::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional .PingCommonData ping_data = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr = ctx->ParseMessage(_internal_mutable_ping_data(), ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool rare = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_rare(&has_bits);
+          _impl_.rare_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool legendary = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_legendary(&has_bits);
+          _impl_.legendary_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CCitadelUserMsg_ItemDraftReaction::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMsg_ItemDraftReaction)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional .PingCommonData ping_data = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(1, _Internal::ping_data(this),
+        _Internal::ping_data(this).GetCachedSize(), target, stream);
+  }
+
+  // optional bool rare = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_rare(), target);
+  }
+
+  // optional bool legendary = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_legendary(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMsg_ItemDraftReaction)
+  return target;
+}
+
+size_t CCitadelUserMsg_ItemDraftReaction::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_ItemDraftReaction)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional .PingCommonData ping_data = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.ping_data_);
+    }
+
+    // optional bool rare = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool legendary = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMsg_ItemDraftReaction::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CCitadelUserMsg_ItemDraftReaction::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_ItemDraftReaction::GetClassData() const { return &_class_data_; }
+
+
+void CCitadelUserMsg_ItemDraftReaction::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CCitadelUserMsg_ItemDraftReaction*>(&to_msg);
+  auto& from = static_cast<const CCitadelUserMsg_ItemDraftReaction&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMsg_ItemDraftReaction)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_mutable_ping_data()->::PingCommonData::MergeFrom(
+          from._internal_ping_data());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.rare_ = from._impl_.rare_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.legendary_ = from._impl_.legendary_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CCitadelUserMsg_ItemDraftReaction::CopyFrom(const CCitadelUserMsg_ItemDraftReaction& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMsg_ItemDraftReaction)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCitadelUserMsg_ItemDraftReaction::IsInitialized() const {
+  return true;
+}
+
+void CCitadelUserMsg_ItemDraftReaction::InternalSwap(CCitadelUserMsg_ItemDraftReaction* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_ItemDraftReaction, _impl_.legendary_)
+      + sizeof(CCitadelUserMsg_ItemDraftReaction::_impl_.legendary_)
+      - PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_ItemDraftReaction, _impl_.ping_data_)>(
+          reinterpret_cast<char*>(&_impl_.ping_data_),
+          reinterpret_cast<char*>(&other->_impl_.ping_data_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ItemDraftReaction::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
+      file_level_metadata_citadel_5fusermessages_2eproto[7]);
 }
 
 // ===================================================================
@@ -6302,7 +6750,7 @@ void CCitadelUserMsg_MapLine::InternalSwap(CCitadelUserMsg_MapLine* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_MapLine::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[7]);
+      file_level_metadata_citadel_5fusermessages_2eproto[8]);
 }
 
 // ===================================================================
@@ -6567,7 +7015,7 @@ void CCitadelUserMsg_TeamRewards::InternalSwap(CCitadelUserMsg_TeamRewards* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_TeamRewards::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[8]);
+      file_level_metadata_citadel_5fusermessages_2eproto[9]);
 }
 
 // ===================================================================
@@ -6968,7 +7416,7 @@ void CCitadelUserMsg_TriggerDamageFlash::InternalSwap(CCitadelUserMsg_TriggerDam
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_TriggerDamageFlash::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[9]);
+      file_level_metadata_citadel_5fusermessages_2eproto[10]);
 }
 
 // ===================================================================
@@ -7236,7 +7684,7 @@ void CCitadelUserMsg_AbilitiesChanged::InternalSwap(CCitadelUserMsg_AbilitiesCha
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_AbilitiesChanged::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[10]);
+      file_level_metadata_citadel_5fusermessages_2eproto[11]);
 }
 
 // ===================================================================
@@ -7561,7 +8009,7 @@ void CCitadelUserMsg_AbilityInterrupted::InternalSwap(CCitadelUserMsg_AbilityInt
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_AbilityInterrupted::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[11]);
+      file_level_metadata_citadel_5fusermessages_2eproto[12]);
 }
 
 // ===================================================================
@@ -7823,7 +8271,7 @@ void CCitadelUserMsg_AbilityLateFailure::InternalSwap(CCitadelUserMsg_AbilityLat
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_AbilityLateFailure::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[12]);
+      file_level_metadata_citadel_5fusermessages_2eproto[13]);
 }
 
 // ===================================================================
@@ -8350,7 +8798,7 @@ void CCitadelUserMsg_RecentDamageSummary_DamageRecord::InternalSwap(CCitadelUser
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_RecentDamageSummary_DamageRecord::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[13]);
+      file_level_metadata_citadel_5fusermessages_2eproto[14]);
 }
 
 // ===================================================================
@@ -8701,7 +9149,7 @@ void CCitadelUserMsg_RecentDamageSummary_ModifierRecord::InternalSwap(CCitadelUs
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_RecentDamageSummary_ModifierRecord::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[14]);
+      file_level_metadata_citadel_5fusermessages_2eproto[15]);
 }
 
 // ===================================================================
@@ -9092,7 +9540,7 @@ void CCitadelUserMsg_RecentDamageSummary::InternalSwap(CCitadelUserMsg_RecentDam
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_RecentDamageSummary::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[15]);
+      file_level_metadata_citadel_5fusermessages_2eproto[16]);
 }
 
 // ===================================================================
@@ -9283,7 +9731,7 @@ void CCitadelUserMsg_SpectatorTeamChanged::InternalSwap(CCitadelUserMsg_Spectato
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_SpectatorTeamChanged::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[16]);
+      file_level_metadata_citadel_5fusermessages_2eproto[17]);
 }
 
 // ===================================================================
@@ -9701,7 +10149,7 @@ void CCitadelUserMsg_ChatWheel::InternalSwap(CCitadelUserMsg_ChatWheel* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ChatWheel::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[17]);
+      file_level_metadata_citadel_5fusermessages_2eproto[18]);
 }
 
 // ===================================================================
@@ -10033,7 +10481,7 @@ void CCitadelUserMsg_ChatMsg::InternalSwap(CCitadelUserMsg_ChatMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ChatMsg::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[18]);
+      file_level_metadata_citadel_5fusermessages_2eproto[19]);
 }
 
 // ===================================================================
@@ -10298,7 +10746,7 @@ void CCitadelUserMsg_GoldHistory_GoldRecord::InternalSwap(CCitadelUserMsg_GoldHi
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_GoldHistory_GoldRecord::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[19]);
+      file_level_metadata_citadel_5fusermessages_2eproto[20]);
 }
 
 // ===================================================================
@@ -10523,7 +10971,7 @@ void CCitadelUserMsg_GoldHistory_MinuteRecord::InternalSwap(CCitadelUserMsg_Gold
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_GoldHistory_MinuteRecord::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[20]);
+      file_level_metadata_citadel_5fusermessages_2eproto[21]);
 }
 
 // ===================================================================
@@ -10748,7 +11196,7 @@ void CCitadelUserMsg_GoldHistory::InternalSwap(CCitadelUserMsg_GoldHistory* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_GoldHistory::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[21]);
+      file_level_metadata_citadel_5fusermessages_2eproto[22]);
 }
 
 // ===================================================================
@@ -10939,7 +11387,7 @@ void CCitadelUserMsg_CameraController_Maintain::InternalSwap(CCitadelUserMsg_Cam
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_CameraController_Maintain::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[22]);
+      file_level_metadata_citadel_5fusermessages_2eproto[23]);
 }
 
 // ===================================================================
@@ -11342,7 +11790,7 @@ void CCitadelUserMsg_CameraController_Approach::InternalSwap(CCitadelUserMsg_Cam
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_CameraController_Approach::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[23]);
+      file_level_metadata_citadel_5fusermessages_2eproto[24]);
 }
 
 // ===================================================================
@@ -11685,7 +12133,7 @@ void CCitadelUserMsg_CameraController_Spring::InternalSwap(CCitadelUserMsg_Camer
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_CameraController_Spring::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[24]);
+      file_level_metadata_citadel_5fusermessages_2eproto[25]);
 }
 
 // ===================================================================
@@ -12106,7 +12554,7 @@ void CCitadelUserMsg_CameraController_Lerp::InternalSwap(CCitadelUserMsg_CameraC
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_CameraController_Lerp::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[25]);
+      file_level_metadata_citadel_5fusermessages_2eproto[26]);
 }
 
 // ===================================================================
@@ -12429,7 +12877,7 @@ void CCitadelUserMsg_CameraController_Lag::InternalSwap(CCitadelUserMsg_CameraCo
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_CameraController_Lag::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[26]);
+      file_level_metadata_citadel_5fusermessages_2eproto[27]);
 }
 
 // ===================================================================
@@ -12480,9 +12928,6 @@ class CCitadelUserMsg_CameraController::_Internal {
   static const ::CCitadelUserMsg_CameraController_Lag& lag(const CCitadelUserMsg_CameraController* msg);
   static void set_has_lag(HasBits* has_bits) {
     (*has_bits)[0] |= 16u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000020) ^ 0x00000020) != 0;
   }
 };
 
@@ -12651,7 +13096,7 @@ const char* CCitadelUserMsg_CameraController::_InternalParse(const char* ptr, ::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .CameraAction action = 1 [default = k_EAction_AddOp];
+      // optional .CameraAction action = 1 [default = k_EAction_AddOp];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -12810,7 +13255,7 @@ uint8_t* CCitadelUserMsg_CameraController::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .CameraAction action = 1 [default = k_EAction_AddOp];
+  // optional .CameraAction action = 1 [default = k_EAction_AddOp];
   if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -12909,17 +13354,12 @@ size_t CCitadelUserMsg_CameraController::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_CameraController)
   size_t total_size = 0;
 
-  // required .CameraAction action = 1 [default = k_EAction_AddOp];
-  if (_internal_has_action()) {
-    total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_action());
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x000000ffu) {
     // optional .CCitadelUserMsg_CameraController.Maintain maintain = 6;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -12955,8 +13395,12 @@ size_t CCitadelUserMsg_CameraController::ByteSizeLong() const {
           *_impl_.lag_);
     }
 
-  }
-  if (cached_has_bits & 0x000000c0u) {
+    // optional .CameraAction action = 1 [default = k_EAction_AddOp];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_action());
+    }
+
     // optional .CameraParam param = 3 [default = k_EParam_ClearAllOps];
     if (cached_has_bits & 0x00000040u) {
       total_size += 1 +
@@ -13078,7 +13522,6 @@ void CCitadelUserMsg_CameraController::CopyFrom(const CCitadelUserMsg_CameraCont
 }
 
 bool CCitadelUserMsg_CameraController::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -13099,7 +13542,7 @@ void CCitadelUserMsg_CameraController::InternalSwap(CCitadelUserMsg_CameraContro
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_CameraController::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[27]);
+      file_level_metadata_citadel_5fusermessages_2eproto[28]);
 }
 
 // ===================================================================
@@ -13312,7 +13755,7 @@ void CCitadelUserMsg_PostMatchDetails::InternalSwap(CCitadelUserMsg_PostMatchDet
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_PostMatchDetails::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[28]);
+      file_level_metadata_citadel_5fusermessages_2eproto[29]);
 }
 
 // ===================================================================
@@ -13583,7 +14026,7 @@ void CCitadelUserMsg_ChatEvent::InternalSwap(CCitadelUserMsg_ChatEvent* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ChatEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[29]);
+      file_level_metadata_citadel_5fusermessages_2eproto[30]);
 }
 
 // ===================================================================
@@ -13977,7 +14420,7 @@ void CCitadelUserMsg_HeroKilled::InternalSwap(CCitadelUserMsg_HeroKilled* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_HeroKilled::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[30]);
+      file_level_metadata_citadel_5fusermessages_2eproto[31]);
 }
 
 // ===================================================================
@@ -13994,6 +14437,10 @@ class CCitadelEntityMsg_BreakablePropSpawnDebris::_Internal {
     (*has_bits)[0] |= 2u;
   }
   static void set_has_damage(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static const ::CMsgVector& damage_force(const CCitadelEntityMsg_BreakablePropSpawnDebris* msg);
+  static void set_has_damage_force(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
 };
@@ -14006,6 +14453,10 @@ const ::CMsgVector&
 CCitadelEntityMsg_BreakablePropSpawnDebris::_Internal::damage_pos(const CCitadelEntityMsg_BreakablePropSpawnDebris* msg) {
   return *msg->_impl_.damage_pos_;
 }
+const ::CMsgVector&
+CCitadelEntityMsg_BreakablePropSpawnDebris::_Internal::damage_force(const CCitadelEntityMsg_BreakablePropSpawnDebris* msg) {
+  return *msg->_impl_.damage_force_;
+}
 void CCitadelEntityMsg_BreakablePropSpawnDebris::clear_entity_msg() {
   if (_impl_.entity_msg_ != nullptr) _impl_.entity_msg_->Clear();
   _impl_._has_bits_[0] &= ~0x00000001u;
@@ -14013,6 +14464,10 @@ void CCitadelEntityMsg_BreakablePropSpawnDebris::clear_entity_msg() {
 void CCitadelEntityMsg_BreakablePropSpawnDebris::clear_damage_pos() {
   if (_impl_.damage_pos_ != nullptr) _impl_.damage_pos_->Clear();
   _impl_._has_bits_[0] &= ~0x00000002u;
+}
+void CCitadelEntityMsg_BreakablePropSpawnDebris::clear_damage_force() {
+  if (_impl_.damage_force_ != nullptr) _impl_.damage_force_->Clear();
+  _impl_._has_bits_[0] &= ~0x00000004u;
 }
 CCitadelEntityMsg_BreakablePropSpawnDebris::CCitadelEntityMsg_BreakablePropSpawnDebris(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
@@ -14028,6 +14483,7 @@ CCitadelEntityMsg_BreakablePropSpawnDebris::CCitadelEntityMsg_BreakablePropSpawn
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.entity_msg_){nullptr}
     , decltype(_impl_.damage_pos_){nullptr}
+    , decltype(_impl_.damage_force_){nullptr}
     , decltype(_impl_.damage_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -14036,6 +14492,9 @@ CCitadelEntityMsg_BreakablePropSpawnDebris::CCitadelEntityMsg_BreakablePropSpawn
   }
   if (from._internal_has_damage_pos()) {
     _this->_impl_.damage_pos_ = new ::CMsgVector(*from._impl_.damage_pos_);
+  }
+  if (from._internal_has_damage_force()) {
+    _this->_impl_.damage_force_ = new ::CMsgVector(*from._impl_.damage_force_);
   }
   _this->_impl_.damage_ = from._impl_.damage_;
   // @@protoc_insertion_point(copy_constructor:CCitadelEntityMsg_BreakablePropSpawnDebris)
@@ -14050,6 +14509,7 @@ inline void CCitadelEntityMsg_BreakablePropSpawnDebris::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.entity_msg_){nullptr}
     , decltype(_impl_.damage_pos_){nullptr}
+    , decltype(_impl_.damage_force_){nullptr}
     , decltype(_impl_.damage_){0}
   };
 }
@@ -14067,6 +14527,7 @@ inline void CCitadelEntityMsg_BreakablePropSpawnDebris::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   if (this != internal_default_instance()) delete _impl_.entity_msg_;
   if (this != internal_default_instance()) delete _impl_.damage_pos_;
+  if (this != internal_default_instance()) delete _impl_.damage_force_;
 }
 
 void CCitadelEntityMsg_BreakablePropSpawnDebris::SetCachedSize(int size) const {
@@ -14080,7 +14541,7 @@ void CCitadelEntityMsg_BreakablePropSpawnDebris::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
+  if (cached_has_bits & 0x00000007u) {
     if (cached_has_bits & 0x00000001u) {
       GOOGLE_DCHECK(_impl_.entity_msg_ != nullptr);
       _impl_.entity_msg_->Clear();
@@ -14088,6 +14549,10 @@ void CCitadelEntityMsg_BreakablePropSpawnDebris::Clear() {
     if (cached_has_bits & 0x00000002u) {
       GOOGLE_DCHECK(_impl_.damage_pos_ != nullptr);
       _impl_.damage_pos_->Clear();
+    }
+    if (cached_has_bits & 0x00000004u) {
+      GOOGLE_DCHECK(_impl_.damage_force_ != nullptr);
+      _impl_.damage_force_->Clear();
     }
   }
   _impl_.damage_ = 0;
@@ -14124,6 +14589,14 @@ const char* CCitadelEntityMsg_BreakablePropSpawnDebris::_InternalParse(const cha
           _Internal::set_has_damage(&has_bits);
           _impl_.damage_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgVector damage_force = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr = ctx->ParseMessage(_internal_mutable_damage_force(), ptr);
+          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -14173,9 +14646,16 @@ uint8_t* CCitadelEntityMsg_BreakablePropSpawnDebris::_InternalSerialize(
   }
 
   // optional float damage = 3;
-  if (cached_has_bits & 0x00000004u) {
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(3, this->_internal_damage(), target);
+  }
+
+  // optional .CMsgVector damage_force = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+      InternalWriteMessage(4, _Internal::damage_force(this),
+        _Internal::damage_force(this).GetCachedSize(), target, stream);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -14195,7 +14675,7 @@ size_t CCitadelEntityMsg_BreakablePropSpawnDebris::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     // optional .CEntityMsg entity_msg = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -14210,8 +14690,15 @@ size_t CCitadelEntityMsg_BreakablePropSpawnDebris::ByteSizeLong() const {
           *_impl_.damage_pos_);
     }
 
-    // optional float damage = 3;
+    // optional .CMsgVector damage_force = 4;
     if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+          *_impl_.damage_force_);
+    }
+
+    // optional float damage = 3;
+    if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 4;
     }
 
@@ -14235,7 +14722,7 @@ void CCitadelEntityMsg_BreakablePropSpawnDebris::MergeImpl(::PROTOBUF_NAMESPACE_
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_internal_mutable_entity_msg()->::CEntityMsg::MergeFrom(
           from._internal_entity_msg());
@@ -14245,6 +14732,10 @@ void CCitadelEntityMsg_BreakablePropSpawnDebris::MergeImpl(::PROTOBUF_NAMESPACE_
           from._internal_damage_pos());
     }
     if (cached_has_bits & 0x00000004u) {
+      _this->_internal_mutable_damage_force()->::CMsgVector::MergeFrom(
+          from._internal_damage_force());
+    }
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.damage_ = from._impl_.damage_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -14278,7 +14769,7 @@ void CCitadelEntityMsg_BreakablePropSpawnDebris::InternalSwap(CCitadelEntityMsg_
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelEntityMsg_BreakablePropSpawnDebris::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[31]);
+      file_level_metadata_citadel_5fusermessages_2eproto[32]);
 }
 
 // ===================================================================
@@ -14563,7 +15054,7 @@ void CCitadelUserMsg_ReturnIdol::InternalSwap(CCitadelUserMsg_ReturnIdol* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ReturnIdol::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[32]);
+      file_level_metadata_citadel_5fusermessages_2eproto[33]);
 }
 
 // ===================================================================
@@ -14812,7 +15303,7 @@ void CCitadelUserMsg_SetClientCameraAngles::InternalSwap(CCitadelUserMsg_SetClie
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_SetClientCameraAngles::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[33]);
+      file_level_metadata_citadel_5fusermessages_2eproto[34]);
 }
 
 // ===================================================================
@@ -15137,7 +15628,7 @@ void CCitadelUserMessage_BulletHit::InternalSwap(CCitadelUserMessage_BulletHit* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_BulletHit::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[34]);
+      file_level_metadata_citadel_5fusermessages_2eproto[35]);
 }
 
 // ===================================================================
@@ -15374,7 +15865,7 @@ void CCitadelUserMessage_ObjectiveMask::InternalSwap(CCitadelUserMessage_Objecti
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_ObjectiveMask::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[35]);
+      file_level_metadata_citadel_5fusermessages_2eproto[36]);
 }
 
 // ===================================================================
@@ -15636,7 +16127,7 @@ void CCitadelUserMessage_ModifierApplied::InternalSwap(CCitadelUserMessage_Modif
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_ModifierApplied::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[36]);
+      file_level_metadata_citadel_5fusermessages_2eproto[37]);
 }
 
 // ===================================================================
@@ -15989,7 +16480,7 @@ void CCitadelUserMessage_AuraModifierApplied::InternalSwap(CCitadelUserMessage_A
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_AuraModifierApplied::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[37]);
+      file_level_metadata_citadel_5fusermessages_2eproto[38]);
 }
 
 // ===================================================================
@@ -16029,7 +16520,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_ObstructedShot
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ObstructedShotFired::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[38]);
+      file_level_metadata_citadel_5fusermessages_2eproto[39]);
 }
 
 // ===================================================================
@@ -16046,7 +16537,7 @@ class CCitadelUserMsg_PostProcessingAnim::_Internal {
   static void set_has_state(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_start_time(HasBits* has_bits) {
+  static void set_has_delay(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_fade_in_time(HasBits* has_bits) {
@@ -16077,7 +16568,7 @@ CCitadelUserMsg_PostProcessingAnim::CCitadelUserMsg_PostProcessingAnim(const CCi
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.clear_all_states_){}
     , decltype(_impl_.state_){}
-    , decltype(_impl_.start_time_){}
+    , decltype(_impl_.delay_){}
     , decltype(_impl_.fade_in_time_){}
     , decltype(_impl_.hold_time_){}
     , decltype(_impl_.fade_out_time_){}
@@ -16100,7 +16591,7 @@ inline void CCitadelUserMsg_PostProcessingAnim::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.clear_all_states_){false}
     , decltype(_impl_.state_){0}
-    , decltype(_impl_.start_time_){0}
+    , decltype(_impl_.delay_){0}
     , decltype(_impl_.fade_in_time_){0}
     , decltype(_impl_.hold_time_){0}
     , decltype(_impl_.fade_out_time_){0}
@@ -16181,11 +16672,11 @@ const char* CCitadelUserMsg_PostProcessingAnim::_InternalParse(const char* ptr, 
         } else
           goto handle_unusual;
         continue;
-      // optional float start_time = 4;
+      // optional float delay = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
-          _Internal::set_has_start_time(&has_bits);
-          _impl_.start_time_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          _Internal::set_has_delay(&has_bits);
+          _impl_.delay_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -16276,10 +16767,10 @@ uint8_t* CCitadelUserMsg_PostProcessingAnim::_InternalSerialize(
       3, this->_internal_state(), target);
   }
 
-  // optional float start_time = 4;
+  // optional float delay = 4;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_start_time(), target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_delay(), target);
   }
 
   // optional float fade_in_time = 5;
@@ -16335,7 +16826,7 @@ size_t CCitadelUserMsg_PostProcessingAnim::ByteSizeLong() const {
         ::_pbi::WireFormatLite::EnumSize(this->_internal_state());
     }
 
-    // optional float start_time = 4;
+    // optional float delay = 4;
     if (cached_has_bits & 0x00000004u) {
       total_size += 1 + 4;
     }
@@ -16393,7 +16884,7 @@ void CCitadelUserMsg_PostProcessingAnim::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mess
       _this->_impl_.state_ = from._impl_.state_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.start_time_ = from._impl_.start_time_;
+      _this->_impl_.delay_ = from._impl_.delay_;
     }
     if (cached_has_bits & 0x00000008u) {
       _this->_impl_.fade_in_time_ = from._impl_.fade_in_time_;
@@ -16442,7 +16933,7 @@ void CCitadelUserMsg_PostProcessingAnim::InternalSwap(CCitadelUserMsg_PostProces
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_PostProcessingAnim::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[39]);
+      file_level_metadata_citadel_5fusermessages_2eproto[40]);
 }
 
 // ===================================================================
@@ -16719,7 +17210,7 @@ void CCitadelUserMsg_DeathReplayData::InternalSwap(CCitadelUserMsg_DeathReplayDa
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_DeathReplayData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[40]);
+      file_level_metadata_citadel_5fusermessages_2eproto[41]);
 }
 
 // ===================================================================
@@ -16759,7 +17250,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_ForceShopClose
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ForceShopClosed::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[41]);
+      file_level_metadata_citadel_5fusermessages_2eproto[42]);
 }
 
 // ===================================================================
@@ -17167,7 +17658,7 @@ void CCitadelUserMsg_PlayerLifetimeStatInfo_Stat::InternalSwap(CCitadelUserMsg_P
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_PlayerLifetimeStatInfo_Stat::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[42]);
+      file_level_metadata_citadel_5fusermessages_2eproto[43]);
 }
 
 // ===================================================================
@@ -17466,16 +17957,16 @@ void CCitadelUserMsg_PlayerLifetimeStatInfo::InternalSwap(CCitadelUserMsg_Player
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_PlayerLifetimeStatInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[43]);
+      file_level_metadata_citadel_5fusermessages_2eproto[44]);
 }
 
 // ===================================================================
 
-class CCitadelUserMsg_StaminaDrained::_Internal {
+class CCitadelUserMsg_StaminaConsumed::_Internal {
  public:
-  using HasBits = decltype(std::declval<CCitadelUserMsg_StaminaDrained>()._impl_._has_bits_);
-  static void set_has_entindex_victim(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+  using HasBits = decltype(std::declval<CCitadelUserMsg_StaminaConsumed>()._impl_._has_bits_);
+  static void set_has_entindex_target(HasBits* has_bits) {
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_stamina_before(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -17483,32 +17974,44 @@ class CCitadelUserMsg_StaminaDrained::_Internal {
   static void set_has_stamina_after(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
+  static void set_has_drained(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_stamina_max(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_gametime(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
 };
 
-CCitadelUserMsg_StaminaDrained::CCitadelUserMsg_StaminaDrained(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+CCitadelUserMsg_StaminaConsumed::CCitadelUserMsg_StaminaConsumed(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CCitadelUserMsg_StaminaDrained)
+  // @@protoc_insertion_point(arena_constructor:CCitadelUserMsg_StaminaConsumed)
 }
-CCitadelUserMsg_StaminaDrained::CCitadelUserMsg_StaminaDrained(const CCitadelUserMsg_StaminaDrained& from)
+CCitadelUserMsg_StaminaConsumed::CCitadelUserMsg_StaminaConsumed(const CCitadelUserMsg_StaminaConsumed& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CCitadelUserMsg_StaminaDrained* const _this = this; (void)_this;
+  CCitadelUserMsg_StaminaConsumed* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.stamina_before_){}
     , decltype(_impl_.stamina_after_){}
-    , decltype(_impl_.entindex_victim_){}};
+    , decltype(_impl_.drained_){}
+    , decltype(_impl_.stamina_max_){}
+    , decltype(_impl_.gametime_){}
+    , decltype(_impl_.entindex_target_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.stamina_before_, &from._impl_.stamina_before_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entindex_victim_) -
-    reinterpret_cast<char*>(&_impl_.stamina_before_)) + sizeof(_impl_.entindex_victim_));
-  // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_StaminaDrained)
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.entindex_target_) -
+    reinterpret_cast<char*>(&_impl_.stamina_before_)) + sizeof(_impl_.entindex_target_));
+  // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_StaminaConsumed)
 }
 
-inline void CCitadelUserMsg_StaminaDrained::SharedCtor(
+inline void CCitadelUserMsg_StaminaConsumed::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -17517,12 +18020,15 @@ inline void CCitadelUserMsg_StaminaDrained::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.stamina_before_){0}
     , decltype(_impl_.stamina_after_){0}
-    , decltype(_impl_.entindex_victim_){-1}
+    , decltype(_impl_.drained_){false}
+    , decltype(_impl_.stamina_max_){0}
+    , decltype(_impl_.gametime_){0}
+    , decltype(_impl_.entindex_target_){-1}
   };
 }
 
-CCitadelUserMsg_StaminaDrained::~CCitadelUserMsg_StaminaDrained() {
-  // @@protoc_insertion_point(destructor:CCitadelUserMsg_StaminaDrained)
+CCitadelUserMsg_StaminaConsumed::~CCitadelUserMsg_StaminaConsumed() {
+  // @@protoc_insertion_point(destructor:CCitadelUserMsg_StaminaConsumed)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -17530,43 +18036,43 @@ CCitadelUserMsg_StaminaDrained::~CCitadelUserMsg_StaminaDrained() {
   SharedDtor();
 }
 
-inline void CCitadelUserMsg_StaminaDrained::SharedDtor() {
+inline void CCitadelUserMsg_StaminaConsumed::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void CCitadelUserMsg_StaminaDrained::SetCachedSize(int size) const {
+void CCitadelUserMsg_StaminaConsumed::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void CCitadelUserMsg_StaminaDrained::Clear() {
-// @@protoc_insertion_point(message_clear_start:CCitadelUserMsg_StaminaDrained)
+void CCitadelUserMsg_StaminaConsumed::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCitadelUserMsg_StaminaConsumed)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000003fu) {
     ::memset(&_impl_.stamina_before_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.stamina_after_) -
-        reinterpret_cast<char*>(&_impl_.stamina_before_)) + sizeof(_impl_.stamina_after_));
-    _impl_.entindex_victim_ = -1;
+        reinterpret_cast<char*>(&_impl_.gametime_) -
+        reinterpret_cast<char*>(&_impl_.stamina_before_)) + sizeof(_impl_.gametime_));
+    _impl_.entindex_target_ = -1;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CCitadelUserMsg_StaminaDrained::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* CCitadelUserMsg_StaminaConsumed::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional int32 entindex_victim = 1 [default = -1];
+      // optional int32 entindex_target = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_entindex_victim(&has_bits);
-          _impl_.entindex_victim_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_entindex_target(&has_bits);
+          _impl_.entindex_target_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -17585,6 +18091,33 @@ const char* CCitadelUserMsg_StaminaDrained::_InternalParse(const char* ptr, ::_p
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 37)) {
           _Internal::set_has_stamina_after(&has_bits);
           _impl_.stamina_after_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool drained = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _Internal::set_has_drained(&has_bits);
+          _impl_.drained_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float stamina_max = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 53)) {
+          _Internal::set_has_stamina_max(&has_bits);
+          _impl_.stamina_max_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float gametime = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 61)) {
+          _Internal::set_has_gametime(&has_bits);
+          _impl_.gametime_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
           ptr += sizeof(float);
         } else
           goto handle_unusual;
@@ -17613,17 +18146,17 @@ failure:
 #undef CHK_
 }
 
-uint8_t* CCitadelUserMsg_StaminaDrained::_InternalSerialize(
+uint8_t* CCitadelUserMsg_StaminaConsumed::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMsg_StaminaDrained)
+  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMsg_StaminaConsumed)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 entindex_victim = 1 [default = -1];
-  if (cached_has_bits & 0x00000004u) {
+  // optional int32 entindex_target = 1 [default = -1];
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_entindex_victim(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_entindex_target(), target);
   }
 
   // optional float stamina_before = 3;
@@ -17638,16 +18171,34 @@ uint8_t* CCitadelUserMsg_StaminaDrained::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteFloatToArray(4, this->_internal_stamina_after(), target);
   }
 
+  // optional bool drained = 5;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_drained(), target);
+  }
+
+  // optional float stamina_max = 6;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(6, this->_internal_stamina_max(), target);
+  }
+
+  // optional float gametime = 7;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(7, this->_internal_gametime(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMsg_StaminaDrained)
+  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMsg_StaminaConsumed)
   return target;
 }
 
-size_t CCitadelUserMsg_StaminaDrained::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_StaminaDrained)
+size_t CCitadelUserMsg_StaminaConsumed::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_StaminaConsumed)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -17655,7 +18206,7 @@ size_t CCitadelUserMsg_StaminaDrained::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional float stamina_before = 3;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 + 4;
@@ -17666,32 +18217,47 @@ size_t CCitadelUserMsg_StaminaDrained::ByteSizeLong() const {
       total_size += 1 + 4;
     }
 
-    // optional int32 entindex_victim = 1 [default = -1];
+    // optional bool drained = 5;
     if (cached_has_bits & 0x00000004u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex_victim());
+      total_size += 1 + 1;
+    }
+
+    // optional float stamina_max = 6;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 4;
+    }
+
+    // optional float gametime = 7;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 4;
+    }
+
+    // optional int32 entindex_target = 1 [default = -1];
+    if (cached_has_bits & 0x00000020u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_entindex_target());
     }
 
   }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMsg_StaminaDrained::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMsg_StaminaConsumed::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CCitadelUserMsg_StaminaDrained::MergeImpl
+    CCitadelUserMsg_StaminaConsumed::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_StaminaDrained::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_StaminaConsumed::GetClassData() const { return &_class_data_; }
 
 
-void CCitadelUserMsg_StaminaDrained::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CCitadelUserMsg_StaminaDrained*>(&to_msg);
-  auto& from = static_cast<const CCitadelUserMsg_StaminaDrained&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMsg_StaminaDrained)
+void CCitadelUserMsg_StaminaConsumed::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CCitadelUserMsg_StaminaConsumed*>(&to_msg);
+  auto& from = static_cast<const CCitadelUserMsg_StaminaConsumed&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMsg_StaminaConsumed)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.stamina_before_ = from._impl_.stamina_before_;
     }
@@ -17699,41 +18265,50 @@ void CCitadelUserMsg_StaminaDrained::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message&
       _this->_impl_.stamina_after_ = from._impl_.stamina_after_;
     }
     if (cached_has_bits & 0x00000004u) {
-      _this->_impl_.entindex_victim_ = from._impl_.entindex_victim_;
+      _this->_impl_.drained_ = from._impl_.drained_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.stamina_max_ = from._impl_.stamina_max_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.gametime_ = from._impl_.gametime_;
+    }
+    if (cached_has_bits & 0x00000020u) {
+      _this->_impl_.entindex_target_ = from._impl_.entindex_target_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void CCitadelUserMsg_StaminaDrained::CopyFrom(const CCitadelUserMsg_StaminaDrained& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMsg_StaminaDrained)
+void CCitadelUserMsg_StaminaConsumed::CopyFrom(const CCitadelUserMsg_StaminaConsumed& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMsg_StaminaConsumed)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CCitadelUserMsg_StaminaDrained::IsInitialized() const {
+bool CCitadelUserMsg_StaminaConsumed::IsInitialized() const {
   return true;
 }
 
-void CCitadelUserMsg_StaminaDrained::InternalSwap(CCitadelUserMsg_StaminaDrained* other) {
+void CCitadelUserMsg_StaminaConsumed::InternalSwap(CCitadelUserMsg_StaminaConsumed* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_StaminaDrained, _impl_.stamina_after_)
-      + sizeof(CCitadelUserMsg_StaminaDrained::_impl_.stamina_after_)
-      - PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_StaminaDrained, _impl_.stamina_before_)>(
+      PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_StaminaConsumed, _impl_.gametime_)
+      + sizeof(CCitadelUserMsg_StaminaConsumed::_impl_.gametime_)
+      - PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_StaminaConsumed, _impl_.stamina_before_)>(
           reinterpret_cast<char*>(&_impl_.stamina_before_),
           reinterpret_cast<char*>(&other->_impl_.stamina_before_));
-  swap(_impl_.entindex_victim_, other->_impl_.entindex_victim_);
+  swap(_impl_.entindex_target_, other->_impl_.entindex_target_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_StaminaDrained::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_StaminaConsumed::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[44]);
+      file_level_metadata_citadel_5fusermessages_2eproto[45]);
 }
 
 // ===================================================================
@@ -17750,7 +18325,7 @@ class CCitadelUserMessage_AbilityNotify::_Internal {
   static void set_has_ability_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_modifier_state(HasBits* has_bits) {
+  static void set_has_status_impact(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
 };
@@ -17768,7 +18343,7 @@ CCitadelUserMessage_AbilityNotify::CCitadelUserMessage_AbilityNotify(const CCita
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.ability_id_){}
-    , decltype(_impl_.modifier_state_){}
+    , decltype(_impl_.status_impact_){}
     , decltype(_impl_.entindex_victim_){}
     , decltype(_impl_.entindex_attacker_){}};
 
@@ -17787,7 +18362,7 @@ inline void CCitadelUserMessage_AbilityNotify::SharedCtor(
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.ability_id_){0u}
-    , decltype(_impl_.modifier_state_){0}
+    , decltype(_impl_.status_impact_){0u}
     , decltype(_impl_.entindex_victim_){-1}
     , decltype(_impl_.entindex_attacker_){-1}
   };
@@ -17819,8 +18394,8 @@ void CCitadelUserMessage_AbilityNotify::Clear() {
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     ::memset(&_impl_.ability_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.modifier_state_) -
-        reinterpret_cast<char*>(&_impl_.ability_id_)) + sizeof(_impl_.modifier_state_));
+        reinterpret_cast<char*>(&_impl_.status_impact_) -
+        reinterpret_cast<char*>(&_impl_.ability_id_)) + sizeof(_impl_.status_impact_));
     _impl_.entindex_victim_ = -1;
     _impl_.entindex_attacker_ = -1;
   }
@@ -17862,11 +18437,11 @@ const char* CCitadelUserMessage_AbilityNotify::_InternalParse(const char* ptr, :
         } else
           goto handle_unusual;
         continue;
-      // optional int32 modifier_state = 4;
+      // optional uint32 status_impact = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
-          _Internal::set_has_modifier_state(&has_bits);
-          _impl_.modifier_state_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_status_impact(&has_bits);
+          _impl_.status_impact_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -17920,10 +18495,10 @@ uint8_t* CCitadelUserMessage_AbilityNotify::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_ability_id(), target);
   }
 
-  // optional int32 modifier_state = 4;
+  // optional uint32 status_impact = 4;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_modifier_state(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_status_impact(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -17949,9 +18524,9 @@ size_t CCitadelUserMessage_AbilityNotify::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_id());
     }
 
-    // optional int32 modifier_state = 4;
+    // optional uint32 status_impact = 4;
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_modifier_state());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_status_impact());
     }
 
     // optional int32 entindex_victim = 1 [default = -1];
@@ -17989,7 +18564,7 @@ void CCitadelUserMessage_AbilityNotify::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messa
       _this->_impl_.ability_id_ = from._impl_.ability_id_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.modifier_state_ = from._impl_.modifier_state_;
+      _this->_impl_.status_impact_ = from._impl_.status_impact_;
     }
     if (cached_has_bits & 0x00000004u) {
       _this->_impl_.entindex_victim_ = from._impl_.entindex_victim_;
@@ -18018,8 +18593,8 @@ void CCitadelUserMessage_AbilityNotify::InternalSwap(CCitadelUserMessage_Ability
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CCitadelUserMessage_AbilityNotify, _impl_.modifier_state_)
-      + sizeof(CCitadelUserMessage_AbilityNotify::_impl_.modifier_state_)
+      PROTOBUF_FIELD_OFFSET(CCitadelUserMessage_AbilityNotify, _impl_.status_impact_)
+      + sizeof(CCitadelUserMessage_AbilityNotify::_impl_.status_impact_)
       - PROTOBUF_FIELD_OFFSET(CCitadelUserMessage_AbilityNotify, _impl_.ability_id_)>(
           reinterpret_cast<char*>(&_impl_.ability_id_),
           reinterpret_cast<char*>(&other->_impl_.ability_id_));
@@ -18030,7 +18605,7 @@ void CCitadelUserMessage_AbilityNotify::InternalSwap(CCitadelUserMessage_Ability
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_AbilityNotify::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[45]);
+      file_level_metadata_citadel_5fusermessages_2eproto[46]);
 }
 
 // ===================================================================
@@ -18522,7 +19097,7 @@ void CCitadelUserMessage_CurrencyChanged::InternalSwap(CCitadelUserMessage_Curre
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_CurrencyChanged::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[46]);
+      file_level_metadata_citadel_5fusermessages_2eproto[47]);
 }
 
 // ===================================================================
@@ -18759,7 +19334,7 @@ void CCitadelUserMessage_GameOver::InternalSwap(CCitadelUserMessage_GameOver* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_GameOver::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[47]);
+      file_level_metadata_citadel_5fusermessages_2eproto[48]);
 }
 
 // ===================================================================
@@ -18994,7 +19569,7 @@ void CCitadelUserMsg_GetDamageStatsResponse_StatType::InternalSwap(CCitadelUserM
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_GetDamageStatsResponse_StatType::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[48]);
+      file_level_metadata_citadel_5fusermessages_2eproto[49]);
 }
 
 // ===================================================================
@@ -19346,7 +19921,7 @@ void CCitadelUserMsg_GetDamageStatsResponse::InternalSwap(CCitadelUserMsg_GetDam
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_GetDamageStatsResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[49]);
+      file_level_metadata_citadel_5fusermessages_2eproto[50]);
 }
 
 // ===================================================================
@@ -19357,9 +19932,6 @@ class CCitadelUserMsg_ParticipantStartSoundEvent::_Internal {
   static const ::CMsgSosStartSoundEvent& event(const CCitadelUserMsg_ParticipantStartSoundEvent* msg);
   static void set_has_event(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -19447,7 +20019,7 @@ const char* CCitadelUserMsg_ParticipantStartSoundEvent::_InternalParse(const cha
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .CMsgSosStartSoundEvent event = 1;
+      // optional .CMsgSosStartSoundEvent event = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_event(), ptr);
@@ -19502,7 +20074,7 @@ uint8_t* CCitadelUserMsg_ParticipantStartSoundEvent::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .CMsgSosStartSoundEvent event = 1;
+  // optional .CMsgSosStartSoundEvent event = 1;
   if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, _Internal::event(this),
@@ -19527,12 +20099,6 @@ size_t CCitadelUserMsg_ParticipantStartSoundEvent::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_ParticipantStartSoundEvent)
   size_t total_size = 0;
 
-  // required .CMsgSosStartSoundEvent event = 1;
-  if (_internal_has_event()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.event_);
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -19544,6 +20110,14 @@ size_t CCitadelUserMsg_ParticipantStartSoundEvent::ByteSizeLong() const {
     total_size += 1 *
                   ::_pbi::FromIntSize(this->_internal_player_slots_size());
     total_size += data_size;
+  }
+
+  // optional .CMsgSosStartSoundEvent event = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -19580,7 +20154,6 @@ void CCitadelUserMsg_ParticipantStartSoundEvent::CopyFrom(const CCitadelUserMsg_
 }
 
 bool CCitadelUserMsg_ParticipantStartSoundEvent::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -19595,7 +20168,7 @@ void CCitadelUserMsg_ParticipantStartSoundEvent::InternalSwap(CCitadelUserMsg_Pa
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ParticipantStartSoundEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[50]);
+      file_level_metadata_citadel_5fusermessages_2eproto[51]);
 }
 
 // ===================================================================
@@ -19606,9 +20179,6 @@ class CCitadelUserMsg_ParticipantStopSoundEvent::_Internal {
   static const ::CMsgSosStopSoundEvent& event(const CCitadelUserMsg_ParticipantStopSoundEvent* msg);
   static void set_has_event(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -19696,7 +20266,7 @@ const char* CCitadelUserMsg_ParticipantStopSoundEvent::_InternalParse(const char
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .CMsgSosStopSoundEvent event = 1;
+      // optional .CMsgSosStopSoundEvent event = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_event(), ptr);
@@ -19751,7 +20321,7 @@ uint8_t* CCitadelUserMsg_ParticipantStopSoundEvent::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .CMsgSosStopSoundEvent event = 1;
+  // optional .CMsgSosStopSoundEvent event = 1;
   if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, _Internal::event(this),
@@ -19776,12 +20346,6 @@ size_t CCitadelUserMsg_ParticipantStopSoundEvent::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_ParticipantStopSoundEvent)
   size_t total_size = 0;
 
-  // required .CMsgSosStopSoundEvent event = 1;
-  if (_internal_has_event()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.event_);
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -19793,6 +20357,14 @@ size_t CCitadelUserMsg_ParticipantStopSoundEvent::ByteSizeLong() const {
     total_size += 1 *
                   ::_pbi::FromIntSize(this->_internal_player_slots_size());
     total_size += data_size;
+  }
+
+  // optional .CMsgSosStopSoundEvent event = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -19829,7 +20401,6 @@ void CCitadelUserMsg_ParticipantStopSoundEvent::CopyFrom(const CCitadelUserMsg_P
 }
 
 bool CCitadelUserMsg_ParticipantStopSoundEvent::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -19844,7 +20415,7 @@ void CCitadelUserMsg_ParticipantStopSoundEvent::InternalSwap(CCitadelUserMsg_Par
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ParticipantStopSoundEvent::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[51]);
+      file_level_metadata_citadel_5fusermessages_2eproto[52]);
 }
 
 // ===================================================================
@@ -19855,9 +20426,6 @@ class CCitadelUserMsg_ParticipantStopSoundEventHash::_Internal {
   static const ::CMsgSosStopSoundEventHash& event(const CCitadelUserMsg_ParticipantStopSoundEventHash* msg);
   static void set_has_event(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -19945,7 +20513,7 @@ const char* CCitadelUserMsg_ParticipantStopSoundEventHash::_InternalParse(const 
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .CMsgSosStopSoundEventHash event = 1;
+      // optional .CMsgSosStopSoundEventHash event = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_event(), ptr);
@@ -20000,7 +20568,7 @@ uint8_t* CCitadelUserMsg_ParticipantStopSoundEventHash::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .CMsgSosStopSoundEventHash event = 1;
+  // optional .CMsgSosStopSoundEventHash event = 1;
   if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, _Internal::event(this),
@@ -20025,12 +20593,6 @@ size_t CCitadelUserMsg_ParticipantStopSoundEventHash::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_ParticipantStopSoundEventHash)
   size_t total_size = 0;
 
-  // required .CMsgSosStopSoundEventHash event = 1;
-  if (_internal_has_event()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.event_);
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -20042,6 +20604,14 @@ size_t CCitadelUserMsg_ParticipantStopSoundEventHash::ByteSizeLong() const {
     total_size += 1 *
                   ::_pbi::FromIntSize(this->_internal_player_slots_size());
     total_size += data_size;
+  }
+
+  // optional .CMsgSosStopSoundEventHash event = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -20078,7 +20648,6 @@ void CCitadelUserMsg_ParticipantStopSoundEventHash::CopyFrom(const CCitadelUserM
 }
 
 bool CCitadelUserMsg_ParticipantStopSoundEventHash::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -20093,7 +20662,7 @@ void CCitadelUserMsg_ParticipantStopSoundEventHash::InternalSwap(CCitadelUserMsg
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ParticipantStopSoundEventHash::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[52]);
+      file_level_metadata_citadel_5fusermessages_2eproto[53]);
 }
 
 // ===================================================================
@@ -20104,9 +20673,6 @@ class CCitadelUserMsg_ParticipantSetSoundEventParams::_Internal {
   static const ::CMsgSosSetSoundEventParams& event(const CCitadelUserMsg_ParticipantSetSoundEventParams* msg);
   static void set_has_event(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -20194,7 +20760,7 @@ const char* CCitadelUserMsg_ParticipantSetSoundEventParams::_InternalParse(const
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .CMsgSosSetSoundEventParams event = 1;
+      // optional .CMsgSosSetSoundEventParams event = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_event(), ptr);
@@ -20249,7 +20815,7 @@ uint8_t* CCitadelUserMsg_ParticipantSetSoundEventParams::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .CMsgSosSetSoundEventParams event = 1;
+  // optional .CMsgSosSetSoundEventParams event = 1;
   if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, _Internal::event(this),
@@ -20274,12 +20840,6 @@ size_t CCitadelUserMsg_ParticipantSetSoundEventParams::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_ParticipantSetSoundEventParams)
   size_t total_size = 0;
 
-  // required .CMsgSosSetSoundEventParams event = 1;
-  if (_internal_has_event()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.event_);
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -20291,6 +20851,14 @@ size_t CCitadelUserMsg_ParticipantSetSoundEventParams::ByteSizeLong() const {
     total_size += 1 *
                   ::_pbi::FromIntSize(this->_internal_player_slots_size());
     total_size += data_size;
+  }
+
+  // optional .CMsgSosSetSoundEventParams event = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -20327,7 +20895,6 @@ void CCitadelUserMsg_ParticipantSetSoundEventParams::CopyFrom(const CCitadelUser
 }
 
 bool CCitadelUserMsg_ParticipantSetSoundEventParams::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -20342,7 +20909,7 @@ void CCitadelUserMsg_ParticipantSetSoundEventParams::InternalSwap(CCitadelUserMs
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ParticipantSetSoundEventParams::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[53]);
+      file_level_metadata_citadel_5fusermessages_2eproto[54]);
 }
 
 // ===================================================================
@@ -20353,9 +20920,6 @@ class CCitadelUserMsg_ParticipantSetLibraryStackFields::_Internal {
   static const ::CMsgSosSetLibraryStackFields& event(const CCitadelUserMsg_ParticipantSetLibraryStackFields* msg);
   static void set_has_event(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -20443,7 +21007,7 @@ const char* CCitadelUserMsg_ParticipantSetLibraryStackFields::_InternalParse(con
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .CMsgSosSetLibraryStackFields event = 1;
+      // optional .CMsgSosSetLibraryStackFields event = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
           ptr = ctx->ParseMessage(_internal_mutable_event(), ptr);
@@ -20498,7 +21062,7 @@ uint8_t* CCitadelUserMsg_ParticipantSetLibraryStackFields::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .CMsgSosSetLibraryStackFields event = 1;
+  // optional .CMsgSosSetLibraryStackFields event = 1;
   if (cached_has_bits & 0x00000001u) {
     target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
       InternalWriteMessage(1, _Internal::event(this),
@@ -20523,12 +21087,6 @@ size_t CCitadelUserMsg_ParticipantSetLibraryStackFields::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_ParticipantSetLibraryStackFields)
   size_t total_size = 0;
 
-  // required .CMsgSosSetLibraryStackFields event = 1;
-  if (_internal_has_event()) {
-    total_size += 1 +
-      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
-        *_impl_.event_);
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -20540,6 +21098,14 @@ size_t CCitadelUserMsg_ParticipantSetLibraryStackFields::ByteSizeLong() const {
     total_size += 1 *
                   ::_pbi::FromIntSize(this->_internal_player_slots_size());
     total_size += data_size;
+  }
+
+  // optional .CMsgSosSetLibraryStackFields event = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
+        *_impl_.event_);
   }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
@@ -20576,7 +21142,6 @@ void CCitadelUserMsg_ParticipantSetLibraryStackFields::CopyFrom(const CCitadelUs
 }
 
 bool CCitadelUserMsg_ParticipantSetLibraryStackFields::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -20591,7 +21156,7 @@ void CCitadelUserMsg_ParticipantSetLibraryStackFields::InternalSwap(CCitadelUser
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_ParticipantSetLibraryStackFields::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[54]);
+      file_level_metadata_citadel_5fusermessages_2eproto[55]);
 }
 
 // ===================================================================
@@ -21020,7 +21585,7 @@ void CCitadelUserMsg_BossKilled::InternalSwap(CCitadelUserMsg_BossKilled* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_BossKilled::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[55]);
+      file_level_metadata_citadel_5fusermessages_2eproto[56]);
 }
 
 // ===================================================================
@@ -21036,9 +21601,6 @@ class CCitadelUserMsg_BossDamaged::_Internal {
   }
   static void set_has_entity_damaged(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000007) ^ 0x00000007) != 0;
   }
 };
 
@@ -21119,7 +21681,7 @@ const char* CCitadelUserMsg_BossDamaged::_InternalParse(const char* ptr, ::_pbi:
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 objective_team = 1;
+      // optional int32 objective_team = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_objective_team(&has_bits);
@@ -21128,7 +21690,7 @@ const char* CCitadelUserMsg_BossDamaged::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // required int32 objective_id = 2;
+      // optional int32 objective_id = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_objective_id(&has_bits);
@@ -21137,7 +21699,7 @@ const char* CCitadelUserMsg_BossDamaged::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // required uint32 entity_damaged = 3 [default = 16777215];
+      // optional uint32 entity_damaged = 3 [default = 16777215];
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_entity_damaged(&has_bits);
@@ -21177,19 +21739,19 @@ uint8_t* CCitadelUserMsg_BossDamaged::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 objective_team = 1;
+  // optional int32 objective_team = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_objective_team(), target);
   }
 
-  // required int32 objective_id = 2;
+  // optional int32 objective_id = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_objective_id(), target);
   }
 
-  // required uint32 entity_damaged = 3 [default = 16777215];
+  // optional uint32 entity_damaged = 3 [default = 16777215];
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_entity_damaged(), target);
@@ -21203,48 +21765,32 @@ uint8_t* CCitadelUserMsg_BossDamaged::_InternalSerialize(
   return target;
 }
 
-size_t CCitadelUserMsg_BossDamaged::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:CCitadelUserMsg_BossDamaged)
-  size_t total_size = 0;
-
-  if (_internal_has_objective_team()) {
-    // required int32 objective_team = 1;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_objective_team());
-  }
-
-  if (_internal_has_objective_id()) {
-    // required int32 objective_id = 2;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_objective_id());
-  }
-
-  if (_internal_has_entity_damaged()) {
-    // required uint32 entity_damaged = 3 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_damaged());
-  }
-
-  return total_size;
-}
 size_t CCitadelUserMsg_BossDamaged::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_BossDamaged)
   size_t total_size = 0;
 
-  if (((_impl_._has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required int32 objective_team = 1;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_objective_team());
-
-    // required int32 objective_id = 2;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_objective_id());
-
-    // required uint32 entity_damaged = 3 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_damaged());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional int32 objective_team = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_objective_team());
+    }
+
+    // optional int32 objective_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_objective_id());
+    }
+
+    // optional uint32 entity_damaged = 3 [default = 16777215];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_entity_damaged());
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -21287,7 +21833,6 @@ void CCitadelUserMsg_BossDamaged::CopyFrom(const CCitadelUserMsg_BossDamaged& fr
 }
 
 bool CCitadelUserMsg_BossDamaged::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -21307,7 +21852,7 @@ void CCitadelUserMsg_BossDamaged::InternalSwap(CCitadelUserMsg_BossDamaged* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_BossDamaged::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[56]);
+      file_level_metadata_citadel_5fusermessages_2eproto[57]);
 }
 
 // ===================================================================
@@ -21347,7 +21892,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_MidBossSpawned
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_MidBossSpawned::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[57]);
+      file_level_metadata_citadel_5fusermessages_2eproto[58]);
 }
 
 // ===================================================================
@@ -21366,9 +21911,6 @@ class CCitadelUserMsg_RejuvStatus::_Internal {
   }
   static void set_has_event_type(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x0000000e) ^ 0x0000000e) != 0;
   }
 };
 
@@ -21460,7 +22002,7 @@ const char* CCitadelUserMsg_RejuvStatus::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // required uint32 player_pawn = 2 [default = 16777215];
+      // optional uint32 player_pawn = 2 [default = 16777215];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_player_pawn(&has_bits);
@@ -21469,7 +22011,7 @@ const char* CCitadelUserMsg_RejuvStatus::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // required int32 user_team = 3;
+      // optional int32 user_team = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_user_team(&has_bits);
@@ -21478,7 +22020,7 @@ const char* CCitadelUserMsg_RejuvStatus::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
-      // required int32 event_type = 4;
+      // optional int32 event_type = 4;
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_event_type(&has_bits);
@@ -21524,19 +22066,19 @@ uint8_t* CCitadelUserMsg_RejuvStatus::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_killing_team(), target);
   }
 
-  // required uint32 player_pawn = 2 [default = 16777215];
+  // optional uint32 player_pawn = 2 [default = 16777215];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_player_pawn(), target);
   }
 
-  // required int32 user_team = 3;
+  // optional int32 user_team = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_user_team(), target);
   }
 
-  // required int32 event_type = 4;
+  // optional int32 event_type = 4;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_event_type(), target);
@@ -21550,54 +22092,37 @@ uint8_t* CCitadelUserMsg_RejuvStatus::_InternalSerialize(
   return target;
 }
 
-size_t CCitadelUserMsg_RejuvStatus::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:CCitadelUserMsg_RejuvStatus)
-  size_t total_size = 0;
-
-  if (_internal_has_user_team()) {
-    // required int32 user_team = 3;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_user_team());
-  }
-
-  if (_internal_has_event_type()) {
-    // required int32 event_type = 4;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_event_type());
-  }
-
-  if (_internal_has_player_pawn()) {
-    // required uint32 player_pawn = 2 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_pawn());
-  }
-
-  return total_size;
-}
 size_t CCitadelUserMsg_RejuvStatus::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_RejuvStatus)
   size_t total_size = 0;
 
-  if (((_impl_._has_bits_[0] & 0x0000000e) ^ 0x0000000e) == 0) {  // All required fields are present.
-    // required int32 user_team = 3;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_user_team());
-
-    // required int32 event_type = 4;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_event_type());
-
-    // required uint32 player_pawn = 2 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_pawn());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional int32 killing_team = 1;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000001u) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_killing_team());
-  }
+  if (cached_has_bits & 0x0000000fu) {
+    // optional int32 killing_team = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_killing_team());
+    }
 
+    // optional int32 user_team = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_user_team());
+    }
+
+    // optional int32 event_type = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_event_type());
+    }
+
+    // optional uint32 player_pawn = 2 [default = 16777215];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_pawn());
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -21643,7 +22168,6 @@ void CCitadelUserMsg_RejuvStatus::CopyFrom(const CCitadelUserMsg_RejuvStatus& fr
 }
 
 bool CCitadelUserMsg_RejuvStatus::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -21663,7 +22187,7 @@ void CCitadelUserMsg_RejuvStatus::InternalSwap(CCitadelUserMsg_RejuvStatus* othe
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_RejuvStatus::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[58]);
+      file_level_metadata_citadel_5fusermessages_2eproto[59]);
 }
 
 // ===================================================================
@@ -21672,7 +22196,7 @@ class CCitadelUserMsg_KillStreak::_Internal {
  public:
   using HasBits = decltype(std::declval<CCitadelUserMsg_KillStreak>()._impl_._has_bits_);
   static void set_has_player_pawn(HasBits* has_bits) {
-    (*has_bits)[0] |= 4u;
+    (*has_bits)[0] |= 8u;
   }
   static void set_has_num_kills(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
@@ -21680,8 +22204,11 @@ class CCitadelUserMsg_KillStreak::_Internal {
   static void set_has_is_first_blood(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000007) ^ 0x00000007) != 0;
+  static void set_has_streak_ended(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_duration(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
   }
 };
 
@@ -21699,12 +22226,14 @@ CCitadelUserMsg_KillStreak::CCitadelUserMsg_KillStreak(const CCitadelUserMsg_Kil
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.num_kills_){}
     , decltype(_impl_.is_first_blood_){}
-    , decltype(_impl_.player_pawn_){}};
+    , decltype(_impl_.streak_ended_){}
+    , decltype(_impl_.player_pawn_){}
+    , decltype(_impl_.duration_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.num_kills_, &from._impl_.num_kills_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.player_pawn_) -
-    reinterpret_cast<char*>(&_impl_.num_kills_)) + sizeof(_impl_.player_pawn_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.duration_) -
+    reinterpret_cast<char*>(&_impl_.num_kills_)) + sizeof(_impl_.duration_));
   // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_KillStreak)
 }
 
@@ -21717,7 +22246,9 @@ inline void CCitadelUserMsg_KillStreak::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.num_kills_){0}
     , decltype(_impl_.is_first_blood_){false}
+    , decltype(_impl_.streak_ended_){false}
     , decltype(_impl_.player_pawn_){16777215u}
+    , decltype(_impl_.duration_){5}
   };
 }
 
@@ -21745,11 +22276,12 @@ void CCitadelUserMsg_KillStreak::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000001fu) {
     ::memset(&_impl_.num_kills_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.is_first_blood_) -
-        reinterpret_cast<char*>(&_impl_.num_kills_)) + sizeof(_impl_.is_first_blood_));
+        reinterpret_cast<char*>(&_impl_.streak_ended_) -
+        reinterpret_cast<char*>(&_impl_.num_kills_)) + sizeof(_impl_.streak_ended_));
     _impl_.player_pawn_ = 16777215u;
+    _impl_.duration_ = 5;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -21762,7 +22294,7 @@ const char* CCitadelUserMsg_KillStreak::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 player_pawn = 1 [default = 16777215];
+      // optional uint32 player_pawn = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_pawn(&has_bits);
@@ -21771,7 +22303,7 @@ const char* CCitadelUserMsg_KillStreak::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // required int32 num_kills = 2;
+      // optional int32 num_kills = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_num_kills(&has_bits);
@@ -21780,12 +22312,30 @@ const char* CCitadelUserMsg_KillStreak::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
-      // required bool is_first_blood = 3;
+      // optional bool is_first_blood = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_is_first_blood(&has_bits);
           _impl_.is_first_blood_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool streak_ended = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_streak_ended(&has_bits);
+          _impl_.streak_ended_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float duration = 5 [default = 5];
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 45)) {
+          _Internal::set_has_duration(&has_bits);
+          _impl_.duration_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
         } else
           goto handle_unusual;
         continue;
@@ -21820,22 +22370,34 @@ uint8_t* CCitadelUserMsg_KillStreak::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 player_pawn = 1 [default = 16777215];
-  if (cached_has_bits & 0x00000004u) {
+  // optional uint32 player_pawn = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_player_pawn(), target);
   }
 
-  // required int32 num_kills = 2;
+  // optional int32 num_kills = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_num_kills(), target);
   }
 
-  // required bool is_first_blood = 3;
+  // optional bool is_first_blood = 3;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_is_first_blood(), target);
+  }
+
+  // optional bool streak_ended = 4;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_streak_ended(), target);
+  }
+
+  // optional float duration = 5 [default = 5];
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(5, this->_internal_duration(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -21846,48 +22408,42 @@ uint8_t* CCitadelUserMsg_KillStreak::_InternalSerialize(
   return target;
 }
 
-size_t CCitadelUserMsg_KillStreak::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:CCitadelUserMsg_KillStreak)
-  size_t total_size = 0;
-
-  if (_internal_has_num_kills()) {
-    // required int32 num_kills = 2;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_num_kills());
-  }
-
-  if (_internal_has_is_first_blood()) {
-    // required bool is_first_blood = 3;
-    total_size += 1 + 1;
-  }
-
-  if (_internal_has_player_pawn()) {
-    // required uint32 player_pawn = 1 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_pawn());
-  }
-
-  return total_size;
-}
 size_t CCitadelUserMsg_KillStreak::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_KillStreak)
   size_t total_size = 0;
 
-  if (((_impl_._has_bits_[0] & 0x00000007) ^ 0x00000007) == 0) {  // All required fields are present.
-    // required int32 num_kills = 2;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_num_kills());
-
-    // required bool is_first_blood = 3;
-    total_size += 1 + 1;
-
-    // required uint32 player_pawn = 1 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_pawn());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    // optional int32 num_kills = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_num_kills());
+    }
+
+    // optional bool is_first_blood = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool streak_ended = 4;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
+    }
+
+    // optional uint32 player_pawn = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_pawn());
+    }
+
+    // optional float duration = 5 [default = 5];
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 4;
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -21907,7 +22463,7 @@ void CCitadelUserMsg_KillStreak::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.num_kills_ = from._impl_.num_kills_;
     }
@@ -21915,7 +22471,13 @@ void CCitadelUserMsg_KillStreak::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
       _this->_impl_.is_first_blood_ = from._impl_.is_first_blood_;
     }
     if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.streak_ended_ = from._impl_.streak_ended_;
+    }
+    if (cached_has_bits & 0x00000008u) {
       _this->_impl_.player_pawn_ = from._impl_.player_pawn_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.duration_ = from._impl_.duration_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -21930,7 +22492,6 @@ void CCitadelUserMsg_KillStreak::CopyFrom(const CCitadelUserMsg_KillStreak& from
 }
 
 bool CCitadelUserMsg_KillStreak::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -21939,18 +22500,19 @@ void CCitadelUserMsg_KillStreak::InternalSwap(CCitadelUserMsg_KillStreak* other)
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_KillStreak, _impl_.is_first_blood_)
-      + sizeof(CCitadelUserMsg_KillStreak::_impl_.is_first_blood_)
+      PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_KillStreak, _impl_.streak_ended_)
+      + sizeof(CCitadelUserMsg_KillStreak::_impl_.streak_ended_)
       - PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_KillStreak, _impl_.num_kills_)>(
           reinterpret_cast<char*>(&_impl_.num_kills_),
           reinterpret_cast<char*>(&other->_impl_.num_kills_));
   swap(_impl_.player_pawn_, other->_impl_.player_pawn_);
+  swap(_impl_.duration_, other->_impl_.duration_);
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_KillStreak::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[59]);
+      file_level_metadata_citadel_5fusermessages_2eproto[60]);
 }
 
 // ===================================================================
@@ -21969,9 +22531,6 @@ class CCitadelUserMsg_TeamMsg::_Internal {
   }
   static void set_has_player_controller(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x0000000f) ^ 0x0000000f) != 0;
   }
 };
 
@@ -22054,7 +22613,7 @@ const char* CCitadelUserMsg_TeamMsg::_InternalParse(const char* ptr, ::_pbi::Par
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 event_type = 1;
+      // optional int32 event_type = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_event_type(&has_bits);
@@ -22063,7 +22622,7 @@ const char* CCitadelUserMsg_TeamMsg::_InternalParse(const char* ptr, ::_pbi::Par
         } else
           goto handle_unusual;
         continue;
-      // required int32 team_number = 2;
+      // optional int32 team_number = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_team_number(&has_bits);
@@ -22072,7 +22631,7 @@ const char* CCitadelUserMsg_TeamMsg::_InternalParse(const char* ptr, ::_pbi::Par
         } else
           goto handle_unusual;
         continue;
-      // required int32 lane_color = 3;
+      // optional int32 lane_color = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_lane_color(&has_bits);
@@ -22081,7 +22640,7 @@ const char* CCitadelUserMsg_TeamMsg::_InternalParse(const char* ptr, ::_pbi::Par
         } else
           goto handle_unusual;
         continue;
-      // required uint32 player_controller = 4 [default = 16777215];
+      // optional uint32 player_controller = 4 [default = 16777215];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_player_controller(&has_bits);
@@ -22121,25 +22680,25 @@ uint8_t* CCitadelUserMsg_TeamMsg::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 event_type = 1;
+  // optional int32 event_type = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_event_type(), target);
   }
 
-  // required int32 team_number = 2;
+  // optional int32 team_number = 2;
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_team_number(), target);
   }
 
-  // required int32 lane_color = 3;
+  // optional int32 lane_color = 3;
   if (cached_has_bits & 0x00000004u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_lane_color(), target);
   }
 
-  // required uint32 player_controller = 4 [default = 16777215];
+  // optional uint32 player_controller = 4 [default = 16777215];
   if (cached_has_bits & 0x00000008u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_player_controller(), target);
@@ -22153,56 +22712,37 @@ uint8_t* CCitadelUserMsg_TeamMsg::_InternalSerialize(
   return target;
 }
 
-size_t CCitadelUserMsg_TeamMsg::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:CCitadelUserMsg_TeamMsg)
-  size_t total_size = 0;
-
-  if (_internal_has_event_type()) {
-    // required int32 event_type = 1;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_event_type());
-  }
-
-  if (_internal_has_team_number()) {
-    // required int32 team_number = 2;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_team_number());
-  }
-
-  if (_internal_has_lane_color()) {
-    // required int32 lane_color = 3;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_lane_color());
-  }
-
-  if (_internal_has_player_controller()) {
-    // required uint32 player_controller = 4 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_controller());
-  }
-
-  return total_size;
-}
 size_t CCitadelUserMsg_TeamMsg::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_TeamMsg)
   size_t total_size = 0;
 
-  if (((_impl_._has_bits_[0] & 0x0000000f) ^ 0x0000000f) == 0) {  // All required fields are present.
-    // required int32 event_type = 1;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_event_type());
-
-    // required int32 team_number = 2;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_team_number());
-
-    // required int32 lane_color = 3;
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_lane_color());
-
-    // required uint32 player_controller = 4 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_controller());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional int32 event_type = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_event_type());
+    }
+
+    // optional int32 team_number = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_team_number());
+    }
+
+    // optional int32 lane_color = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_lane_color());
+    }
+
+    // optional uint32 player_controller = 4 [default = 16777215];
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_controller());
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -22248,7 +22788,6 @@ void CCitadelUserMsg_TeamMsg::CopyFrom(const CCitadelUserMsg_TeamMsg& from) {
 }
 
 bool CCitadelUserMsg_TeamMsg::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -22268,7 +22807,7 @@ void CCitadelUserMsg_TeamMsg::InternalSwap(CCitadelUserMsg_TeamMsg* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_TeamMsg::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[60]);
+      file_level_metadata_citadel_5fusermessages_2eproto[61]);
 }
 
 // ===================================================================
@@ -22281,9 +22820,6 @@ class CCitadelUserMsg_PlayerRespawned::_Internal {
   }
   static void set_has_facing_yaw(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000003) ^ 0x00000003) != 0;
   }
 };
 
@@ -22360,7 +22896,7 @@ const char* CCitadelUserMsg_PlayerRespawned::_InternalParse(const char* ptr, ::_
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required uint32 player_pawn = 1 [default = 16777215];
+      // optional uint32 player_pawn = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_pawn(&has_bits);
@@ -22369,7 +22905,7 @@ const char* CCitadelUserMsg_PlayerRespawned::_InternalParse(const char* ptr, ::_
         } else
           goto handle_unusual;
         continue;
-      // required float facing_yaw = 2;
+      // optional float facing_yaw = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 21)) {
           _Internal::set_has_facing_yaw(&has_bits);
@@ -22409,13 +22945,13 @@ uint8_t* CCitadelUserMsg_PlayerRespawned::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 player_pawn = 1 [default = 16777215];
+  // optional uint32 player_pawn = 1 [default = 16777215];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_player_pawn(), target);
   }
 
-  // required float facing_yaw = 2;
+  // optional float facing_yaw = 2;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(2, this->_internal_facing_yaw(), target);
@@ -22429,40 +22965,27 @@ uint8_t* CCitadelUserMsg_PlayerRespawned::_InternalSerialize(
   return target;
 }
 
-size_t CCitadelUserMsg_PlayerRespawned::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:CCitadelUserMsg_PlayerRespawned)
-  size_t total_size = 0;
-
-  if (_internal_has_facing_yaw()) {
-    // required float facing_yaw = 2;
-    total_size += 1 + 4;
-  }
-
-  if (_internal_has_player_pawn()) {
-    // required uint32 player_pawn = 1 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_pawn());
-  }
-
-  return total_size;
-}
 size_t CCitadelUserMsg_PlayerRespawned::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_PlayerRespawned)
   size_t total_size = 0;
 
-  if (((_impl_._has_bits_[0] & 0x00000003) ^ 0x00000003) == 0) {  // All required fields are present.
-    // required float facing_yaw = 2;
-    total_size += 1 + 4;
-
-    // required uint32 player_pawn = 1 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_pawn());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional float facing_yaw = 2;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 4;
+    }
+
+    // optional uint32 player_pawn = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player_pawn());
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -22502,7 +23025,6 @@ void CCitadelUserMsg_PlayerRespawned::CopyFrom(const CCitadelUserMsg_PlayerRespa
 }
 
 bool CCitadelUserMsg_PlayerRespawned::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -22517,7 +23039,7 @@ void CCitadelUserMsg_PlayerRespawned::InternalSwap(CCitadelUserMsg_PlayerRespawn
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_PlayerRespawned::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[61]);
+      file_level_metadata_citadel_5fusermessages_2eproto[62]);
 }
 
 // ===================================================================
@@ -22527,9 +23049,6 @@ class CCitadelUserMsg_CallCheaterVote::_Internal {
   using HasBits = decltype(std::declval<CCitadelUserMsg_CallCheaterVote>()._impl_._has_bits_);
   static void set_has_player_slot(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -22598,7 +23117,7 @@ const char* CCitadelUserMsg_CallCheaterVote::_InternalParse(const char* ptr, ::_
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 player_slot = 1 [default = -1];
+      // optional int32 player_slot = 1 [default = -1];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_player_slot(&has_bits);
@@ -22638,7 +23157,7 @@ uint8_t* CCitadelUserMsg_CallCheaterVote::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 player_slot = 1 [default = -1];
+  // optional int32 player_slot = 1 [default = -1];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_player_slot(), target);
@@ -22656,13 +23175,15 @@ size_t CCitadelUserMsg_CallCheaterVote::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_CallCheaterVote)
   size_t total_size = 0;
 
-  // required int32 player_slot = 1 [default = -1];
-  if (_internal_has_player_slot()) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_slot());
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // optional int32 player_slot = 1 [default = -1];
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_player_slot());
+  }
 
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
@@ -22696,7 +23217,6 @@ void CCitadelUserMsg_CallCheaterVote::CopyFrom(const CCitadelUserMsg_CallCheater
 }
 
 bool CCitadelUserMsg_CallCheaterVote::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -22710,7 +23230,7 @@ void CCitadelUserMsg_CallCheaterVote::InternalSwap(CCitadelUserMsg_CallCheaterVo
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_CallCheaterVote::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[62]);
+      file_level_metadata_citadel_5fusermessages_2eproto[63]);
 }
 
 // ===================================================================
@@ -22942,7 +23462,7 @@ void CCitadelUserMessage_MeleeHit::InternalSwap(CCitadelUserMessage_MeleeHit* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_MeleeHit::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[63]);
+      file_level_metadata_citadel_5fusermessages_2eproto[64]);
 }
 
 // ===================================================================
@@ -23179,7 +23699,7 @@ void CCitadelUserMsg_FlexSlotUnlocked::InternalSwap(CCitadelUserMsg_FlexSlotUnlo
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_FlexSlotUnlocked::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[64]);
+      file_level_metadata_citadel_5fusermessages_2eproto[65]);
 }
 
 // ===================================================================
@@ -23474,58 +23994,58 @@ void CCitadelUserMessage_ItemPurchaseNotification::InternalSwap(CCitadelUserMess
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_ItemPurchaseNotification::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[65]);
+      file_level_metadata_citadel_5fusermessages_2eproto[66]);
 }
 
 // ===================================================================
 
-class CCitadelUserMsg_SeasonalAchievementUnlocked::_Internal {
+class CCitadelUserMsg_SeasonalKill::_Internal {
  public:
-  using HasBits = decltype(std::declval<CCitadelUserMsg_SeasonalAchievementUnlocked>()._impl_._has_bits_);
-  static void set_has_account_id(HasBits* has_bits) {
+  using HasBits = decltype(std::declval<CCitadelUserMsg_SeasonalKill>()._impl_._has_bits_);
+  static void set_has_killer(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_hero_id(HasBits* has_bits) {
+  static void set_has_victim(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
 };
 
-CCitadelUserMsg_SeasonalAchievementUnlocked::CCitadelUserMsg_SeasonalAchievementUnlocked(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+CCitadelUserMsg_SeasonalKill::CCitadelUserMsg_SeasonalKill(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CCitadelUserMsg_SeasonalAchievementUnlocked)
+  // @@protoc_insertion_point(arena_constructor:CCitadelUserMsg_SeasonalKill)
 }
-CCitadelUserMsg_SeasonalAchievementUnlocked::CCitadelUserMsg_SeasonalAchievementUnlocked(const CCitadelUserMsg_SeasonalAchievementUnlocked& from)
+CCitadelUserMsg_SeasonalKill::CCitadelUserMsg_SeasonalKill(const CCitadelUserMsg_SeasonalKill& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CCitadelUserMsg_SeasonalAchievementUnlocked* const _this = this; (void)_this;
+  CCitadelUserMsg_SeasonalKill* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.account_id_){}
-    , decltype(_impl_.hero_id_){}};
+    , decltype(_impl_.killer_){}
+    , decltype(_impl_.victim_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.account_id_, &from._impl_.account_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.hero_id_) -
-    reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.hero_id_));
-  // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_SeasonalAchievementUnlocked)
+  ::memcpy(&_impl_.killer_, &from._impl_.killer_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.victim_) -
+    reinterpret_cast<char*>(&_impl_.killer_)) + sizeof(_impl_.victim_));
+  // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_SeasonalKill)
 }
 
-inline void CCitadelUserMsg_SeasonalAchievementUnlocked::SharedCtor(
+inline void CCitadelUserMsg_SeasonalKill::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.account_id_){0u}
-    , decltype(_impl_.hero_id_){0u}
+    , decltype(_impl_.killer_){16777215u}
+    , decltype(_impl_.victim_){16777215u}
   };
 }
 
-CCitadelUserMsg_SeasonalAchievementUnlocked::~CCitadelUserMsg_SeasonalAchievementUnlocked() {
-  // @@protoc_insertion_point(destructor:CCitadelUserMsg_SeasonalAchievementUnlocked)
+CCitadelUserMsg_SeasonalKill::~CCitadelUserMsg_SeasonalKill() {
+  // @@protoc_insertion_point(destructor:CCitadelUserMsg_SeasonalKill)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -23533,51 +24053,50 @@ CCitadelUserMsg_SeasonalAchievementUnlocked::~CCitadelUserMsg_SeasonalAchievemen
   SharedDtor();
 }
 
-inline void CCitadelUserMsg_SeasonalAchievementUnlocked::SharedDtor() {
+inline void CCitadelUserMsg_SeasonalKill::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void CCitadelUserMsg_SeasonalAchievementUnlocked::SetCachedSize(int size) const {
+void CCitadelUserMsg_SeasonalKill::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void CCitadelUserMsg_SeasonalAchievementUnlocked::Clear() {
-// @@protoc_insertion_point(message_clear_start:CCitadelUserMsg_SeasonalAchievementUnlocked)
+void CCitadelUserMsg_SeasonalKill::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCitadelUserMsg_SeasonalKill)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.account_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.hero_id_) -
-        reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.hero_id_));
+    _impl_.killer_ = 16777215u;
+    _impl_.victim_ = 16777215u;
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CCitadelUserMsg_SeasonalAchievementUnlocked::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* CCitadelUserMsg_SeasonalKill::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional uint32 account_id = 1;
+      // optional uint32 killer = 1 [default = 16777215];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_account_id(&has_bits);
-          _impl_.account_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_killer(&has_bits);
+          _impl_.killer_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 hero_id = 2;
+      // optional uint32 victim = 2 [default = 16777215];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_hero_id(&has_bits);
-          _impl_.hero_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_victim(&has_bits);
+          _impl_.victim_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -23606,35 +24125,35 @@ failure:
 #undef CHK_
 }
 
-uint8_t* CCitadelUserMsg_SeasonalAchievementUnlocked::_InternalSerialize(
+uint8_t* CCitadelUserMsg_SeasonalKill::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMsg_SeasonalAchievementUnlocked)
+  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMsg_SeasonalKill)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 account_id = 1;
+  // optional uint32 killer = 1 [default = 16777215];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_account_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_killer(), target);
   }
 
-  // optional uint32 hero_id = 2;
+  // optional uint32 victim = 2 [default = 16777215];
   if (cached_has_bits & 0x00000002u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_hero_id(), target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_victim(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMsg_SeasonalAchievementUnlocked)
+  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMsg_SeasonalKill)
   return target;
 }
 
-size_t CCitadelUserMsg_SeasonalAchievementUnlocked::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_SeasonalAchievementUnlocked)
+size_t CCitadelUserMsg_SeasonalKill::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_SeasonalKill)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -23643,31 +24162,31 @@ size_t CCitadelUserMsg_SeasonalAchievementUnlocked::ByteSizeLong() const {
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
-    // optional uint32 account_id = 1;
+    // optional uint32 killer = 1 [default = 16777215];
     if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_killer());
     }
 
-    // optional uint32 hero_id = 2;
+    // optional uint32 victim = 2 [default = 16777215];
     if (cached_has_bits & 0x00000002u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_hero_id());
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_victim());
     }
 
   }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMsg_SeasonalAchievementUnlocked::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMsg_SeasonalKill::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CCitadelUserMsg_SeasonalAchievementUnlocked::MergeImpl
+    CCitadelUserMsg_SeasonalKill::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_SeasonalAchievementUnlocked::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_SeasonalKill::GetClassData() const { return &_class_data_; }
 
 
-void CCitadelUserMsg_SeasonalAchievementUnlocked::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CCitadelUserMsg_SeasonalAchievementUnlocked*>(&to_msg);
-  auto& from = static_cast<const CCitadelUserMsg_SeasonalAchievementUnlocked&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMsg_SeasonalAchievementUnlocked)
+void CCitadelUserMsg_SeasonalKill::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CCitadelUserMsg_SeasonalKill*>(&to_msg);
+  auto& from = static_cast<const CCitadelUserMsg_SeasonalKill&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMsg_SeasonalKill)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -23675,43 +24194,39 @@ void CCitadelUserMsg_SeasonalAchievementUnlocked::MergeImpl(::PROTOBUF_NAMESPACE
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x00000003u) {
     if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.account_id_ = from._impl_.account_id_;
+      _this->_impl_.killer_ = from._impl_.killer_;
     }
     if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.hero_id_ = from._impl_.hero_id_;
+      _this->_impl_.victim_ = from._impl_.victim_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void CCitadelUserMsg_SeasonalAchievementUnlocked::CopyFrom(const CCitadelUserMsg_SeasonalAchievementUnlocked& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMsg_SeasonalAchievementUnlocked)
+void CCitadelUserMsg_SeasonalKill::CopyFrom(const CCitadelUserMsg_SeasonalKill& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMsg_SeasonalKill)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CCitadelUserMsg_SeasonalAchievementUnlocked::IsInitialized() const {
+bool CCitadelUserMsg_SeasonalKill::IsInitialized() const {
   return true;
 }
 
-void CCitadelUserMsg_SeasonalAchievementUnlocked::InternalSwap(CCitadelUserMsg_SeasonalAchievementUnlocked* other) {
+void CCitadelUserMsg_SeasonalKill::InternalSwap(CCitadelUserMsg_SeasonalKill* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_SeasonalAchievementUnlocked, _impl_.hero_id_)
-      + sizeof(CCitadelUserMsg_SeasonalAchievementUnlocked::_impl_.hero_id_)
-      - PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_SeasonalAchievementUnlocked, _impl_.account_id_)>(
-          reinterpret_cast<char*>(&_impl_.account_id_),
-          reinterpret_cast<char*>(&other->_impl_.account_id_));
+  swap(_impl_.killer_, other->_impl_.killer_);
+  swap(_impl_.victim_, other->_impl_.victim_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_SeasonalAchievementUnlocked::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_SeasonalKill::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[66]);
+      file_level_metadata_citadel_5fusermessages_2eproto[67]);
 }
 
 // ===================================================================
@@ -23724,9 +24239,6 @@ class CCitadelUserMsg_MusicQueue::_Internal {
   }
   static void set_has_override(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00000001) ^ 0x00000001) != 0;
   }
 };
 
@@ -23804,7 +24316,7 @@ const char* CCitadelUserMsg_MusicQueue::_InternalParse(const char* ptr, ::_pbi::
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required int32 music_state = 1;
+      // optional int32 music_state = 1;
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           _Internal::set_has_music_state(&has_bits);
@@ -23853,7 +24365,7 @@ uint8_t* CCitadelUserMsg_MusicQueue::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required int32 music_state = 1;
+  // optional int32 music_state = 1;
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_music_state(), target);
@@ -23877,20 +24389,23 @@ size_t CCitadelUserMsg_MusicQueue::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_MusicQueue)
   size_t total_size = 0;
 
-  // required int32 music_state = 1;
-  if (_internal_has_music_state()) {
-    total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_music_state());
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional bool override = 2;
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000002u) {
-    total_size += 1 + 1;
-  }
+  if (cached_has_bits & 0x00000003u) {
+    // optional int32 music_state = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_music_state());
+    }
 
+    // optional bool override = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -23930,7 +24445,6 @@ void CCitadelUserMsg_MusicQueue::CopyFrom(const CCitadelUserMsg_MusicQueue& from
 }
 
 bool CCitadelUserMsg_MusicQueue::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -23949,7 +24463,7 @@ void CCitadelUserMsg_MusicQueue::InternalSwap(CCitadelUserMsg_MusicQueue* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_MusicQueue::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[67]);
+      file_level_metadata_citadel_5fusermessages_2eproto[68]);
 }
 
 // ===================================================================
@@ -24233,7 +24747,7 @@ void CCitadelUserMsg_AG2ParamTrigger::InternalSwap(CCitadelUserMsg_AG2ParamTrigg
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_AG2ParamTrigger::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[68]);
+      file_level_metadata_citadel_5fusermessages_2eproto[69]);
 }
 
 // ===================================================================
@@ -24482,7 +24996,998 @@ void CCitadelUserMsg_EntityPortalled::InternalSwap(CCitadelUserMsg_EntityPortall
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_EntityPortalled::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[69]);
+      file_level_metadata_citadel_5fusermessages_2eproto[70]);
+}
+
+// ===================================================================
+
+class CCitadelUserMsg_StreetBrawlScoring::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CCitadelUserMsg_StreetBrawlScoring>()._impl_._has_bits_);
+  static void set_has_scoring_team(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_just_a_test(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_sapphire_score(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_amber_score(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+};
+
+CCitadelUserMsg_StreetBrawlScoring::CCitadelUserMsg_StreetBrawlScoring(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CCitadelUserMsg_StreetBrawlScoring)
+}
+CCitadelUserMsg_StreetBrawlScoring::CCitadelUserMsg_StreetBrawlScoring(const CCitadelUserMsg_StreetBrawlScoring& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CCitadelUserMsg_StreetBrawlScoring* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.scoring_team_){}
+    , decltype(_impl_.just_a_test_){}
+    , decltype(_impl_.sapphire_score_){}
+    , decltype(_impl_.amber_score_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.scoring_team_, &from._impl_.scoring_team_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.amber_score_) -
+    reinterpret_cast<char*>(&_impl_.scoring_team_)) + sizeof(_impl_.amber_score_));
+  // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_StreetBrawlScoring)
+}
+
+inline void CCitadelUserMsg_StreetBrawlScoring::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.scoring_team_){0}
+    , decltype(_impl_.just_a_test_){false}
+    , decltype(_impl_.sapphire_score_){0}
+    , decltype(_impl_.amber_score_){0}
+  };
+}
+
+CCitadelUserMsg_StreetBrawlScoring::~CCitadelUserMsg_StreetBrawlScoring() {
+  // @@protoc_insertion_point(destructor:CCitadelUserMsg_StreetBrawlScoring)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CCitadelUserMsg_StreetBrawlScoring::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CCitadelUserMsg_StreetBrawlScoring::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CCitadelUserMsg_StreetBrawlScoring::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCitadelUserMsg_StreetBrawlScoring)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    ::memset(&_impl_.scoring_team_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.amber_score_) -
+        reinterpret_cast<char*>(&_impl_.scoring_team_)) + sizeof(_impl_.amber_score_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCitadelUserMsg_StreetBrawlScoring::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional int32 scoring_team = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_scoring_team(&has_bits);
+          _impl_.scoring_team_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool just_a_test = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_just_a_test(&has_bits);
+          _impl_.just_a_test_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 sapphire_score = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_sapphire_score(&has_bits);
+          _impl_.sapphire_score_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional int32 amber_score = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_amber_score(&has_bits);
+          _impl_.amber_score_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CCitadelUserMsg_StreetBrawlScoring::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMsg_StreetBrawlScoring)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional int32 scoring_team = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_scoring_team(), target);
+  }
+
+  // optional bool just_a_test = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_just_a_test(), target);
+  }
+
+  // optional int32 sapphire_score = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(3, this->_internal_sapphire_score(), target);
+  }
+
+  // optional int32 amber_score = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(4, this->_internal_amber_score(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMsg_StreetBrawlScoring)
+  return target;
+}
+
+size_t CCitadelUserMsg_StreetBrawlScoring::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_StreetBrawlScoring)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    // optional int32 scoring_team = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_scoring_team());
+    }
+
+    // optional bool just_a_test = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 + 1;
+    }
+
+    // optional int32 sapphire_score = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_sapphire_score());
+    }
+
+    // optional int32 amber_score = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_amber_score());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMsg_StreetBrawlScoring::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CCitadelUserMsg_StreetBrawlScoring::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_StreetBrawlScoring::GetClassData() const { return &_class_data_; }
+
+
+void CCitadelUserMsg_StreetBrawlScoring::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CCitadelUserMsg_StreetBrawlScoring*>(&to_msg);
+  auto& from = static_cast<const CCitadelUserMsg_StreetBrawlScoring&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMsg_StreetBrawlScoring)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000000fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.scoring_team_ = from._impl_.scoring_team_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.just_a_test_ = from._impl_.just_a_test_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.sapphire_score_ = from._impl_.sapphire_score_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.amber_score_ = from._impl_.amber_score_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CCitadelUserMsg_StreetBrawlScoring::CopyFrom(const CCitadelUserMsg_StreetBrawlScoring& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMsg_StreetBrawlScoring)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCitadelUserMsg_StreetBrawlScoring::IsInitialized() const {
+  return true;
+}
+
+void CCitadelUserMsg_StreetBrawlScoring::InternalSwap(CCitadelUserMsg_StreetBrawlScoring* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_StreetBrawlScoring, _impl_.amber_score_)
+      + sizeof(CCitadelUserMsg_StreetBrawlScoring::_impl_.amber_score_)
+      - PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_StreetBrawlScoring, _impl_.scoring_team_)>(
+          reinterpret_cast<char*>(&_impl_.scoring_team_),
+          reinterpret_cast<char*>(&other->_impl_.scoring_team_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_StreetBrawlScoring::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
+      file_level_metadata_citadel_5fusermessages_2eproto[71]);
+}
+
+// ===================================================================
+
+class CCitadelUserMsg_HudGameAnnouncement::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CCitadelUserMsg_HudGameAnnouncement>()._impl_._has_bits_);
+  static void set_has_title_locstring(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_description_locstring(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+};
+
+CCitadelUserMsg_HudGameAnnouncement::CCitadelUserMsg_HudGameAnnouncement(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CCitadelUserMsg_HudGameAnnouncement)
+}
+CCitadelUserMsg_HudGameAnnouncement::CCitadelUserMsg_HudGameAnnouncement(const CCitadelUserMsg_HudGameAnnouncement& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CCitadelUserMsg_HudGameAnnouncement* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.classname_){from._impl_.classname_}
+    , decltype(_impl_.dialog_variable_name_){from._impl_.dialog_variable_name_}
+    , decltype(_impl_.dialog_variable_locstring_){from._impl_.dialog_variable_locstring_}
+    , decltype(_impl_.title_locstring_){}
+    , decltype(_impl_.description_locstring_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.title_locstring_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.title_locstring_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_title_locstring()) {
+    _this->_impl_.title_locstring_.Set(from._internal_title_locstring(), 
+      _this->GetArenaForAllocation());
+  }
+  _impl_.description_locstring_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.description_locstring_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_description_locstring()) {
+    _this->_impl_.description_locstring_.Set(from._internal_description_locstring(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_HudGameAnnouncement)
+}
+
+inline void CCitadelUserMsg_HudGameAnnouncement::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.classname_){arena}
+    , decltype(_impl_.dialog_variable_name_){arena}
+    , decltype(_impl_.dialog_variable_locstring_){arena}
+    , decltype(_impl_.title_locstring_){}
+    , decltype(_impl_.description_locstring_){}
+  };
+  _impl_.title_locstring_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.title_locstring_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  _impl_.description_locstring_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.description_locstring_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+CCitadelUserMsg_HudGameAnnouncement::~CCitadelUserMsg_HudGameAnnouncement() {
+  // @@protoc_insertion_point(destructor:CCitadelUserMsg_HudGameAnnouncement)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CCitadelUserMsg_HudGameAnnouncement::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.classname_.~RepeatedPtrField();
+  _impl_.dialog_variable_name_.~RepeatedPtrField();
+  _impl_.dialog_variable_locstring_.~RepeatedPtrField();
+  _impl_.title_locstring_.Destroy();
+  _impl_.description_locstring_.Destroy();
+}
+
+void CCitadelUserMsg_HudGameAnnouncement::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CCitadelUserMsg_HudGameAnnouncement::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCitadelUserMsg_HudGameAnnouncement)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.classname_.Clear();
+  _impl_.dialog_variable_name_.Clear();
+  _impl_.dialog_variable_locstring_.Clear();
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.title_locstring_.ClearNonDefaultToEmpty();
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _impl_.description_locstring_.ClearNonDefaultToEmpty();
+    }
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCitadelUserMsg_HudGameAnnouncement::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional string title_locstring = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_title_locstring();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          #ifndef NDEBUG
+          ::_pbi::VerifyUTF8(str, "CCitadelUserMsg_HudGameAnnouncement.title_locstring");
+          #endif  // !NDEBUG
+        } else
+          goto handle_unusual;
+        continue;
+      // optional string description_locstring = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 18)) {
+          auto str = _internal_mutable_description_locstring();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          #ifndef NDEBUG
+          ::_pbi::VerifyUTF8(str, "CCitadelUserMsg_HudGameAnnouncement.description_locstring");
+          #endif  // !NDEBUG
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string classname = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_classname();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            #ifndef NDEBUG
+            ::_pbi::VerifyUTF8(str, "CCitadelUserMsg_HudGameAnnouncement.classname");
+            #endif  // !NDEBUG
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<26>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string dialog_variable_name = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 34)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_dialog_variable_name();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            #ifndef NDEBUG
+            ::_pbi::VerifyUTF8(str, "CCitadelUserMsg_HudGameAnnouncement.dialog_variable_name");
+            #endif  // !NDEBUG
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<34>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      // repeated string dialog_variable_locstring = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 42)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            auto str = _internal_add_dialog_variable_locstring();
+            ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+            CHK_(ptr);
+            #ifndef NDEBUG
+            ::_pbi::VerifyUTF8(str, "CCitadelUserMsg_HudGameAnnouncement.dialog_variable_locstring");
+            #endif  // !NDEBUG
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<42>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CCitadelUserMsg_HudGameAnnouncement::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMsg_HudGameAnnouncement)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional string title_locstring = 1;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_title_locstring().data(), static_cast<int>(this->_internal_title_locstring().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CCitadelUserMsg_HudGameAnnouncement.title_locstring");
+    target = stream->WriteStringMaybeAliased(
+        1, this->_internal_title_locstring(), target);
+  }
+
+  // optional string description_locstring = 2;
+  if (cached_has_bits & 0x00000002u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_description_locstring().data(), static_cast<int>(this->_internal_description_locstring().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CCitadelUserMsg_HudGameAnnouncement.description_locstring");
+    target = stream->WriteStringMaybeAliased(
+        2, this->_internal_description_locstring(), target);
+  }
+
+  // repeated string classname = 3;
+  for (int i = 0, n = this->_internal_classname_size(); i < n; i++) {
+    const auto& s = this->_internal_classname(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CCitadelUserMsg_HudGameAnnouncement.classname");
+    target = stream->WriteString(3, s, target);
+  }
+
+  // repeated string dialog_variable_name = 4;
+  for (int i = 0, n = this->_internal_dialog_variable_name_size(); i < n; i++) {
+    const auto& s = this->_internal_dialog_variable_name(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CCitadelUserMsg_HudGameAnnouncement.dialog_variable_name");
+    target = stream->WriteString(4, s, target);
+  }
+
+  // repeated string dialog_variable_locstring = 5;
+  for (int i = 0, n = this->_internal_dialog_variable_locstring_size(); i < n; i++) {
+    const auto& s = this->_internal_dialog_variable_locstring(i);
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      s.data(), static_cast<int>(s.length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CCitadelUserMsg_HudGameAnnouncement.dialog_variable_locstring");
+    target = stream->WriteString(5, s, target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMsg_HudGameAnnouncement)
+  return target;
+}
+
+size_t CCitadelUserMsg_HudGameAnnouncement::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_HudGameAnnouncement)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated string classname = 3;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.classname_.size());
+  for (int i = 0, n = _impl_.classname_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.classname_.Get(i));
+  }
+
+  // repeated string dialog_variable_name = 4;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.dialog_variable_name_.size());
+  for (int i = 0, n = _impl_.dialog_variable_name_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.dialog_variable_name_.Get(i));
+  }
+
+  // repeated string dialog_variable_locstring = 5;
+  total_size += 1 *
+      ::PROTOBUF_NAMESPACE_ID::internal::FromIntSize(_impl_.dialog_variable_locstring_.size());
+  for (int i = 0, n = _impl_.dialog_variable_locstring_.size(); i < n; i++) {
+    total_size += ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+      _impl_.dialog_variable_locstring_.Get(i));
+  }
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    // optional string title_locstring = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_title_locstring());
+    }
+
+    // optional string description_locstring = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_description_locstring());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMsg_HudGameAnnouncement::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CCitadelUserMsg_HudGameAnnouncement::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_HudGameAnnouncement::GetClassData() const { return &_class_data_; }
+
+
+void CCitadelUserMsg_HudGameAnnouncement::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CCitadelUserMsg_HudGameAnnouncement*>(&to_msg);
+  auto& from = static_cast<const CCitadelUserMsg_HudGameAnnouncement&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMsg_HudGameAnnouncement)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.classname_.MergeFrom(from._impl_.classname_);
+  _this->_impl_.dialog_variable_name_.MergeFrom(from._impl_.dialog_variable_name_);
+  _this->_impl_.dialog_variable_locstring_.MergeFrom(from._impl_.dialog_variable_locstring_);
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000003u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_set_title_locstring(from._internal_title_locstring());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_internal_set_description_locstring(from._internal_description_locstring());
+    }
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CCitadelUserMsg_HudGameAnnouncement::CopyFrom(const CCitadelUserMsg_HudGameAnnouncement& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMsg_HudGameAnnouncement)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCitadelUserMsg_HudGameAnnouncement::IsInitialized() const {
+  return true;
+}
+
+void CCitadelUserMsg_HudGameAnnouncement::InternalSwap(CCitadelUserMsg_HudGameAnnouncement* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.classname_.InternalSwap(&other->_impl_.classname_);
+  _impl_.dialog_variable_name_.InternalSwap(&other->_impl_.dialog_variable_name_);
+  _impl_.dialog_variable_locstring_.InternalSwap(&other->_impl_.dialog_variable_locstring_);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.title_locstring_, lhs_arena,
+      &other->_impl_.title_locstring_, rhs_arena
+  );
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.description_locstring_, lhs_arena,
+      &other->_impl_.description_locstring_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_HudGameAnnouncement::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
+      file_level_metadata_citadel_5fusermessages_2eproto[72]);
+}
+
+// ===================================================================
+
+class CCitadelUserMessage_ImportantAbilityUsed::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CCitadelUserMessage_ImportantAbilityUsed>()._impl_._has_bits_);
+  static void set_has_player(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_caster(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_ability_name(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CCitadelUserMessage_ImportantAbilityUsed::CCitadelUserMessage_ImportantAbilityUsed(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CCitadelUserMessage_ImportantAbilityUsed)
+}
+CCitadelUserMessage_ImportantAbilityUsed::CCitadelUserMessage_ImportantAbilityUsed(const CCitadelUserMessage_ImportantAbilityUsed& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CCitadelUserMessage_ImportantAbilityUsed* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ability_name_){}
+    , decltype(_impl_.player_){}
+    , decltype(_impl_.caster_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.ability_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.ability_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_ability_name()) {
+    _this->_impl_.ability_name_.Set(from._internal_ability_name(), 
+      _this->GetArenaForAllocation());
+  }
+  ::memcpy(&_impl_.player_, &from._impl_.player_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.caster_) -
+    reinterpret_cast<char*>(&_impl_.player_)) + sizeof(_impl_.caster_));
+  // @@protoc_insertion_point(copy_constructor:CCitadelUserMessage_ImportantAbilityUsed)
+}
+
+inline void CCitadelUserMessage_ImportantAbilityUsed::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ability_name_){}
+    , decltype(_impl_.player_){16777215u}
+    , decltype(_impl_.caster_){16777215u}
+  };
+  _impl_.ability_name_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.ability_name_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+CCitadelUserMessage_ImportantAbilityUsed::~CCitadelUserMessage_ImportantAbilityUsed() {
+  // @@protoc_insertion_point(destructor:CCitadelUserMessage_ImportantAbilityUsed)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CCitadelUserMessage_ImportantAbilityUsed::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.ability_name_.Destroy();
+}
+
+void CCitadelUserMessage_ImportantAbilityUsed::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CCitadelUserMessage_ImportantAbilityUsed::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCitadelUserMessage_ImportantAbilityUsed)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _impl_.ability_name_.ClearNonDefaultToEmpty();
+    }
+    _impl_.player_ = 16777215u;
+    _impl_.caster_ = 16777215u;
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCitadelUserMessage_ImportantAbilityUsed::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 player = 1 [default = 16777215];
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_player(&has_bits);
+          _impl_.player_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 caster = 2 [default = 16777215];
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_caster(&has_bits);
+          _impl_.caster_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional string ability_name = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 26)) {
+          auto str = _internal_mutable_ability_name();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+          #ifndef NDEBUG
+          ::_pbi::VerifyUTF8(str, "CCitadelUserMessage_ImportantAbilityUsed.ability_name");
+          #endif  // !NDEBUG
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CCitadelUserMessage_ImportantAbilityUsed::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMessage_ImportantAbilityUsed)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 player = 1 [default = 16777215];
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_player(), target);
+  }
+
+  // optional uint32 caster = 2 [default = 16777215];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_caster(), target);
+  }
+
+  // optional string ability_name = 3;
+  if (cached_has_bits & 0x00000001u) {
+    ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::VerifyUTF8StringNamedField(
+      this->_internal_ability_name().data(), static_cast<int>(this->_internal_ability_name().length()),
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormat::SERIALIZE,
+      "CCitadelUserMessage_ImportantAbilityUsed.ability_name");
+    target = stream->WriteStringMaybeAliased(
+        3, this->_internal_ability_name(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMessage_ImportantAbilityUsed)
+  return target;
+}
+
+size_t CCitadelUserMessage_ImportantAbilityUsed::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMessage_ImportantAbilityUsed)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional string ability_name = 3;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 +
+        ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::StringSize(
+          this->_internal_ability_name());
+    }
+
+    // optional uint32 player = 1 [default = 16777215];
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_player());
+    }
+
+    // optional uint32 caster = 2 [default = 16777215];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_caster());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMessage_ImportantAbilityUsed::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CCitadelUserMessage_ImportantAbilityUsed::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMessage_ImportantAbilityUsed::GetClassData() const { return &_class_data_; }
+
+
+void CCitadelUserMessage_ImportantAbilityUsed::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CCitadelUserMessage_ImportantAbilityUsed*>(&to_msg);
+  auto& from = static_cast<const CCitadelUserMessage_ImportantAbilityUsed&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMessage_ImportantAbilityUsed)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_internal_set_ability_name(from._internal_ability_name());
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.player_ = from._impl_.player_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.caster_ = from._impl_.caster_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CCitadelUserMessage_ImportantAbilityUsed::CopyFrom(const CCitadelUserMessage_ImportantAbilityUsed& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMessage_ImportantAbilityUsed)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCitadelUserMessage_ImportantAbilityUsed::IsInitialized() const {
+  return true;
+}
+
+void CCitadelUserMessage_ImportantAbilityUsed::InternalSwap(CCitadelUserMessage_ImportantAbilityUsed* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.ability_name_, lhs_arena,
+      &other->_impl_.ability_name_, rhs_arena
+  );
+  swap(_impl_.player_, other->_impl_.player_);
+  swap(_impl_.caster_, other->_impl_.caster_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_ImportantAbilityUsed::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
+      file_level_metadata_citadel_5fusermessages_2eproto[73]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -24514,6 +26019,10 @@ Arena::CreateMaybeMessage< ::CCitadelUserMsg_AbilityPing >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_QuickResponse*
 Arena::CreateMaybeMessage< ::CCitadelUserMsg_QuickResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCitadelUserMsg_QuickResponse >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_ItemDraftReaction*
+Arena::CreateMaybeMessage< ::CCitadelUserMsg_ItemDraftReaction >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCitadelUserMsg_ItemDraftReaction >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_MapLine*
 Arena::CreateMaybeMessage< ::CCitadelUserMsg_MapLine >(Arena* arena) {
@@ -24663,9 +26172,9 @@ template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_PlayerLifetimeStatInfo*
 Arena::CreateMaybeMessage< ::CCitadelUserMsg_PlayerLifetimeStatInfo >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCitadelUserMsg_PlayerLifetimeStatInfo >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_StaminaDrained*
-Arena::CreateMaybeMessage< ::CCitadelUserMsg_StaminaDrained >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CCitadelUserMsg_StaminaDrained >(arena);
+template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_StaminaConsumed*
+Arena::CreateMaybeMessage< ::CCitadelUserMsg_StaminaConsumed >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCitadelUserMsg_StaminaConsumed >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CCitadelUserMessage_AbilityNotify*
 Arena::CreateMaybeMessage< ::CCitadelUserMessage_AbilityNotify >(Arena* arena) {
@@ -24751,9 +26260,9 @@ template<> PROTOBUF_NOINLINE ::CCitadelUserMessage_ItemPurchaseNotification*
 Arena::CreateMaybeMessage< ::CCitadelUserMessage_ItemPurchaseNotification >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCitadelUserMessage_ItemPurchaseNotification >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_SeasonalAchievementUnlocked*
-Arena::CreateMaybeMessage< ::CCitadelUserMsg_SeasonalAchievementUnlocked >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CCitadelUserMsg_SeasonalAchievementUnlocked >(arena);
+template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_SeasonalKill*
+Arena::CreateMaybeMessage< ::CCitadelUserMsg_SeasonalKill >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCitadelUserMsg_SeasonalKill >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_MusicQueue*
 Arena::CreateMaybeMessage< ::CCitadelUserMsg_MusicQueue >(Arena* arena) {
@@ -24766,6 +26275,18 @@ Arena::CreateMaybeMessage< ::CCitadelUserMsg_AG2ParamTrigger >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_EntityPortalled*
 Arena::CreateMaybeMessage< ::CCitadelUserMsg_EntityPortalled >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCitadelUserMsg_EntityPortalled >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_StreetBrawlScoring*
+Arena::CreateMaybeMessage< ::CCitadelUserMsg_StreetBrawlScoring >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCitadelUserMsg_StreetBrawlScoring >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_HudGameAnnouncement*
+Arena::CreateMaybeMessage< ::CCitadelUserMsg_HudGameAnnouncement >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCitadelUserMsg_HudGameAnnouncement >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCitadelUserMessage_ImportantAbilityUsed*
+Arena::CreateMaybeMessage< ::CCitadelUserMessage_ImportantAbilityUsed >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCitadelUserMessage_ImportantAbilityUsed >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

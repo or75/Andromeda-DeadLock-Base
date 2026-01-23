@@ -2198,7 +2198,49 @@ struct CMsgGCToGCUpdateWelcomeMsgDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgGCToGCUpdateWelcomeMsgDefaultTypeInternal _CMsgGCToGCUpdateWelcomeMsg_default_instance_;
-static ::_pb::Metadata file_level_metadata_econ_5fgcmessages_2eproto[140];
+PROTOBUF_CONSTEXPR CMsgClientToGCRecycleMultipleItems_Item::CMsgClientToGCRecycleMultipleItems_Item(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.item_id_)*/uint64_t{0u}
+  , /*decltype(_impl_.slot_id_)*/0u
+  , /*decltype(_impl_.recipe_def_index_)*/0u} {}
+struct CMsgClientToGCRecycleMultipleItems_ItemDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCRecycleMultipleItems_ItemDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCRecycleMultipleItems_ItemDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCRecycleMultipleItems_Item _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCRecycleMultipleItems_ItemDefaultTypeInternal _CMsgClientToGCRecycleMultipleItems_Item_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCRecycleMultipleItems::CMsgClientToGCRecycleMultipleItems(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.items_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CMsgClientToGCRecycleMultipleItemsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCRecycleMultipleItemsDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCRecycleMultipleItemsDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCRecycleMultipleItems _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCRecycleMultipleItemsDefaultTypeInternal _CMsgClientToGCRecycleMultipleItems_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCRecycleMultipleItemsResponse::CMsgClientToGCRecycleMultipleItemsResponse(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.responses_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CMsgClientToGCRecycleMultipleItemsResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCRecycleMultipleItemsResponseDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgClientToGCRecycleMultipleItemsResponseDefaultTypeInternal() {}
+  union {
+    CMsgClientToGCRecycleMultipleItemsResponse _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCRecycleMultipleItemsResponseDefaultTypeInternal _CMsgClientToGCRecycleMultipleItemsResponse_default_instance_;
+static ::_pb::Metadata file_level_metadata_econ_5fgcmessages_2eproto[143];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_econ_5fgcmessages_2eproto[15];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_econ_5fgcmessages_2eproto = nullptr;
 
@@ -3776,6 +3818,32 @@ const uint32_t TableStruct_econ_5fgcmessages_2eproto::offsets[] PROTOBUF_SECTION
   1,
   0,
   2,
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCRecycleMultipleItems_Item, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCRecycleMultipleItems_Item, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCRecycleMultipleItems_Item, _impl_.item_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCRecycleMultipleItems_Item, _impl_.slot_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCRecycleMultipleItems_Item, _impl_.recipe_def_index_),
+  0,
+  1,
+  2,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCRecycleMultipleItems, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCRecycleMultipleItems, _impl_.items_),
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCRecycleMultipleItemsResponse, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCRecycleMultipleItemsResponse, _impl_.responses_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::CMsgApplyAutograph)},
@@ -3918,6 +3986,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 1545, 1552, -1, sizeof(::CMsgClientToGCCancelUnfinalizedTransactions)},
   { 1553, 1560, -1, sizeof(::CMsgClientToGCCancelUnfinalizedTransactionsResponse)},
   { 1561, 1570, -1, sizeof(::CMsgGCToGCUpdateWelcomeMsg)},
+  { 1573, 1582, -1, sizeof(::CMsgClientToGCRecycleMultipleItems_Item)},
+  { 1585, -1, -1, sizeof(::CMsgClientToGCRecycleMultipleItems)},
+  { 1592, -1, -1, sizeof(::CMsgClientToGCRecycleMultipleItemsResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -4061,6 +4132,9 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgClientToGCCancelUnfinalizedTransactions_default_instance_._instance,
   &::_CMsgClientToGCCancelUnfinalizedTransactionsResponse_default_instance_._instance,
   &::_CMsgGCToGCUpdateWelcomeMsg_default_instance_._instance,
+  &::_CMsgClientToGCRecycleMultipleItems_Item_default_instance_._instance,
+  &::_CMsgClientToGCRecycleMultipleItems_default_instance_._instance,
+  &::_CMsgClientToGCRecycleMultipleItemsResponse_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_econ_5fgcmessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -4512,169 +4586,178 @@ const char descriptor_table_protodef_econ_5fgcmessages_2eproto[] PROTOBUF_SECTIO
   "finalizedTransactionsResponse\022\016\n\006result\030"
   "\001 \001(\r\"a\n\032CMsgGCToGCUpdateWelcomeMsg\022\016\n\006s"
   "erver\030\001 \001(\010\022 \n\007new_msg\030\002 \001(\0132\017.CExtraMsg"
-  "Block\022\021\n\tbroadcast\030\003 \001(\010*\203(\n\nEGCItemMsg\022"
-  "\021\n\014k_EMsgGCBase\020\350\007\022\034\n\027k_EMsgGCSetItemPos"
-  "ition\020\351\007\022\037\n\032k_EMsgClientToGCPackBundle\020\352"
-  "\007\022\'\n\"k_EMsgClientToGCPackBundleResponse\020"
-  "\353\007\022\023\n\016k_EMsgGCDelete\020\354\007\022$\n\037k_EMsgGCVerif"
-  "yCacheSubscription\020\355\007\022\035\n\030k_EMsgClientToG"
-  "CNameItem\020\356\007\022\026\n\021k_EMsgGCPaintItem\020\361\007\022\036\n\031"
-  "k_EMsgGCPaintItemResponse\020\362\007\022\031\n\024k_EMsgGC"
-  "NameBaseItem\020\373\007\022!\n\034k_EMsgGCNameBaseItemR"
-  "esponse\020\374\007\022\033\n\026k_EMsgGCUseItemRequest\020\201\010\022"
-  "\034\n\027k_EMsgGCUseItemResponse\020\202\010\022\030\n\023k_EMsgG"
-  "CGiftedItems\020\203\010\022\036\n\031k_EMsgGCUnwrapGiftReq"
-  "uest\020\215\010\022\037\n\032k_EMsgGCUnwrapGiftResponse\020\216\010"
-  "\022\026\n\021k_EMsgGCSortItems\020\221\010\022!\n\034k_EMsgGCBack"
-  "packSortFinished\020\242\010\022$\n\037k_EMsgGCAdjustIte"
-  "mEquippedState\020\243\010\022\035\n\030k_EMsgGCItemAcknowl"
-  "edged\020\246\010\022%\n k_EMsgClientToGCNameItemResp"
-  "onse\020\254\010\022\035\n\030k_EMsgGCApplyStrangePart\020\261\010\022 "
-  "\n\033k_EMsgGCApplyPennantUpgrade\020\264\010\022\035\n\030k_EM"
-  "sgGCSetItemPositions\020\265\010\022\034\n\027k_EMsgGCApply"
-  "EggEssence\020\266\010\022#\n\036k_EMsgGCNameEggEssenceR"
-  "esponse\020\267\010\022\030\n\023k_EMsgGCExtractGems\020\276\010\022\026\n\021"
-  "k_EMsgGCAddSocket\020\277\010\022\034\n\027k_EMsgGCAddItemT"
-  "oSocket\020\300\010\022$\n\037k_EMsgGCAddItemToSocketRes"
-  "ponse\020\301\010\022\036\n\031k_EMsgGCAddSocketResponse\020\302\010"
-  "\022!\n\034k_EMsgGCResetStrangeGemCount\020\303\010\022\036\n\031k"
-  "_EMsgGCRequestCrateItems\020\304\010\022&\n!k_EMsgGCR"
-  "equestCrateItemsResponse\020\305\010\022 \n\033k_EMsgGCE"
-  "xtractGemsResponse\020\306\010\022)\n$k_EMsgGCResetSt"
-  "rangeGemCountResponse\020\307\010\022!\n\034k_EMsgGCServ"
-  "erUseItemRequest\020\317\010\022\030\n\023k_EMsgGCAddGiftIt"
-  "em\020\320\010\022\'\n\"k_EMsgSQLGCToGCRevokeUntrustedG"
-  "ift\020\321\010\022/\n*k_EMsgClientToGCRemoveItemGift"
-  "erAttributes\020\325\010\022#\n\036k_EMsgClientToGCRemov"
-  "eItemName\020\326\010\022*\n%k_EMsgClientToGCRemoveIt"
-  "emDescription\020\327\010\0220\n+k_EMsgClientToGCRemo"
-  "veItemAttributeResponse\020\330\010\022\037\n\032k_EMsgGCDe"
-  "v_NewItemRequest\020\321\017\022\'\n\"k_EMsgGCDev_NewIt"
-  "emRequestResponse\020\322\017\022+\n&k_EMsgGCDev_Unlo"
-  "ckAllItemStylesRequest\020\323\017\022,\n\'k_EMsgGCDev"
-  "_UnlockAllItemStylesResponse\020\324\017\022\"\n\035k_EMs"
-  "gGCStorePurchaseFinalize\020\310\023\022*\n%k_EMsgGCS"
-  "torePurchaseFinalizeResponse\020\311\023\022 \n\033k_EMs"
-  "gGCStorePurchaseCancel\020\312\023\022(\n#k_EMsgGCSto"
-  "rePurchaseCancelResponse\020\313\023\022\036\n\031k_EMsgGCS"
-  "torePurchaseInit\020\316\023\022&\n!k_EMsgGCStorePurc"
-  "haseInitResponse\020\317\023\022&\n!k_EMsgGCToGCBanne"
-  "dWordListUpdated\020\323\023\022\036\n\031k_EMsgGCToGCDirty"
-  "SDOCache\020\324\023\022\"\n\035k_EMsgGCToGCUpdateSQLKeyV"
-  "alue\020\326\023\022(\n#k_EMsgGCToGCBroadcastConsoleC"
-  "ommand\020\331\023\022!\n\034k_EMsgGCServerVersionUpdate"
-  "d\020\332\023\022\033\n\026k_EMsgGCApplyAutograph\020\333\023\022%\n k_E"
-  "MsgGCToGCWebAPIAccountChanged\020\334\023\022!\n\034k_EM"
-  "sgGCClientVersionUpdated\020\340\023\022!\n\034k_EMsgGCT"
-  "oGCUpdateWelcomeMsg\020\341\023\022.\n)k_EMsgGCToGCPl"
-  "ayerStrangeCountAdjustments\020\347\023\022\"\n\035k_EMsg"
-  "GCRequestStoreSalesData\020\350\023\022*\n%k_EMsgGCRe"
-  "questStoreSalesDataResponse\020\351\023\0222\n-k_EMsg"
-  "GCRequestStoreSalesDataUpToDateResponse\020"
-  "\352\023\022\034\n\027k_EMsgGCToGCPingRequest\020\353\023\022\035\n\030k_EM"
-  "sgGCToGCPingResponse\020\354\023\022%\n k_EMsgGCToGCG"
-  "etUserSessionServer\020\355\023\022-\n(k_EMsgGCToGCGe"
-  "tUserSessionServerResponse\020\356\023\022%\n k_EMsgG"
-  "CToGCGetUserServerMembers\020\357\023\022-\n(k_EMsgGC"
-  "ToGCGetUserServerMembersResponse\020\360\023\022$\n\037k"
-  "_EMsgGCToGCCanUseDropRateBonus\020\363\023\022\036\n\031k_E"
-  "MsgSQLAddDropRateBonus\020\364\023\022\037\n\032k_EMsgGCToG"
-  "CRefreshSOCache\020\365\023\022(\n#k_EMsgGCToGCGrantA"
-  "ccountRolledItems\020\372\023\022+\n&k_EMsgGCToGCGran"
-  "tSelfMadeItemToAccount\020\373\023\022\034\n\027k_EMsgGCToG"
-  "CUnlockCrate\020\374\023\022\030\n\023k_EMsgGCStatueCraft\020\201"
-  "\024\022\027\n\022k_EMsgGCRedeemCode\020\202\024\022\037\n\032k_EMsgGCRe"
-  "deemCodeResponse\020\203\024\022(\n#k_EMsgGCToGCItemC"
-  "onsumptionRollback\020\204\024\022\'\n\"k_EMsgClientToG"
-  "CWrapAndDeliverGift\020\205\024\022/\n*k_EMsgClientTo"
-  "GCWrapAndDeliverGiftResponse\020\206\024\022)\n$k_EMs"
-  "gClientToGCUnpackBundleResponse\020\207\024\022.\n)k_"
-  "EMsgGCToClientStoreTransactionCompleted\020"
-  "\210\024\022\037\n\032k_EMsgClientToGCEquipItems\020\211\024\022\'\n\"k"
-  "_EMsgClientToGCEquipItemsResponse\020\212\024\022$\n\037"
-  "k_EMsgClientToGCUnlockItemStyle\020\213\024\022,\n\'k_"
-  "EMsgClientToGCUnlockItemStyleResponse\020\214\024"
-  "\022-\n(k_EMsgClientToGCSetItemInventoryCate"
-  "gory\020\215\024\022 \n\033k_EMsgClientToGCUnlockCrate\020\216"
-  "\024\022(\n#k_EMsgClientToGCUnlockCrateResponse"
-  "\020\217\024\022!\n\034k_EMsgClientToGCUnpackBundle\020\220\024\022!"
-  "\n\034k_EMsgClientToGCSetItemStyle\020\221\024\022)\n$k_E"
-  "MsgClientToGCSetItemStyleResponse\020\222\024\022&\n!"
-  "k_EMsgSQLGCToGCGrantBackpackSlots\020\224\024\022&\n!"
-  "k_EMsgClientToGCLookupAccountName\020\225\024\022.\n)"
-  "k_EMsgClientToGCLookupAccountNameRespons"
-  "e\020\226\024\022\'\n\"k_EMsgClientToGCCreateStaticReci"
-  "pe\020\230\024\022/\n*k_EMsgClientToGCCreateStaticRec"
-  "ipeResponse\020\231\024\022-\n(k_EMsgGCToGCStoreProce"
-  "ssCDKeyTransaction\020\232\024\0225\n0k_EMsgGCToGCSto"
-  "reProcessCDKeyTransactionResponse\020\233\024\022\'\n\""
-  "k_EMsgGCToGCStoreProcessSettlement\020\234\024\022/\n"
-  "*k_EMsgGCToGCStoreProcessSettlementRespo"
-  "nse\020\235\024\022\036\n\031k_EMsgGCToGCConsoleOutput\020\236\024\022\035"
-  "\n\030k_EMsgGCToClientItemAges\020\237\024\022 \n\033k_EMsgG"
-  "CToGCInternalTestMsg\020\240\024\022,\n\'k_EMsgGCToGCC"
-  "lientServerVersionsUpdated\020\241\024\022$\n\037k_EMsgG"
-  "CUseMultipleItemsRequest\020\242\024\022\'\n\"k_EMsgGCG"
-  "etAccountSubscriptionItem\020\243\024\022/\n*k_EMsgGC"
-  "GetAccountSubscriptionItemResponse\020\244\024\022(\n"
-  "#k_EMsgGCToGCBroadcastMessageFromSub\020\246\024\022"
-  "(\n#k_EMsgGCToClientCurrencyPricePoints\020\247"
-  "\024\022$\n\037k_EMsgGCToGCAddSubscriptionTime\020\250\024\022"
-  ")\n$k_EMsgGCToGCFlushSteamInventoryCache\020"
-  "\251\024\022(\n#k_EMsgGCRequestCrateEscalationLeve"
-  "l\020\252\024\0220\n+k_EMsgGCRequestCrateEscalationLe"
-  "velResponse\020\253\024\022(\n#k_EMsgGCToGCUpdateSubs"
-  "criptionItems\020\254\024\022\031\n\024k_EMsgGCToGCSelfPing"
-  "\020\255\024\022&\n!k_EMsgGCToGCGetInfuxIntervalStats"
-  "\020\256\024\022.\n)k_EMsgGCToGCGetInfuxIntervalStats"
-  "Response\020\257\024\022\"\n\035k_EMsgGCToGCPurchaseSucce"
-  "eded\020\260\024\0223\n.k_EMsgClientToGCGetLimitedIte"
-  "mPurchaseQuantity\020\261\024\022;\n6k_EMsgClientToGC"
-  "GetLimitedItemPurchaseQuantityResponse\020\262"
-  "\024\022 \n\033k_EMsgGCToGCBetaDeleteItems\020\263\024\022+\n&k"
-  "_EMsgClientToGCGetInFlightItemCharges\020\264\024"
-  "\0223\n.k_EMsgClientToGCGetInFlightItemCharg"
-  "esResponse\020\265\024\022+\n&k_EMsgGCToClientInFligh"
-  "tChargesUpdated\020\266\024\022,\n\'k_EMsgClientToGCPu"
-  "rchaseChargeCostItems\020\267\024\0224\n/k_EMsgClient"
-  "ToGCPurchaseChargeCostItemsResponse\020\270\024\0222"
-  "\n-k_EMsgClientToGCCancelUnfinalizedTrans"
-  "actions\020\271\024\022:\n5k_EMsgClientToGCCancelUnfi"
-  "nalizedTransactionsResponse\020\272\024*\271\n\n\033EGCMs"
-  "gInitiateTradeResponse\022*\n&k_EGCMsgInitia"
-  "teTradeResponse_Accepted\020\000\022*\n&k_EGCMsgIn"
-  "itiateTradeResponse_Declined\020\001\0226\n2k_EGCM"
-  "sgInitiateTradeResponse_VAC_Banned_Initi"
-  "ator\020\002\0223\n/k_EGCMsgInitiateTradeResponse_"
-  "VAC_Banned_Target\020\003\0228\n4k_EGCMsgInitiateT"
-  "radeResponse_Target_Already_Trading\020\004\022*\n"
-  "&k_EGCMsgInitiateTradeResponse_Disabled\020"
-  "\005\022-\n)k_EGCMsgInitiateTradeResponse_NotLo"
-  "ggedIn\020\006\022(\n$k_EGCMsgInitiateTradeRespons"
-  "e_Cancel\020\007\022)\n%k_EGCMsgInitiateTradeRespo"
-  "nse_TooSoon\020\010\0220\n,k_EGCMsgInitiateTradeRe"
-  "sponse_TooSoonPenalty\020\t\0228\n4k_EGCMsgIniti"
-  "ateTradeResponse_Trade_Banned_Initiator\020"
-  "\n\0225\n1k_EGCMsgInitiateTradeResponse_Trade"
-  "_Banned_Target\020\013\022C\n\?k_EGCMsgInitiateTrad"
-  "eResponse_Free_Account_Initiator_DEPRECA"
-  "TED\020\014\022:\n6k_EGCMsgInitiateTradeResponse_S"
-  "hared_Account_Initiator\020\r\0225\n1k_EGCMsgIni"
-  "tiateTradeResponse_Service_Unavailable\020\016"
-  "\0220\n,k_EGCMsgInitiateTradeResponse_Target"
-  "_Blocked\020\017\0223\n/k_EGCMsgInitiateTradeRespo"
-  "nse_NeedVerifiedEmail\020\020\0220\n,k_EGCMsgIniti"
-  "ateTradeResponse_NeedSteamGuard\020\021\0224\n0k_E"
-  "GCMsgInitiateTradeResponse_SteamGuardDur"
-  "ation\020\022\0221\n-k_EGCMsgInitiateTradeResponse"
-  "_TheyCannotTrade\020\023\0227\n3k_EGCMsgInitiateTr"
-  "adeResponse_Recent_Password_Reset\020\024\0222\n.k"
-  "_EGCMsgInitiateTradeResponse_Using_New_D"
-  "evice\020\025\0225\n1k_EGCMsgInitiateTradeResponse"
-  "_Sent_Invalid_Cookie\020\026\0221\n-k_EGCMsgInitia"
-  "teTradeResponse_TooRecentFriend\020\027\0227\n3k_E"
-  "GCMsgInitiateTradeResponse_WalledFundsNo"
-  "tTrusted\020\030"
+  "Block\022\021\n\tbroadcast\030\003 \001(\010\"\241\001\n\"CMsgClientT"
+  "oGCRecycleMultipleItems\0227\n\005items\030\001 \003(\0132("
+  ".CMsgClientToGCRecycleMultipleItems.Item"
+  "\032B\n\004Item\022\017\n\007item_id\030\001 \001(\004\022\017\n\007slot_id\030\002 \001"
+  "(\r\022\030\n\020recipe_def_index\030\003 \001(\r\"j\n*CMsgClie"
+  "ntToGCRecycleMultipleItemsResponse\022<\n\tre"
+  "sponses\030\001 \003(\0132).CMsgClientToGCCreateStat"
+  "icRecipeResponse*\341(\n\nEGCItemMsg\022\021\n\014k_EMs"
+  "gGCBase\020\350\007\022\034\n\027k_EMsgGCSetItemPosition\020\351\007"
+  "\022\037\n\032k_EMsgClientToGCPackBundle\020\352\007\022\'\n\"k_E"
+  "MsgClientToGCPackBundleResponse\020\353\007\022\023\n\016k_"
+  "EMsgGCDelete\020\354\007\022$\n\037k_EMsgGCVerifyCacheSu"
+  "bscription\020\355\007\022\035\n\030k_EMsgClientToGCNameIte"
+  "m\020\356\007\022\026\n\021k_EMsgGCPaintItem\020\361\007\022\036\n\031k_EMsgGC"
+  "PaintItemResponse\020\362\007\022\031\n\024k_EMsgGCNameBase"
+  "Item\020\373\007\022!\n\034k_EMsgGCNameBaseItemResponse\020"
+  "\374\007\022\033\n\026k_EMsgGCUseItemRequest\020\201\010\022\034\n\027k_EMs"
+  "gGCUseItemResponse\020\202\010\022\030\n\023k_EMsgGCGiftedI"
+  "tems\020\203\010\022\036\n\031k_EMsgGCUnwrapGiftRequest\020\215\010\022"
+  "\037\n\032k_EMsgGCUnwrapGiftResponse\020\216\010\022\026\n\021k_EM"
+  "sgGCSortItems\020\221\010\022!\n\034k_EMsgGCBackpackSort"
+  "Finished\020\242\010\022$\n\037k_EMsgGCAdjustItemEquippe"
+  "dState\020\243\010\022\035\n\030k_EMsgGCItemAcknowledged\020\246\010"
+  "\022%\n k_EMsgClientToGCNameItemResponse\020\254\010\022"
+  "\035\n\030k_EMsgGCApplyStrangePart\020\261\010\022 \n\033k_EMsg"
+  "GCApplyPennantUpgrade\020\264\010\022\035\n\030k_EMsgGCSetI"
+  "temPositions\020\265\010\022\034\n\027k_EMsgGCApplyEggEssen"
+  "ce\020\266\010\022#\n\036k_EMsgGCNameEggEssenceResponse\020"
+  "\267\010\022\030\n\023k_EMsgGCExtractGems\020\276\010\022\026\n\021k_EMsgGC"
+  "AddSocket\020\277\010\022\034\n\027k_EMsgGCAddItemToSocket\020"
+  "\300\010\022$\n\037k_EMsgGCAddItemToSocketResponse\020\301\010"
+  "\022\036\n\031k_EMsgGCAddSocketResponse\020\302\010\022!\n\034k_EM"
+  "sgGCResetStrangeGemCount\020\303\010\022\036\n\031k_EMsgGCR"
+  "equestCrateItems\020\304\010\022&\n!k_EMsgGCRequestCr"
+  "ateItemsResponse\020\305\010\022 \n\033k_EMsgGCExtractGe"
+  "msResponse\020\306\010\022)\n$k_EMsgGCResetStrangeGem"
+  "CountResponse\020\307\010\022!\n\034k_EMsgGCServerUseIte"
+  "mRequest\020\317\010\022\030\n\023k_EMsgGCAddGiftItem\020\320\010\022\'\n"
+  "\"k_EMsgSQLGCToGCRevokeUntrustedGift\020\321\010\022/"
+  "\n*k_EMsgClientToGCRemoveItemGifterAttrib"
+  "utes\020\325\010\022#\n\036k_EMsgClientToGCRemoveItemNam"
+  "e\020\326\010\022*\n%k_EMsgClientToGCRemoveItemDescri"
+  "ption\020\327\010\0220\n+k_EMsgClientToGCRemoveItemAt"
+  "tributeResponse\020\330\010\022\037\n\032k_EMsgGCDev_NewIte"
+  "mRequest\020\321\017\022\'\n\"k_EMsgGCDev_NewItemReques"
+  "tResponse\020\322\017\022+\n&k_EMsgGCDev_UnlockAllIte"
+  "mStylesRequest\020\323\017\022,\n\'k_EMsgGCDev_UnlockA"
+  "llItemStylesResponse\020\324\017\022\"\n\035k_EMsgGCStore"
+  "PurchaseFinalize\020\310\023\022*\n%k_EMsgGCStorePurc"
+  "haseFinalizeResponse\020\311\023\022 \n\033k_EMsgGCStore"
+  "PurchaseCancel\020\312\023\022(\n#k_EMsgGCStorePurcha"
+  "seCancelResponse\020\313\023\022\036\n\031k_EMsgGCStorePurc"
+  "haseInit\020\316\023\022&\n!k_EMsgGCStorePurchaseInit"
+  "Response\020\317\023\022&\n!k_EMsgGCToGCBannedWordLis"
+  "tUpdated\020\323\023\022\036\n\031k_EMsgGCToGCDirtySDOCache"
+  "\020\324\023\022\"\n\035k_EMsgGCToGCUpdateSQLKeyValue\020\326\023\022"
+  "(\n#k_EMsgGCToGCBroadcastConsoleCommand\020\331"
+  "\023\022!\n\034k_EMsgGCServerVersionUpdated\020\332\023\022\033\n\026"
+  "k_EMsgGCApplyAutograph\020\333\023\022%\n k_EMsgGCToG"
+  "CWebAPIAccountChanged\020\334\023\022!\n\034k_EMsgGCClie"
+  "ntVersionUpdated\020\340\023\022!\n\034k_EMsgGCToGCUpdat"
+  "eWelcomeMsg\020\341\023\022.\n)k_EMsgGCToGCPlayerStra"
+  "ngeCountAdjustments\020\347\023\022\"\n\035k_EMsgGCReques"
+  "tStoreSalesData\020\350\023\022*\n%k_EMsgGCRequestSto"
+  "reSalesDataResponse\020\351\023\0222\n-k_EMsgGCReques"
+  "tStoreSalesDataUpToDateResponse\020\352\023\022\034\n\027k_"
+  "EMsgGCToGCPingRequest\020\353\023\022\035\n\030k_EMsgGCToGC"
+  "PingResponse\020\354\023\022%\n k_EMsgGCToGCGetUserSe"
+  "ssionServer\020\355\023\022-\n(k_EMsgGCToGCGetUserSes"
+  "sionServerResponse\020\356\023\022%\n k_EMsgGCToGCGet"
+  "UserServerMembers\020\357\023\022-\n(k_EMsgGCToGCGetU"
+  "serServerMembersResponse\020\360\023\022$\n\037k_EMsgGCT"
+  "oGCCanUseDropRateBonus\020\363\023\022\036\n\031k_EMsgSQLAd"
+  "dDropRateBonus\020\364\023\022\037\n\032k_EMsgGCToGCRefresh"
+  "SOCache\020\365\023\022(\n#k_EMsgGCToGCGrantAccountRo"
+  "lledItems\020\372\023\022+\n&k_EMsgGCToGCGrantSelfMad"
+  "eItemToAccount\020\373\023\022\034\n\027k_EMsgGCToGCUnlockC"
+  "rate\020\374\023\022\030\n\023k_EMsgGCStatueCraft\020\201\024\022\027\n\022k_E"
+  "MsgGCRedeemCode\020\202\024\022\037\n\032k_EMsgGCRedeemCode"
+  "Response\020\203\024\022(\n#k_EMsgGCToGCItemConsumpti"
+  "onRollback\020\204\024\022\'\n\"k_EMsgClientToGCWrapAnd"
+  "DeliverGift\020\205\024\022/\n*k_EMsgClientToGCWrapAn"
+  "dDeliverGiftResponse\020\206\024\022)\n$k_EMsgClientT"
+  "oGCUnpackBundleResponse\020\207\024\022.\n)k_EMsgGCTo"
+  "ClientStoreTransactionCompleted\020\210\024\022\037\n\032k_"
+  "EMsgClientToGCEquipItems\020\211\024\022\'\n\"k_EMsgCli"
+  "entToGCEquipItemsResponse\020\212\024\022$\n\037k_EMsgCl"
+  "ientToGCUnlockItemStyle\020\213\024\022,\n\'k_EMsgClie"
+  "ntToGCUnlockItemStyleResponse\020\214\024\022-\n(k_EM"
+  "sgClientToGCSetItemInventoryCategory\020\215\024\022"
+  " \n\033k_EMsgClientToGCUnlockCrate\020\216\024\022(\n#k_E"
+  "MsgClientToGCUnlockCrateResponse\020\217\024\022!\n\034k"
+  "_EMsgClientToGCUnpackBundle\020\220\024\022!\n\034k_EMsg"
+  "ClientToGCSetItemStyle\020\221\024\022)\n$k_EMsgClien"
+  "tToGCSetItemStyleResponse\020\222\024\022&\n!k_EMsgSQ"
+  "LGCToGCGrantBackpackSlots\020\224\024\022&\n!k_EMsgCl"
+  "ientToGCLookupAccountName\020\225\024\022.\n)k_EMsgCl"
+  "ientToGCLookupAccountNameResponse\020\226\024\022\'\n\""
+  "k_EMsgClientToGCCreateStaticRecipe\020\230\024\022/\n"
+  "*k_EMsgClientToGCCreateStaticRecipeRespo"
+  "nse\020\231\024\022-\n(k_EMsgGCToGCStoreProcessCDKeyT"
+  "ransaction\020\232\024\0225\n0k_EMsgGCToGCStoreProces"
+  "sCDKeyTransactionResponse\020\233\024\022\'\n\"k_EMsgGC"
+  "ToGCStoreProcessSettlement\020\234\024\022/\n*k_EMsgG"
+  "CToGCStoreProcessSettlementResponse\020\235\024\022\036"
+  "\n\031k_EMsgGCToGCConsoleOutput\020\236\024\022\035\n\030k_EMsg"
+  "GCToClientItemAges\020\237\024\022 \n\033k_EMsgGCToGCInt"
+  "ernalTestMsg\020\240\024\022,\n\'k_EMsgGCToGCClientSer"
+  "verVersionsUpdated\020\241\024\022$\n\037k_EMsgGCUseMult"
+  "ipleItemsRequest\020\242\024\022\'\n\"k_EMsgGCGetAccoun"
+  "tSubscriptionItem\020\243\024\022/\n*k_EMsgGCGetAccou"
+  "ntSubscriptionItemResponse\020\244\024\022(\n#k_EMsgG"
+  "CToGCBroadcastMessageFromSub\020\246\024\022(\n#k_EMs"
+  "gGCToClientCurrencyPricePoints\020\247\024\022$\n\037k_E"
+  "MsgGCToGCAddSubscriptionTime\020\250\024\022)\n$k_EMs"
+  "gGCToGCFlushSteamInventoryCache\020\251\024\022(\n#k_"
+  "EMsgGCRequestCrateEscalationLevel\020\252\024\0220\n+"
+  "k_EMsgGCRequestCrateEscalationLevelRespo"
+  "nse\020\253\024\022(\n#k_EMsgGCToGCUpdateSubscription"
+  "Items\020\254\024\022\031\n\024k_EMsgGCToGCSelfPing\020\255\024\022&\n!k"
+  "_EMsgGCToGCGetInfuxIntervalStats\020\256\024\022.\n)k"
+  "_EMsgGCToGCGetInfuxIntervalStatsResponse"
+  "\020\257\024\022\"\n\035k_EMsgGCToGCPurchaseSucceeded\020\260\024\022"
+  "3\n.k_EMsgClientToGCGetLimitedItemPurchas"
+  "eQuantity\020\261\024\022;\n6k_EMsgClientToGCGetLimit"
+  "edItemPurchaseQuantityResponse\020\262\024\022 \n\033k_E"
+  "MsgGCToGCBetaDeleteItems\020\263\024\022+\n&k_EMsgCli"
+  "entToGCGetInFlightItemCharges\020\264\024\0223\n.k_EM"
+  "sgClientToGCGetInFlightItemChargesRespon"
+  "se\020\265\024\022+\n&k_EMsgGCToClientInFlightCharges"
+  "Updated\020\266\024\022,\n\'k_EMsgClientToGCPurchaseCh"
+  "argeCostItems\020\267\024\0224\n/k_EMsgClientToGCPurc"
+  "haseChargeCostItemsResponse\020\270\024\0222\n-k_EMsg"
+  "ClientToGCCancelUnfinalizedTransactions\020"
+  "\271\024\022:\n5k_EMsgClientToGCCancelUnfinalizedT"
+  "ransactionsResponse\020\272\024\022)\n$k_EMsgClientTo"
+  "GCRecycleMultipleItems\020\273\024\0221\n,k_EMsgClien"
+  "tToGCRecycleMultipleItemsResponse\020\274\024*\271\n\n"
+  "\033EGCMsgInitiateTradeResponse\022*\n&k_EGCMsg"
+  "InitiateTradeResponse_Accepted\020\000\022*\n&k_EG"
+  "CMsgInitiateTradeResponse_Declined\020\001\0226\n2"
+  "k_EGCMsgInitiateTradeResponse_VAC_Banned"
+  "_Initiator\020\002\0223\n/k_EGCMsgInitiateTradeRes"
+  "ponse_VAC_Banned_Target\020\003\0228\n4k_EGCMsgIni"
+  "tiateTradeResponse_Target_Already_Tradin"
+  "g\020\004\022*\n&k_EGCMsgInitiateTradeResponse_Dis"
+  "abled\020\005\022-\n)k_EGCMsgInitiateTradeResponse"
+  "_NotLoggedIn\020\006\022(\n$k_EGCMsgInitiateTradeR"
+  "esponse_Cancel\020\007\022)\n%k_EGCMsgInitiateTrad"
+  "eResponse_TooSoon\020\010\0220\n,k_EGCMsgInitiateT"
+  "radeResponse_TooSoonPenalty\020\t\0228\n4k_EGCMs"
+  "gInitiateTradeResponse_Trade_Banned_Init"
+  "iator\020\n\0225\n1k_EGCMsgInitiateTradeResponse"
+  "_Trade_Banned_Target\020\013\022C\n\?k_EGCMsgInitia"
+  "teTradeResponse_Free_Account_Initiator_D"
+  "EPRECATED\020\014\022:\n6k_EGCMsgInitiateTradeResp"
+  "onse_Shared_Account_Initiator\020\r\0225\n1k_EGC"
+  "MsgInitiateTradeResponse_Service_Unavail"
+  "able\020\016\0220\n,k_EGCMsgInitiateTradeResponse_"
+  "Target_Blocked\020\017\0223\n/k_EGCMsgInitiateTrad"
+  "eResponse_NeedVerifiedEmail\020\020\0220\n,k_EGCMs"
+  "gInitiateTradeResponse_NeedSteamGuard\020\021\022"
+  "4\n0k_EGCMsgInitiateTradeResponse_SteamGu"
+  "ardDuration\020\022\0221\n-k_EGCMsgInitiateTradeRe"
+  "sponse_TheyCannotTrade\020\023\0227\n3k_EGCMsgInit"
+  "iateTradeResponse_Recent_Password_Reset\020"
+  "\024\0222\n.k_EGCMsgInitiateTradeResponse_Using"
+  "_New_Device\020\025\0225\n1k_EGCMsgInitiateTradeRe"
+  "sponse_Sent_Invalid_Cookie\020\026\0221\n-k_EGCMsg"
+  "InitiateTradeResponse_TooRecentFriend\020\027\022"
+  "7\n3k_EGCMsgInitiateTradeResponse_WalledF"
+  "undsNotTrusted\020\030"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_econ_5fgcmessages_2eproto_deps[4] = {
   &::descriptor_table_base_5fgcmessages_2eproto,
@@ -4684,9 +4767,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_econ_5fgcmessages_2
 };
 static ::_pbi::once_flag descriptor_table_econ_5fgcmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_econ_5fgcmessages_2eproto = {
-    false, false, 24410, descriptor_table_protodef_econ_5fgcmessages_2eproto,
+    false, false, 24776, descriptor_table_protodef_econ_5fgcmessages_2eproto,
     "econ_gcmessages.proto",
-    &descriptor_table_econ_5fgcmessages_2eproto_once, descriptor_table_econ_5fgcmessages_2eproto_deps, 4, 140,
+    &descriptor_table_econ_5fgcmessages_2eproto_once, descriptor_table_econ_5fgcmessages_2eproto_deps, 4, 143,
     schemas, file_default_instances, TableStruct_econ_5fgcmessages_2eproto::offsets,
     file_level_metadata_econ_5fgcmessages_2eproto, file_level_enum_descriptors_econ_5fgcmessages_2eproto,
     file_level_service_descriptors_econ_5fgcmessages_2eproto,
@@ -5225,6 +5308,8 @@ bool EGCItemMsg_IsValid(int value) {
     case 2616:
     case 2617:
     case 2618:
+    case 2619:
+    case 2620:
       return true;
     default:
       return false;
@@ -40859,6 +40944,641 @@ void CMsgGCToGCUpdateWelcomeMsg::InternalSwap(CMsgGCToGCUpdateWelcomeMsg* other)
       file_level_metadata_econ_5fgcmessages_2eproto[139]);
 }
 
+// ===================================================================
+
+class CMsgClientToGCRecycleMultipleItems_Item::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgClientToGCRecycleMultipleItems_Item>()._impl_._has_bits_);
+  static void set_has_item_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_slot_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_recipe_def_index(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CMsgClientToGCRecycleMultipleItems_Item::CMsgClientToGCRecycleMultipleItems_Item(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCRecycleMultipleItems.Item)
+}
+CMsgClientToGCRecycleMultipleItems_Item::CMsgClientToGCRecycleMultipleItems_Item(const CMsgClientToGCRecycleMultipleItems_Item& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCRecycleMultipleItems_Item* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.item_id_){}
+    , decltype(_impl_.slot_id_){}
+    , decltype(_impl_.recipe_def_index_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.item_id_, &from._impl_.item_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.recipe_def_index_) -
+    reinterpret_cast<char*>(&_impl_.item_id_)) + sizeof(_impl_.recipe_def_index_));
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCRecycleMultipleItems.Item)
+}
+
+inline void CMsgClientToGCRecycleMultipleItems_Item::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.item_id_){uint64_t{0u}}
+    , decltype(_impl_.slot_id_){0u}
+    , decltype(_impl_.recipe_def_index_){0u}
+  };
+}
+
+CMsgClientToGCRecycleMultipleItems_Item::~CMsgClientToGCRecycleMultipleItems_Item() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCRecycleMultipleItems.Item)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCRecycleMultipleItems_Item::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgClientToGCRecycleMultipleItems_Item::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCRecycleMultipleItems_Item::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCRecycleMultipleItems.Item)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&_impl_.item_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.recipe_def_index_) -
+        reinterpret_cast<char*>(&_impl_.item_id_)) + sizeof(_impl_.recipe_def_index_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCRecycleMultipleItems_Item::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint64 item_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_item_id(&has_bits);
+          _impl_.item_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 slot_id = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_slot_id(&has_bits);
+          _impl_.slot_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 recipe_def_index = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_recipe_def_index(&has_bits);
+          _impl_.recipe_def_index_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCRecycleMultipleItems_Item::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCRecycleMultipleItems.Item)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint64 item_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(1, this->_internal_item_id(), target);
+  }
+
+  // optional uint32 slot_id = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_slot_id(), target);
+  }
+
+  // optional uint32 recipe_def_index = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_recipe_def_index(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCRecycleMultipleItems.Item)
+  return target;
+}
+
+size_t CMsgClientToGCRecycleMultipleItems_Item::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCRecycleMultipleItems.Item)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional uint64 item_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_item_id());
+    }
+
+    // optional uint32 slot_id = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_slot_id());
+    }
+
+    // optional uint32 recipe_def_index = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_recipe_def_index());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCRecycleMultipleItems_Item::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCRecycleMultipleItems_Item::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCRecycleMultipleItems_Item::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCRecycleMultipleItems_Item::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCRecycleMultipleItems_Item*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCRecycleMultipleItems_Item&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCRecycleMultipleItems.Item)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.item_id_ = from._impl_.item_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.slot_id_ = from._impl_.slot_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.recipe_def_index_ = from._impl_.recipe_def_index_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCRecycleMultipleItems_Item::CopyFrom(const CMsgClientToGCRecycleMultipleItems_Item& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCRecycleMultipleItems.Item)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCRecycleMultipleItems_Item::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCRecycleMultipleItems_Item::InternalSwap(CMsgClientToGCRecycleMultipleItems_Item* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCRecycleMultipleItems_Item, _impl_.recipe_def_index_)
+      + sizeof(CMsgClientToGCRecycleMultipleItems_Item::_impl_.recipe_def_index_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCRecycleMultipleItems_Item, _impl_.item_id_)>(
+          reinterpret_cast<char*>(&_impl_.item_id_),
+          reinterpret_cast<char*>(&other->_impl_.item_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCRecycleMultipleItems_Item::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_econ_5fgcmessages_2eproto_getter, &descriptor_table_econ_5fgcmessages_2eproto_once,
+      file_level_metadata_econ_5fgcmessages_2eproto[140]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCRecycleMultipleItems::_Internal {
+ public:
+};
+
+CMsgClientToGCRecycleMultipleItems::CMsgClientToGCRecycleMultipleItems(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCRecycleMultipleItems)
+}
+CMsgClientToGCRecycleMultipleItems::CMsgClientToGCRecycleMultipleItems(const CMsgClientToGCRecycleMultipleItems& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCRecycleMultipleItems* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){from._impl_.items_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCRecycleMultipleItems)
+}
+
+inline void CMsgClientToGCRecycleMultipleItems::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CMsgClientToGCRecycleMultipleItems::~CMsgClientToGCRecycleMultipleItems() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCRecycleMultipleItems)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCRecycleMultipleItems::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.items_.~RepeatedPtrField();
+}
+
+void CMsgClientToGCRecycleMultipleItems::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCRecycleMultipleItems::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCRecycleMultipleItems)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.items_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCRecycleMultipleItems::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .CMsgClientToGCRecycleMultipleItems.Item items = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_items(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCRecycleMultipleItems::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCRecycleMultipleItems)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CMsgClientToGCRecycleMultipleItems.Item items = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_items_size()); i < n; i++) {
+    const auto& repfield = this->_internal_items(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCRecycleMultipleItems)
+  return target;
+}
+
+size_t CMsgClientToGCRecycleMultipleItems::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCRecycleMultipleItems)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgClientToGCRecycleMultipleItems.Item items = 1;
+  total_size += 1UL * this->_internal_items_size();
+  for (const auto& msg : this->_impl_.items_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCRecycleMultipleItems::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCRecycleMultipleItems::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCRecycleMultipleItems::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCRecycleMultipleItems::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCRecycleMultipleItems*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCRecycleMultipleItems&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCRecycleMultipleItems)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.items_.MergeFrom(from._impl_.items_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCRecycleMultipleItems::CopyFrom(const CMsgClientToGCRecycleMultipleItems& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCRecycleMultipleItems)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCRecycleMultipleItems::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCRecycleMultipleItems::InternalSwap(CMsgClientToGCRecycleMultipleItems* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.items_.InternalSwap(&other->_impl_.items_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCRecycleMultipleItems::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_econ_5fgcmessages_2eproto_getter, &descriptor_table_econ_5fgcmessages_2eproto_once,
+      file_level_metadata_econ_5fgcmessages_2eproto[141]);
+}
+
+// ===================================================================
+
+class CMsgClientToGCRecycleMultipleItemsResponse::_Internal {
+ public:
+};
+
+CMsgClientToGCRecycleMultipleItemsResponse::CMsgClientToGCRecycleMultipleItemsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCRecycleMultipleItemsResponse)
+}
+CMsgClientToGCRecycleMultipleItemsResponse::CMsgClientToGCRecycleMultipleItemsResponse(const CMsgClientToGCRecycleMultipleItemsResponse& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgClientToGCRecycleMultipleItemsResponse* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.responses_){from._impl_.responses_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCRecycleMultipleItemsResponse)
+}
+
+inline void CMsgClientToGCRecycleMultipleItemsResponse::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.responses_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CMsgClientToGCRecycleMultipleItemsResponse::~CMsgClientToGCRecycleMultipleItemsResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCRecycleMultipleItemsResponse)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgClientToGCRecycleMultipleItemsResponse::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.responses_.~RepeatedPtrField();
+}
+
+void CMsgClientToGCRecycleMultipleItemsResponse::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgClientToGCRecycleMultipleItemsResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCRecycleMultipleItemsResponse)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.responses_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgClientToGCRecycleMultipleItemsResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .CMsgClientToGCCreateStaticRecipeResponse responses = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_responses(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgClientToGCRecycleMultipleItemsResponse::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCRecycleMultipleItemsResponse)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CMsgClientToGCCreateStaticRecipeResponse responses = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_responses_size()); i < n; i++) {
+    const auto& repfield = this->_internal_responses(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCRecycleMultipleItemsResponse)
+  return target;
+}
+
+size_t CMsgClientToGCRecycleMultipleItemsResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCRecycleMultipleItemsResponse)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgClientToGCCreateStaticRecipeResponse responses = 1;
+  total_size += 1UL * this->_internal_responses_size();
+  for (const auto& msg : this->_impl_.responses_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCRecycleMultipleItemsResponse::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgClientToGCRecycleMultipleItemsResponse::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCRecycleMultipleItemsResponse::GetClassData() const { return &_class_data_; }
+
+
+void CMsgClientToGCRecycleMultipleItemsResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCRecycleMultipleItemsResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCRecycleMultipleItemsResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCRecycleMultipleItemsResponse)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.responses_.MergeFrom(from._impl_.responses_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgClientToGCRecycleMultipleItemsResponse::CopyFrom(const CMsgClientToGCRecycleMultipleItemsResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCRecycleMultipleItemsResponse)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgClientToGCRecycleMultipleItemsResponse::IsInitialized() const {
+  return true;
+}
+
+void CMsgClientToGCRecycleMultipleItemsResponse::InternalSwap(CMsgClientToGCRecycleMultipleItemsResponse* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.responses_.InternalSwap(&other->_impl_.responses_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCRecycleMultipleItemsResponse::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_econ_5fgcmessages_2eproto_getter, &descriptor_table_econ_5fgcmessages_2eproto_once,
+      file_level_metadata_econ_5fgcmessages_2eproto[142]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::CMsgApplyAutograph*
@@ -41420,6 +42140,18 @@ Arena::CreateMaybeMessage< ::CMsgClientToGCCancelUnfinalizedTransactionsResponse
 template<> PROTOBUF_NOINLINE ::CMsgGCToGCUpdateWelcomeMsg*
 Arena::CreateMaybeMessage< ::CMsgGCToGCUpdateWelcomeMsg >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgGCToGCUpdateWelcomeMsg >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCRecycleMultipleItems_Item*
+Arena::CreateMaybeMessage< ::CMsgClientToGCRecycleMultipleItems_Item >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCRecycleMultipleItems_Item >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCRecycleMultipleItems*
+Arena::CreateMaybeMessage< ::CMsgClientToGCRecycleMultipleItems >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCRecycleMultipleItems >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCRecycleMultipleItemsResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCRecycleMultipleItemsResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCRecycleMultipleItemsResponse >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

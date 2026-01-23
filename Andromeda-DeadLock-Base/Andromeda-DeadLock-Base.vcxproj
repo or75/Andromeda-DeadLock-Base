@@ -273,6 +273,7 @@
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\networksystem_protomessages.pb.h" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\network_connection.pb.h" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\prediction_events.pb.h" />
+    <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\source2_steam_stats.pb.h" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steamdatagram_messages_auth.pb.h" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steamdatagram_messages_sdr.pb.h" />
     <ClInclude Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages.pb.h" />
@@ -410,6 +411,7 @@
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\networksystem_protomessages.pb.cc" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\network_connection.pb.cc" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\prediction_events.pb.cc" />
+    <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\source2_steam_stats.pb.cc" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steamdatagram_messages_auth.pb.cc" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steamdatagram_messages_sdr.pb.cc" />
     <ClCompile Include="Andromeda-DeadLock\DeadLock\Protobuf\steammessages.pb.cc" />

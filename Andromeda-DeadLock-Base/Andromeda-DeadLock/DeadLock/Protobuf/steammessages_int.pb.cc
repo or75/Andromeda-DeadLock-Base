@@ -1067,6 +1067,40 @@ struct CMsgGCHVacVerificationChangeDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgGCHVacVerificationChangeDefaultTypeInternal _CMsgGCHVacVerificationChange_default_instance_;
+PROTOBUF_CONSTEXPR CMsgGCHAccountPhoneNumberChange::CMsgGCHAccountPhoneNumberChange(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.steamid_)*/uint64_t{0u}
+  , /*decltype(_impl_.phone_id_)*/uint64_t{0u}
+  , /*decltype(_impl_.appid_)*/0u
+  , /*decltype(_impl_.is_verified_)*/false
+  , /*decltype(_impl_.is_identifying_)*/false} {}
+struct CMsgGCHAccountPhoneNumberChangeDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgGCHAccountPhoneNumberChangeDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgGCHAccountPhoneNumberChangeDefaultTypeInternal() {}
+  union {
+    CMsgGCHAccountPhoneNumberChange _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgGCHAccountPhoneNumberChangeDefaultTypeInternal _CMsgGCHAccountPhoneNumberChange_default_instance_;
+PROTOBUF_CONSTEXPR CMsgGCHAccountTwoFactorChange::CMsgGCHAccountTwoFactorChange(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.steamid_)*/uint64_t{0u}
+  , /*decltype(_impl_.appid_)*/0u
+  , /*decltype(_impl_.twofactor_enabled_)*/false} {}
+struct CMsgGCHAccountTwoFactorChangeDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgGCHAccountTwoFactorChangeDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgGCHAccountTwoFactorChangeDefaultTypeInternal() {}
+  union {
+    CMsgGCHAccountTwoFactorChange _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgGCHAccountTwoFactorChangeDefaultTypeInternal _CMsgGCHAccountTwoFactorChange_default_instance_;
 PROTOBUF_CONSTEXPR CMsgGCCheckClanMembership::CMsgGCCheckClanMembership(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -1264,7 +1298,7 @@ struct CWorkshop_GetSpecialPayments_ResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CWorkshop_GetSpecialPayments_ResponseDefaultTypeInternal _CWorkshop_GetSpecialPayments_Response_default_instance_;
-static ::_pb::Metadata file_level_metadata_steammessages_5fint_2eproto[80];
+static ::_pb::Metadata file_level_metadata_steammessages_5fint_2eproto[82];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_steammessages_5fint_2eproto[3];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_steammessages_5fint_2eproto = nullptr;
 
@@ -2039,6 +2073,34 @@ const uint32_t TableStruct_steammessages_5fint_2eproto::offsets[] PROTOBUF_SECTI
   0,
   1,
   2,
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountPhoneNumberChange, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountPhoneNumberChange, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountPhoneNumberChange, _impl_.steamid_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountPhoneNumberChange, _impl_.appid_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountPhoneNumberChange, _impl_.phone_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountPhoneNumberChange, _impl_.is_verified_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountPhoneNumberChange, _impl_.is_identifying_),
+  0,
+  2,
+  1,
+  3,
+  4,
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountTwoFactorChange, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountTwoFactorChange, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountTwoFactorChange, _impl_.steamid_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountTwoFactorChange, _impl_.appid_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCHAccountTwoFactorChange, _impl_.twofactor_enabled_),
+  0,
+  1,
+  2,
   PROTOBUF_FIELD_OFFSET(::CMsgGCCheckClanMembership, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgGCCheckClanMembership, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2247,19 +2309,21 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 736, 744, -1, sizeof(::CMsgNotificationOfSuspiciousActivity_MultipleGameInstances)},
   { 746, 755, -1, sizeof(::CMsgNotificationOfSuspiciousActivity)},
   { 758, 767, -1, sizeof(::CMsgGCHVacVerificationChange)},
-  { 770, 778, -1, sizeof(::CMsgGCCheckClanMembership)},
-  { 780, 787, -1, sizeof(::CMsgGCCheckClanMembership_Response)},
-  { 788, 796, -1, sizeof(::CMsgGCHAppCheersReceived_CheerTypeAmount)},
-  { 798, 806, -1, sizeof(::CMsgGCHAppCheersReceived_CheerTarget)},
-  { 808, 816, -1, sizeof(::CMsgGCHAppCheersReceived)},
-  { 818, 826, -1, sizeof(::CMsgGCHAppCheersGetAllowedTypes)},
-  { 828, 837, -1, sizeof(::CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps)},
-  { 840, 849, -1, sizeof(::CMsgGCHAppCheersGetAllowedTypesResponse)},
-  { 852, 863, -1, sizeof(::CWorkshop_AddSpecialPayment_Request)},
-  { 868, -1, -1, sizeof(::CWorkshop_AddSpecialPayment_Response)},
-  { 874, 883, -1, sizeof(::CWorkshop_GetSpecialPayments_Request)},
-  { 886, 897, -1, sizeof(::CWorkshop_GetSpecialPayments_Response_SpecialPayment)},
-  { 902, -1, -1, sizeof(::CWorkshop_GetSpecialPayments_Response)},
+  { 770, 781, -1, sizeof(::CMsgGCHAccountPhoneNumberChange)},
+  { 786, 795, -1, sizeof(::CMsgGCHAccountTwoFactorChange)},
+  { 798, 806, -1, sizeof(::CMsgGCCheckClanMembership)},
+  { 808, 815, -1, sizeof(::CMsgGCCheckClanMembership_Response)},
+  { 816, 824, -1, sizeof(::CMsgGCHAppCheersReceived_CheerTypeAmount)},
+  { 826, 834, -1, sizeof(::CMsgGCHAppCheersReceived_CheerTarget)},
+  { 836, 844, -1, sizeof(::CMsgGCHAppCheersReceived)},
+  { 846, 854, -1, sizeof(::CMsgGCHAppCheersGetAllowedTypes)},
+  { 856, 865, -1, sizeof(::CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps)},
+  { 868, 877, -1, sizeof(::CMsgGCHAppCheersGetAllowedTypesResponse)},
+  { 880, 891, -1, sizeof(::CWorkshop_AddSpecialPayment_Request)},
+  { 896, -1, -1, sizeof(::CWorkshop_AddSpecialPayment_Response)},
+  { 902, 911, -1, sizeof(::CWorkshop_GetSpecialPayments_Request)},
+  { 914, 925, -1, sizeof(::CWorkshop_GetSpecialPayments_Response_SpecialPayment)},
+  { 930, -1, -1, sizeof(::CWorkshop_GetSpecialPayments_Response)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2330,6 +2394,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgNotificationOfSuspiciousActivity_MultipleGameInstances_default_instance_._instance,
   &::_CMsgNotificationOfSuspiciousActivity_default_instance_._instance,
   &::_CMsgGCHVacVerificationChange_default_instance_._instance,
+  &::_CMsgGCHAccountPhoneNumberChange_default_instance_._instance,
+  &::_CMsgGCHAccountTwoFactorChange_default_instance_._instance,
   &::_CMsgGCCheckClanMembership_default_instance_._instance,
   &::_CMsgGCCheckClanMembership_Response_default_instance_._instance,
   &::_CMsgGCHAppCheersReceived_CheerTypeAmount_default_instance_._instance,
@@ -2517,47 +2583,53 @@ const char descriptor_table_protodef_steammessages_5fint_2eproto[] PROTOBUF_SECT
   "\022app_instance_count\030\001 \001(\r\022\026\n\016other_steam"
   "ids\030\002 \003(\006\"S\n\034CMsgGCHVacVerificationChang"
   "e\022\017\n\007steamid\030\001 \001(\006\022\r\n\005appid\030\002 \001(\r\022\023\n\013is_"
-  "verified\030\003 \001(\010\"<\n\031CMsgGCCheckClanMembers"
-  "hip\022\017\n\007steamid\030\001 \001(\006\022\016\n\006clanid\030\002 \001(\r\"6\n\""
-  "CMsgGCCheckClanMembership_Response\022\020\n\010is"
-  "member\030\001 \001(\010\"\211\002\n\030CMsgGCHAppCheersReceive"
-  "d\022\r\n\005appid\030\001 \001(\r\022<\n\rcheer_targets\030\002 \003(\0132"
-  "%.CMsgGCHAppCheersReceived.CheerTarget\032;"
-  "\n\017CheerTypeAmount\022\022\n\ncheer_type\030\001 \001(\r\022\024\n"
-  "\014cheer_amount\030\002 \001(\r\032c\n\013CheerTarget\022\024\n\014ch"
-  "eer_target\030\001 \001(\004\022>\n\013cheer_types\030\002 \003(\0132)."
-  "CMsgGCHAppCheersReceived.CheerTypeAmount"
-  "\"F\n\037CMsgGCHAppCheersGetAllowedTypes\022\r\n\005a"
-  "ppid\030\001 \001(\r\022\024\n\014cheer_target\030\002 \001(\004\"\220\002\n\'CMs"
-  "gGCHAppCheersGetAllowedTypesResponse\022#\n\033"
-  "cheer_types_valid_all_users\030\001 \003(\r\022J\n\014che"
-  "er_remaps\030\002 \003(\01324.CMsgGCHAppCheersGetAll"
-  "owedTypesResponse.CheerRemaps\022\026\n\016cache_d"
-  "uration\030\003 \001(\r\032\\\n\013CheerRemaps\022\033\n\023original"
-  "_cheer_type\030\001 \001(\r\022\033\n\023remapped_cheer_type"
-  "\030\002 \001(\r\022\023\n\013account_ids\030\003 \003(\r\"\207\001\n#CWorksho"
-  "p_AddSpecialPayment_Request\022\r\n\005appid\030\001 \001"
-  "(\r\022\022\n\ngameitemid\030\002 \001(\r\022\014\n\004date\030\003 \001(\t\022\026\n\016"
-  "payment_us_usd\030\004 \001(\004\022\027\n\017payment_row_usd\030"
-  "\005 \001(\004\"&\n$CWorkshop_AddSpecialPayment_Res"
-  "ponse\"W\n$CWorkshop_GetSpecialPayments_Re"
-  "quest\022\r\n\005appid\030\001 \001(\r\022\022\n\ngameitemid\030\002 \001(\r"
-  "\022\014\n\004date\030\003 \001(\t\"\364\001\n%CWorkshop_GetSpecialP"
-  "ayments_Response\022O\n\020special_payments\030\001 \003"
-  "(\01325.CWorkshop_GetSpecialPayments_Respon"
-  "se.SpecialPayment\032z\n\016SpecialPayment\022\r\n\005a"
-  "ppid\030\001 \001(\r\022\022\n\ngameitemid\030\002 \001(\r\022\014\n\004date\030\003"
-  " \001(\t\022\032\n\022net_payment_us_usd\030\004 \001(\004\022\033\n\023net_"
-  "payment_row_usd\030\005 \001(\004"
+  "verified\030\003 \001(\010\"\200\001\n\037CMsgGCHAccountPhoneNu"
+  "mberChange\022\017\n\007steamid\030\001 \001(\006\022\r\n\005appid\030\002 \001"
+  "(\r\022\020\n\010phone_id\030\003 \001(\004\022\023\n\013is_verified\030\004 \001("
+  "\010\022\026\n\016is_identifying\030\005 \001(\010\"Z\n\035CMsgGCHAcco"
+  "untTwoFactorChange\022\017\n\007steamid\030\001 \001(\006\022\r\n\005a"
+  "ppid\030\002 \001(\r\022\031\n\021twofactor_enabled\030\003 \001(\010\"<\n"
+  "\031CMsgGCCheckClanMembership\022\017\n\007steamid\030\001 "
+  "\001(\006\022\016\n\006clanid\030\002 \001(\r\"6\n\"CMsgGCCheckClanMe"
+  "mbership_Response\022\020\n\010ismember\030\001 \001(\010\"\211\002\n\030"
+  "CMsgGCHAppCheersReceived\022\r\n\005appid\030\001 \001(\r\022"
+  "<\n\rcheer_targets\030\002 \003(\0132%.CMsgGCHAppCheer"
+  "sReceived.CheerTarget\032;\n\017CheerTypeAmount"
+  "\022\022\n\ncheer_type\030\001 \001(\r\022\024\n\014cheer_amount\030\002 \001"
+  "(\r\032c\n\013CheerTarget\022\024\n\014cheer_target\030\001 \001(\004\022"
+  ">\n\013cheer_types\030\002 \003(\0132).CMsgGCHAppCheersR"
+  "eceived.CheerTypeAmount\"F\n\037CMsgGCHAppChe"
+  "ersGetAllowedTypes\022\r\n\005appid\030\001 \001(\r\022\024\n\014che"
+  "er_target\030\002 \001(\004\"\220\002\n\'CMsgGCHAppCheersGetA"
+  "llowedTypesResponse\022#\n\033cheer_types_valid"
+  "_all_users\030\001 \003(\r\022J\n\014cheer_remaps\030\002 \003(\01324"
+  ".CMsgGCHAppCheersGetAllowedTypesResponse"
+  ".CheerRemaps\022\026\n\016cache_duration\030\003 \001(\r\032\\\n\013"
+  "CheerRemaps\022\033\n\023original_cheer_type\030\001 \001(\r"
+  "\022\033\n\023remapped_cheer_type\030\002 \001(\r\022\023\n\013account"
+  "_ids\030\003 \003(\r\"\207\001\n#CWorkshop_AddSpecialPayme"
+  "nt_Request\022\r\n\005appid\030\001 \001(\r\022\022\n\ngameitemid\030"
+  "\002 \001(\r\022\014\n\004date\030\003 \001(\t\022\026\n\016payment_us_usd\030\004 "
+  "\001(\004\022\027\n\017payment_row_usd\030\005 \001(\004\"&\n$CWorksho"
+  "p_AddSpecialPayment_Response\"W\n$CWorksho"
+  "p_GetSpecialPayments_Request\022\r\n\005appid\030\001 "
+  "\001(\r\022\022\n\ngameitemid\030\002 \001(\r\022\014\n\004date\030\003 \001(\t\"\364\001"
+  "\n%CWorkshop_GetSpecialPayments_Response\022"
+  "O\n\020special_payments\030\001 \003(\01325.CWorkshop_Ge"
+  "tSpecialPayments_Response.SpecialPayment"
+  "\032z\n\016SpecialPayment\022\r\n\005appid\030\001 \001(\r\022\022\n\ngam"
+  "eitemid\030\002 \001(\r\022\014\n\004date\030\003 \001(\t\022\032\n\022net_payme"
+  "nt_us_usd\030\004 \001(\004\022\033\n\023net_payment_row_usd\030\005"
+  " \001(\004"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_steammessages_5fint_2eproto_deps[1] = {
   &::descriptor_table_steammessages_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_steammessages_5fint_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_steammessages_5fint_2eproto = {
-    false, false, 8101, descriptor_table_protodef_steammessages_5fint_2eproto,
+    false, false, 8324, descriptor_table_protodef_steammessages_5fint_2eproto,
     "steammessages_int.proto",
-    &descriptor_table_steammessages_5fint_2eproto_once, descriptor_table_steammessages_5fint_2eproto_deps, 1, 80,
+    &descriptor_table_steammessages_5fint_2eproto_once, descriptor_table_steammessages_5fint_2eproto_deps, 1, 82,
     schemas, file_default_instances, TableStruct_steammessages_5fint_2eproto::offsets,
     file_level_metadata_steammessages_5fint_2eproto, file_level_enum_descriptors_steammessages_5fint_2eproto,
     file_level_service_descriptors_steammessages_5fint_2eproto,
@@ -20615,6 +20687,592 @@ void CMsgGCHVacVerificationChange::InternalSwap(CMsgGCHVacVerificationChange* ot
 
 // ===================================================================
 
+class CMsgGCHAccountPhoneNumberChange::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgGCHAccountPhoneNumberChange>()._impl_._has_bits_);
+  static void set_has_steamid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_appid(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+  static void set_has_phone_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_is_verified(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
+  static void set_has_is_identifying(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
+};
+
+CMsgGCHAccountPhoneNumberChange::CMsgGCHAccountPhoneNumberChange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgGCHAccountPhoneNumberChange)
+}
+CMsgGCHAccountPhoneNumberChange::CMsgGCHAccountPhoneNumberChange(const CMsgGCHAccountPhoneNumberChange& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgGCHAccountPhoneNumberChange* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.steamid_){}
+    , decltype(_impl_.phone_id_){}
+    , decltype(_impl_.appid_){}
+    , decltype(_impl_.is_verified_){}
+    , decltype(_impl_.is_identifying_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.steamid_, &from._impl_.steamid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.is_identifying_) -
+    reinterpret_cast<char*>(&_impl_.steamid_)) + sizeof(_impl_.is_identifying_));
+  // @@protoc_insertion_point(copy_constructor:CMsgGCHAccountPhoneNumberChange)
+}
+
+inline void CMsgGCHAccountPhoneNumberChange::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.steamid_){uint64_t{0u}}
+    , decltype(_impl_.phone_id_){uint64_t{0u}}
+    , decltype(_impl_.appid_){0u}
+    , decltype(_impl_.is_verified_){false}
+    , decltype(_impl_.is_identifying_){false}
+  };
+}
+
+CMsgGCHAccountPhoneNumberChange::~CMsgGCHAccountPhoneNumberChange() {
+  // @@protoc_insertion_point(destructor:CMsgGCHAccountPhoneNumberChange)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgGCHAccountPhoneNumberChange::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgGCHAccountPhoneNumberChange::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgGCHAccountPhoneNumberChange::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgGCHAccountPhoneNumberChange)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    ::memset(&_impl_.steamid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.is_identifying_) -
+        reinterpret_cast<char*>(&_impl_.steamid_)) + sizeof(_impl_.is_identifying_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgGCHAccountPhoneNumberChange::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional fixed64 steamid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 9)) {
+          _Internal::set_has_steamid(&has_bits);
+          _impl_.steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<uint64_t>(ptr);
+          ptr += sizeof(uint64_t);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 appid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_appid(&has_bits);
+          _impl_.appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint64 phone_id = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_phone_id(&has_bits);
+          _impl_.phone_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool is_verified = 4;
+      case 4:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
+          _Internal::set_has_is_verified(&has_bits);
+          _impl_.is_verified_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool is_identifying = 5;
+      case 5:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 40)) {
+          _Internal::set_has_is_identifying(&has_bits);
+          _impl_.is_identifying_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgGCHAccountPhoneNumberChange::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgGCHAccountPhoneNumberChange)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional fixed64 steamid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
+  }
+
+  // optional uint32 appid = 2;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
+  }
+
+  // optional uint64 phone_id = 3;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt64ToArray(3, this->_internal_phone_id(), target);
+  }
+
+  // optional bool is_verified = 4;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(4, this->_internal_is_verified(), target);
+  }
+
+  // optional bool is_identifying = 5;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(5, this->_internal_is_identifying(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgGCHAccountPhoneNumberChange)
+  return target;
+}
+
+size_t CMsgGCHAccountPhoneNumberChange::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgGCHAccountPhoneNumberChange)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    // optional fixed64 steamid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint64 phone_id = 3;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt64SizePlusOne(this->_internal_phone_id());
+    }
+
+    // optional uint32 appid = 2;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_appid());
+    }
+
+    // optional bool is_verified = 4;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 1 + 1;
+    }
+
+    // optional bool is_identifying = 5;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 1;
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgGCHAccountPhoneNumberChange::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgGCHAccountPhoneNumberChange::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgGCHAccountPhoneNumberChange::GetClassData() const { return &_class_data_; }
+
+
+void CMsgGCHAccountPhoneNumberChange::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgGCHAccountPhoneNumberChange*>(&to_msg);
+  auto& from = static_cast<const CMsgGCHAccountPhoneNumberChange&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgGCHAccountPhoneNumberChange)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x0000001fu) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.steamid_ = from._impl_.steamid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.phone_id_ = from._impl_.phone_id_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.appid_ = from._impl_.appid_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.is_verified_ = from._impl_.is_verified_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.is_identifying_ = from._impl_.is_identifying_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgGCHAccountPhoneNumberChange::CopyFrom(const CMsgGCHAccountPhoneNumberChange& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgGCHAccountPhoneNumberChange)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgGCHAccountPhoneNumberChange::IsInitialized() const {
+  return true;
+}
+
+void CMsgGCHAccountPhoneNumberChange::InternalSwap(CMsgGCHAccountPhoneNumberChange* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgGCHAccountPhoneNumberChange, _impl_.is_identifying_)
+      + sizeof(CMsgGCHAccountPhoneNumberChange::_impl_.is_identifying_)
+      - PROTOBUF_FIELD_OFFSET(CMsgGCHAccountPhoneNumberChange, _impl_.steamid_)>(
+          reinterpret_cast<char*>(&_impl_.steamid_),
+          reinterpret_cast<char*>(&other->_impl_.steamid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCHAccountPhoneNumberChange::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
+      file_level_metadata_steammessages_5fint_2eproto[67]);
+}
+
+// ===================================================================
+
+class CMsgGCHAccountTwoFactorChange::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgGCHAccountTwoFactorChange>()._impl_._has_bits_);
+  static void set_has_steamid(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_appid(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_twofactor_enabled(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CMsgGCHAccountTwoFactorChange::CMsgGCHAccountTwoFactorChange(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgGCHAccountTwoFactorChange)
+}
+CMsgGCHAccountTwoFactorChange::CMsgGCHAccountTwoFactorChange(const CMsgGCHAccountTwoFactorChange& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgGCHAccountTwoFactorChange* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.steamid_){}
+    , decltype(_impl_.appid_){}
+    , decltype(_impl_.twofactor_enabled_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.steamid_, &from._impl_.steamid_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.twofactor_enabled_) -
+    reinterpret_cast<char*>(&_impl_.steamid_)) + sizeof(_impl_.twofactor_enabled_));
+  // @@protoc_insertion_point(copy_constructor:CMsgGCHAccountTwoFactorChange)
+}
+
+inline void CMsgGCHAccountTwoFactorChange::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.steamid_){uint64_t{0u}}
+    , decltype(_impl_.appid_){0u}
+    , decltype(_impl_.twofactor_enabled_){false}
+  };
+}
+
+CMsgGCHAccountTwoFactorChange::~CMsgGCHAccountTwoFactorChange() {
+  // @@protoc_insertion_point(destructor:CMsgGCHAccountTwoFactorChange)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgGCHAccountTwoFactorChange::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgGCHAccountTwoFactorChange::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgGCHAccountTwoFactorChange::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgGCHAccountTwoFactorChange)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&_impl_.steamid_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.twofactor_enabled_) -
+        reinterpret_cast<char*>(&_impl_.steamid_)) + sizeof(_impl_.twofactor_enabled_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgGCHAccountTwoFactorChange::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional fixed64 steamid = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 9)) {
+          _Internal::set_has_steamid(&has_bits);
+          _impl_.steamid_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<uint64_t>(ptr);
+          ptr += sizeof(uint64_t);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 appid = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_appid(&has_bits);
+          _impl_.appid_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional bool twofactor_enabled = 3;
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          _Internal::set_has_twofactor_enabled(&has_bits);
+          _impl_.twofactor_enabled_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgGCHAccountTwoFactorChange::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgGCHAccountTwoFactorChange)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional fixed64 steamid = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFixed64ToArray(1, this->_internal_steamid(), target);
+  }
+
+  // optional uint32 appid = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_appid(), target);
+  }
+
+  // optional bool twofactor_enabled = 3;
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(3, this->_internal_twofactor_enabled(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgGCHAccountTwoFactorChange)
+  return target;
+}
+
+size_t CMsgGCHAccountTwoFactorChange::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgGCHAccountTwoFactorChange)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional fixed64 steamid = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += 1 + 8;
+    }
+
+    // optional uint32 appid = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_appid());
+    }
+
+    // optional bool twofactor_enabled = 3;
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 + 1;
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgGCHAccountTwoFactorChange::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgGCHAccountTwoFactorChange::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgGCHAccountTwoFactorChange::GetClassData() const { return &_class_data_; }
+
+
+void CMsgGCHAccountTwoFactorChange::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgGCHAccountTwoFactorChange*>(&to_msg);
+  auto& from = static_cast<const CMsgGCHAccountTwoFactorChange&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgGCHAccountTwoFactorChange)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.steamid_ = from._impl_.steamid_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.appid_ = from._impl_.appid_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.twofactor_enabled_ = from._impl_.twofactor_enabled_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgGCHAccountTwoFactorChange::CopyFrom(const CMsgGCHAccountTwoFactorChange& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgGCHAccountTwoFactorChange)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgGCHAccountTwoFactorChange::IsInitialized() const {
+  return true;
+}
+
+void CMsgGCHAccountTwoFactorChange::InternalSwap(CMsgGCHAccountTwoFactorChange* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgGCHAccountTwoFactorChange, _impl_.twofactor_enabled_)
+      + sizeof(CMsgGCHAccountTwoFactorChange::_impl_.twofactor_enabled_)
+      - PROTOBUF_FIELD_OFFSET(CMsgGCHAccountTwoFactorChange, _impl_.steamid_)>(
+          reinterpret_cast<char*>(&_impl_.steamid_),
+          reinterpret_cast<char*>(&other->_impl_.steamid_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCHAccountTwoFactorChange::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
+      file_level_metadata_steammessages_5fint_2eproto[68]);
+}
+
+// ===================================================================
+
 class CMsgGCCheckClanMembership::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgGCCheckClanMembership>()._impl_._has_bits_);
@@ -20847,7 +21505,7 @@ void CMsgGCCheckClanMembership::InternalSwap(CMsgGCCheckClanMembership* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCCheckClanMembership::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[67]);
+      file_level_metadata_steammessages_5fint_2eproto[69]);
 }
 
 // ===================================================================
@@ -21038,7 +21696,7 @@ void CMsgGCCheckClanMembership_Response::InternalSwap(CMsgGCCheckClanMembership_
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCCheckClanMembership_Response::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[68]);
+      file_level_metadata_steammessages_5fint_2eproto[70]);
 }
 
 // ===================================================================
@@ -21275,7 +21933,7 @@ void CMsgGCHAppCheersReceived_CheerTypeAmount::InternalSwap(CMsgGCHAppCheersRece
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCHAppCheersReceived_CheerTypeAmount::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[69]);
+      file_level_metadata_steammessages_5fint_2eproto[71]);
 }
 
 // ===================================================================
@@ -21500,7 +22158,7 @@ void CMsgGCHAppCheersReceived_CheerTarget::InternalSwap(CMsgGCHAppCheersReceived
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCHAppCheersReceived_CheerTarget::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[70]);
+      file_level_metadata_steammessages_5fint_2eproto[72]);
 }
 
 // ===================================================================
@@ -21725,7 +22383,7 @@ void CMsgGCHAppCheersReceived::InternalSwap(CMsgGCHAppCheersReceived* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCHAppCheersReceived::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[71]);
+      file_level_metadata_steammessages_5fint_2eproto[73]);
 }
 
 // ===================================================================
@@ -21962,7 +22620,7 @@ void CMsgGCHAppCheersGetAllowedTypes::InternalSwap(CMsgGCHAppCheersGetAllowedTyp
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCHAppCheersGetAllowedTypes::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[72]);
+      file_level_metadata_steammessages_5fint_2eproto[74]);
 }
 
 // ===================================================================
@@ -22236,7 +22894,7 @@ void CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps::InternalSwap(CMsgGCHAp
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCHAppCheersGetAllowedTypesResponse_CheerRemaps::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[73]);
+      file_level_metadata_steammessages_5fint_2eproto[75]);
 }
 
 // ===================================================================
@@ -22498,7 +23156,7 @@ void CMsgGCHAppCheersGetAllowedTypesResponse::InternalSwap(CMsgGCHAppCheersGetAl
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCHAppCheersGetAllowedTypesResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[74]);
+      file_level_metadata_steammessages_5fint_2eproto[76]);
 }
 
 // ===================================================================
@@ -22850,7 +23508,7 @@ void CWorkshop_AddSpecialPayment_Request::InternalSwap(CWorkshop_AddSpecialPayme
 ::PROTOBUF_NAMESPACE_ID::Metadata CWorkshop_AddSpecialPayment_Request::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[75]);
+      file_level_metadata_steammessages_5fint_2eproto[77]);
 }
 
 // ===================================================================
@@ -22890,7 +23548,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CWorkshop_AddSpecialPayment_Re
 ::PROTOBUF_NAMESPACE_ID::Metadata CWorkshop_AddSpecialPayment_Response::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[76]);
+      file_level_metadata_steammessages_5fint_2eproto[78]);
 }
 
 // ===================================================================
@@ -23186,7 +23844,7 @@ void CWorkshop_GetSpecialPayments_Request::InternalSwap(CWorkshop_GetSpecialPaym
 ::PROTOBUF_NAMESPACE_ID::Metadata CWorkshop_GetSpecialPayments_Request::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[77]);
+      file_level_metadata_steammessages_5fint_2eproto[79]);
 }
 
 // ===================================================================
@@ -23538,7 +24196,7 @@ void CWorkshop_GetSpecialPayments_Response_SpecialPayment::InternalSwap(CWorksho
 ::PROTOBUF_NAMESPACE_ID::Metadata CWorkshop_GetSpecialPayments_Response_SpecialPayment::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[78]);
+      file_level_metadata_steammessages_5fint_2eproto[80]);
 }
 
 // ===================================================================
@@ -23723,7 +24381,7 @@ void CWorkshop_GetSpecialPayments_Response::InternalSwap(CWorkshop_GetSpecialPay
 ::PROTOBUF_NAMESPACE_ID::Metadata CWorkshop_GetSpecialPayments_Response::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_steammessages_5fint_2eproto_getter, &descriptor_table_steammessages_5fint_2eproto_once,
-      file_level_metadata_steammessages_5fint_2eproto[79]);
+      file_level_metadata_steammessages_5fint_2eproto[81]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -23995,6 +24653,14 @@ Arena::CreateMaybeMessage< ::CMsgNotificationOfSuspiciousActivity >(Arena* arena
 template<> PROTOBUF_NOINLINE ::CMsgGCHVacVerificationChange*
 Arena::CreateMaybeMessage< ::CMsgGCHVacVerificationChange >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgGCHVacVerificationChange >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgGCHAccountPhoneNumberChange*
+Arena::CreateMaybeMessage< ::CMsgGCHAccountPhoneNumberChange >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgGCHAccountPhoneNumberChange >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgGCHAccountTwoFactorChange*
+Arena::CreateMaybeMessage< ::CMsgGCHAccountTwoFactorChange >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgGCHAccountTwoFactorChange >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgGCCheckClanMembership*
 Arena::CreateMaybeMessage< ::CMsgGCCheckClanMembership >(Arena* arena) {

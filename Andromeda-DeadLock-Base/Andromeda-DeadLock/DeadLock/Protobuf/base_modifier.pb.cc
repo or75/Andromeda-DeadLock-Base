@@ -62,6 +62,12 @@ PROTOBUF_CONSTEXPR CModifierTableEntry::CModifierTableEntry(
   , /*decltype(_impl_.float8__)*/0
   , /*decltype(_impl_.float9__)*/0
   , /*decltype(_impl_.float10__)*/0
+  , /*decltype(_impl_.float11__)*/0
+  , /*decltype(_impl_.float12__)*/0
+  , /*decltype(_impl_.float13__)*/0
+  , /*decltype(_impl_.float14__)*/0
+  , /*decltype(_impl_.float15__)*/0
+  , /*decltype(_impl_.float16__)*/0
   , /*decltype(_impl_.entry_type_)*/1
   , /*decltype(_impl_.parent_)*/16777215u
   , /*decltype(_impl_.duration_)*/-1
@@ -120,6 +126,12 @@ const uint32_t TableStruct_base_5fmodifier_2eproto::offsets[] PROTOBUF_SECTION_V
   PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.float8__),
   PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.float9__),
   PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.float10__),
+  PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.float11__),
+  PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.float12__),
+  PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.float13__),
+  PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.float14__),
+  PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.float15__),
+  PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.float16__),
   PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.uint1__),
   PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.uint2__),
   PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.uint3__),
@@ -132,18 +144,18 @@ const uint32_t TableStruct_base_5fmodifier_2eproto::offsets[] PROTOBUF_SECTION_V
   PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.string2__),
   PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.string3__),
   PROTOBUF_FIELD_OFFSET(::CModifierTableEntry, _impl_.string4__),
-  38,
-  39,
+  44,
+  45,
   8,
   9,
   10,
   11,
   12,
-  40,
-  41,
-  42,
+  46,
+  47,
+  48,
   13,
-  43,
+  49,
   14,
   15,
   16,
@@ -164,6 +176,12 @@ const uint32_t TableStruct_base_5fmodifier_2eproto::offsets[] PROTOBUF_SECTION_V
   35,
   36,
   37,
+  38,
+  39,
+  40,
+  41,
+  42,
+  43,
   27,
   28,
   29,
@@ -178,7 +196,7 @@ const uint32_t TableStruct_base_5fmodifier_2eproto::offsets[] PROTOBUF_SECTION_V
   3,
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
-  { 0, 50, -1, sizeof(::CModifierTableEntry)},
+  { 0, 56, -1, sizeof(::CModifierTableEntry)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -187,41 +205,43 @@ static const ::_pb::Message* const file_default_instances[] = {
 
 const char descriptor_table_protodef_base_5fmodifier_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\023base_modifier.proto\032\026networkbasetypes."
-  "proto\"\331\007\n\023CModifierTableEntry\022D\n\nentry_t"
-  "ype\030\001 \002(\0162\024.MODIFIER_ENTRY_TYPE:\032MODIFIE"
-  "R_ENTRY_TYPE_ACTIVE\022\030\n\006parent\030\002 \002(\r:\010167"
-  "77215\022\025\n\rserial_number\030\003 \002(\r\022\031\n\021modifier"
-  "_subclass\030\004 \001(\r\022\023\n\013stack_count\030\005 \001(\005\022\027\n\017"
-  "max_stack_count\030\006 \001(\005\022\031\n\021last_applied_ti"
-  "me\030\007 \001(\002\022\024\n\010duration\030\010 \001(\002:\002-1\022\030\n\006caster"
-  "\030\t \001(\r:\01016777215\022\031\n\007ability\030\n \001(\r:\01016777"
-  "215\022#\n\033aura_provider_serial_number\030\013 \001(\005"
-  "\022\'\n\025aura_provider_ehandle\030\014 \001(\r:\0101677721"
-  "5\022\030\n\020ability_subclass\030\r \001(\r\022\025\n\rin_aura_r"
-  "ange\030\016 \001(\010\022\016\n\006bool1_\030\024 \001(\010\022\016\n\006bool2_\030\025 \001"
-  "(\010\022\016\n\006bool3_\030\026 \001(\010\022\016\n\006bool4_\030\027 \001(\010\022\r\n\005in"
-  "t1_\030\031 \001(\005\022\r\n\005int2_\030\032 \001(\005\022\r\n\005int3_\030\033 \001(\005\022"
-  "\r\n\005int4_\030\034 \001(\005\022\017\n\007float1_\030\036 \001(\002\022\017\n\007float"
-  "2_\030\037 \001(\002\022\017\n\007float3_\030  \001(\002\022\017\n\007float4_\030! \001"
-  "(\002\022\017\n\007float5_\0301 \001(\002\022\017\n\007float6_\0302 \001(\002\022\017\n\007"
-  "float7_\0303 \001(\002\022\017\n\007float8_\0304 \001(\002\022\017\n\007float9"
-  "_\0305 \001(\002\022\020\n\010float10_\0306 \001(\002\022\016\n\006uint1_\030# \001("
-  "\004\022\016\n\006uint2_\030$ \001(\004\022\016\n\006uint3_\030% \001(\004\022\016\n\006uin"
-  "t4_\030& \001(\004\022\032\n\005vec1_\030( \001(\0132\013.CMsgVector\022\032\n"
-  "\005vec2_\030) \001(\0132\013.CMsgVector\022\032\n\005vec3_\030* \001(\013"
-  "2\013.CMsgVector\022\032\n\005vec4_\030+ \001(\0132\013.CMsgVecto"
-  "r\022\020\n\010string1_\030- \001(\t\022\020\n\010string2_\030. \001(\t\022\020\n"
-  "\010string3_\030/ \001(\t\022\020\n\010string4_\0300 \001(\t*V\n\023MOD"
-  "IFIER_ENTRY_TYPE\022\036\n\032MODIFIER_ENTRY_TYPE_"
-  "ACTIVE\020\001\022\037\n\033MODIFIER_ENTRY_TYPE_REMOVED\020"
-  "\002"
+  "proto\"\313\010\n\023CModifierTableEntry\022D\n\nentry_t"
+  "ype\030\001 \001(\0162\024.MODIFIER_ENTRY_TYPE:\032MODIFIE"
+  "R_ENTRY_TYPE_ACTIVE\022\030\n\006parent\030\002 \001(\r:\010167"
+  "77215\022\025\n\rserial_number\030\003 \001(\r\022\034\n\021modifier"
+  "_subclass\030\004 \001(\r:\0010\022\023\n\013stack_count\030\005 \001(\005\022"
+  "\027\n\017max_stack_count\030\006 \001(\005\022\031\n\021last_applied"
+  "_time\030\007 \001(\002\022\024\n\010duration\030\010 \001(\002:\002-1\022\030\n\006cas"
+  "ter\030\t \001(\r:\01016777215\022\031\n\007ability\030\n \001(\r:\01016"
+  "777215\022#\n\033aura_provider_serial_number\030\013 "
+  "\001(\005\022\'\n\025aura_provider_ehandle\030\014 \001(\r:\0101677"
+  "7215\022\033\n\020ability_subclass\030\r \001(\r:\0010\022\025\n\rin_"
+  "aura_range\030\016 \001(\010\022\016\n\006bool1_\030\024 \001(\010\022\016\n\006bool"
+  "2_\030\025 \001(\010\022\016\n\006bool3_\030\026 \001(\010\022\016\n\006bool4_\030\027 \001(\010"
+  "\022\r\n\005int1_\030\031 \001(\005\022\r\n\005int2_\030\032 \001(\005\022\r\n\005int3_\030"
+  "\033 \001(\005\022\r\n\005int4_\030\034 \001(\005\022\017\n\007float1_\030\036 \001(\002\022\017\n"
+  "\007float2_\030\037 \001(\002\022\017\n\007float3_\030  \001(\002\022\017\n\007float"
+  "4_\030! \001(\002\022\017\n\007float5_\0301 \001(\002\022\017\n\007float6_\0302 \001"
+  "(\002\022\017\n\007float7_\0303 \001(\002\022\017\n\007float8_\0304 \001(\002\022\017\n\007"
+  "float9_\0305 \001(\002\022\020\n\010float10_\0306 \001(\002\022\020\n\010float"
+  "11_\0307 \001(\002\022\020\n\010float12_\0308 \001(\002\022\020\n\010float13_\030"
+  "9 \001(\002\022\020\n\010float14_\030: \001(\002\022\020\n\010float15_\030; \001("
+  "\002\022\020\n\010float16_\030< \001(\002\022\016\n\006uint1_\030# \001(\004\022\016\n\006u"
+  "int2_\030$ \001(\004\022\016\n\006uint3_\030% \001(\004\022\016\n\006uint4_\030& "
+  "\001(\004\022\032\n\005vec1_\030( \001(\0132\013.CMsgVector\022\032\n\005vec2_"
+  "\030) \001(\0132\013.CMsgVector\022\032\n\005vec3_\030* \001(\0132\013.CMs"
+  "gVector\022\032\n\005vec4_\030+ \001(\0132\013.CMsgVector\022\020\n\010s"
+  "tring1_\030- \001(\t\022\020\n\010string2_\030. \001(\t\022\020\n\010strin"
+  "g3_\030/ \001(\t\022\020\n\010string4_\0300 \001(\t*V\n\023MODIFIER_"
+  "ENTRY_TYPE\022\036\n\032MODIFIER_ENTRY_TYPE_ACTIVE"
+  "\020\001\022\037\n\033MODIFIER_ENTRY_TYPE_REMOVED\020\002"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_base_5fmodifier_2eproto_deps[1] = {
   &::descriptor_table_networkbasetypes_2eproto,
 };
 static ::_pbi::once_flag descriptor_table_base_5fmodifier_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_base_5fmodifier_2eproto = {
-    false, false, 1121, descriptor_table_protodef_base_5fmodifier_2eproto,
+    false, false, 1235, descriptor_table_protodef_base_5fmodifier_2eproto,
     "base_modifier.proto",
     &descriptor_table_base_5fmodifier_2eproto_once, descriptor_table_base_5fmodifier_2eproto_deps, 1, 1,
     schemas, file_default_instances, TableStruct_base_5fmodifier_2eproto::offsets,
@@ -255,10 +275,10 @@ class CModifierTableEntry::_Internal {
  public:
   using HasBits = decltype(std::declval<CModifierTableEntry>()._impl_._has_bits_);
   static void set_has_entry_type(HasBits* has_bits) {
-    (*has_bits)[1] |= 64u;
+    (*has_bits)[1] |= 4096u;
   }
   static void set_has_parent(HasBits* has_bits) {
-    (*has_bits)[1] |= 128u;
+    (*has_bits)[1] |= 8192u;
   }
   static void set_has_serial_number(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
@@ -276,19 +296,19 @@ class CModifierTableEntry::_Internal {
     (*has_bits)[0] |= 4096u;
   }
   static void set_has_duration(HasBits* has_bits) {
-    (*has_bits)[1] |= 256u;
+    (*has_bits)[1] |= 16384u;
   }
   static void set_has_caster(HasBits* has_bits) {
-    (*has_bits)[1] |= 512u;
+    (*has_bits)[1] |= 32768u;
   }
   static void set_has_ability(HasBits* has_bits) {
-    (*has_bits)[1] |= 1024u;
+    (*has_bits)[1] |= 65536u;
   }
   static void set_has_aura_provider_serial_number(HasBits* has_bits) {
     (*has_bits)[0] |= 8192u;
   }
   static void set_has_aura_provider_ehandle(HasBits* has_bits) {
-    (*has_bits)[1] |= 2048u;
+    (*has_bits)[1] |= 131072u;
   }
   static void set_has_ability_subclass(HasBits* has_bits) {
     (*has_bits)[0] |= 16384u;
@@ -350,6 +370,24 @@ class CModifierTableEntry::_Internal {
   static void set_has_float10_(HasBits* has_bits) {
     (*has_bits)[1] |= 32u;
   }
+  static void set_has_float11_(HasBits* has_bits) {
+    (*has_bits)[1] |= 64u;
+  }
+  static void set_has_float12_(HasBits* has_bits) {
+    (*has_bits)[1] |= 128u;
+  }
+  static void set_has_float13_(HasBits* has_bits) {
+    (*has_bits)[1] |= 256u;
+  }
+  static void set_has_float14_(HasBits* has_bits) {
+    (*has_bits)[1] |= 512u;
+  }
+  static void set_has_float15_(HasBits* has_bits) {
+    (*has_bits)[1] |= 1024u;
+  }
+  static void set_has_float16_(HasBits* has_bits) {
+    (*has_bits)[1] |= 2048u;
+  }
   static void set_has_uint1_(HasBits* has_bits) {
     (*has_bits)[0] |= 134217728u;
   }
@@ -389,10 +427,6 @@ class CModifierTableEntry::_Internal {
   }
   static void set_has_string4_(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
-  }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return (((has_bits[0] & 0x00000100) ^ 0x00000100)
-       | ((has_bits[1] & 0x000000c0) ^ 0x000000c0)) != 0;
   }
 };
 
@@ -478,6 +512,12 @@ CModifierTableEntry::CModifierTableEntry(const CModifierTableEntry& from)
     , decltype(_impl_.float8__){}
     , decltype(_impl_.float9__){}
     , decltype(_impl_.float10__){}
+    , decltype(_impl_.float11__){}
+    , decltype(_impl_.float12__){}
+    , decltype(_impl_.float13__){}
+    , decltype(_impl_.float14__){}
+    , decltype(_impl_.float15__){}
+    , decltype(_impl_.float16__){}
     , decltype(_impl_.entry_type_){}
     , decltype(_impl_.parent_){}
     , decltype(_impl_.duration_){}
@@ -581,6 +621,12 @@ inline void CModifierTableEntry::SharedCtor(
     , decltype(_impl_.float8__){0}
     , decltype(_impl_.float9__){0}
     , decltype(_impl_.float10__){0}
+    , decltype(_impl_.float11__){0}
+    , decltype(_impl_.float12__){0}
+    , decltype(_impl_.float13__){0}
+    , decltype(_impl_.float14__){0}
+    , decltype(_impl_.float15__){0}
+    , decltype(_impl_.float16__){0}
     , decltype(_impl_.entry_type_){1}
     , decltype(_impl_.parent_){16777215u}
     , decltype(_impl_.duration_){-1}
@@ -686,14 +732,19 @@ void CModifierTableEntry::Clear() {
   cached_has_bits = _impl_._has_bits_[1];
   if (cached_has_bits & 0x000000ffu) {
     ::memset(&_impl_.float5__, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.float10__) -
-        reinterpret_cast<char*>(&_impl_.float5__)) + sizeof(_impl_.float10__));
+        reinterpret_cast<char*>(&_impl_.float12__) -
+        reinterpret_cast<char*>(&_impl_.float5__)) + sizeof(_impl_.float12__));
+  }
+  if (cached_has_bits & 0x0000ff00u) {
+    ::memset(&_impl_.float13__, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.float16__) -
+        reinterpret_cast<char*>(&_impl_.float13__)) + sizeof(_impl_.float16__));
     _impl_.entry_type_ = 1;
     _impl_.parent_ = 16777215u;
-  }
-  if (cached_has_bits & 0x00000f00u) {
     _impl_.duration_ = -1;
     _impl_.caster_ = 16777215u;
+  }
+  if (cached_has_bits & 0x00030000u) {
     _impl_.ability_ = 16777215u;
     _impl_.aura_provider_ehandle_ = 16777215u;
   }
@@ -707,7 +758,7 @@ const char* CModifierTableEntry::_InternalParse(const char* ptr, ::_pbi::ParseCo
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .MODIFIER_ENTRY_TYPE entry_type = 1 [default = MODIFIER_ENTRY_TYPE_ACTIVE];
+      // optional .MODIFIER_ENTRY_TYPE entry_type = 1 [default = MODIFIER_ENTRY_TYPE_ACTIVE];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -720,7 +771,7 @@ const char* CModifierTableEntry::_InternalParse(const char* ptr, ::_pbi::ParseCo
         } else
           goto handle_unusual;
         continue;
-      // required uint32 parent = 2 [default = 16777215];
+      // optional uint32 parent = 2 [default = 16777215];
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_parent(&_impl_._has_bits_);
@@ -729,7 +780,7 @@ const char* CModifierTableEntry::_InternalParse(const char* ptr, ::_pbi::ParseCo
         } else
           goto handle_unusual;
         continue;
-      // required uint32 serial_number = 3;
+      // optional uint32 serial_number = 3;
       case 3:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
           _Internal::set_has_serial_number(&_impl_._has_bits_);
@@ -738,7 +789,7 @@ const char* CModifierTableEntry::_InternalParse(const char* ptr, ::_pbi::ParseCo
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 modifier_subclass = 4;
+      // optional uint32 modifier_subclass = 4 [default = 0];
       case 4:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 32)) {
           _Internal::set_has_modifier_subclass(&_impl_._has_bits_);
@@ -819,7 +870,7 @@ const char* CModifierTableEntry::_InternalParse(const char* ptr, ::_pbi::ParseCo
         } else
           goto handle_unusual;
         continue;
-      // optional uint32 ability_subclass = 13;
+      // optional uint32 ability_subclass = 13 [default = 0];
       case 13:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 104)) {
           _Internal::set_has_ability_subclass(&_impl_._has_bits_);
@@ -1115,6 +1166,60 @@ const char* CModifierTableEntry::_InternalParse(const char* ptr, ::_pbi::ParseCo
         } else
           goto handle_unusual;
         continue;
+      // optional float float11_ = 55;
+      case 55:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 189)) {
+          _Internal::set_has_float11_(&_impl_._has_bits_);
+          _impl_.float11__ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float float12_ = 56;
+      case 56:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 197)) {
+          _Internal::set_has_float12_(&_impl_._has_bits_);
+          _impl_.float12__ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float float13_ = 57;
+      case 57:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 205)) {
+          _Internal::set_has_float13_(&_impl_._has_bits_);
+          _impl_.float13__ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float float14_ = 58;
+      case 58:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 213)) {
+          _Internal::set_has_float14_(&_impl_._has_bits_);
+          _impl_.float14__ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float float15_ = 59;
+      case 59:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 221)) {
+          _Internal::set_has_float15_(&_impl_._has_bits_);
+          _impl_.float15__ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional float float16_ = 60;
+      case 60:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 229)) {
+          _Internal::set_has_float16_(&_impl_._has_bits_);
+          _impl_.float16__ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -1145,27 +1250,27 @@ uint8_t* CModifierTableEntry::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[1];
-  // required .MODIFIER_ENTRY_TYPE entry_type = 1 [default = MODIFIER_ENTRY_TYPE_ACTIVE];
-  if (cached_has_bits & 0x00000040u) {
+  // optional .MODIFIER_ENTRY_TYPE entry_type = 1 [default = MODIFIER_ENTRY_TYPE_ACTIVE];
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_entry_type(), target);
   }
 
-  // required uint32 parent = 2 [default = 16777215];
-  if (cached_has_bits & 0x00000080u) {
+  // optional uint32 parent = 2 [default = 16777215];
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_parent(), target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required uint32 serial_number = 3;
+  // optional uint32 serial_number = 3;
   if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(3, this->_internal_serial_number(), target);
   }
 
-  // optional uint32 modifier_subclass = 4;
+  // optional uint32 modifier_subclass = 4 [default = 0];
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_modifier_subclass(), target);
@@ -1191,19 +1296,19 @@ uint8_t* CModifierTableEntry::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[1];
   // optional float duration = 8 [default = -1];
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteFloatToArray(8, this->_internal_duration(), target);
   }
 
   // optional uint32 caster = 9 [default = 16777215];
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(9, this->_internal_caster(), target);
   }
 
   // optional uint32 ability = 10 [default = 16777215];
-  if (cached_has_bits & 0x00000400u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(10, this->_internal_ability(), target);
   }
@@ -1217,13 +1322,13 @@ uint8_t* CModifierTableEntry::_InternalSerialize(
 
   cached_has_bits = _impl_._has_bits_[1];
   // optional uint32 aura_provider_ehandle = 12 [default = 16777215];
-  if (cached_has_bits & 0x00000800u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(12, this->_internal_aura_provider_ehandle(), target);
   }
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional uint32 ability_subclass = 13;
+  // optional uint32 ability_subclass = 13 [default = 0];
   if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(13, this->_internal_ability_subclass(), target);
@@ -1436,6 +1541,42 @@ uint8_t* CModifierTableEntry::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteFloatToArray(54, this->_internal_float10_(), target);
   }
 
+  // optional float float11_ = 55;
+  if (cached_has_bits & 0x00000040u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(55, this->_internal_float11_(), target);
+  }
+
+  // optional float float12_ = 56;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(56, this->_internal_float12_(), target);
+  }
+
+  // optional float float13_ = 57;
+  if (cached_has_bits & 0x00000100u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(57, this->_internal_float13_(), target);
+  }
+
+  // optional float float14_ = 58;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(58, this->_internal_float14_(), target);
+  }
+
+  // optional float float15_ = 59;
+  if (cached_has_bits & 0x00000400u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(59, this->_internal_float15_(), target);
+  }
+
+  // optional float float16_ = 60;
+  if (cached_has_bits & 0x00000800u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(60, this->_internal_float16_(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -1444,47 +1585,10 @@ uint8_t* CModifierTableEntry::_InternalSerialize(
   return target;
 }
 
-size_t CModifierTableEntry::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:CModifierTableEntry)
-  size_t total_size = 0;
-
-  if (_internal_has_serial_number()) {
-    // required uint32 serial_number = 3;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_serial_number());
-  }
-
-  if (_internal_has_entry_type()) {
-    // required .MODIFIER_ENTRY_TYPE entry_type = 1 [default = MODIFIER_ENTRY_TYPE_ACTIVE];
-    total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_entry_type());
-  }
-
-  if (_internal_has_parent()) {
-    // required uint32 parent = 2 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_parent());
-  }
-
-  return total_size;
-}
 size_t CModifierTableEntry::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CModifierTableEntry)
   size_t total_size = 0;
 
-  if ((((_impl_._has_bits_[0] & 0x00000100) ^ 0x00000100)
-       | ((_impl_._has_bits_[1] & 0x000000c0) ^ 0x000000c0)) == 0) {  // All required fields are present.
-    // required uint32 serial_number = 3;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_serial_number());
-
-    // required .MODIFIER_ENTRY_TYPE entry_type = 1 [default = MODIFIER_ENTRY_TYPE_ACTIVE];
-    total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_entry_type());
-
-    // required uint32 parent = 2 [default = 16777215];
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_parent());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -1548,8 +1652,13 @@ size_t CModifierTableEntry::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x0000fe00u) {
-    // optional uint32 modifier_subclass = 4;
+  if (cached_has_bits & 0x0000ff00u) {
+    // optional uint32 serial_number = 3;
+    if (cached_has_bits & 0x00000100u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_serial_number());
+    }
+
+    // optional uint32 modifier_subclass = 4 [default = 0];
     if (cached_has_bits & 0x00000200u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_modifier_subclass());
     }
@@ -1574,7 +1683,7 @@ size_t CModifierTableEntry::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_aura_provider_serial_number());
     }
 
-    // optional uint32 ability_subclass = 13;
+    // optional uint32 ability_subclass = 13 [default = 0];
     if (cached_has_bits & 0x00004000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_subclass());
     }
@@ -1686,7 +1795,7 @@ size_t CModifierTableEntry::ByteSizeLong() const {
 
   }
   cached_has_bits = _impl_._has_bits_[1];
-  if (cached_has_bits & 0x0000003fu) {
+  if (cached_has_bits & 0x000000ffu) {
     // optional float float5_ = 49;
     if (cached_has_bits & 0x00000001u) {
       total_size += 2 + 4;
@@ -1717,25 +1826,68 @@ size_t CModifierTableEntry::ByteSizeLong() const {
       total_size += 2 + 4;
     }
 
+    // optional float float11_ = 55;
+    if (cached_has_bits & 0x00000040u) {
+      total_size += 2 + 4;
+    }
+
+    // optional float float12_ = 56;
+    if (cached_has_bits & 0x00000080u) {
+      total_size += 2 + 4;
+    }
+
   }
-  if (cached_has_bits & 0x00000f00u) {
-    // optional float duration = 8 [default = -1];
+  if (cached_has_bits & 0x0000ff00u) {
+    // optional float float13_ = 57;
     if (cached_has_bits & 0x00000100u) {
+      total_size += 2 + 4;
+    }
+
+    // optional float float14_ = 58;
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 2 + 4;
+    }
+
+    // optional float float15_ = 59;
+    if (cached_has_bits & 0x00000400u) {
+      total_size += 2 + 4;
+    }
+
+    // optional float float16_ = 60;
+    if (cached_has_bits & 0x00000800u) {
+      total_size += 2 + 4;
+    }
+
+    // optional .MODIFIER_ENTRY_TYPE entry_type = 1 [default = MODIFIER_ENTRY_TYPE_ACTIVE];
+    if (cached_has_bits & 0x00001000u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_entry_type());
+    }
+
+    // optional uint32 parent = 2 [default = 16777215];
+    if (cached_has_bits & 0x00002000u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_parent());
+    }
+
+    // optional float duration = 8 [default = -1];
+    if (cached_has_bits & 0x00004000u) {
       total_size += 1 + 4;
     }
 
     // optional uint32 caster = 9 [default = 16777215];
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00008000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_caster());
     }
 
+  }
+  if (cached_has_bits & 0x00030000u) {
     // optional uint32 ability = 10 [default = 16777215];
-    if (cached_has_bits & 0x00000400u) {
+    if (cached_has_bits & 0x00010000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability());
     }
 
     // optional uint32 aura_provider_ehandle = 12 [default = 16777215];
-    if (cached_has_bits & 0x00000800u) {
+    if (cached_has_bits & 0x00020000u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_aura_provider_ehandle());
     }
 
@@ -1891,24 +2043,45 @@ void CModifierTableEntry::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, co
       _this->_impl_.float10__ = from._impl_.float10__;
     }
     if (cached_has_bits & 0x00000040u) {
-      _this->_impl_.entry_type_ = from._impl_.entry_type_;
+      _this->_impl_.float11__ = from._impl_.float11__;
     }
     if (cached_has_bits & 0x00000080u) {
-      _this->_impl_.parent_ = from._impl_.parent_;
+      _this->_impl_.float12__ = from._impl_.float12__;
     }
     _this->_impl_._has_bits_[1] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.duration_ = from._impl_.duration_;
+      _this->_impl_.float13__ = from._impl_.float13__;
     }
     if (cached_has_bits & 0x00000200u) {
-      _this->_impl_.caster_ = from._impl_.caster_;
+      _this->_impl_.float14__ = from._impl_.float14__;
     }
     if (cached_has_bits & 0x00000400u) {
-      _this->_impl_.ability_ = from._impl_.ability_;
+      _this->_impl_.float15__ = from._impl_.float15__;
     }
     if (cached_has_bits & 0x00000800u) {
+      _this->_impl_.float16__ = from._impl_.float16__;
+    }
+    if (cached_has_bits & 0x00001000u) {
+      _this->_impl_.entry_type_ = from._impl_.entry_type_;
+    }
+    if (cached_has_bits & 0x00002000u) {
+      _this->_impl_.parent_ = from._impl_.parent_;
+    }
+    if (cached_has_bits & 0x00004000u) {
+      _this->_impl_.duration_ = from._impl_.duration_;
+    }
+    if (cached_has_bits & 0x00008000u) {
+      _this->_impl_.caster_ = from._impl_.caster_;
+    }
+    _this->_impl_._has_bits_[1] |= cached_has_bits;
+  }
+  if (cached_has_bits & 0x00030000u) {
+    if (cached_has_bits & 0x00010000u) {
+      _this->_impl_.ability_ = from._impl_.ability_;
+    }
+    if (cached_has_bits & 0x00020000u) {
       _this->_impl_.aura_provider_ehandle_ = from._impl_.aura_provider_ehandle_;
     }
     _this->_impl_._has_bits_[1] |= cached_has_bits;
@@ -1924,7 +2097,6 @@ void CModifierTableEntry::CopyFrom(const CModifierTableEntry& from) {
 }
 
 bool CModifierTableEntry::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
@@ -1952,8 +2124,8 @@ void CModifierTableEntry::InternalSwap(CModifierTableEntry* other) {
       &other->_impl_.string4__, rhs_arena
   );
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CModifierTableEntry, _impl_.float10__)
-      + sizeof(CModifierTableEntry::_impl_.float10__)
+      PROTOBUF_FIELD_OFFSET(CModifierTableEntry, _impl_.float16__)
+      + sizeof(CModifierTableEntry::_impl_.float16__)
       - PROTOBUF_FIELD_OFFSET(CModifierTableEntry, _impl_.vec1__)>(
           reinterpret_cast<char*>(&_impl_.vec1__),
           reinterpret_cast<char*>(&other->_impl_.vec1__));

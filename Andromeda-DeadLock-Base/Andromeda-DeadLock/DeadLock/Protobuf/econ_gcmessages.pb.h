@@ -146,6 +146,15 @@ extern CMsgClientToGCPurchaseChargeCostItemsResponseDefaultTypeInternal _CMsgCli
 class CMsgClientToGCPurchaseChargeCostItems_Item;
 struct CMsgClientToGCPurchaseChargeCostItems_ItemDefaultTypeInternal;
 extern CMsgClientToGCPurchaseChargeCostItems_ItemDefaultTypeInternal _CMsgClientToGCPurchaseChargeCostItems_Item_default_instance_;
+class CMsgClientToGCRecycleMultipleItems;
+struct CMsgClientToGCRecycleMultipleItemsDefaultTypeInternal;
+extern CMsgClientToGCRecycleMultipleItemsDefaultTypeInternal _CMsgClientToGCRecycleMultipleItems_default_instance_;
+class CMsgClientToGCRecycleMultipleItemsResponse;
+struct CMsgClientToGCRecycleMultipleItemsResponseDefaultTypeInternal;
+extern CMsgClientToGCRecycleMultipleItemsResponseDefaultTypeInternal _CMsgClientToGCRecycleMultipleItemsResponse_default_instance_;
+class CMsgClientToGCRecycleMultipleItems_Item;
+struct CMsgClientToGCRecycleMultipleItems_ItemDefaultTypeInternal;
+extern CMsgClientToGCRecycleMultipleItems_ItemDefaultTypeInternal _CMsgClientToGCRecycleMultipleItems_Item_default_instance_;
 class CMsgClientToGCRemoveItemAttribute;
 struct CMsgClientToGCRemoveItemAttributeDefaultTypeInternal;
 extern CMsgClientToGCRemoveItemAttributeDefaultTypeInternal _CMsgClientToGCRemoveItemAttribute_default_instance_;
@@ -503,6 +512,9 @@ template<> ::CMsgClientToGCPackBundleResponse* Arena::CreateMaybeMessage<::CMsgC
 template<> ::CMsgClientToGCPurchaseChargeCostItems* Arena::CreateMaybeMessage<::CMsgClientToGCPurchaseChargeCostItems>(Arena*);
 template<> ::CMsgClientToGCPurchaseChargeCostItemsResponse* Arena::CreateMaybeMessage<::CMsgClientToGCPurchaseChargeCostItemsResponse>(Arena*);
 template<> ::CMsgClientToGCPurchaseChargeCostItems_Item* Arena::CreateMaybeMessage<::CMsgClientToGCPurchaseChargeCostItems_Item>(Arena*);
+template<> ::CMsgClientToGCRecycleMultipleItems* Arena::CreateMaybeMessage<::CMsgClientToGCRecycleMultipleItems>(Arena*);
+template<> ::CMsgClientToGCRecycleMultipleItemsResponse* Arena::CreateMaybeMessage<::CMsgClientToGCRecycleMultipleItemsResponse>(Arena*);
+template<> ::CMsgClientToGCRecycleMultipleItems_Item* Arena::CreateMaybeMessage<::CMsgClientToGCRecycleMultipleItems_Item>(Arena*);
 template<> ::CMsgClientToGCRemoveItemAttribute* Arena::CreateMaybeMessage<::CMsgClientToGCRemoveItemAttribute>(Arena*);
 template<> ::CMsgClientToGCRemoveItemAttributeResponse* Arena::CreateMaybeMessage<::CMsgClientToGCRemoveItemAttributeResponse>(Arena*);
 template<> ::CMsgClientToGCSetItemInventoryCategory* Arena::CreateMaybeMessage<::CMsgClientToGCSetItemInventoryCategory>(Arena*);
@@ -1103,11 +1115,13 @@ enum EGCItemMsg : int {
   k_EMsgClientToGCPurchaseChargeCostItems = 2615,
   k_EMsgClientToGCPurchaseChargeCostItemsResponse = 2616,
   k_EMsgClientToGCCancelUnfinalizedTransactions = 2617,
-  k_EMsgClientToGCCancelUnfinalizedTransactionsResponse = 2618
+  k_EMsgClientToGCCancelUnfinalizedTransactionsResponse = 2618,
+  k_EMsgClientToGCRecycleMultipleItems = 2619,
+  k_EMsgClientToGCRecycleMultipleItemsResponse = 2620
 };
 bool EGCItemMsg_IsValid(int value);
 constexpr EGCItemMsg EGCItemMsg_MIN = k_EMsgGCBase;
-constexpr EGCItemMsg EGCItemMsg_MAX = k_EMsgClientToGCCancelUnfinalizedTransactionsResponse;
+constexpr EGCItemMsg EGCItemMsg_MAX = k_EMsgClientToGCRecycleMultipleItemsResponse;
 constexpr int EGCItemMsg_ARRAYSIZE = EGCItemMsg_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGCItemMsg_descriptor();
@@ -28104,6 +28118,526 @@ class CMsgGCToGCUpdateWelcomeMsg final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_econ_5fgcmessages_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CMsgClientToGCRecycleMultipleItems_Item final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCRecycleMultipleItems.Item) */ {
+ public:
+  inline CMsgClientToGCRecycleMultipleItems_Item() : CMsgClientToGCRecycleMultipleItems_Item(nullptr) {}
+  ~CMsgClientToGCRecycleMultipleItems_Item() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCRecycleMultipleItems_Item(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCRecycleMultipleItems_Item(const CMsgClientToGCRecycleMultipleItems_Item& from);
+  CMsgClientToGCRecycleMultipleItems_Item(CMsgClientToGCRecycleMultipleItems_Item&& from) noexcept
+    : CMsgClientToGCRecycleMultipleItems_Item() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCRecycleMultipleItems_Item& operator=(const CMsgClientToGCRecycleMultipleItems_Item& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCRecycleMultipleItems_Item& operator=(CMsgClientToGCRecycleMultipleItems_Item&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCRecycleMultipleItems_Item& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCRecycleMultipleItems_Item* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCRecycleMultipleItems_Item*>(
+               &_CMsgClientToGCRecycleMultipleItems_Item_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    140;
+
+  friend void swap(CMsgClientToGCRecycleMultipleItems_Item& a, CMsgClientToGCRecycleMultipleItems_Item& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCRecycleMultipleItems_Item* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCRecycleMultipleItems_Item* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCRecycleMultipleItems_Item* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCRecycleMultipleItems_Item>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCRecycleMultipleItems_Item& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCRecycleMultipleItems_Item& from) {
+    CMsgClientToGCRecycleMultipleItems_Item::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCRecycleMultipleItems_Item* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCRecycleMultipleItems.Item";
+  }
+  protected:
+  explicit CMsgClientToGCRecycleMultipleItems_Item(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemIdFieldNumber = 1,
+    kSlotIdFieldNumber = 2,
+    kRecipeDefIndexFieldNumber = 3,
+  };
+  // optional uint64 item_id = 1;
+  bool has_item_id() const;
+  private:
+  bool _internal_has_item_id() const;
+  public:
+  void clear_item_id();
+  uint64_t item_id() const;
+  void set_item_id(uint64_t value);
+  private:
+  uint64_t _internal_item_id() const;
+  void _internal_set_item_id(uint64_t value);
+  public:
+
+  // optional uint32 slot_id = 2;
+  bool has_slot_id() const;
+  private:
+  bool _internal_has_slot_id() const;
+  public:
+  void clear_slot_id();
+  uint32_t slot_id() const;
+  void set_slot_id(uint32_t value);
+  private:
+  uint32_t _internal_slot_id() const;
+  void _internal_set_slot_id(uint32_t value);
+  public:
+
+  // optional uint32 recipe_def_index = 3;
+  bool has_recipe_def_index() const;
+  private:
+  bool _internal_has_recipe_def_index() const;
+  public:
+  void clear_recipe_def_index();
+  uint32_t recipe_def_index() const;
+  void set_recipe_def_index(uint32_t value);
+  private:
+  uint32_t _internal_recipe_def_index() const;
+  void _internal_set_recipe_def_index(uint32_t value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCRecycleMultipleItems.Item)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint64_t item_id_;
+    uint32_t slot_id_;
+    uint32_t recipe_def_index_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCRecycleMultipleItems final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCRecycleMultipleItems) */ {
+ public:
+  inline CMsgClientToGCRecycleMultipleItems() : CMsgClientToGCRecycleMultipleItems(nullptr) {}
+  ~CMsgClientToGCRecycleMultipleItems() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCRecycleMultipleItems(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCRecycleMultipleItems(const CMsgClientToGCRecycleMultipleItems& from);
+  CMsgClientToGCRecycleMultipleItems(CMsgClientToGCRecycleMultipleItems&& from) noexcept
+    : CMsgClientToGCRecycleMultipleItems() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCRecycleMultipleItems& operator=(const CMsgClientToGCRecycleMultipleItems& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCRecycleMultipleItems& operator=(CMsgClientToGCRecycleMultipleItems&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCRecycleMultipleItems& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCRecycleMultipleItems* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCRecycleMultipleItems*>(
+               &_CMsgClientToGCRecycleMultipleItems_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    141;
+
+  friend void swap(CMsgClientToGCRecycleMultipleItems& a, CMsgClientToGCRecycleMultipleItems& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCRecycleMultipleItems* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCRecycleMultipleItems* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCRecycleMultipleItems* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCRecycleMultipleItems>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCRecycleMultipleItems& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCRecycleMultipleItems& from) {
+    CMsgClientToGCRecycleMultipleItems::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCRecycleMultipleItems* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCRecycleMultipleItems";
+  }
+  protected:
+  explicit CMsgClientToGCRecycleMultipleItems(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  typedef CMsgClientToGCRecycleMultipleItems_Item Item;
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemsFieldNumber = 1,
+  };
+  // repeated .CMsgClientToGCRecycleMultipleItems.Item items = 1;
+  int items_size() const;
+  private:
+  int _internal_items_size() const;
+  public:
+  void clear_items();
+  ::CMsgClientToGCRecycleMultipleItems_Item* mutable_items(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCRecycleMultipleItems_Item >*
+      mutable_items();
+  private:
+  const ::CMsgClientToGCRecycleMultipleItems_Item& _internal_items(int index) const;
+  ::CMsgClientToGCRecycleMultipleItems_Item* _internal_add_items();
+  public:
+  const ::CMsgClientToGCRecycleMultipleItems_Item& items(int index) const;
+  ::CMsgClientToGCRecycleMultipleItems_Item* add_items();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCRecycleMultipleItems_Item >&
+      items() const;
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCRecycleMultipleItems)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCRecycleMultipleItems_Item > items_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgClientToGCRecycleMultipleItemsResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCRecycleMultipleItemsResponse) */ {
+ public:
+  inline CMsgClientToGCRecycleMultipleItemsResponse() : CMsgClientToGCRecycleMultipleItemsResponse(nullptr) {}
+  ~CMsgClientToGCRecycleMultipleItemsResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCRecycleMultipleItemsResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgClientToGCRecycleMultipleItemsResponse(const CMsgClientToGCRecycleMultipleItemsResponse& from);
+  CMsgClientToGCRecycleMultipleItemsResponse(CMsgClientToGCRecycleMultipleItemsResponse&& from) noexcept
+    : CMsgClientToGCRecycleMultipleItemsResponse() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgClientToGCRecycleMultipleItemsResponse& operator=(const CMsgClientToGCRecycleMultipleItemsResponse& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgClientToGCRecycleMultipleItemsResponse& operator=(CMsgClientToGCRecycleMultipleItemsResponse&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgClientToGCRecycleMultipleItemsResponse& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgClientToGCRecycleMultipleItemsResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCRecycleMultipleItemsResponse*>(
+               &_CMsgClientToGCRecycleMultipleItemsResponse_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    142;
+
+  friend void swap(CMsgClientToGCRecycleMultipleItemsResponse& a, CMsgClientToGCRecycleMultipleItemsResponse& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgClientToGCRecycleMultipleItemsResponse* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgClientToGCRecycleMultipleItemsResponse* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgClientToGCRecycleMultipleItemsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCRecycleMultipleItemsResponse>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCRecycleMultipleItemsResponse& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCRecycleMultipleItemsResponse& from) {
+    CMsgClientToGCRecycleMultipleItemsResponse::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCRecycleMultipleItemsResponse* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgClientToGCRecycleMultipleItemsResponse";
+  }
+  protected:
+  explicit CMsgClientToGCRecycleMultipleItemsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kResponsesFieldNumber = 1,
+  };
+  // repeated .CMsgClientToGCCreateStaticRecipeResponse responses = 1;
+  int responses_size() const;
+  private:
+  int _internal_responses_size() const;
+  public:
+  void clear_responses();
+  ::CMsgClientToGCCreateStaticRecipeResponse* mutable_responses(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCCreateStaticRecipeResponse >*
+      mutable_responses();
+  private:
+  const ::CMsgClientToGCCreateStaticRecipeResponse& _internal_responses(int index) const;
+  ::CMsgClientToGCCreateStaticRecipeResponse* _internal_add_responses();
+  public:
+  const ::CMsgClientToGCCreateStaticRecipeResponse& responses(int index) const;
+  ::CMsgClientToGCCreateStaticRecipeResponse* add_responses();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCCreateStaticRecipeResponse >&
+      responses() const;
+
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCRecycleMultipleItemsResponse)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCCreateStaticRecipeResponse > responses_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_econ_5fgcmessages_2eproto;
+};
 // ===================================================================
 
 
@@ -42111,9 +42645,191 @@ inline void CMsgGCToGCUpdateWelcomeMsg::set_broadcast(bool value) {
   // @@protoc_insertion_point(field_set:CMsgGCToGCUpdateWelcomeMsg.broadcast)
 }
 
+// -------------------------------------------------------------------
+
+// CMsgClientToGCRecycleMultipleItems_Item
+
+// optional uint64 item_id = 1;
+inline bool CMsgClientToGCRecycleMultipleItems_Item::_internal_has_item_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCRecycleMultipleItems_Item::has_item_id() const {
+  return _internal_has_item_id();
+}
+inline void CMsgClientToGCRecycleMultipleItems_Item::clear_item_id() {
+  _impl_.item_id_ = uint64_t{0u};
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint64_t CMsgClientToGCRecycleMultipleItems_Item::_internal_item_id() const {
+  return _impl_.item_id_;
+}
+inline uint64_t CMsgClientToGCRecycleMultipleItems_Item::item_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCRecycleMultipleItems.Item.item_id)
+  return _internal_item_id();
+}
+inline void CMsgClientToGCRecycleMultipleItems_Item::_internal_set_item_id(uint64_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.item_id_ = value;
+}
+inline void CMsgClientToGCRecycleMultipleItems_Item::set_item_id(uint64_t value) {
+  _internal_set_item_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCRecycleMultipleItems.Item.item_id)
+}
+
+// optional uint32 slot_id = 2;
+inline bool CMsgClientToGCRecycleMultipleItems_Item::_internal_has_slot_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCRecycleMultipleItems_Item::has_slot_id() const {
+  return _internal_has_slot_id();
+}
+inline void CMsgClientToGCRecycleMultipleItems_Item::clear_slot_id() {
+  _impl_.slot_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgClientToGCRecycleMultipleItems_Item::_internal_slot_id() const {
+  return _impl_.slot_id_;
+}
+inline uint32_t CMsgClientToGCRecycleMultipleItems_Item::slot_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCRecycleMultipleItems.Item.slot_id)
+  return _internal_slot_id();
+}
+inline void CMsgClientToGCRecycleMultipleItems_Item::_internal_set_slot_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.slot_id_ = value;
+}
+inline void CMsgClientToGCRecycleMultipleItems_Item::set_slot_id(uint32_t value) {
+  _internal_set_slot_id(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCRecycleMultipleItems.Item.slot_id)
+}
+
+// optional uint32 recipe_def_index = 3;
+inline bool CMsgClientToGCRecycleMultipleItems_Item::_internal_has_recipe_def_index() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCRecycleMultipleItems_Item::has_recipe_def_index() const {
+  return _internal_has_recipe_def_index();
+}
+inline void CMsgClientToGCRecycleMultipleItems_Item::clear_recipe_def_index() {
+  _impl_.recipe_def_index_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline uint32_t CMsgClientToGCRecycleMultipleItems_Item::_internal_recipe_def_index() const {
+  return _impl_.recipe_def_index_;
+}
+inline uint32_t CMsgClientToGCRecycleMultipleItems_Item::recipe_def_index() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCRecycleMultipleItems.Item.recipe_def_index)
+  return _internal_recipe_def_index();
+}
+inline void CMsgClientToGCRecycleMultipleItems_Item::_internal_set_recipe_def_index(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.recipe_def_index_ = value;
+}
+inline void CMsgClientToGCRecycleMultipleItems_Item::set_recipe_def_index(uint32_t value) {
+  _internal_set_recipe_def_index(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCRecycleMultipleItems.Item.recipe_def_index)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCRecycleMultipleItems
+
+// repeated .CMsgClientToGCRecycleMultipleItems.Item items = 1;
+inline int CMsgClientToGCRecycleMultipleItems::_internal_items_size() const {
+  return _impl_.items_.size();
+}
+inline int CMsgClientToGCRecycleMultipleItems::items_size() const {
+  return _internal_items_size();
+}
+inline void CMsgClientToGCRecycleMultipleItems::clear_items() {
+  _impl_.items_.Clear();
+}
+inline ::CMsgClientToGCRecycleMultipleItems_Item* CMsgClientToGCRecycleMultipleItems::mutable_items(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgClientToGCRecycleMultipleItems.items)
+  return _impl_.items_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCRecycleMultipleItems_Item >*
+CMsgClientToGCRecycleMultipleItems::mutable_items() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgClientToGCRecycleMultipleItems.items)
+  return &_impl_.items_;
+}
+inline const ::CMsgClientToGCRecycleMultipleItems_Item& CMsgClientToGCRecycleMultipleItems::_internal_items(int index) const {
+  return _impl_.items_.Get(index);
+}
+inline const ::CMsgClientToGCRecycleMultipleItems_Item& CMsgClientToGCRecycleMultipleItems::items(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCRecycleMultipleItems.items)
+  return _internal_items(index);
+}
+inline ::CMsgClientToGCRecycleMultipleItems_Item* CMsgClientToGCRecycleMultipleItems::_internal_add_items() {
+  return _impl_.items_.Add();
+}
+inline ::CMsgClientToGCRecycleMultipleItems_Item* CMsgClientToGCRecycleMultipleItems::add_items() {
+  ::CMsgClientToGCRecycleMultipleItems_Item* _add = _internal_add_items();
+  // @@protoc_insertion_point(field_add:CMsgClientToGCRecycleMultipleItems.items)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCRecycleMultipleItems_Item >&
+CMsgClientToGCRecycleMultipleItems::items() const {
+  // @@protoc_insertion_point(field_list:CMsgClientToGCRecycleMultipleItems.items)
+  return _impl_.items_;
+}
+
+// -------------------------------------------------------------------
+
+// CMsgClientToGCRecycleMultipleItemsResponse
+
+// repeated .CMsgClientToGCCreateStaticRecipeResponse responses = 1;
+inline int CMsgClientToGCRecycleMultipleItemsResponse::_internal_responses_size() const {
+  return _impl_.responses_.size();
+}
+inline int CMsgClientToGCRecycleMultipleItemsResponse::responses_size() const {
+  return _internal_responses_size();
+}
+inline void CMsgClientToGCRecycleMultipleItemsResponse::clear_responses() {
+  _impl_.responses_.Clear();
+}
+inline ::CMsgClientToGCCreateStaticRecipeResponse* CMsgClientToGCRecycleMultipleItemsResponse::mutable_responses(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgClientToGCRecycleMultipleItemsResponse.responses)
+  return _impl_.responses_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCCreateStaticRecipeResponse >*
+CMsgClientToGCRecycleMultipleItemsResponse::mutable_responses() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgClientToGCRecycleMultipleItemsResponse.responses)
+  return &_impl_.responses_;
+}
+inline const ::CMsgClientToGCCreateStaticRecipeResponse& CMsgClientToGCRecycleMultipleItemsResponse::_internal_responses(int index) const {
+  return _impl_.responses_.Get(index);
+}
+inline const ::CMsgClientToGCCreateStaticRecipeResponse& CMsgClientToGCRecycleMultipleItemsResponse::responses(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCRecycleMultipleItemsResponse.responses)
+  return _internal_responses(index);
+}
+inline ::CMsgClientToGCCreateStaticRecipeResponse* CMsgClientToGCRecycleMultipleItemsResponse::_internal_add_responses() {
+  return _impl_.responses_.Add();
+}
+inline ::CMsgClientToGCCreateStaticRecipeResponse* CMsgClientToGCRecycleMultipleItemsResponse::add_responses() {
+  ::CMsgClientToGCCreateStaticRecipeResponse* _add = _internal_add_responses();
+  // @@protoc_insertion_point(field_add:CMsgClientToGCRecycleMultipleItemsResponse.responses)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCCreateStaticRecipeResponse >&
+CMsgClientToGCRecycleMultipleItemsResponse::responses() const {
+  // @@protoc_insertion_point(field_list:CMsgClientToGCRecycleMultipleItemsResponse.responses)
+  return _impl_.responses_;
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -14305,6 +14305,7 @@ class CMsgGCToGCMasterBroadcastMessage final :
     kUsersPerSecondFieldNumber = 1,
     kSendToUsersFieldNumber = 2,
     kSendToServersFieldNumber = 3,
+    kTrustedServersOnlyFieldNumber = 6,
     kMsgIdFieldNumber = 4,
   };
   // optional bytes msg_data = 5;
@@ -14364,6 +14365,19 @@ class CMsgGCToGCMasterBroadcastMessage final :
   void _internal_set_send_to_servers(bool value);
   public:
 
+  // optional bool trusted_servers_only = 6;
+  bool has_trusted_servers_only() const;
+  private:
+  bool _internal_has_trusted_servers_only() const;
+  public:
+  void clear_trusted_servers_only();
+  bool trusted_servers_only() const;
+  void set_trusted_servers_only(bool value);
+  private:
+  bool _internal_trusted_servers_only() const;
+  void _internal_set_trusted_servers_only(bool value);
+  public:
+
   // optional uint32 msg_id = 4;
   bool has_msg_id() const;
   private:
@@ -14391,6 +14405,7 @@ class CMsgGCToGCMasterBroadcastMessage final :
     uint32_t users_per_second_;
     bool send_to_users_;
     bool send_to_servers_;
+    bool trusted_servers_only_;
     uint32_t msg_id_;
   };
   union { Impl_ _impl_; };
@@ -25002,7 +25017,7 @@ inline void CMsgGCToGCMasterBroadcastMessage::set_send_to_servers(bool value) {
 
 // optional uint32 msg_id = 4;
 inline bool CMsgGCToGCMasterBroadcastMessage::_internal_has_msg_id() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CMsgGCToGCMasterBroadcastMessage::has_msg_id() const {
@@ -25010,7 +25025,7 @@ inline bool CMsgGCToGCMasterBroadcastMessage::has_msg_id() const {
 }
 inline void CMsgGCToGCMasterBroadcastMessage::clear_msg_id() {
   _impl_.msg_id_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CMsgGCToGCMasterBroadcastMessage::_internal_msg_id() const {
   return _impl_.msg_id_;
@@ -25020,7 +25035,7 @@ inline uint32_t CMsgGCToGCMasterBroadcastMessage::msg_id() const {
   return _internal_msg_id();
 }
 inline void CMsgGCToGCMasterBroadcastMessage::_internal_set_msg_id(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.msg_id_ = value;
 }
 inline void CMsgGCToGCMasterBroadcastMessage::set_msg_id(uint32_t value) {
@@ -25094,6 +25109,34 @@ inline void CMsgGCToGCMasterBroadcastMessage::set_allocated_msg_data(std::string
   }
 #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
   // @@protoc_insertion_point(field_set_allocated:CMsgGCToGCMasterBroadcastMessage.msg_data)
+}
+
+// optional bool trusted_servers_only = 6;
+inline bool CMsgGCToGCMasterBroadcastMessage::_internal_has_trusted_servers_only() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CMsgGCToGCMasterBroadcastMessage::has_trusted_servers_only() const {
+  return _internal_has_trusted_servers_only();
+}
+inline void CMsgGCToGCMasterBroadcastMessage::clear_trusted_servers_only() {
+  _impl_.trusted_servers_only_ = false;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline bool CMsgGCToGCMasterBroadcastMessage::_internal_trusted_servers_only() const {
+  return _impl_.trusted_servers_only_;
+}
+inline bool CMsgGCToGCMasterBroadcastMessage::trusted_servers_only() const {
+  // @@protoc_insertion_point(field_get:CMsgGCToGCMasterBroadcastMessage.trusted_servers_only)
+  return _internal_trusted_servers_only();
+}
+inline void CMsgGCToGCMasterBroadcastMessage::_internal_set_trusted_servers_only(bool value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.trusted_servers_only_ = value;
+}
+inline void CMsgGCToGCMasterBroadcastMessage::set_trusted_servers_only(bool value) {
+  _internal_set_trusted_servers_only(value);
+  // @@protoc_insertion_point(field_set:CMsgGCToGCMasterBroadcastMessage.trusted_servers_only)
 }
 
 // -------------------------------------------------------------------

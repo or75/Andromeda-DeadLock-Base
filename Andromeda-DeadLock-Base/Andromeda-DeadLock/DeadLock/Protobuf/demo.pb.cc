@@ -33,7 +33,7 @@ PROTOBUF_CONSTEXPR CDemoFileHeader::CDemoFileHeader(
   , /*decltype(_impl_.demo_version_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.demo_version_guid_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.game_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
-  , /*decltype(_impl_.network_protocol_)*/0
+  , /*decltype(_impl_.patch_version_)*/0
   , /*decltype(_impl_.fullpackets_version_)*/0
   , /*decltype(_impl_.allow_clientside_entities_)*/false
   , /*decltype(_impl_.allow_clientside_particles_)*/false
@@ -411,6 +411,20 @@ struct CDemoSpawnGroupsDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDemoSpawnGroupsDefaultTypeInternal _CDemoSpawnGroups_default_instance_;
+PROTOBUF_CONSTEXPR CDemoSpawnGroupsHLTVBroadcast::CDemoSpawnGroupsHLTVBroadcast(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.data_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}} {}
+struct CDemoSpawnGroupsHLTVBroadcastDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CDemoSpawnGroupsHLTVBroadcastDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CDemoSpawnGroupsHLTVBroadcastDefaultTypeInternal() {}
+  union {
+    CDemoSpawnGroupsHLTVBroadcast _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDemoSpawnGroupsHLTVBroadcastDefaultTypeInternal _CDemoSpawnGroupsHLTVBroadcast_default_instance_;
 PROTOBUF_CONSTEXPR CDemoRecovery_DemoInitialSpawnGroupEntry::CDemoRecovery_DemoInitialSpawnGroupEntry(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -441,7 +455,7 @@ struct CDemoRecoveryDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CDemoRecoveryDefaultTypeInternal _CDemoRecovery_default_instance_;
-static ::_pb::Metadata file_level_metadata_demo_2eproto[27];
+static ::_pb::Metadata file_level_metadata_demo_2eproto[28];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_demo_2eproto[1];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_demo_2eproto = nullptr;
 
@@ -453,7 +467,7 @@ const uint32_t TableStruct_demo_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pro
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDemoFileHeader, _impl_.demo_file_stamp_),
-  PROTOBUF_FIELD_OFFSET(::CDemoFileHeader, _impl_.network_protocol_),
+  PROTOBUF_FIELD_OFFSET(::CDemoFileHeader, _impl_.patch_version_),
   PROTOBUF_FIELD_OFFSET(::CDemoFileHeader, _impl_.server_name_),
   PROTOBUF_FIELD_OFFSET(::CDemoFileHeader, _impl_.client_name_),
   PROTOBUF_FIELD_OFFSET(::CDemoFileHeader, _impl_.map_name_),
@@ -741,6 +755,14 @@ const uint32_t TableStruct_demo_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(pro
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CDemoSpawnGroups, _impl_.msgs_),
+  PROTOBUF_FIELD_OFFSET(::CDemoSpawnGroupsHLTVBroadcast, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CDemoSpawnGroupsHLTVBroadcast, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CDemoSpawnGroupsHLTVBroadcast, _impl_.data_),
+  0,
   PROTOBUF_FIELD_OFFSET(::CDemoRecovery_DemoInitialSpawnGroupEntry, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CDemoRecovery_DemoInitialSpawnGroupEntry, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -788,8 +810,9 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 272, -1, -1, sizeof(::CDemoStop)},
   { 278, 286, -1, sizeof(::CDemoUserCmd)},
   { 288, -1, -1, sizeof(::CDemoSpawnGroups)},
-  { 295, 303, -1, sizeof(::CDemoRecovery_DemoInitialSpawnGroupEntry)},
-  { 305, 313, -1, sizeof(::CDemoRecovery)},
+  { 295, 302, -1, sizeof(::CDemoSpawnGroupsHLTVBroadcast)},
+  { 303, 311, -1, sizeof(::CDemoRecovery_DemoInitialSpawnGroupEntry)},
+  { 313, 321, -1, sizeof(::CDemoRecovery)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -818,89 +841,92 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CDemoStop_default_instance_._instance,
   &::_CDemoUserCmd_default_instance_._instance,
   &::_CDemoSpawnGroups_default_instance_._instance,
+  &::_CDemoSpawnGroupsHLTVBroadcast_default_instance_._instance,
   &::_CDemoRecovery_DemoInitialSpawnGroupEntry_default_instance_._instance,
   &::_CDemoRecovery_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_demo_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\ndemo.proto\"\376\002\n\017CDemoFileHeader\022\027\n\017demo"
-  "_file_stamp\030\001 \002(\t\022\030\n\020network_protocol\030\002 "
-  "\001(\005\022\023\n\013server_name\030\003 \001(\t\022\023\n\013client_name\030"
-  "\004 \001(\t\022\020\n\010map_name\030\005 \001(\t\022\026\n\016game_director"
-  "y\030\006 \001(\t\022\033\n\023fullpackets_version\030\007 \001(\005\022!\n\031"
-  "allow_clientside_entities\030\010 \001(\010\022\"\n\032allow"
-  "_clientside_particles\030\t \001(\010\022\016\n\006addons\030\n "
-  "\001(\t\022\031\n\021demo_version_name\030\013 \001(\t\022\031\n\021demo_v"
-  "ersion_guid\030\014 \001(\t\022\021\n\tbuild_num\030\r \001(\005\022\014\n\004"
-  "game\030\016 \001(\t\022\031\n\021server_start_tick\030\017 \001(\005\"\202\005"
-  "\n\tCGameInfo\022&\n\004dota\030\004 \001(\0132\030.CGameInfo.CD"
-  "otaGameInfo\022\"\n\002cs\030\005 \001(\0132\026.CGameInfo.CCSG"
-  "ameInfo\032\376\003\n\rCDotaGameInfo\022\020\n\010match_id\030\001 "
-  "\001(\004\022\021\n\tgame_mode\030\002 \001(\005\022\023\n\013game_winner\030\003 "
-  "\001(\005\0229\n\013player_info\030\004 \003(\0132$.CGameInfo.CDo"
-  "taGameInfo.CPlayerInfo\022\020\n\010leagueid\030\005 \001(\r"
-  "\022=\n\npicks_bans\030\006 \003(\0132).CGameInfo.CDotaGa"
-  "meInfo.CHeroSelectEvent\022\027\n\017radiant_team_"
-  "id\030\007 \001(\r\022\024\n\014dire_team_id\030\010 \001(\r\022\030\n\020radian"
-  "t_team_tag\030\t \001(\t\022\025\n\rdire_team_tag\030\n \001(\t\022"
-  "\020\n\010end_time\030\013 \001(\r\032q\n\013CPlayerInfo\022\021\n\thero"
-  "_name\030\001 \001(\t\022\023\n\013player_name\030\002 \001(\t\022\026\n\016is_f"
-  "ake_client\030\003 \001(\010\022\017\n\007steamid\030\004 \001(\004\022\021\n\tgam"
-  "e_team\030\005 \001(\005\032B\n\020CHeroSelectEvent\022\017\n\007is_p"
-  "ick\030\001 \001(\010\022\014\n\004team\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\005"
-  "\032(\n\013CCSGameInfo\022\031\n\021round_start_ticks\030\001 \003"
-  "(\005\"v\n\rCDemoFileInfo\022\025\n\rplayback_time\030\001 \001"
-  "(\002\022\026\n\016playback_ticks\030\002 \001(\005\022\027\n\017playback_f"
-  "rames\030\003 \001(\005\022\035\n\tgame_info\030\004 \001(\0132\n.CGameIn"
-  "fo\"\033\n\013CDemoPacket\022\014\n\004data\030\003 \001(\014\"Y\n\017CDemo"
-  "FullPacket\022(\n\014string_table\030\001 \001(\0132\022.CDemo"
-  "StringTables\022\034\n\006packet\030\002 \001(\0132\014.CDemoPack"
-  "et\"S\n\rCDemoSaveGame\022\014\n\004data\030\001 \001(\014\022\020\n\010ste"
-  "am_id\030\002 \001(\006\022\021\n\tsignature\030\003 \001(\006\022\017\n\007versio"
-  "n\030\004 \001(\005\"\017\n\rCDemoSyncTick\"$\n\017CDemoConsole"
-  "Cmd\022\021\n\tcmdstring\030\001 \001(\t\"\037\n\017CDemoSendTable"
-  "s\022\014\n\004data\030\001 \001(\014\"\201\001\n\016CDemoClassInfo\022(\n\007cl"
-  "asses\030\001 \003(\0132\027.CDemoClassInfo.class_t\032E\n\007"
-  "class_t\022\020\n\010class_id\030\001 \001(\005\022\024\n\014network_nam"
-  "e\030\002 \001(\t\022\022\n\ntable_name\030\003 \001(\t\"7\n\017CDemoCust"
-  "omData\022\026\n\016callback_index\030\001 \001(\005\022\014\n\004data\030\002"
-  " \001(\014\"+\n\030CDemoCustomDataCallbacks\022\017\n\007save"
-  "_id\030\001 \003(\t\"E\n\024CDemoAnimationHeader\022\021\n\tent"
-  "ity_id\030\001 \001(\021\022\014\n\004tick\030\002 \001(\005\022\014\n\004data\030\003 \001(\014"
-  "\"r\n\022CDemoAnimationData\022\021\n\tentity_id\030\001 \001("
-  "\021\022\022\n\nstart_tick\030\002 \001(\005\022\020\n\010end_tick\030\003 \001(\005\022"
-  "\014\n\004data\030\004 \001(\014\022\025\n\rdata_checksum\030\005 \001(\003\"\373\001\n"
-  "\021CDemoStringTables\022*\n\006tables\030\001 \003(\0132\032.CDe"
-  "moStringTables.table_t\032$\n\007items_t\022\013\n\003str"
-  "\030\001 \001(\t\022\014\n\004data\030\002 \001(\014\032\223\001\n\007table_t\022\022\n\ntabl"
-  "e_name\030\001 \001(\t\022)\n\005items\030\002 \003(\0132\032.CDemoStrin"
-  "gTables.items_t\0224\n\020items_clientside\030\003 \003("
-  "\0132\032.CDemoStringTables.items_t\022\023\n\013table_f"
-  "lags\030\004 \001(\005\"\013\n\tCDemoStop\"0\n\014CDemoUserCmd\022"
-  "\022\n\ncmd_number\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\" \n\020CDe"
-  "moSpawnGroups\022\014\n\004msgs\030\003 \003(\014\"\301\001\n\rCDemoRec"
-  "overy\022F\n\023initial_spawn_group\030\001 \001(\0132).CDe"
-  "moRecovery.DemoInitialSpawnGroupEntry\022\033\n"
-  "\023spawn_group_message\030\002 \001(\014\032K\n\032DemoInitia"
-  "lSpawnGroupEntry\022\030\n\020spawngrouphandle\030\001 \001"
-  "(\r\022\023\n\013was_created\030\002 \001(\010*\306\003\n\rEDemoCommand"
-  "s\022\026\n\tDEM_Error\020\377\377\377\377\377\377\377\377\377\001\022\014\n\010DEM_Stop\020\000\022"
-  "\022\n\016DEM_FileHeader\020\001\022\020\n\014DEM_FileInfo\020\002\022\020\n"
-  "\014DEM_SyncTick\020\003\022\022\n\016DEM_SendTables\020\004\022\021\n\rD"
-  "EM_ClassInfo\020\005\022\024\n\020DEM_StringTables\020\006\022\016\n\n"
-  "DEM_Packet\020\007\022\024\n\020DEM_SignonPacket\020\010\022\022\n\016DE"
-  "M_ConsoleCmd\020\t\022\022\n\016DEM_CustomData\020\n\022\033\n\027DE"
-  "M_CustomDataCallbacks\020\013\022\017\n\013DEM_UserCmd\020\014"
-  "\022\022\n\016DEM_FullPacket\020\r\022\020\n\014DEM_SaveGame\020\016\022\023"
-  "\n\017DEM_SpawnGroups\020\017\022\025\n\021DEM_AnimationData"
-  "\020\020\022\027\n\023DEM_AnimationHeader\020\021\022\020\n\014DEM_Recov"
-  "ery\020\022\022\013\n\007DEM_Max\020\023\022\024\n\020DEM_IsCompressed\020@"
+  "\n\ndemo.proto\"\373\002\n\017CDemoFileHeader\022\027\n\017demo"
+  "_file_stamp\030\001 \002(\t\022\025\n\rpatch_version\030\002 \001(\005"
+  "\022\023\n\013server_name\030\003 \001(\t\022\023\n\013client_name\030\004 \001"
+  "(\t\022\020\n\010map_name\030\005 \001(\t\022\026\n\016game_directory\030\006"
+  " \001(\t\022\033\n\023fullpackets_version\030\007 \001(\005\022!\n\031all"
+  "ow_clientside_entities\030\010 \001(\010\022\"\n\032allow_cl"
+  "ientside_particles\030\t \001(\010\022\016\n\006addons\030\n \001(\t"
+  "\022\031\n\021demo_version_name\030\013 \001(\t\022\031\n\021demo_vers"
+  "ion_guid\030\014 \001(\t\022\021\n\tbuild_num\030\r \001(\005\022\014\n\004gam"
+  "e\030\016 \001(\t\022\031\n\021server_start_tick\030\017 \001(\005\"\202\005\n\tC"
+  "GameInfo\022&\n\004dota\030\004 \001(\0132\030.CGameInfo.CDota"
+  "GameInfo\022\"\n\002cs\030\005 \001(\0132\026.CGameInfo.CCSGame"
+  "Info\032\376\003\n\rCDotaGameInfo\022\020\n\010match_id\030\001 \001(\004"
+  "\022\021\n\tgame_mode\030\002 \001(\005\022\023\n\013game_winner\030\003 \001(\005"
+  "\0229\n\013player_info\030\004 \003(\0132$.CGameInfo.CDotaG"
+  "ameInfo.CPlayerInfo\022\020\n\010leagueid\030\005 \001(\r\022=\n"
+  "\npicks_bans\030\006 \003(\0132).CGameInfo.CDotaGameI"
+  "nfo.CHeroSelectEvent\022\027\n\017radiant_team_id\030"
+  "\007 \001(\r\022\024\n\014dire_team_id\030\010 \001(\r\022\030\n\020radiant_t"
+  "eam_tag\030\t \001(\t\022\025\n\rdire_team_tag\030\n \001(\t\022\020\n\010"
+  "end_time\030\013 \001(\r\032q\n\013CPlayerInfo\022\021\n\thero_na"
+  "me\030\001 \001(\t\022\023\n\013player_name\030\002 \001(\t\022\026\n\016is_fake"
+  "_client\030\003 \001(\010\022\017\n\007steamid\030\004 \001(\004\022\021\n\tgame_t"
+  "eam\030\005 \001(\005\032B\n\020CHeroSelectEvent\022\017\n\007is_pick"
+  "\030\001 \001(\010\022\014\n\004team\030\002 \001(\r\022\017\n\007hero_id\030\003 \001(\005\032(\n"
+  "\013CCSGameInfo\022\031\n\021round_start_ticks\030\001 \003(\005\""
+  "v\n\rCDemoFileInfo\022\025\n\rplayback_time\030\001 \001(\002\022"
+  "\026\n\016playback_ticks\030\002 \001(\005\022\027\n\017playback_fram"
+  "es\030\003 \001(\005\022\035\n\tgame_info\030\004 \001(\0132\n.CGameInfo\""
+  "\033\n\013CDemoPacket\022\014\n\004data\030\003 \001(\014\"Y\n\017CDemoFul"
+  "lPacket\022(\n\014string_table\030\001 \001(\0132\022.CDemoStr"
+  "ingTables\022\034\n\006packet\030\002 \001(\0132\014.CDemoPacket\""
+  "S\n\rCDemoSaveGame\022\014\n\004data\030\001 \001(\014\022\020\n\010steam_"
+  "id\030\002 \001(\006\022\021\n\tsignature\030\003 \001(\006\022\017\n\007version\030\004"
+  " \001(\005\"\017\n\rCDemoSyncTick\"$\n\017CDemoConsoleCmd"
+  "\022\021\n\tcmdstring\030\001 \001(\t\"\037\n\017CDemoSendTables\022\014"
+  "\n\004data\030\001 \001(\014\"\201\001\n\016CDemoClassInfo\022(\n\007class"
+  "es\030\001 \003(\0132\027.CDemoClassInfo.class_t\032E\n\007cla"
+  "ss_t\022\020\n\010class_id\030\001 \001(\005\022\024\n\014network_name\030\002"
+  " \001(\t\022\022\n\ntable_name\030\003 \001(\t\"7\n\017CDemoCustomD"
+  "ata\022\026\n\016callback_index\030\001 \001(\005\022\014\n\004data\030\002 \001("
+  "\014\"+\n\030CDemoCustomDataCallbacks\022\017\n\007save_id"
+  "\030\001 \003(\t\"E\n\024CDemoAnimationHeader\022\021\n\tentity"
+  "_id\030\001 \001(\021\022\014\n\004tick\030\002 \001(\005\022\014\n\004data\030\003 \001(\014\"r\n"
+  "\022CDemoAnimationData\022\021\n\tentity_id\030\001 \001(\021\022\022"
+  "\n\nstart_tick\030\002 \001(\005\022\020\n\010end_tick\030\003 \001(\005\022\014\n\004"
+  "data\030\004 \001(\014\022\025\n\rdata_checksum\030\005 \001(\003\"\373\001\n\021CD"
+  "emoStringTables\022*\n\006tables\030\001 \003(\0132\032.CDemoS"
+  "tringTables.table_t\032$\n\007items_t\022\013\n\003str\030\001 "
+  "\001(\t\022\014\n\004data\030\002 \001(\014\032\223\001\n\007table_t\022\022\n\ntable_n"
+  "ame\030\001 \001(\t\022)\n\005items\030\002 \003(\0132\032.CDemoStringTa"
+  "bles.items_t\0224\n\020items_clientside\030\003 \003(\0132\032"
+  ".CDemoStringTables.items_t\022\023\n\013table_flag"
+  "s\030\004 \001(\005\"\013\n\tCDemoStop\"0\n\014CDemoUserCmd\022\022\n\n"
+  "cmd_number\030\001 \001(\005\022\014\n\004data\030\002 \001(\014\" \n\020CDemoS"
+  "pawnGroups\022\014\n\004msgs\030\003 \003(\014\"-\n\035CDemoSpawnGr"
+  "oupsHLTVBroadcast\022\014\n\004data\030\001 \001(\014\"\301\001\n\rCDem"
+  "oRecovery\022F\n\023initial_spawn_group\030\001 \001(\0132)"
+  ".CDemoRecovery.DemoInitialSpawnGroupEntr"
+  "y\022\033\n\023spawn_group_message\030\002 \001(\014\032K\n\032DemoIn"
+  "itialSpawnGroupEntry\022\030\n\020spawngrouphandle"
+  "\030\001 \001(\r\022\023\n\013was_created\030\002 \001(\010*\306\003\n\rEDemoCom"
+  "mands\022\026\n\tDEM_Error\020\377\377\377\377\377\377\377\377\377\001\022\014\n\010DEM_Sto"
+  "p\020\000\022\022\n\016DEM_FileHeader\020\001\022\020\n\014DEM_FileInfo\020"
+  "\002\022\020\n\014DEM_SyncTick\020\003\022\022\n\016DEM_SendTables\020\004\022"
+  "\021\n\rDEM_ClassInfo\020\005\022\024\n\020DEM_StringTables\020\006"
+  "\022\016\n\nDEM_Packet\020\007\022\024\n\020DEM_SignonPacket\020\010\022\022"
+  "\n\016DEM_ConsoleCmd\020\t\022\022\n\016DEM_CustomData\020\n\022\033"
+  "\n\027DEM_CustomDataCallbacks\020\013\022\017\n\013DEM_UserC"
+  "md\020\014\022\022\n\016DEM_FullPacket\020\r\022\020\n\014DEM_SaveGame"
+  "\020\016\022\023\n\017DEM_SpawnGroups\020\017\022\025\n\021DEM_Animation"
+  "Data\020\020\022\027\n\023DEM_AnimationHeader\020\021\022\020\n\014DEM_R"
+  "ecovery\020\022\022\013\n\007DEM_Max\020\023\022\024\n\020DEM_IsCompress"
+  "ed\020@"
   ;
 static ::_pbi::once_flag descriptor_table_demo_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_demo_2eproto = {
-    false, false, 2880, descriptor_table_protodef_demo_2eproto,
+    false, false, 2924, descriptor_table_protodef_demo_2eproto,
     "demo.proto",
-    &descriptor_table_demo_2eproto_once, nullptr, 0, 27,
+    &descriptor_table_demo_2eproto_once, nullptr, 0, 28,
     schemas, file_default_instances, TableStruct_demo_2eproto::offsets,
     file_level_metadata_demo_2eproto, file_level_enum_descriptors_demo_2eproto,
     file_level_service_descriptors_demo_2eproto,
@@ -954,7 +980,7 @@ class CDemoFileHeader::_Internal {
   static void set_has_demo_file_stamp(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
-  static void set_has_network_protocol(HasBits* has_bits) {
+  static void set_has_patch_version(HasBits* has_bits) {
     (*has_bits)[0] |= 512u;
   }
   static void set_has_server_name(HasBits* has_bits) {
@@ -1022,7 +1048,7 @@ CDemoFileHeader::CDemoFileHeader(const CDemoFileHeader& from)
     , decltype(_impl_.demo_version_name_){}
     , decltype(_impl_.demo_version_guid_){}
     , decltype(_impl_.game_){}
-    , decltype(_impl_.network_protocol_){}
+    , decltype(_impl_.patch_version_){}
     , decltype(_impl_.fullpackets_version_){}
     , decltype(_impl_.allow_clientside_entities_){}
     , decltype(_impl_.allow_clientside_particles_){}
@@ -1102,9 +1128,9 @@ CDemoFileHeader::CDemoFileHeader(const CDemoFileHeader& from)
     _this->_impl_.game_.Set(from._internal_game(), 
       _this->GetArenaForAllocation());
   }
-  ::memcpy(&_impl_.network_protocol_, &from._impl_.network_protocol_,
+  ::memcpy(&_impl_.patch_version_, &from._impl_.patch_version_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.server_start_tick_) -
-    reinterpret_cast<char*>(&_impl_.network_protocol_)) + sizeof(_impl_.server_start_tick_));
+    reinterpret_cast<char*>(&_impl_.patch_version_)) + sizeof(_impl_.server_start_tick_));
   // @@protoc_insertion_point(copy_constructor:CDemoFileHeader)
 }
 
@@ -1124,7 +1150,7 @@ inline void CDemoFileHeader::SharedCtor(
     , decltype(_impl_.demo_version_name_){}
     , decltype(_impl_.demo_version_guid_){}
     , decltype(_impl_.game_){}
-    , decltype(_impl_.network_protocol_){0}
+    , decltype(_impl_.patch_version_){0}
     , decltype(_impl_.fullpackets_version_){0}
     , decltype(_impl_.allow_clientside_entities_){false}
     , decltype(_impl_.allow_clientside_particles_){false}
@@ -1232,9 +1258,9 @@ void CDemoFileHeader::Clear() {
     _impl_.game_.ClearNonDefaultToEmpty();
   }
   if (cached_has_bits & 0x00007e00u) {
-    ::memset(&_impl_.network_protocol_, 0, static_cast<size_t>(
+    ::memset(&_impl_.patch_version_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.server_start_tick_) -
-        reinterpret_cast<char*>(&_impl_.network_protocol_)) + sizeof(_impl_.server_start_tick_));
+        reinterpret_cast<char*>(&_impl_.patch_version_)) + sizeof(_impl_.server_start_tick_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -1259,11 +1285,11 @@ const char* CDemoFileHeader::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
-      // optional int32 network_protocol = 2;
+      // optional int32 patch_version = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_network_protocol(&has_bits);
-          _impl_.network_protocol_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          _Internal::set_has_patch_version(&has_bits);
+          _impl_.patch_version_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -1450,10 +1476,10 @@ uint8_t* CDemoFileHeader::_InternalSerialize(
         1, this->_internal_demo_file_stamp(), target);
   }
 
-  // optional int32 network_protocol = 2;
+  // optional int32 patch_version = 2;
   if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_network_protocol(), target);
+    target = ::_pbi::WireFormatLite::WriteInt32ToArray(2, this->_internal_patch_version(), target);
   }
 
   // optional string server_name = 3;
@@ -1648,9 +1674,9 @@ size_t CDemoFileHeader::ByteSizeLong() const {
           this->_internal_game());
     }
 
-    // optional int32 network_protocol = 2;
+    // optional int32 patch_version = 2;
     if (cached_has_bits & 0x00000200u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_network_protocol());
+      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_patch_version());
     }
 
     // optional int32 fullpackets_version = 7;
@@ -1729,7 +1755,7 @@ void CDemoFileHeader::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
       _this->_internal_set_game(from._internal_game());
     }
     if (cached_has_bits & 0x00000200u) {
-      _this->_impl_.network_protocol_ = from._impl_.network_protocol_;
+      _this->_impl_.patch_version_ = from._impl_.patch_version_;
     }
     if (cached_has_bits & 0x00000400u) {
       _this->_impl_.fullpackets_version_ = from._impl_.fullpackets_version_;
@@ -1808,9 +1834,9 @@ void CDemoFileHeader::InternalSwap(CDemoFileHeader* other) {
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CDemoFileHeader, _impl_.server_start_tick_)
       + sizeof(CDemoFileHeader::_impl_.server_start_tick_)
-      - PROTOBUF_FIELD_OFFSET(CDemoFileHeader, _impl_.network_protocol_)>(
-          reinterpret_cast<char*>(&_impl_.network_protocol_),
-          reinterpret_cast<char*>(&other->_impl_.network_protocol_));
+      - PROTOBUF_FIELD_OFFSET(CDemoFileHeader, _impl_.patch_version_)>(
+          reinterpret_cast<char*>(&_impl_.patch_version_),
+          reinterpret_cast<char*>(&other->_impl_.patch_version_));
 }
 
 ::PROTOBUF_NAMESPACE_ID::Metadata CDemoFileHeader::GetMetadata() const {
@@ -7896,6 +7922,219 @@ void CDemoSpawnGroups::InternalSwap(CDemoSpawnGroups* other) {
 
 // ===================================================================
 
+class CDemoSpawnGroupsHLTVBroadcast::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CDemoSpawnGroupsHLTVBroadcast>()._impl_._has_bits_);
+  static void set_has_data(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+};
+
+CDemoSpawnGroupsHLTVBroadcast::CDemoSpawnGroupsHLTVBroadcast(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CDemoSpawnGroupsHLTVBroadcast)
+}
+CDemoSpawnGroupsHLTVBroadcast::CDemoSpawnGroupsHLTVBroadcast(const CDemoSpawnGroupsHLTVBroadcast& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CDemoSpawnGroupsHLTVBroadcast* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.data_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  _impl_.data_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.data_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (from._internal_has_data()) {
+    _this->_impl_.data_.Set(from._internal_data(), 
+      _this->GetArenaForAllocation());
+  }
+  // @@protoc_insertion_point(copy_constructor:CDemoSpawnGroupsHLTVBroadcast)
+}
+
+inline void CDemoSpawnGroupsHLTVBroadcast::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.data_){}
+  };
+  _impl_.data_.InitDefault();
+  #ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+    _impl_.data_.Set("", GetArenaForAllocation());
+  #endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+}
+
+CDemoSpawnGroupsHLTVBroadcast::~CDemoSpawnGroupsHLTVBroadcast() {
+  // @@protoc_insertion_point(destructor:CDemoSpawnGroupsHLTVBroadcast)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CDemoSpawnGroupsHLTVBroadcast::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.data_.Destroy();
+}
+
+void CDemoSpawnGroupsHLTVBroadcast::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CDemoSpawnGroupsHLTVBroadcast::Clear() {
+// @@protoc_insertion_point(message_clear_start:CDemoSpawnGroupsHLTVBroadcast)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    _impl_.data_.ClearNonDefaultToEmpty();
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CDemoSpawnGroupsHLTVBroadcast::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional bytes data = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          auto str = _internal_mutable_data();
+          ptr = ::_pbi::InlineGreedyStringParser(str, ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CDemoSpawnGroupsHLTVBroadcast::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CDemoSpawnGroupsHLTVBroadcast)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional bytes data = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->WriteBytesMaybeAliased(
+        1, this->_internal_data(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CDemoSpawnGroupsHLTVBroadcast)
+  return target;
+}
+
+size_t CDemoSpawnGroupsHLTVBroadcast::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CDemoSpawnGroupsHLTVBroadcast)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // optional bytes data = 1;
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000001u) {
+    total_size += 1 +
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::BytesSize(
+        this->_internal_data());
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CDemoSpawnGroupsHLTVBroadcast::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CDemoSpawnGroupsHLTVBroadcast::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CDemoSpawnGroupsHLTVBroadcast::GetClassData() const { return &_class_data_; }
+
+
+void CDemoSpawnGroupsHLTVBroadcast::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CDemoSpawnGroupsHLTVBroadcast*>(&to_msg);
+  auto& from = static_cast<const CDemoSpawnGroupsHLTVBroadcast&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CDemoSpawnGroupsHLTVBroadcast)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  if (from._internal_has_data()) {
+    _this->_internal_set_data(from._internal_data());
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CDemoSpawnGroupsHLTVBroadcast::CopyFrom(const CDemoSpawnGroupsHLTVBroadcast& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CDemoSpawnGroupsHLTVBroadcast)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CDemoSpawnGroupsHLTVBroadcast::IsInitialized() const {
+  return true;
+}
+
+void CDemoSpawnGroupsHLTVBroadcast::InternalSwap(CDemoSpawnGroupsHLTVBroadcast* other) {
+  using std::swap;
+  auto* lhs_arena = GetArenaForAllocation();
+  auto* rhs_arena = other->GetArenaForAllocation();
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
+      &_impl_.data_, lhs_arena,
+      &other->_impl_.data_, rhs_arena
+  );
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CDemoSpawnGroupsHLTVBroadcast::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
+      file_level_metadata_demo_2eproto[25]);
+}
+
+// ===================================================================
+
 class CDemoRecovery_DemoInitialSpawnGroupEntry::_Internal {
  public:
   using HasBits = decltype(std::declval<CDemoRecovery_DemoInitialSpawnGroupEntry>()._impl_._has_bits_);
@@ -8128,7 +8367,7 @@ void CDemoRecovery_DemoInitialSpawnGroupEntry::InternalSwap(CDemoRecovery_DemoIn
 ::PROTOBUF_NAMESPACE_ID::Metadata CDemoRecovery_DemoInitialSpawnGroupEntry::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
-      file_level_metadata_demo_2eproto[25]);
+      file_level_metadata_demo_2eproto[26]);
 }
 
 // ===================================================================
@@ -8393,7 +8632,7 @@ void CDemoRecovery::InternalSwap(CDemoRecovery* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CDemoRecovery::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_demo_2eproto_getter, &descriptor_table_demo_2eproto_once,
-      file_level_metadata_demo_2eproto[26]);
+      file_level_metadata_demo_2eproto[27]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -8497,6 +8736,10 @@ Arena::CreateMaybeMessage< ::CDemoUserCmd >(Arena* arena) {
 template<> PROTOBUF_NOINLINE ::CDemoSpawnGroups*
 Arena::CreateMaybeMessage< ::CDemoSpawnGroups >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CDemoSpawnGroups >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CDemoSpawnGroupsHLTVBroadcast*
+Arena::CreateMaybeMessage< ::CDemoSpawnGroupsHLTVBroadcast >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CDemoSpawnGroupsHLTVBroadcast >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CDemoRecovery_DemoInitialSpawnGroupEntry*
 Arena::CreateMaybeMessage< ::CDemoRecovery_DemoInitialSpawnGroupEntry >(Arena* arena) {

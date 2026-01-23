@@ -1132,6 +1132,7 @@ PROTOBUF_CONSTEXPR CMsgGCToGCMasterBroadcastMessage::CMsgGCToGCMasterBroadcastMe
   , /*decltype(_impl_.users_per_second_)*/0u
   , /*decltype(_impl_.send_to_users_)*/false
   , /*decltype(_impl_.send_to_servers_)*/false
+  , /*decltype(_impl_.trusted_servers_only_)*/false
   , /*decltype(_impl_.msg_id_)*/0u} {}
 struct CMsgGCToGCMasterBroadcastMessageDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgGCToGCMasterBroadcastMessageDefaultTypeInternal()
@@ -2096,11 +2097,13 @@ const uint32_t TableStruct_gcsdk_5fgcmessages_2eproto::offsets[] PROTOBUF_SECTIO
   PROTOBUF_FIELD_OFFSET(::CMsgGCToGCMasterBroadcastMessage, _impl_.send_to_servers_),
   PROTOBUF_FIELD_OFFSET(::CMsgGCToGCMasterBroadcastMessage, _impl_.msg_id_),
   PROTOBUF_FIELD_OFFSET(::CMsgGCToGCMasterBroadcastMessage, _impl_.msg_data_),
+  PROTOBUF_FIELD_OFFSET(::CMsgGCToGCMasterBroadcastMessage, _impl_.trusted_servers_only_),
   1,
   2,
   3,
-  4,
+  5,
   0,
+  4,
   PROTOBUF_FIELD_OFFSET(::CMsgGCToGCMasterSubscribeToCache, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgGCToGCMasterSubscribeToCache, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2223,12 +2226,12 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 834, 842, -1, sizeof(::CMsgGCToClientPollConvarRequest)},
   { 844, 852, -1, sizeof(::CMsgGCToClientPollConvarResponse)},
   { 854, 862, -1, sizeof(::CGCMsgCompressedMsgToClient)},
-  { 864, 875, -1, sizeof(::CMsgGCToGCMasterBroadcastMessage)},
-  { 880, 890, -1, sizeof(::CMsgGCToGCMasterSubscribeToCache)},
-  { 894, -1, -1, sizeof(::CMsgGCToGCMasterSubscribeToCacheResponse)},
-  { 900, 907, -1, sizeof(::CMsgGCToGCMasterSubscribeToCacheAsync)},
-  { 908, 918, -1, sizeof(::CMsgGCToGCMasterUnsubscribeFromCache)},
-  { 922, 930, -1, sizeof(::CMsgGCToGCMasterDestroyCache)},
+  { 864, 876, -1, sizeof(::CMsgGCToGCMasterBroadcastMessage)},
+  { 882, 892, -1, sizeof(::CMsgGCToGCMasterSubscribeToCache)},
+  { 896, -1, -1, sizeof(::CMsgGCToGCMasterSubscribeToCacheResponse)},
+  { 902, 909, -1, sizeof(::CMsgGCToGCMasterSubscribeToCacheAsync)},
+  { 910, 920, -1, sizeof(::CMsgGCToGCMasterUnsubscribeFromCache)},
+  { 924, 932, -1, sizeof(::CMsgGCToGCMasterDestroyCache)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2516,33 +2519,33 @@ const char descriptor_table_protodef_gcsdk_5fgcmessages_2eproto[] PROTOBUF_SECTI
   "\001(\r\"I\n CMsgGCToClientPollConvarResponse\022"
   "\017\n\007poll_id\030\001 \001(\r\022\024\n\014convar_value\030\002 \001(\t\"E"
   "\n\033CGCMsgCompressedMsgToClient\022\016\n\006msg_id\030"
-  "\001 \001(\r\022\026\n\016compressed_msg\030\002 \001(\014\"\216\001\n CMsgGC"
+  "\001 \001(\r\022\026\n\016compressed_msg\030\002 \001(\014\"\254\001\n CMsgGC"
   "ToGCMasterBroadcastMessage\022\030\n\020users_per_"
   "second\030\001 \001(\r\022\025\n\rsend_to_users\030\002 \001(\010\022\027\n\017s"
   "end_to_servers\030\003 \001(\010\022\016\n\006msg_id\030\004 \001(\r\022\020\n\010"
-  "msg_data\030\005 \001(\014\"n\n CMsgGCToGCMasterSubscr"
-  "ibeToCache\022\021\n\tsoid_type\030\001 \001(\r\022\017\n\007soid_id"
-  "\030\002 \001(\006\022\023\n\013account_ids\030\003 \003(\r\022\021\n\tsteam_ids"
-  "\030\004 \003(\006\"*\n(CMsgGCToGCMasterSubscribeToCac"
-  "heResponse\"a\n%CMsgGCToGCMasterSubscribeT"
-  "oCacheAsync\0228\n\rsubscribe_msg\030\001 \001(\0132!.CMs"
-  "gGCToGCMasterSubscribeToCache\"r\n$CMsgGCT"
-  "oGCMasterUnsubscribeFromCache\022\021\n\tsoid_ty"
-  "pe\030\001 \001(\r\022\017\n\007soid_id\030\002 \001(\006\022\023\n\013account_ids"
-  "\030\003 \003(\r\022\021\n\tsteam_ids\030\004 \003(\006\"B\n\034CMsgGCToGCM"
-  "asterDestroyCache\022\021\n\tsoid_type\030\001 \001(\r\022\017\n\007"
-  "soid_id\030\002 \001(\006*5\n\rESourceEngine\022\021\n\rk_ESE_"
-  "Source1\020\000\022\021\n\rk_ESE_Source2\020\001*V\n\022PartnerA"
-  "ccountType\022\020\n\014PARTNER_NONE\020\000\022\031\n\025PARTNER_"
-  "PERFECT_WORLD\020\001\022\023\n\017PARTNER_INVALID\020\003*\240\002\n"
-  "\022GCConnectionStatus\022#\n\037GCConnectionStatu"
-  "s_HAVE_SESSION\020\000\022$\n GCConnectionStatus_G"
-  "C_GOING_DOWN\020\001\022!\n\035GCConnectionStatus_NO_"
-  "SESSION\020\002\0220\n,GCConnectionStatus_NO_SESSI"
-  "ON_IN_LOGON_QUEUE\020\003\022\037\n\033GCConnectionStatu"
-  "s_NO_STEAM\020\004\022 \n\034GCConnectionStatus_SUSPE"
-  "NDED\020\005\022\'\n#GCConnectionStatus_STEAM_GOING"
-  "_DOWN\020\006"
+  "msg_data\030\005 \001(\014\022\034\n\024trusted_servers_only\030\006"
+  " \001(\010\"n\n CMsgGCToGCMasterSubscribeToCache"
+  "\022\021\n\tsoid_type\030\001 \001(\r\022\017\n\007soid_id\030\002 \001(\006\022\023\n\013"
+  "account_ids\030\003 \003(\r\022\021\n\tsteam_ids\030\004 \003(\006\"*\n("
+  "CMsgGCToGCMasterSubscribeToCacheResponse"
+  "\"a\n%CMsgGCToGCMasterSubscribeToCacheAsyn"
+  "c\0228\n\rsubscribe_msg\030\001 \001(\0132!.CMsgGCToGCMas"
+  "terSubscribeToCache\"r\n$CMsgGCToGCMasterU"
+  "nsubscribeFromCache\022\021\n\tsoid_type\030\001 \001(\r\022\017"
+  "\n\007soid_id\030\002 \001(\006\022\023\n\013account_ids\030\003 \003(\r\022\021\n\t"
+  "steam_ids\030\004 \003(\006\"B\n\034CMsgGCToGCMasterDestr"
+  "oyCache\022\021\n\tsoid_type\030\001 \001(\r\022\017\n\007soid_id\030\002 "
+  "\001(\006*5\n\rESourceEngine\022\021\n\rk_ESE_Source1\020\000\022"
+  "\021\n\rk_ESE_Source2\020\001*V\n\022PartnerAccountType"
+  "\022\020\n\014PARTNER_NONE\020\000\022\031\n\025PARTNER_PERFECT_WO"
+  "RLD\020\001\022\023\n\017PARTNER_INVALID\020\003*\240\002\n\022GCConnect"
+  "ionStatus\022#\n\037GCConnectionStatus_HAVE_SES"
+  "SION\020\000\022$\n GCConnectionStatus_GC_GOING_DO"
+  "WN\020\001\022!\n\035GCConnectionStatus_NO_SESSION\020\002\022"
+  "0\n,GCConnectionStatus_NO_SESSION_IN_LOGO"
+  "N_QUEUE\020\003\022\037\n\033GCConnectionStatus_NO_STEAM"
+  "\020\004\022 \n\034GCConnectionStatus_SUSPENDED\020\005\022\'\n#"
+  "GCConnectionStatus_STEAM_GOING_DOWN\020\006"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_gcsdk_5fgcmessages_2eproto_deps[3] = {
   &::descriptor_table_steammessages_2eproto,
@@ -2551,7 +2554,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_gcsdk_5fgcmessages_
 };
 static ::_pbi::once_flag descriptor_table_gcsdk_5fgcmessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_gcsdk_5fgcmessages_2eproto = {
-    false, false, 9327, descriptor_table_protodef_gcsdk_5fgcmessages_2eproto,
+    false, false, 9357, descriptor_table_protodef_gcsdk_5fgcmessages_2eproto,
     "gcsdk_gcmessages.proto",
     &descriptor_table_gcsdk_5fgcmessages_2eproto_once, descriptor_table_gcsdk_5fgcmessages_2eproto_deps, 3, 74,
     schemas, file_default_instances, TableStruct_gcsdk_5fgcmessages_2eproto::offsets,
@@ -21906,10 +21909,13 @@ class CMsgGCToGCMasterBroadcastMessage::_Internal {
     (*has_bits)[0] |= 8u;
   }
   static void set_has_msg_id(HasBits* has_bits) {
-    (*has_bits)[0] |= 16u;
+    (*has_bits)[0] |= 32u;
   }
   static void set_has_msg_data(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
+  }
+  static void set_has_trusted_servers_only(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
   }
 };
 
@@ -21929,6 +21935,7 @@ CMsgGCToGCMasterBroadcastMessage::CMsgGCToGCMasterBroadcastMessage(const CMsgGCT
     , decltype(_impl_.users_per_second_){}
     , decltype(_impl_.send_to_users_){}
     , decltype(_impl_.send_to_servers_){}
+    , decltype(_impl_.trusted_servers_only_){}
     , decltype(_impl_.msg_id_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -21957,6 +21964,7 @@ inline void CMsgGCToGCMasterBroadcastMessage::SharedCtor(
     , decltype(_impl_.users_per_second_){0u}
     , decltype(_impl_.send_to_users_){false}
     , decltype(_impl_.send_to_servers_){false}
+    , decltype(_impl_.trusted_servers_only_){false}
     , decltype(_impl_.msg_id_){0u}
   };
   _impl_.msg_data_.InitDefault();
@@ -21993,7 +22001,7 @@ void CMsgGCToGCMasterBroadcastMessage::Clear() {
   if (cached_has_bits & 0x00000001u) {
     _impl_.msg_data_.ClearNonDefaultToEmpty();
   }
-  if (cached_has_bits & 0x0000001eu) {
+  if (cached_has_bits & 0x0000003eu) {
     ::memset(&_impl_.users_per_second_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.msg_id_) -
         reinterpret_cast<char*>(&_impl_.users_per_second_)) + sizeof(_impl_.msg_id_));
@@ -22054,6 +22062,15 @@ const char* CMsgGCToGCMasterBroadcastMessage::_InternalParse(const char* ptr, ::
         } else
           goto handle_unusual;
         continue;
+      // optional bool trusted_servers_only = 6;
+      case 6:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 48)) {
+          _Internal::set_has_trusted_servers_only(&has_bits);
+          _impl_.trusted_servers_only_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -22104,7 +22121,7 @@ uint8_t* CMsgGCToGCMasterBroadcastMessage::_InternalSerialize(
   }
 
   // optional uint32 msg_id = 4;
-  if (cached_has_bits & 0x00000010u) {
+  if (cached_has_bits & 0x00000020u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(4, this->_internal_msg_id(), target);
   }
@@ -22113,6 +22130,12 @@ uint8_t* CMsgGCToGCMasterBroadcastMessage::_InternalSerialize(
   if (cached_has_bits & 0x00000001u) {
     target = stream->WriteBytesMaybeAliased(
         5, this->_internal_msg_data(), target);
+  }
+
+  // optional bool trusted_servers_only = 6;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_trusted_servers_only(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -22132,7 +22155,7 @@ size_t CMsgGCToGCMasterBroadcastMessage::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     // optional bytes msg_data = 5;
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -22155,8 +22178,13 @@ size_t CMsgGCToGCMasterBroadcastMessage::ByteSizeLong() const {
       total_size += 1 + 1;
     }
 
-    // optional uint32 msg_id = 4;
+    // optional bool trusted_servers_only = 6;
     if (cached_has_bits & 0x00000010u) {
+      total_size += 1 + 1;
+    }
+
+    // optional uint32 msg_id = 4;
+    if (cached_has_bits & 0x00000020u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_msg_id());
     }
 
@@ -22180,7 +22208,7 @@ void CMsgGCToGCMasterBroadcastMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messag
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000001fu) {
+  if (cached_has_bits & 0x0000003fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_internal_set_msg_data(from._internal_msg_data());
     }
@@ -22194,6 +22222,9 @@ void CMsgGCToGCMasterBroadcastMessage::MergeImpl(::PROTOBUF_NAMESPACE_ID::Messag
       _this->_impl_.send_to_servers_ = from._impl_.send_to_servers_;
     }
     if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.trusted_servers_only_ = from._impl_.trusted_servers_only_;
+    }
+    if (cached_has_bits & 0x00000020u) {
       _this->_impl_.msg_id_ = from._impl_.msg_id_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;

@@ -56,6 +56,7 @@ PROTOBUF_CONSTEXPR CMsgFireBullets::CMsgFireBullets(
   , /*decltype(_impl_.bullet_speed_override_)*/0
   , /*decltype(_impl_.bullet_gravity_override_)*/0
   , /*decltype(_impl_.muzzle_number_)*/0
+  , /*decltype(_impl_.ability_as_bullet_)*/false
   , /*decltype(_impl_.shooter_entity_)*/-1
   , /*decltype(_impl_.ability_)*/-1
   , /*decltype(_impl_.fired_from_gun_)*/true
@@ -81,6 +82,7 @@ PROTOBUF_CONSTEXPR CMsgBulletImpact::CMsgBulletImpact(
   , /*decltype(_impl_.surface_type_)*/0u
   , /*decltype(_impl_.impacted_bone_index_)*/0u
   , /*decltype(_impl_.weapon_subclass_id_)*/0u
+  , /*decltype(_impl_.bullet_radius_override_)*/0
   , /*decltype(_impl_.shooter_ehandle_)*/16777215u
   , /*decltype(_impl_.ability_ehandle_)*/16777215u
   , /*decltype(_impl_.impacted_ehandle_)*/16777215u} {}
@@ -485,28 +487,30 @@ const uint32_t TableStruct_citadel_5fgameevents_2eproto::offsets[] PROTOBUF_SECT
   PROTOBUF_FIELD_OFFSET(::CMsgFireBullets, _impl_.bullet_speed_override_),
   PROTOBUF_FIELD_OFFSET(::CMsgFireBullets, _impl_.bullet_gravity_override_),
   PROTOBUF_FIELD_OFFSET(::CMsgFireBullets, _impl_.muzzle_number_),
+  PROTOBUF_FIELD_OFFSET(::CMsgFireBullets, _impl_.ability_as_bullet_),
   0,
   1,
   4,
-  16,
   17,
+  18,
   5,
   6,
-  18,
+  19,
   7,
   2,
   ~0u,
   3,
   8,
   9,
-  20,
+  21,
   10,
   11,
-  19,
+  20,
   12,
   13,
   14,
   15,
+  16,
   PROTOBUF_FIELD_OFFSET(::CMsgBulletImpact, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgBulletImpact, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -523,15 +527,17 @@ const uint32_t TableStruct_citadel_5fgameevents_2eproto::offsets[] PROTOBUF_SECT
   PROTOBUF_FIELD_OFFSET(::CMsgBulletImpact, _impl_.impacted_bone_index_),
   PROTOBUF_FIELD_OFFSET(::CMsgBulletImpact, _impl_.weapon_subclass_id_),
   PROTOBUF_FIELD_OFFSET(::CMsgBulletImpact, _impl_.shooter_ehandle_),
+  PROTOBUF_FIELD_OFFSET(::CMsgBulletImpact, _impl_.bullet_radius_override_),
   0,
   1,
   2,
   3,
   4,
-  8,
   9,
+  10,
   5,
   6,
+  8,
   7,
   PROTOBUF_FIELD_OFFSET(::CMsgPlayerAnimEvent, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgPlayerAnimEvent, _internal_metadata_),
@@ -822,29 +828,29 @@ const uint32_t TableStruct_citadel_5fgameevents_2eproto::offsets[] PROTOBUF_SECT
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::CMsgFireBullets_TracerAssignment)},
-  { 10, 38, -1, sizeof(::CMsgFireBullets)},
-  { 60, 76, -1, sizeof(::CMsgBulletImpact)},
-  { 86, 95, -1, sizeof(::CMsgPlayerAnimEvent)},
-  { 98, 109, -1, sizeof(::CMsgParticleSystemManager_CreateParticle)},
-  { 114, 121, -1, sizeof(::CMsgParticleSystemManager_DestroyParticle)},
-  { 122, 130, -1, sizeof(::CMsgParticleSystemManager_DestroyParticleInvolving)},
-  { 132, -1, -1, sizeof(::CMsgParticleSystemManager_ReleaseParticleIndex)},
-  { 138, 146, -1, sizeof(::CMsgParticleSystemManager_UpdateParticle)},
-  { 148, 156, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleFwd)},
-  { 158, 168, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleOrient)},
-  { 172, 180, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleFallback)},
-  { 182, 193, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleEnt)},
-  { 198, 206, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleOffset)},
-  { 208, 215, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleFrozen)},
-  { 216, 223, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleShouldDraw)},
-  { 224, 244, -1, sizeof(::CMsgParticleSystemManager)},
-  { 258, 276, -1, sizeof(::CMsgScreenTextPretty)},
-  { 288, 299, -1, sizeof(::CMsgServerRequestedTracer)},
-  { 304, 315, -1, sizeof(::CMsgEnableSatVolumesEvent)},
-  { 320, 336, -1, sizeof(::CMsgPlaceSatVolumeEvent)},
-  { 346, 353, -1, sizeof(::CMsgRemoveSatVolumeEvent)},
-  { 354, -1, -1, sizeof(::CMsgDisableSatVolumesEvent)},
-  { 360, 369, -1, sizeof(::CMsgRemoveBullet)},
+  { 10, 39, -1, sizeof(::CMsgFireBullets)},
+  { 62, 79, -1, sizeof(::CMsgBulletImpact)},
+  { 90, 99, -1, sizeof(::CMsgPlayerAnimEvent)},
+  { 102, 113, -1, sizeof(::CMsgParticleSystemManager_CreateParticle)},
+  { 118, 125, -1, sizeof(::CMsgParticleSystemManager_DestroyParticle)},
+  { 126, 134, -1, sizeof(::CMsgParticleSystemManager_DestroyParticleInvolving)},
+  { 136, -1, -1, sizeof(::CMsgParticleSystemManager_ReleaseParticleIndex)},
+  { 142, 150, -1, sizeof(::CMsgParticleSystemManager_UpdateParticle)},
+  { 152, 160, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleFwd)},
+  { 162, 172, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleOrient)},
+  { 176, 184, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleFallback)},
+  { 186, 197, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleEnt)},
+  { 202, 210, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleOffset)},
+  { 212, 219, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleFrozen)},
+  { 220, 227, -1, sizeof(::CMsgParticleSystemManager_UpdateParticleShouldDraw)},
+  { 228, 248, -1, sizeof(::CMsgParticleSystemManager)},
+  { 262, 280, -1, sizeof(::CMsgScreenTextPretty)},
+  { 292, 303, -1, sizeof(::CMsgServerRequestedTracer)},
+  { 308, 319, -1, sizeof(::CMsgEnableSatVolumesEvent)},
+  { 324, 340, -1, sizeof(::CMsgPlaceSatVolumeEvent)},
+  { 350, 357, -1, sizeof(::CMsgRemoveSatVolumeEvent)},
+  { 358, -1, -1, sizeof(::CMsgDisableSatVolumesEvent)},
+  { 364, 373, -1, sizeof(::CMsgRemoveBullet)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -877,7 +883,7 @@ static const ::_pb::Message* const file_default_instances[] = {
 const char descriptor_table_protodef_citadel_5fgameevents_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
   "\n\030citadel_gameevents.proto\032 google/proto"
   "buf/descriptor.proto\032\026networkbasetypes.p"
-  "roto\"\365\005\n\017CMsgFireBullets\022\033\n\006origin\030\001 \001(\013"
+  "roto\"\220\006\n\017CMsgFireBullets\022\033\n\006origin\030\001 \001(\013"
   "2\013.CMsgVector\022\033\n\006angles\030\002 \001(\0132\013.CMsgQAng"
   "le\022\014\n\004seed\030\004 \001(\r\022\032\n\016shooter_entity\030\005 \001(\005"
   ":\002-1\022\023\n\007ability\030\007 \001(\005:\002-1\022\033\n\023penetration"
@@ -894,116 +900,118 @@ const char descriptor_table_protodef_citadel_5fgameevents_2eproto[] PROTOBUF_SEC
   "rue\022!\n\026bullet_radius_override\030\025 \001(\002:\0010\022 "
   "\n\025bullet_speed_override\030\026 \001(\002:\0010\022\"\n\027bull"
   "et_gravity_override\030\027 \001(\002:\0010\022\025\n\rmuzzle_n"
-  "umber\030\030 \001(\005\032G\n\020TracerAssignment\022\032\n\022trace"
-  "r_resource_id\030\001 \001(\004\022\027\n\017bullet_indicies\030\002"
-  " \001(\r\"\306\002\n\020CMsgBulletImpact\022 \n\013trace_start"
-  "\030\001 \001(\0132\013.CMsgVector\022\"\n\rimpact_origin\030\002 \001"
-  "(\0132\013.CMsgVector\022#\n\016surface_normal\030\003 \001(\0132"
-  "\013.CMsgVector\022\016\n\006damage\030\004 \001(\r\022\024\n\014surface_"
-  "type\030\005 \001(\r\022!\n\017ability_ehandle\030\007 \001(\r:\010167"
-  "77215\022\"\n\020impacted_ehandle\030\010 \001(\r:\0101677721"
-  "5\022\033\n\023impacted_bone_index\030\t \001(\r\022\032\n\022weapon"
-  "_subclass_id\030\n \001(\r\022!\n\017shooter_ehandle\030\013 "
-  "\001(\r:\01016777215\"L\n\023CMsgPlayerAnimEvent\022\030\n\006"
-  "player\030\001 \001(\007:\01016777215\022\r\n\005event\030\002 \001(\r\022\014\n"
-  "\004data\030\003 \001(\005\"\246\020\n\031CMsgParticleSystemManage"
-  "r\022T\n\004type\030\001 \002(\0162 .PARTICLE_SYSTEM_MANAGE"
-  "R_MESSAGE:$PARTICLE_SYSTEM_MANAGER_EVENT"
-  "_CREATE\022\r\n\005index\030\002 \002(\r\022B\n\017create_particl"
-  "e\030\003 \001(\0132).CMsgParticleSystemManager.Crea"
-  "teParticle\022D\n\020destroy_particle\030\004 \001(\0132*.C"
-  "MsgParticleSystemManager.DestroyParticle"
-  "\022W\n\032destroy_particle_involving\030\005 \001(\01323.C"
-  "MsgParticleSystemManager.DestroyParticle"
-  "Involving\022O\n\026release_particle_index\030\006 \001("
-  "\0132/.CMsgParticleSystemManager.ReleasePar"
-  "ticleIndex\022B\n\017update_particle\030\007 \001(\0132).CM"
-  "sgParticleSystemManager.UpdateParticle\022I"
-  "\n\023update_particle_fwd\030\010 \001(\0132,.CMsgPartic"
-  "leSystemManager.UpdateParticleFwd\022O\n\026upd"
-  "ate_particle_orient\030\t \001(\0132/.CMsgParticle"
-  "SystemManager.UpdateParticleOrient\022S\n\030up"
-  "date_particle_fallback\030\n \001(\01321.CMsgParti"
-  "cleSystemManager.UpdateParticleFallback\022"
-  "O\n\026update_particle_offset\030\013 \001(\0132/.CMsgPa"
-  "rticleSystemManager.UpdateParticleOffset"
-  "\022I\n\023update_particle_ent\030\014 \001(\0132,.CMsgPart"
-  "icleSystemManager.UpdateParticleEnt\022O\n\026u"
-  "pdate_particle_frozen\030\r \001(\0132/.CMsgPartic"
-  "leSystemManager.UpdateParticleFrozen\022X\n\033"
-  "update_particle_should_draw\030\016 \001(\01323.CMsg"
-  "ParticleSystemManager.UpdateParticleShou"
-  "ldDraw\032\237\001\n\016CreateParticle\022\033\n\023particle_na"
-  "me_index\030\001 \001(\006\022\023\n\013attach_type\030\002 \001(\005\022\037\n\re"
-  "ntity_handle\030\003 \001(\r:\01016777215\022\035\n\010position"
-  "\030\004 \001(\0132\013.CMsgVector\022\033\n\006angles\030\005 \001(\0132\013.CM"
-  "sgQAngle\032.\n\017DestroyParticle\022\033\n\023destroy_i"
-  "mmediately\030\001 \001(\010\032X\n\030DestroyParticleInvol"
-  "ving\022\033\n\023destroy_immediately\030\001 \001(\010\022\037\n\rent"
-  "ity_handle\030\003 \001(\r:\01016777215\032\026\n\024ReleasePar"
-  "ticleIndex\032F\n\016UpdateParticle\022\025\n\rcontrol_"
-  "point\030\001 \001(\005\022\035\n\010position\030\002 \001(\0132\013.CMsgVect"
-  "or\032H\n\021UpdateParticleFwd\022\025\n\rcontrol_point"
-  "\030\001 \001(\005\022\034\n\007forward\030\002 \001(\0132\013.CMsgVector\032\177\n\024"
-  "UpdateParticleOrient\022\025\n\rcontrol_point\030\001 "
-  "\001(\005\022\034\n\007forward\030\002 \001(\0132\013.CMsgVector\022\031\n\004lef"
-  "t\030\003 \001(\0132\013.CMsgVector\022\027\n\002up\030\004 \001(\0132\013.CMsgV"
-  "ector\032N\n\026UpdateParticleFallback\022\025\n\rcontr"
-  "ol_point\030\001 \001(\005\022\035\n\010position\030\002 \001(\0132\013.CMsgV"
-  "ector\032\234\001\n\021UpdateParticleEnt\022\025\n\rcontrol_p"
-  "oint\030\001 \001(\005\022\037\n\rentity_handle\030\002 \001(\r:\01016777"
-  "215\022\023\n\013attach_type\030\003 \001(\005\022\022\n\nattachment\030\004"
-  " \001(\005\022&\n\021fallback_position\030\005 \001(\0132\013.CMsgVe"
-  "ctor\032Q\n\024UpdateParticleOffset\022\025\n\rcontrol_"
-  "point\030\001 \001(\005\022\"\n\rorigin_offset\030\002 \001(\0132\013.CMs"
-  "gVector\032*\n\024UpdateParticleFrozen\022\022\n\nset_f"
-  "rozen\030\001 \001(\010\032/\n\030UpdateParticleShouldDraw\022"
-  "\023\n\013should_draw\030\001 \001(\010\"\307\001\n\024CMsgScreenTextP"
-  "retty\022\r\n\005x_pos\030\001 \001(\002\022\r\n\005y_pos\030\002 \001(\002\022\014\n\004l"
-  "ine\030\003 \001(\005\022\014\n\004text\030\004 \001(\t\022\t\n\001r\030\005 \001(\005\022\t\n\001g\030"
-  "\006 \001(\005\022\t\n\001b\030\007 \001(\005\022\t\n\001a\030\010 \001(\005\022\020\n\010duration\030"
-  "\t \001(\002\022\021\n\tfont_name\030\n \001(\t\022\021\n\tfont_size\030\013 "
-  "\001(\005\022\021\n\tbold_font\030\014 \001(\010\"\226\001\n\031CMsgServerReq"
-  "uestedTracer\022\033\n\006origin\030\001 \001(\0132\013.CMsgVecto"
-  "r\022\030\n\003end\030\002 \001(\0132\013.CMsgVector\022\024\n\010weaponid\030"
-  "\003 \001(\005:\002-1\022\037\n\rentity_handle\030\004 \001(\r:\010167772"
-  "15\022\013\n\003dps\030\005 \001(\002\"|\n\031CMsgEnableSatVolumesE"
-  "vent\022\014\n\004mode\030\001 \001(\r\022\024\n\014desat_amount\030\002 \001(\002"
-  "\022\020\n\010sat_tint\030\003 \001(\007\022\022\n\ndesat_tint\030\004 \001(\007\022\025"
-  "\n\routline_color\030\005 \001(\007\"\203\002\n\027CMsgPlaceSatVo"
-  "lumeEvent\022\035\n\010position\030\001 \001(\0132\013.CMsgVector"
-  "\022\036\n\tdirection\030\002 \001(\0132\013.CMsgVector\022\016\n\006radi"
-  "us\030\003 \001(\002\022\030\n\020falloff_distance\030\004 \001(\002\022\021\n\tth"
-  "eta_dot\030\005 \001(\002\022\017\n\007phi_dot\030\006 \001(\002\022\037\n\rentity"
-  "_handle\030\007 \001(\r:\01016777215\022\031\n\021attachment_ha"
-  "ndle\030\010 \001(\r\022\014\n\004type\030\t \001(\r\022\021\n\tvolume_id\030\n "
-  "\001(\005\"-\n\030CMsgRemoveSatVolumeEvent\022\021\n\tvolum"
-  "e_id\030\001 \001(\005\"\034\n\032CMsgDisableSatVolumesEvent"
-  "\"W\n\020CMsgRemoveBullet\022\034\n\020shooter_entindex"
-  "\030\001 \001(\005:\002-1\022\017\n\007shot_id\030\002 \001(\r\022\024\n\014bullet_in"
-  "dex\030\003 \001(\r*\241\002\n\022ECitadelGameEvents\022\023\n\016GE_F"
-  "ireBullets\020\302\003\022\027\n\022GE_PlayerAnimEvent\020\303\003\022\035"
-  "\n\030GE_ParticleSystemManager\020\312\003\022\030\n\023GE_Scre"
-  "enTextPretty\020\313\003\022\024\n\017GE_BulletImpact\020\315\003\022\035\n"
-  "\030GE_EnableSatVolumesEvent\020\316\003\022\033\n\026GE_Place"
-  "SatVolumeEvent\020\317\003\022\036\n\031GE_DisableSatVolume"
-  "sEvent\020\320\003\022\034\n\027GE_RemoveSatVolumeEvent\020\321\003\022"
-  "\024\n\017GE_RemoveBullet\020\322\003*\341\004\n\037PARTICLE_SYSTE"
-  "M_MANAGER_MESSAGE\022(\n$PARTICLE_SYSTEM_MAN"
-  "AGER_EVENT_CREATE\020\000\022)\n%PARTICLE_SYSTEM_M"
-  "ANAGER_EVENT_DESTROY\020\001\0223\n/PARTICLE_SYSTE"
-  "M_MANAGER_EVENT_DESTROY_INVOLVING\020\002\022)\n%P"
-  "ARTICLE_SYSTEM_MANAGER_EVENT_RELEASE\020\003\022("
-  "\n$PARTICLE_SYSTEM_MANAGER_EVENT_UPDATE\020\004"
-  "\0220\n,PARTICLE_SYSTEM_MANAGER_EVENT_UPDATE"
-  "_FORWARD\020\005\0224\n0PARTICLE_SYSTEM_MANAGER_EV"
-  "ENT_UPDATE_ORIENTATION\020\006\0221\n-PARTICLE_SYS"
-  "TEM_MANAGER_EVENT_UPDATE_FALLBACK\020\007\022,\n(P"
-  "ARTICLE_SYSTEM_MANAGER_EVENT_UPDATE_ENT\020"
-  "\010\022/\n+PARTICLE_SYSTEM_MANAGER_EVENT_UPDAT"
-  "E_OFFSET\020\t\022/\n+PARTICLE_SYSTEM_MANAGER_EV"
-  "ENT_UPDATE_FROZEN\020\n\0224\n0PARTICLE_SYSTEM_M"
-  "ANAGER_EVENT_UPDATE_SHOULD_DRAW\020\013"
+  "umber\030\030 \001(\005\022\031\n\021ability_as_bullet\030\031 \001(\010\032G"
+  "\n\020TracerAssignment\022\032\n\022tracer_resource_id"
+  "\030\001 \001(\004\022\027\n\017bullet_indicies\030\002 \001(\r\"\346\002\n\020CMsg"
+  "BulletImpact\022 \n\013trace_start\030\001 \001(\0132\013.CMsg"
+  "Vector\022\"\n\rimpact_origin\030\002 \001(\0132\013.CMsgVect"
+  "or\022#\n\016surface_normal\030\003 \001(\0132\013.CMsgVector\022"
+  "\016\n\006damage\030\004 \001(\r\022\024\n\014surface_type\030\005 \001(\r\022!\n"
+  "\017ability_ehandle\030\007 \001(\r:\01016777215\022\"\n\020impa"
+  "cted_ehandle\030\010 \001(\r:\01016777215\022\033\n\023impacted"
+  "_bone_index\030\t \001(\r\022\032\n\022weapon_subclass_id\030"
+  "\n \001(\r\022!\n\017shooter_ehandle\030\013 \001(\r:\01016777215"
+  "\022\036\n\026bullet_radius_override\030\014 \001(\002\"L\n\023CMsg"
+  "PlayerAnimEvent\022\030\n\006player\030\001 \001(\007:\0101677721"
+  "5\022\r\n\005event\030\002 \001(\r\022\014\n\004data\030\003 \001(\005\"\246\020\n\031CMsgP"
+  "articleSystemManager\022T\n\004type\030\001 \001(\0162 .PAR"
+  "TICLE_SYSTEM_MANAGER_MESSAGE:$PARTICLE_S"
+  "YSTEM_MANAGER_EVENT_CREATE\022\r\n\005index\030\002 \001("
+  "\r\022B\n\017create_particle\030\003 \001(\0132).CMsgParticl"
+  "eSystemManager.CreateParticle\022D\n\020destroy"
+  "_particle\030\004 \001(\0132*.CMsgParticleSystemMana"
+  "ger.DestroyParticle\022W\n\032destroy_particle_"
+  "involving\030\005 \001(\01323.CMsgParticleSystemMana"
+  "ger.DestroyParticleInvolving\022O\n\026release_"
+  "particle_index\030\006 \001(\0132/.CMsgParticleSyste"
+  "mManager.ReleaseParticleIndex\022B\n\017update_"
+  "particle\030\007 \001(\0132).CMsgParticleSystemManag"
+  "er.UpdateParticle\022I\n\023update_particle_fwd"
+  "\030\010 \001(\0132,.CMsgParticleSystemManager.Updat"
+  "eParticleFwd\022O\n\026update_particle_orient\030\t"
+  " \001(\0132/.CMsgParticleSystemManager.UpdateP"
+  "articleOrient\022S\n\030update_particle_fallbac"
+  "k\030\n \001(\01321.CMsgParticleSystemManager.Upda"
+  "teParticleFallback\022O\n\026update_particle_of"
+  "fset\030\013 \001(\0132/.CMsgParticleSystemManager.U"
+  "pdateParticleOffset\022I\n\023update_particle_e"
+  "nt\030\014 \001(\0132,.CMsgParticleSystemManager.Upd"
+  "ateParticleEnt\022O\n\026update_particle_frozen"
+  "\030\r \001(\0132/.CMsgParticleSystemManager.Updat"
+  "eParticleFrozen\022X\n\033update_particle_shoul"
+  "d_draw\030\016 \001(\01323.CMsgParticleSystemManager"
+  ".UpdateParticleShouldDraw\032\237\001\n\016CreatePart"
+  "icle\022\033\n\023particle_name_index\030\001 \001(\006\022\023\n\013att"
+  "ach_type\030\002 \001(\005\022\037\n\rentity_handle\030\003 \001(\r:\0101"
+  "6777215\022\035\n\010position\030\004 \001(\0132\013.CMsgVector\022\033"
+  "\n\006angles\030\005 \001(\0132\013.CMsgQAngle\032.\n\017DestroyPa"
+  "rticle\022\033\n\023destroy_immediately\030\001 \001(\010\032X\n\030D"
+  "estroyParticleInvolving\022\033\n\023destroy_immed"
+  "iately\030\001 \001(\010\022\037\n\rentity_handle\030\003 \001(\r:\010167"
+  "77215\032\026\n\024ReleaseParticleIndex\032F\n\016UpdateP"
+  "article\022\025\n\rcontrol_point\030\001 \001(\005\022\035\n\010positi"
+  "on\030\002 \001(\0132\013.CMsgVector\032H\n\021UpdateParticleF"
+  "wd\022\025\n\rcontrol_point\030\001 \001(\005\022\034\n\007forward\030\002 \001"
+  "(\0132\013.CMsgVector\032\177\n\024UpdateParticleOrient\022"
+  "\025\n\rcontrol_point\030\001 \001(\005\022\034\n\007forward\030\002 \001(\0132"
+  "\013.CMsgVector\022\031\n\004left\030\003 \001(\0132\013.CMsgVector\022"
+  "\027\n\002up\030\004 \001(\0132\013.CMsgVector\032N\n\026UpdatePartic"
+  "leFallback\022\025\n\rcontrol_point\030\001 \001(\005\022\035\n\010pos"
+  "ition\030\002 \001(\0132\013.CMsgVector\032\234\001\n\021UpdateParti"
+  "cleEnt\022\025\n\rcontrol_point\030\001 \001(\005\022\037\n\rentity_"
+  "handle\030\002 \001(\r:\01016777215\022\023\n\013attach_type\030\003 "
+  "\001(\005\022\022\n\nattachment\030\004 \001(\005\022&\n\021fallback_posi"
+  "tion\030\005 \001(\0132\013.CMsgVector\032Q\n\024UpdateParticl"
+  "eOffset\022\025\n\rcontrol_point\030\001 \001(\005\022\"\n\rorigin"
+  "_offset\030\002 \001(\0132\013.CMsgVector\032*\n\024UpdatePart"
+  "icleFrozen\022\022\n\nset_frozen\030\001 \001(\010\032/\n\030Update"
+  "ParticleShouldDraw\022\023\n\013should_draw\030\001 \001(\010\""
+  "\307\001\n\024CMsgScreenTextPretty\022\r\n\005x_pos\030\001 \001(\002\022"
+  "\r\n\005y_pos\030\002 \001(\002\022\014\n\004line\030\003 \001(\005\022\014\n\004text\030\004 \001"
+  "(\t\022\t\n\001r\030\005 \001(\005\022\t\n\001g\030\006 \001(\005\022\t\n\001b\030\007 \001(\005\022\t\n\001a"
+  "\030\010 \001(\005\022\020\n\010duration\030\t \001(\002\022\021\n\tfont_name\030\n "
+  "\001(\t\022\021\n\tfont_size\030\013 \001(\005\022\021\n\tbold_font\030\014 \001("
+  "\010\"\226\001\n\031CMsgServerRequestedTracer\022\033\n\006origi"
+  "n\030\001 \001(\0132\013.CMsgVector\022\030\n\003end\030\002 \001(\0132\013.CMsg"
+  "Vector\022\024\n\010weaponid\030\003 \001(\005:\002-1\022\037\n\rentity_h"
+  "andle\030\004 \001(\r:\01016777215\022\013\n\003dps\030\005 \001(\002\"|\n\031CM"
+  "sgEnableSatVolumesEvent\022\014\n\004mode\030\001 \001(\r\022\024\n"
+  "\014desat_amount\030\002 \001(\002\022\020\n\010sat_tint\030\003 \001(\007\022\022\n"
+  "\ndesat_tint\030\004 \001(\007\022\025\n\routline_color\030\005 \001(\007"
+  "\"\203\002\n\027CMsgPlaceSatVolumeEvent\022\035\n\010position"
+  "\030\001 \001(\0132\013.CMsgVector\022\036\n\tdirection\030\002 \001(\0132\013"
+  ".CMsgVector\022\016\n\006radius\030\003 \001(\002\022\030\n\020falloff_d"
+  "istance\030\004 \001(\002\022\021\n\ttheta_dot\030\005 \001(\002\022\017\n\007phi_"
+  "dot\030\006 \001(\002\022\037\n\rentity_handle\030\007 \001(\r:\010167772"
+  "15\022\031\n\021attachment_handle\030\010 \001(\r\022\014\n\004type\030\t "
+  "\001(\r\022\021\n\tvolume_id\030\n \001(\005\"-\n\030CMsgRemoveSatV"
+  "olumeEvent\022\021\n\tvolume_id\030\001 \001(\005\"\034\n\032CMsgDis"
+  "ableSatVolumesEvent\"W\n\020CMsgRemoveBullet\022"
+  "\034\n\020shooter_entindex\030\001 \001(\005:\002-1\022\017\n\007shot_id"
+  "\030\002 \001(\r\022\024\n\014bullet_index\030\003 \001(\r*\241\002\n\022ECitade"
+  "lGameEvents\022\023\n\016GE_FireBullets\020\302\003\022\027\n\022GE_P"
+  "layerAnimEvent\020\303\003\022\035\n\030GE_ParticleSystemMa"
+  "nager\020\312\003\022\030\n\023GE_ScreenTextPretty\020\313\003\022\024\n\017GE"
+  "_BulletImpact\020\315\003\022\035\n\030GE_EnableSatVolumesE"
+  "vent\020\316\003\022\033\n\026GE_PlaceSatVolumeEvent\020\317\003\022\036\n\031"
+  "GE_DisableSatVolumesEvent\020\320\003\022\034\n\027GE_Remov"
+  "eSatVolumeEvent\020\321\003\022\024\n\017GE_RemoveBullet\020\322\003"
+  "*\341\004\n\037PARTICLE_SYSTEM_MANAGER_MESSAGE\022(\n$"
+  "PARTICLE_SYSTEM_MANAGER_EVENT_CREATE\020\000\022)"
+  "\n%PARTICLE_SYSTEM_MANAGER_EVENT_DESTROY\020"
+  "\001\0223\n/PARTICLE_SYSTEM_MANAGER_EVENT_DESTR"
+  "OY_INVOLVING\020\002\022)\n%PARTICLE_SYSTEM_MANAGE"
+  "R_EVENT_RELEASE\020\003\022(\n$PARTICLE_SYSTEM_MAN"
+  "AGER_EVENT_UPDATE\020\004\0220\n,PARTICLE_SYSTEM_M"
+  "ANAGER_EVENT_UPDATE_FORWARD\020\005\0224\n0PARTICL"
+  "E_SYSTEM_MANAGER_EVENT_UPDATE_ORIENTATIO"
+  "N\020\006\0221\n-PARTICLE_SYSTEM_MANAGER_EVENT_UPD"
+  "ATE_FALLBACK\020\007\022,\n(PARTICLE_SYSTEM_MANAGE"
+  "R_EVENT_UPDATE_ENT\020\010\022/\n+PARTICLE_SYSTEM_"
+  "MANAGER_EVENT_UPDATE_OFFSET\020\t\022/\n+PARTICL"
+  "E_SYSTEM_MANAGER_EVENT_UPDATE_FROZEN\020\n\0224"
+  "\n0PARTICLE_SYSTEM_MANAGER_EVENT_UPDATE_S"
+  "HOULD_DRAW\020\013"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fgameevents_2eproto_deps[2] = {
   &::descriptor_table_google_2fprotobuf_2fdescriptor_2eproto,
@@ -1011,7 +1019,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fgameevent
 };
 static ::_pbi::once_flag descriptor_table_citadel_5fgameevents_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_citadel_5fgameevents_2eproto = {
-    false, false, 5153, descriptor_table_protodef_citadel_5fgameevents_2eproto,
+    false, false, 5212, descriptor_table_protodef_citadel_5fgameevents_2eproto,
     "citadel_gameevents.proto",
     &descriptor_table_citadel_5fgameevents_2eproto_once, descriptor_table_citadel_5fgameevents_2eproto_deps, 2, 24,
     schemas, file_default_instances, TableStruct_citadel_5fgameevents_2eproto::offsets,
@@ -1325,10 +1333,10 @@ class CMsgFireBullets::_Internal {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_shooter_entity(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
+    (*has_bits)[0] |= 131072u;
   }
   static void set_has_ability(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
+    (*has_bits)[0] |= 262144u;
   }
   static void set_has_penetration_percent(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
@@ -1337,7 +1345,7 @@ class CMsgFireBullets::_Internal {
     (*has_bits)[0] |= 64u;
   }
   static void set_has_fired_from_gun(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
+    (*has_bits)[0] |= 524288u;
   }
   static void set_has_bullets_override(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
@@ -1357,7 +1365,7 @@ class CMsgFireBullets::_Internal {
     (*has_bits)[0] |= 512u;
   }
   static void set_has_ignore_entity(HasBits* has_bits) {
-    (*has_bits)[0] |= 1048576u;
+    (*has_bits)[0] |= 2097152u;
   }
   static void set_has_max_range(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
@@ -1366,7 +1374,7 @@ class CMsgFireBullets::_Internal {
     (*has_bits)[0] |= 2048u;
   }
   static void set_has_predict_hits_against_units(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
+    (*has_bits)[0] |= 1048576u;
   }
   static void set_has_bullet_radius_override(HasBits* has_bits) {
     (*has_bits)[0] |= 4096u;
@@ -1379,6 +1387,9 @@ class CMsgFireBullets::_Internal {
   }
   static void set_has_muzzle_number(HasBits* has_bits) {
     (*has_bits)[0] |= 32768u;
+  }
+  static void set_has_ability_as_bullet(HasBits* has_bits) {
+    (*has_bits)[0] |= 65536u;
   }
 };
 
@@ -1439,6 +1450,7 @@ CMsgFireBullets::CMsgFireBullets(const CMsgFireBullets& from)
     , decltype(_impl_.bullet_speed_override_){}
     , decltype(_impl_.bullet_gravity_override_){}
     , decltype(_impl_.muzzle_number_){}
+    , decltype(_impl_.ability_as_bullet_){}
     , decltype(_impl_.shooter_entity_){}
     , decltype(_impl_.ability_){}
     , decltype(_impl_.fired_from_gun_){}
@@ -1488,6 +1500,7 @@ inline void CMsgFireBullets::SharedCtor(
     , decltype(_impl_.bullet_speed_override_){0}
     , decltype(_impl_.bullet_gravity_override_){0}
     , decltype(_impl_.muzzle_number_){0}
+    , decltype(_impl_.ability_as_bullet_){false}
     , decltype(_impl_.shooter_entity_){-1}
     , decltype(_impl_.ability_){-1}
     , decltype(_impl_.fired_from_gun_){true}
@@ -1554,7 +1567,8 @@ void CMsgFireBullets::Clear() {
         reinterpret_cast<char*>(&_impl_.muzzle_number_) -
         reinterpret_cast<char*>(&_impl_.weapon_subclass_id_)) + sizeof(_impl_.muzzle_number_));
   }
-  if (cached_has_bits & 0x001f0000u) {
+  if (cached_has_bits & 0x003f0000u) {
+    _impl_.ability_as_bullet_ = false;
     _impl_.shooter_entity_ = -1;
     _impl_.ability_ = -1;
     _impl_.fired_from_gun_ = true;
@@ -1770,6 +1784,15 @@ const char* CMsgFireBullets::_InternalParse(const char* ptr, ::_pbi::ParseContex
         } else
           goto handle_unusual;
         continue;
+      // optional bool ability_as_bullet = 25;
+      case 25:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 200)) {
+          _Internal::set_has_ability_as_bullet(&has_bits);
+          _impl_.ability_as_bullet_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -1822,13 +1845,13 @@ uint8_t* CMsgFireBullets::_InternalSerialize(
   }
 
   // optional int32 shooter_entity = 5 [default = -1];
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(5, this->_internal_shooter_entity(), target);
   }
 
   // optional int32 ability = 7 [default = -1];
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(7, this->_internal_ability(), target);
   }
@@ -1846,7 +1869,7 @@ uint8_t* CMsgFireBullets::_InternalSerialize(
   }
 
   // optional bool fired_from_gun = 10 [default = true];
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(10, this->_internal_fired_from_gun(), target);
   }
@@ -1892,7 +1915,7 @@ uint8_t* CMsgFireBullets::_InternalSerialize(
   }
 
   // optional int32 ignore_entity = 17 [default = -1];
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00200000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(17, this->_internal_ignore_entity(), target);
   }
@@ -1910,7 +1933,7 @@ uint8_t* CMsgFireBullets::_InternalSerialize(
   }
 
   // optional bool predict_hits_against_units = 20 [default = true];
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(20, this->_internal_predict_hits_against_units(), target);
   }
@@ -1937,6 +1960,12 @@ uint8_t* CMsgFireBullets::_InternalSerialize(
   if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteInt32ToArray(24, this->_internal_muzzle_number(), target);
+  }
+
+  // optional bool ability_as_bullet = 25;
+  if (cached_has_bits & 0x00010000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(25, this->_internal_ability_as_bullet(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2061,29 +2090,34 @@ size_t CMsgFireBullets::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x001f0000u) {
-    // optional int32 shooter_entity = 5 [default = -1];
+  if (cached_has_bits & 0x003f0000u) {
+    // optional bool ability_as_bullet = 25;
     if (cached_has_bits & 0x00010000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional int32 shooter_entity = 5 [default = -1];
+    if (cached_has_bits & 0x00020000u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_shooter_entity());
     }
 
     // optional int32 ability = 7 [default = -1];
-    if (cached_has_bits & 0x00020000u) {
+    if (cached_has_bits & 0x00040000u) {
       total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_ability());
     }
 
     // optional bool fired_from_gun = 10 [default = true];
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00080000u) {
       total_size += 1 + 1;
     }
 
     // optional bool predict_hits_against_units = 20 [default = true];
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00100000u) {
       total_size += 2 + 1;
     }
 
     // optional int32 ignore_entity = 17 [default = -1];
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00200000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::Int32Size(
           this->_internal_ignore_entity());
@@ -2168,20 +2202,23 @@ void CMsgFireBullets::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x001f0000u) {
+  if (cached_has_bits & 0x003f0000u) {
     if (cached_has_bits & 0x00010000u) {
-      _this->_impl_.shooter_entity_ = from._impl_.shooter_entity_;
+      _this->_impl_.ability_as_bullet_ = from._impl_.ability_as_bullet_;
     }
     if (cached_has_bits & 0x00020000u) {
-      _this->_impl_.ability_ = from._impl_.ability_;
+      _this->_impl_.shooter_entity_ = from._impl_.shooter_entity_;
     }
     if (cached_has_bits & 0x00040000u) {
-      _this->_impl_.fired_from_gun_ = from._impl_.fired_from_gun_;
+      _this->_impl_.ability_ = from._impl_.ability_;
     }
     if (cached_has_bits & 0x00080000u) {
-      _this->_impl_.predict_hits_against_units_ = from._impl_.predict_hits_against_units_;
+      _this->_impl_.fired_from_gun_ = from._impl_.fired_from_gun_;
     }
     if (cached_has_bits & 0x00100000u) {
+      _this->_impl_.predict_hits_against_units_ = from._impl_.predict_hits_against_units_;
+    }
+    if (cached_has_bits & 0x00200000u) {
       _this->_impl_.ignore_entity_ = from._impl_.ignore_entity_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -2206,8 +2243,8 @@ void CMsgFireBullets::InternalSwap(CMsgFireBullets* other) {
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.tracer_additional_.InternalSwap(&other->_impl_.tracer_additional_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgFireBullets, _impl_.muzzle_number_)
-      + sizeof(CMsgFireBullets::_impl_.muzzle_number_)
+      PROTOBUF_FIELD_OFFSET(CMsgFireBullets, _impl_.ability_as_bullet_)
+      + sizeof(CMsgFireBullets::_impl_.ability_as_bullet_)
       - PROTOBUF_FIELD_OFFSET(CMsgFireBullets, _impl_.origin_)>(
           reinterpret_cast<char*>(&_impl_.origin_),
           reinterpret_cast<char*>(&other->_impl_.origin_));
@@ -2248,10 +2285,10 @@ class CMsgBulletImpact::_Internal {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_ability_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 256u;
+    (*has_bits)[0] |= 512u;
   }
   static void set_has_impacted_ehandle(HasBits* has_bits) {
-    (*has_bits)[0] |= 512u;
+    (*has_bits)[0] |= 1024u;
   }
   static void set_has_impacted_bone_index(HasBits* has_bits) {
     (*has_bits)[0] |= 32u;
@@ -2260,6 +2297,9 @@ class CMsgBulletImpact::_Internal {
     (*has_bits)[0] |= 64u;
   }
   static void set_has_shooter_ehandle(HasBits* has_bits) {
+    (*has_bits)[0] |= 256u;
+  }
+  static void set_has_bullet_radius_override(HasBits* has_bits) {
     (*has_bits)[0] |= 128u;
   }
 };
@@ -2307,6 +2347,7 @@ CMsgBulletImpact::CMsgBulletImpact(const CMsgBulletImpact& from)
     , decltype(_impl_.surface_type_){}
     , decltype(_impl_.impacted_bone_index_){}
     , decltype(_impl_.weapon_subclass_id_){}
+    , decltype(_impl_.bullet_radius_override_){}
     , decltype(_impl_.shooter_ehandle_){}
     , decltype(_impl_.ability_ehandle_){}
     , decltype(_impl_.impacted_ehandle_){}};
@@ -2341,6 +2382,7 @@ inline void CMsgBulletImpact::SharedCtor(
     , decltype(_impl_.surface_type_){0u}
     , decltype(_impl_.impacted_bone_index_){0u}
     , decltype(_impl_.weapon_subclass_id_){0u}
+    , decltype(_impl_.bullet_radius_override_){0}
     , decltype(_impl_.shooter_ehandle_){16777215u}
     , decltype(_impl_.ability_ehandle_){16777215u}
     , decltype(_impl_.impacted_ehandle_){16777215u}
@@ -2390,11 +2432,11 @@ void CMsgBulletImpact::Clear() {
   }
   if (cached_has_bits & 0x000000f8u) {
     ::memset(&_impl_.damage_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.weapon_subclass_id_) -
-        reinterpret_cast<char*>(&_impl_.damage_)) + sizeof(_impl_.weapon_subclass_id_));
-    _impl_.shooter_ehandle_ = 16777215u;
+        reinterpret_cast<char*>(&_impl_.bullet_radius_override_) -
+        reinterpret_cast<char*>(&_impl_.damage_)) + sizeof(_impl_.bullet_radius_override_));
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00000700u) {
+    _impl_.shooter_ehandle_ = 16777215u;
     _impl_.ability_ehandle_ = 16777215u;
     _impl_.impacted_ehandle_ = 16777215u;
   }
@@ -2496,6 +2538,15 @@ const char* CMsgBulletImpact::_InternalParse(const char* ptr, ::_pbi::ParseConte
         } else
           goto handle_unusual;
         continue;
+      // optional float bullet_radius_override = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 101)) {
+          _Internal::set_has_bullet_radius_override(&has_bits);
+          _impl_.bullet_radius_override_ = ::PROTOBUF_NAMESPACE_ID::internal::UnalignedLoad<float>(ptr);
+          ptr += sizeof(float);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -2561,13 +2612,13 @@ uint8_t* CMsgBulletImpact::_InternalSerialize(
   }
 
   // optional uint32 ability_ehandle = 7 [default = 16777215];
-  if (cached_has_bits & 0x00000100u) {
+  if (cached_has_bits & 0x00000200u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_ability_ehandle(), target);
   }
 
   // optional uint32 impacted_ehandle = 8 [default = 16777215];
-  if (cached_has_bits & 0x00000200u) {
+  if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_impacted_ehandle(), target);
   }
@@ -2585,9 +2636,15 @@ uint8_t* CMsgBulletImpact::_InternalSerialize(
   }
 
   // optional uint32 shooter_ehandle = 11 [default = 16777215];
-  if (cached_has_bits & 0x00000080u) {
+  if (cached_has_bits & 0x00000100u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(11, this->_internal_shooter_ehandle(), target);
+  }
+
+  // optional float bullet_radius_override = 12;
+  if (cached_has_bits & 0x00000080u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteFloatToArray(12, this->_internal_bullet_radius_override(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -2649,20 +2706,25 @@ size_t CMsgBulletImpact::ByteSizeLong() const {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_weapon_subclass_id());
     }
 
-    // optional uint32 shooter_ehandle = 11 [default = 16777215];
+    // optional float bullet_radius_override = 12;
     if (cached_has_bits & 0x00000080u) {
-      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_shooter_ehandle());
+      total_size += 1 + 4;
     }
 
   }
-  if (cached_has_bits & 0x00000300u) {
-    // optional uint32 ability_ehandle = 7 [default = 16777215];
+  if (cached_has_bits & 0x00000700u) {
+    // optional uint32 shooter_ehandle = 11 [default = 16777215];
     if (cached_has_bits & 0x00000100u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_shooter_ehandle());
+    }
+
+    // optional uint32 ability_ehandle = 7 [default = 16777215];
+    if (cached_has_bits & 0x00000200u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_ehandle());
     }
 
     // optional uint32 impacted_ehandle = 8 [default = 16777215];
-    if (cached_has_bits & 0x00000200u) {
+    if (cached_has_bits & 0x00000400u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_impacted_ehandle());
     }
 
@@ -2712,15 +2774,18 @@ void CMsgBulletImpact::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const
       _this->_impl_.weapon_subclass_id_ = from._impl_.weapon_subclass_id_;
     }
     if (cached_has_bits & 0x00000080u) {
-      _this->_impl_.shooter_ehandle_ = from._impl_.shooter_ehandle_;
+      _this->_impl_.bullet_radius_override_ = from._impl_.bullet_radius_override_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000300u) {
+  if (cached_has_bits & 0x00000700u) {
     if (cached_has_bits & 0x00000100u) {
-      _this->_impl_.ability_ehandle_ = from._impl_.ability_ehandle_;
+      _this->_impl_.shooter_ehandle_ = from._impl_.shooter_ehandle_;
     }
     if (cached_has_bits & 0x00000200u) {
+      _this->_impl_.ability_ehandle_ = from._impl_.ability_ehandle_;
+    }
+    if (cached_has_bits & 0x00000400u) {
       _this->_impl_.impacted_ehandle_ = from._impl_.impacted_ehandle_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -2744,8 +2809,8 @@ void CMsgBulletImpact::InternalSwap(CMsgBulletImpact* other) {
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgBulletImpact, _impl_.weapon_subclass_id_)
-      + sizeof(CMsgBulletImpact::_impl_.weapon_subclass_id_)
+      PROTOBUF_FIELD_OFFSET(CMsgBulletImpact, _impl_.bullet_radius_override_)
+      + sizeof(CMsgBulletImpact::_impl_.bullet_radius_override_)
       - PROTOBUF_FIELD_OFFSET(CMsgBulletImpact, _impl_.trace_start_)>(
           reinterpret_cast<char*>(&_impl_.trace_start_),
           reinterpret_cast<char*>(&other->_impl_.trace_start_));
@@ -5992,9 +6057,6 @@ class CMsgParticleSystemManager::_Internal {
   static void set_has_update_particle_should_draw(HasBits* has_bits) {
     (*has_bits)[0] |= 2048u;
   }
-  static bool MissingRequiredFields(const HasBits& has_bits) {
-    return ((has_bits[0] & 0x00003000) ^ 0x00003000) != 0;
-  }
 };
 
 const ::CMsgParticleSystemManager_CreateParticle&
@@ -6243,7 +6305,7 @@ const char* CMsgParticleSystemManager::_InternalParse(const char* ptr, ::_pbi::P
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // required .PARTICLE_SYSTEM_MANAGER_MESSAGE type = 1 [default = PARTICLE_SYSTEM_MANAGER_EVENT_CREATE];
+      // optional .PARTICLE_SYSTEM_MANAGER_MESSAGE type = 1 [default = PARTICLE_SYSTEM_MANAGER_EVENT_CREATE];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
@@ -6256,7 +6318,7 @@ const char* CMsgParticleSystemManager::_InternalParse(const char* ptr, ::_pbi::P
         } else
           goto handle_unusual;
         continue;
-      // required uint32 index = 2;
+      // optional uint32 index = 2;
       case 2:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
           _Internal::set_has_index(&has_bits);
@@ -6392,14 +6454,14 @@ uint8_t* CMsgParticleSystemManager::_InternalSerialize(
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // required .PARTICLE_SYSTEM_MANAGER_MESSAGE type = 1 [default = PARTICLE_SYSTEM_MANAGER_EVENT_CREATE];
+  // optional .PARTICLE_SYSTEM_MANAGER_MESSAGE type = 1 [default = PARTICLE_SYSTEM_MANAGER_EVENT_CREATE];
   if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       1, this->_internal_type(), target);
   }
 
-  // required uint32 index = 2;
+  // optional uint32 index = 2;
   if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_index(), target);
@@ -6497,38 +6559,10 @@ uint8_t* CMsgParticleSystemManager::_InternalSerialize(
   return target;
 }
 
-size_t CMsgParticleSystemManager::RequiredFieldsByteSizeFallback() const {
-// @@protoc_insertion_point(required_fields_byte_size_fallback_start:CMsgParticleSystemManager)
-  size_t total_size = 0;
-
-  if (_internal_has_type()) {
-    // required .PARTICLE_SYSTEM_MANAGER_MESSAGE type = 1 [default = PARTICLE_SYSTEM_MANAGER_EVENT_CREATE];
-    total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_type());
-  }
-
-  if (_internal_has_index()) {
-    // required uint32 index = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_index());
-  }
-
-  return total_size;
-}
 size_t CMsgParticleSystemManager::ByteSizeLong() const {
 // @@protoc_insertion_point(message_byte_size_start:CMsgParticleSystemManager)
   size_t total_size = 0;
 
-  if (((_impl_._has_bits_[0] & 0x00003000) ^ 0x00003000) == 0) {  // All required fields are present.
-    // required .PARTICLE_SYSTEM_MANAGER_MESSAGE type = 1 [default = PARTICLE_SYSTEM_MANAGER_EVENT_CREATE];
-    total_size += 1 +
-      ::_pbi::WireFormatLite::EnumSize(this->_internal_type());
-
-    // required uint32 index = 2;
-    total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_index());
-
-  } else {
-    total_size += RequiredFieldsByteSizeFallback();
-  }
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -6592,7 +6626,7 @@ size_t CMsgParticleSystemManager::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00000f00u) {
+  if (cached_has_bits & 0x00003f00u) {
     // optional .CMsgParticleSystemManager.UpdateParticleOffset update_particle_offset = 11;
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
@@ -6619,6 +6653,17 @@ size_t CMsgParticleSystemManager::ByteSizeLong() const {
       total_size += 1 +
         ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(
           *_impl_.update_particle_should_draw_);
+    }
+
+    // optional .PARTICLE_SYSTEM_MANAGER_MESSAGE type = 1 [default = PARTICLE_SYSTEM_MANAGER_EVENT_CREATE];
+    if (cached_has_bits & 0x00001000u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_type());
+    }
+
+    // optional uint32 index = 2;
+    if (cached_has_bits & 0x00002000u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_index());
     }
 
   }
@@ -6711,7 +6756,6 @@ void CMsgParticleSystemManager::CopyFrom(const CMsgParticleSystemManager& from) 
 }
 
 bool CMsgParticleSystemManager::IsInitialized() const {
-  if (_Internal::MissingRequiredFields(_impl_._has_bits_)) return false;
   return true;
 }
 
