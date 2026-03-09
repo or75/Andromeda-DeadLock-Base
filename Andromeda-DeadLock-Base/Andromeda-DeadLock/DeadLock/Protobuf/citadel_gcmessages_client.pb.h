@@ -1352,11 +1352,14 @@ enum CMsgClientToGCUpdateRosterResponse_EResponse : int {
   CMsgClientToGCUpdateRosterResponse_EResponse_k_eRateLimited = 4,
   CMsgClientToGCUpdateRosterResponse_EResponse_k_eMMBusy = 5,
   CMsgClientToGCUpdateRosterResponse_EResponse_k_eInvalidHeroSelection = 6,
-  CMsgClientToGCUpdateRosterResponse_EResponse_k_eHeroesNotUnlocked = 7
+  CMsgClientToGCUpdateRosterResponse_EResponse_k_eHeroesNotUnlocked = 7,
+  CMsgClientToGCUpdateRosterResponse_EResponse_k_eNotInMatchmaking = 8,
+  CMsgClientToGCUpdateRosterResponse_EResponse_k_eInvalidPartyRoster = 9,
+  CMsgClientToGCUpdateRosterResponse_EResponse_k_eInvalidMode = 10
 };
 bool CMsgClientToGCUpdateRosterResponse_EResponse_IsValid(int value);
 constexpr CMsgClientToGCUpdateRosterResponse_EResponse CMsgClientToGCUpdateRosterResponse_EResponse_EResponse_MIN = CMsgClientToGCUpdateRosterResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCUpdateRosterResponse_EResponse CMsgClientToGCUpdateRosterResponse_EResponse_EResponse_MAX = CMsgClientToGCUpdateRosterResponse_EResponse_k_eHeroesNotUnlocked;
+constexpr CMsgClientToGCUpdateRosterResponse_EResponse CMsgClientToGCUpdateRosterResponse_EResponse_EResponse_MAX = CMsgClientToGCUpdateRosterResponse_EResponse_k_eInvalidMode;
 constexpr int CMsgClientToGCUpdateRosterResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCUpdateRosterResponse_EResponse_EResponse_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCUpdateRosterResponse_EResponse_descriptor();
@@ -2186,11 +2189,12 @@ enum CMsgSurveyQuestion_EQuestionType : int {
   CMsgSurveyQuestion_EQuestionType_k_eItemDesign = 2,
   CMsgSurveyQuestion_EQuestionType_k_eHeroPlayAgainst = 3,
   CMsgSurveyQuestion_EQuestionType_k_eMoreFunHero = 4,
-  CMsgSurveyQuestion_EQuestionType_k_eHeroPower = 5
+  CMsgSurveyQuestion_EQuestionType_k_eHeroPower = 5,
+  CMsgSurveyQuestion_EQuestionType_k_eHeroPlayAs = 6
 };
 bool CMsgSurveyQuestion_EQuestionType_IsValid(int value);
 constexpr CMsgSurveyQuestion_EQuestionType CMsgSurveyQuestion_EQuestionType_EQuestionType_MIN = CMsgSurveyQuestion_EQuestionType_k_eInvalid;
-constexpr CMsgSurveyQuestion_EQuestionType CMsgSurveyQuestion_EQuestionType_EQuestionType_MAX = CMsgSurveyQuestion_EQuestionType_k_eHeroPower;
+constexpr CMsgSurveyQuestion_EQuestionType CMsgSurveyQuestion_EQuestionType_EQuestionType_MAX = CMsgSurveyQuestion_EQuestionType_k_eHeroPlayAs;
 constexpr int CMsgSurveyQuestion_EQuestionType_EQuestionType_ARRAYSIZE = CMsgSurveyQuestion_EQuestionType_EQuestionType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgSurveyQuestion_EQuestionType_descriptor();
@@ -2503,11 +2507,12 @@ inline bool ECitadelAccountPermissionFlag_Parse(
 enum ECitadelNewPlayerProgressFlag : int {
   k_eNewPlayerProgress_GettingStarted = 1,
   k_eNewPlayerProgress_HeroTraining = 2,
-  k_eNewPlayerProgress_LaneTraining = 3
+  k_eNewPlayerProgress_LaneTraining = 3,
+  k_eNewPlayerProgress_CombinedTutorial2026 = 4
 };
 bool ECitadelNewPlayerProgressFlag_IsValid(int value);
 constexpr ECitadelNewPlayerProgressFlag ECitadelNewPlayerProgressFlag_MIN = k_eNewPlayerProgress_GettingStarted;
-constexpr ECitadelNewPlayerProgressFlag ECitadelNewPlayerProgressFlag_MAX = k_eNewPlayerProgress_LaneTraining;
+constexpr ECitadelNewPlayerProgressFlag ECitadelNewPlayerProgressFlag_MAX = k_eNewPlayerProgress_CombinedTutorial2026;
 constexpr int ECitadelNewPlayerProgressFlag_ARRAYSIZE = ECitadelNewPlayerProgressFlag_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECitadelNewPlayerProgressFlag_descriptor();
@@ -2871,6 +2876,7 @@ class CSOGameAccountClient final :
     kBrawlWinsFieldNumber = 18,
     kBrawlLossesFieldNumber = 19,
     kBrawlKillsFieldNumber = 20,
+    kLastMmMatchTimeFieldNumber = 21,
   };
   // optional uint64 flags = 2;
   bool has_flags() const;
@@ -3132,6 +3138,19 @@ class CSOGameAccountClient final :
   void _internal_set_brawl_kills(uint32_t value);
   public:
 
+  // optional uint32 last_mm_match_time = 21;
+  bool has_last_mm_match_time() const;
+  private:
+  bool _internal_has_last_mm_match_time() const;
+  public:
+  void clear_last_mm_match_time();
+  uint32_t last_mm_match_time() const;
+  void set_last_mm_match_time(uint32_t value);
+  private:
+  uint32_t _internal_last_mm_match_time() const;
+  void _internal_set_last_mm_match_time(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSOGameAccountClient)
  private:
   class _Internal;
@@ -3162,6 +3181,7 @@ class CSOGameAccountClient final :
     uint32_t brawl_wins_;
     uint32_t brawl_losses_;
     uint32_t brawl_kills_;
+    uint32_t last_mm_match_time_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fclient_2eproto;
@@ -3520,10 +3540,8 @@ class CSOAccountHeroInfo final :
     kHeroIdFieldNumber = 2,
     kStatusFieldNumber = 3,
     kWinsFieldNumber = 4,
-    kKillsFieldNumber = 5,
     kHeroXpFieldNumber = 6,
     kBrawlWinsFieldNumber = 7,
-    kBrawlKillsFieldNumber = 8,
   };
   // optional uint32 account_id = 1 [(.key_field) = true];
   bool has_account_id() const;
@@ -3577,19 +3595,6 @@ class CSOAccountHeroInfo final :
   void _internal_set_wins(uint32_t value);
   public:
 
-  // optional uint32 kills = 5;
-  bool has_kills() const;
-  private:
-  bool _internal_has_kills() const;
-  public:
-  void clear_kills();
-  uint32_t kills() const;
-  void set_kills(uint32_t value);
-  private:
-  uint32_t _internal_kills() const;
-  void _internal_set_kills(uint32_t value);
-  public:
-
   // optional uint32 hero_xp = 6;
   bool has_hero_xp() const;
   private:
@@ -3616,19 +3621,6 @@ class CSOAccountHeroInfo final :
   void _internal_set_brawl_wins(uint32_t value);
   public:
 
-  // optional uint32 brawl_kills = 8;
-  bool has_brawl_kills() const;
-  private:
-  bool _internal_has_brawl_kills() const;
-  public:
-  void clear_brawl_kills();
-  uint32_t brawl_kills() const;
-  void set_brawl_kills(uint32_t value);
-  private:
-  uint32_t _internal_brawl_kills() const;
-  void _internal_set_brawl_kills(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:CSOAccountHeroInfo)
  private:
   class _Internal;
@@ -3643,10 +3635,8 @@ class CSOAccountHeroInfo final :
     uint32_t hero_id_;
     int status_;
     uint32_t wins_;
-    uint32_t kills_;
     uint32_t hero_xp_;
     uint32_t brawl_wins_;
-    uint32_t brawl_kills_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fclient_2eproto;
@@ -17010,6 +17000,12 @@ class CMsgClientToGCUpdateRosterResponse final :
     CMsgClientToGCUpdateRosterResponse_EResponse_k_eInvalidHeroSelection;
   static constexpr EResponse k_eHeroesNotUnlocked =
     CMsgClientToGCUpdateRosterResponse_EResponse_k_eHeroesNotUnlocked;
+  static constexpr EResponse k_eNotInMatchmaking =
+    CMsgClientToGCUpdateRosterResponse_EResponse_k_eNotInMatchmaking;
+  static constexpr EResponse k_eInvalidPartyRoster =
+    CMsgClientToGCUpdateRosterResponse_EResponse_k_eInvalidPartyRoster;
+  static constexpr EResponse k_eInvalidMode =
+    CMsgClientToGCUpdateRosterResponse_EResponse_k_eInvalidMode;
   static inline bool EResponse_IsValid(int value) {
     return CMsgClientToGCUpdateRosterResponse_EResponse_IsValid(value);
   }
@@ -24369,7 +24365,6 @@ class CMsgClientToGCFindHeroBuildsResponse final :
   enum : int {
     kResultsFieldNumber = 2,
     kResponseFieldNumber = 1,
-    kBuildWindowStartTimeOverrideFieldNumber = 3,
   };
   // repeated .CMsgClientToGCFindHeroBuildsResponse.HeroBuildResult results = 2;
   int results_size() const;
@@ -24402,19 +24397,6 @@ class CMsgClientToGCFindHeroBuildsResponse final :
   void _internal_set_response(::CMsgClientToGCFindHeroBuildsResponse_EResponse value);
   public:
 
-  // optional uint32 build_window_start_time_override = 3;
-  bool has_build_window_start_time_override() const;
-  private:
-  bool _internal_has_build_window_start_time_override() const;
-  public:
-  void clear_build_window_start_time_override();
-  uint32_t build_window_start_time_override() const;
-  void set_build_window_start_time_override(uint32_t value);
-  private:
-  uint32_t _internal_build_window_start_time_override() const;
-  void _internal_set_build_window_start_time_override(uint32_t value);
-  public:
-
   // @@protoc_insertion_point(class_scope:CMsgClientToGCFindHeroBuildsResponse)
  private:
   class _Internal;
@@ -24427,7 +24409,6 @@ class CMsgClientToGCFindHeroBuildsResponse final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgClientToGCFindHeroBuildsResponse_HeroBuildResult > results_;
     int response_;
-    uint32_t build_window_start_time_override_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fclient_2eproto;
@@ -32824,6 +32805,8 @@ class CMsgSurveyQuestion final :
     CMsgSurveyQuestion_EQuestionType_k_eMoreFunHero;
   static constexpr EQuestionType k_eHeroPower =
     CMsgSurveyQuestion_EQuestionType_k_eHeroPower;
+  static constexpr EQuestionType k_eHeroPlayAs =
+    CMsgSurveyQuestion_EQuestionType_k_eHeroPlayAs;
   static inline bool EQuestionType_IsValid(int value) {
     return CMsgSurveyQuestion_EQuestionType_IsValid(value);
   }
@@ -32954,9 +32937,10 @@ class CMsgSurveyQuestion final :
 // -------------------------------------------------------------------
 
 class CMsgClientToGCGetSurveyQuestion final :
-    public ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase /* @@protoc_insertion_point(class_definition:CMsgClientToGCGetSurveyQuestion) */ {
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCGetSurveyQuestion) */ {
  public:
   inline CMsgClientToGCGetSurveyQuestion() : CMsgClientToGCGetSurveyQuestion(nullptr) {}
+  ~CMsgClientToGCGetSurveyQuestion() override;
   explicit PROTOBUF_CONSTEXPR CMsgClientToGCGetSurveyQuestion(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
   CMsgClientToGCGetSurveyQuestion(const CMsgClientToGCGetSurveyQuestion& from);
@@ -33036,15 +33020,29 @@ class CMsgClientToGCGetSurveyQuestion final :
   CMsgClientToGCGetSurveyQuestion* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
     return CreateMaybeMessage<CMsgClientToGCGetSurveyQuestion>(arena);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyFrom;
-  inline void CopyFrom(const CMsgClientToGCGetSurveyQuestion& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::CopyImpl(*this, from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgClientToGCGetSurveyQuestion& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgClientToGCGetSurveyQuestion& from) {
+    CMsgClientToGCGetSurveyQuestion::MergeImpl(*this, from);
   }
-  using ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeFrom;
-  void MergeFrom(const CMsgClientToGCGetSurveyQuestion& from) {
-    ::PROTOBUF_NAMESPACE_ID::internal::ZeroFieldsBase::MergeImpl(*this, from);
-  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
   public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgClientToGCGetSurveyQuestion* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
@@ -33065,6 +33063,22 @@ class CMsgClientToGCGetSurveyQuestion final :
 
   // accessors -------------------------------------------------------
 
+  enum : int {
+    kDevForceNewQuestionTypeFieldNumber = 1,
+  };
+  // optional .CMsgSurveyQuestion.EQuestionType dev_force_new_question_type = 1 [default = k_eInvalid];
+  bool has_dev_force_new_question_type() const;
+  private:
+  bool _internal_has_dev_force_new_question_type() const;
+  public:
+  void clear_dev_force_new_question_type();
+  ::CMsgSurveyQuestion_EQuestionType dev_force_new_question_type() const;
+  void set_dev_force_new_question_type(::CMsgSurveyQuestion_EQuestionType value);
+  private:
+  ::CMsgSurveyQuestion_EQuestionType _internal_dev_force_new_question_type() const;
+  void _internal_set_dev_force_new_question_type(::CMsgSurveyQuestion_EQuestionType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgClientToGCGetSurveyQuestion)
  private:
   class _Internal;
@@ -33073,7 +33087,11 @@ class CMsgClientToGCGetSurveyQuestion final :
   typedef void InternalArenaConstructable_;
   typedef void DestructorSkippable_;
   struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int dev_force_new_question_type_;
   };
+  union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fclient_2eproto;
 };
 // -------------------------------------------------------------------
@@ -33421,6 +33439,7 @@ class CMsgClientToGCSubmitSurvey final :
     kQuestionIdFieldNumber = 1,
     kIsSkipFieldNumber = 2,
     kResponseValueFieldNumber = 3,
+    kDevForceNewQuestionTypeFieldNumber = 4,
   };
   // optional uint32 question_id = 1;
   bool has_question_id() const;
@@ -33461,6 +33480,19 @@ class CMsgClientToGCSubmitSurvey final :
   void _internal_set_response_value(uint32_t value);
   public:
 
+  // optional .CMsgSurveyQuestion.EQuestionType dev_force_new_question_type = 4 [default = k_eInvalid];
+  bool has_dev_force_new_question_type() const;
+  private:
+  bool _internal_has_dev_force_new_question_type() const;
+  public:
+  void clear_dev_force_new_question_type();
+  ::CMsgSurveyQuestion_EQuestionType dev_force_new_question_type() const;
+  void set_dev_force_new_question_type(::CMsgSurveyQuestion_EQuestionType value);
+  private:
+  ::CMsgSurveyQuestion_EQuestionType _internal_dev_force_new_question_type() const;
+  void _internal_set_dev_force_new_question_type(::CMsgSurveyQuestion_EQuestionType value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgClientToGCSubmitSurvey)
  private:
   class _Internal;
@@ -33474,6 +33506,7 @@ class CMsgClientToGCSubmitSurvey final :
     uint32_t question_id_;
     bool is_skip_;
     uint32_t response_value_;
+    int dev_force_new_question_type_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fclient_2eproto;
@@ -37185,6 +37218,34 @@ inline void CSOGameAccountClient::set_brawl_kills(uint32_t value) {
   // @@protoc_insertion_point(field_set:CSOGameAccountClient.brawl_kills)
 }
 
+// optional uint32 last_mm_match_time = 21;
+inline bool CSOGameAccountClient::_internal_has_last_mm_match_time() const {
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  return value;
+}
+inline bool CSOGameAccountClient::has_last_mm_match_time() const {
+  return _internal_has_last_mm_match_time();
+}
+inline void CSOGameAccountClient::clear_last_mm_match_time() {
+  _impl_.last_mm_match_time_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
+}
+inline uint32_t CSOGameAccountClient::_internal_last_mm_match_time() const {
+  return _impl_.last_mm_match_time_;
+}
+inline uint32_t CSOGameAccountClient::last_mm_match_time() const {
+  // @@protoc_insertion_point(field_get:CSOGameAccountClient.last_mm_match_time)
+  return _internal_last_mm_match_time();
+}
+inline void CSOGameAccountClient::_internal_set_last_mm_match_time(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_.last_mm_match_time_ = value;
+}
+inline void CSOGameAccountClient::set_last_mm_match_time(uint32_t value) {
+  _internal_set_last_mm_match_time(value);
+  // @@protoc_insertion_point(field_set:CSOGameAccountClient.last_mm_match_time)
+}
+
 // -------------------------------------------------------------------
 
 // CSOAccountSyncStorage
@@ -37390,37 +37451,9 @@ inline void CSOAccountHeroInfo::set_wins(uint32_t value) {
   // @@protoc_insertion_point(field_set:CSOAccountHeroInfo.wins)
 }
 
-// optional uint32 kills = 5;
-inline bool CSOAccountHeroInfo::_internal_has_kills() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
-  return value;
-}
-inline bool CSOAccountHeroInfo::has_kills() const {
-  return _internal_has_kills();
-}
-inline void CSOAccountHeroInfo::clear_kills() {
-  _impl_.kills_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000010u;
-}
-inline uint32_t CSOAccountHeroInfo::_internal_kills() const {
-  return _impl_.kills_;
-}
-inline uint32_t CSOAccountHeroInfo::kills() const {
-  // @@protoc_insertion_point(field_get:CSOAccountHeroInfo.kills)
-  return _internal_kills();
-}
-inline void CSOAccountHeroInfo::_internal_set_kills(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000010u;
-  _impl_.kills_ = value;
-}
-inline void CSOAccountHeroInfo::set_kills(uint32_t value) {
-  _internal_set_kills(value);
-  // @@protoc_insertion_point(field_set:CSOAccountHeroInfo.kills)
-}
-
 // optional uint32 hero_xp = 6;
 inline bool CSOAccountHeroInfo::_internal_has_hero_xp() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
   return value;
 }
 inline bool CSOAccountHeroInfo::has_hero_xp() const {
@@ -37428,7 +37461,7 @@ inline bool CSOAccountHeroInfo::has_hero_xp() const {
 }
 inline void CSOAccountHeroInfo::clear_hero_xp() {
   _impl_.hero_xp_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000020u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
 }
 inline uint32_t CSOAccountHeroInfo::_internal_hero_xp() const {
   return _impl_.hero_xp_;
@@ -37438,7 +37471,7 @@ inline uint32_t CSOAccountHeroInfo::hero_xp() const {
   return _internal_hero_xp();
 }
 inline void CSOAccountHeroInfo::_internal_set_hero_xp(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000020u;
+  _impl_._has_bits_[0] |= 0x00000010u;
   _impl_.hero_xp_ = value;
 }
 inline void CSOAccountHeroInfo::set_hero_xp(uint32_t value) {
@@ -37448,7 +37481,7 @@ inline void CSOAccountHeroInfo::set_hero_xp(uint32_t value) {
 
 // optional uint32 brawl_wins = 7;
 inline bool CSOAccountHeroInfo::_internal_has_brawl_wins() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00000020u) != 0;
   return value;
 }
 inline bool CSOAccountHeroInfo::has_brawl_wins() const {
@@ -37456,7 +37489,7 @@ inline bool CSOAccountHeroInfo::has_brawl_wins() const {
 }
 inline void CSOAccountHeroInfo::clear_brawl_wins() {
   _impl_.brawl_wins_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000040u;
+  _impl_._has_bits_[0] &= ~0x00000020u;
 }
 inline uint32_t CSOAccountHeroInfo::_internal_brawl_wins() const {
   return _impl_.brawl_wins_;
@@ -37466,40 +37499,12 @@ inline uint32_t CSOAccountHeroInfo::brawl_wins() const {
   return _internal_brawl_wins();
 }
 inline void CSOAccountHeroInfo::_internal_set_brawl_wins(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_._has_bits_[0] |= 0x00000020u;
   _impl_.brawl_wins_ = value;
 }
 inline void CSOAccountHeroInfo::set_brawl_wins(uint32_t value) {
   _internal_set_brawl_wins(value);
   // @@protoc_insertion_point(field_set:CSOAccountHeroInfo.brawl_wins)
-}
-
-// optional uint32 brawl_kills = 8;
-inline bool CSOAccountHeroInfo::_internal_has_brawl_kills() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
-  return value;
-}
-inline bool CSOAccountHeroInfo::has_brawl_kills() const {
-  return _internal_has_brawl_kills();
-}
-inline void CSOAccountHeroInfo::clear_brawl_kills() {
-  _impl_.brawl_kills_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000080u;
-}
-inline uint32_t CSOAccountHeroInfo::_internal_brawl_kills() const {
-  return _impl_.brawl_kills_;
-}
-inline uint32_t CSOAccountHeroInfo::brawl_kills() const {
-  // @@protoc_insertion_point(field_get:CSOAccountHeroInfo.brawl_kills)
-  return _internal_brawl_kills();
-}
-inline void CSOAccountHeroInfo::_internal_set_brawl_kills(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000080u;
-  _impl_.brawl_kills_ = value;
-}
-inline void CSOAccountHeroInfo::set_brawl_kills(uint32_t value) {
-  _internal_set_brawl_kills(value);
-  // @@protoc_insertion_point(field_set:CSOAccountHeroInfo.brawl_kills)
 }
 
 // -------------------------------------------------------------------
@@ -49323,34 +49328,6 @@ CMsgClientToGCFindHeroBuildsResponse::results() const {
   return _impl_.results_;
 }
 
-// optional uint32 build_window_start_time_override = 3;
-inline bool CMsgClientToGCFindHeroBuildsResponse::_internal_has_build_window_start_time_override() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CMsgClientToGCFindHeroBuildsResponse::has_build_window_start_time_override() const {
-  return _internal_has_build_window_start_time_override();
-}
-inline void CMsgClientToGCFindHeroBuildsResponse::clear_build_window_start_time_override() {
-  _impl_.build_window_start_time_override_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline uint32_t CMsgClientToGCFindHeroBuildsResponse::_internal_build_window_start_time_override() const {
-  return _impl_.build_window_start_time_override_;
-}
-inline uint32_t CMsgClientToGCFindHeroBuildsResponse::build_window_start_time_override() const {
-  // @@protoc_insertion_point(field_get:CMsgClientToGCFindHeroBuildsResponse.build_window_start_time_override)
-  return _internal_build_window_start_time_override();
-}
-inline void CMsgClientToGCFindHeroBuildsResponse::_internal_set_build_window_start_time_override(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.build_window_start_time_override_ = value;
-}
-inline void CMsgClientToGCFindHeroBuildsResponse::set_build_window_start_time_override(uint32_t value) {
-  _internal_set_build_window_start_time_override(value);
-  // @@protoc_insertion_point(field_set:CMsgClientToGCFindHeroBuildsResponse.build_window_start_time_override)
-}
-
 // -------------------------------------------------------------------
 
 // CMsgClientToGCUpdateHeroBuildPreference
@@ -52610,6 +52587,35 @@ inline void CMsgSurveyQuestion::set_answered_questions(uint32_t value) {
 
 // CMsgClientToGCGetSurveyQuestion
 
+// optional .CMsgSurveyQuestion.EQuestionType dev_force_new_question_type = 1 [default = k_eInvalid];
+inline bool CMsgClientToGCGetSurveyQuestion::_internal_has_dev_force_new_question_type() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCGetSurveyQuestion::has_dev_force_new_question_type() const {
+  return _internal_has_dev_force_new_question_type();
+}
+inline void CMsgClientToGCGetSurveyQuestion::clear_dev_force_new_question_type() {
+  _impl_.dev_force_new_question_type_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline ::CMsgSurveyQuestion_EQuestionType CMsgClientToGCGetSurveyQuestion::_internal_dev_force_new_question_type() const {
+  return static_cast< ::CMsgSurveyQuestion_EQuestionType >(_impl_.dev_force_new_question_type_);
+}
+inline ::CMsgSurveyQuestion_EQuestionType CMsgClientToGCGetSurveyQuestion::dev_force_new_question_type() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCGetSurveyQuestion.dev_force_new_question_type)
+  return _internal_dev_force_new_question_type();
+}
+inline void CMsgClientToGCGetSurveyQuestion::_internal_set_dev_force_new_question_type(::CMsgSurveyQuestion_EQuestionType value) {
+  assert(::CMsgSurveyQuestion_EQuestionType_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.dev_force_new_question_type_ = value;
+}
+inline void CMsgClientToGCGetSurveyQuestion::set_dev_force_new_question_type(::CMsgSurveyQuestion_EQuestionType value) {
+  _internal_set_dev_force_new_question_type(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCGetSurveyQuestion.dev_force_new_question_type)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgClientToGCGetSurveyQuestionResponse
@@ -52819,6 +52825,35 @@ inline void CMsgClientToGCSubmitSurvey::_internal_set_response_value(uint32_t va
 inline void CMsgClientToGCSubmitSurvey::set_response_value(uint32_t value) {
   _internal_set_response_value(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCSubmitSurvey.response_value)
+}
+
+// optional .CMsgSurveyQuestion.EQuestionType dev_force_new_question_type = 4 [default = k_eInvalid];
+inline bool CMsgClientToGCSubmitSurvey::_internal_has_dev_force_new_question_type() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CMsgClientToGCSubmitSurvey::has_dev_force_new_question_type() const {
+  return _internal_has_dev_force_new_question_type();
+}
+inline void CMsgClientToGCSubmitSurvey::clear_dev_force_new_question_type() {
+  _impl_.dev_force_new_question_type_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline ::CMsgSurveyQuestion_EQuestionType CMsgClientToGCSubmitSurvey::_internal_dev_force_new_question_type() const {
+  return static_cast< ::CMsgSurveyQuestion_EQuestionType >(_impl_.dev_force_new_question_type_);
+}
+inline ::CMsgSurveyQuestion_EQuestionType CMsgClientToGCSubmitSurvey::dev_force_new_question_type() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCSubmitSurvey.dev_force_new_question_type)
+  return _internal_dev_force_new_question_type();
+}
+inline void CMsgClientToGCSubmitSurvey::_internal_set_dev_force_new_question_type(::CMsgSurveyQuestion_EQuestionType value) {
+  assert(::CMsgSurveyQuestion_EQuestionType_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.dev_force_new_question_type_ = value;
+}
+inline void CMsgClientToGCSubmitSurvey::set_dev_force_new_question_type(::CMsgSurveyQuestion_EQuestionType value) {
+  _internal_set_dev_force_new_question_type(value);
+  // @@protoc_insertion_point(field_set:CMsgClientToGCSubmitSurvey.dev_force_new_question_type)
 }
 
 // -------------------------------------------------------------------

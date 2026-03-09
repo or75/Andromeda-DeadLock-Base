@@ -257,6 +257,9 @@ extern CUserMsg_ParticleManager_CreateParticleDefaultTypeInternal _CUserMsg_Part
 class CUserMsg_ParticleManager_CreatePhysicsSim;
 struct CUserMsg_ParticleManager_CreatePhysicsSimDefaultTypeInternal;
 extern CUserMsg_ParticleManager_CreatePhysicsSimDefaultTypeInternal _CUserMsg_ParticleManager_CreatePhysicsSim_default_instance_;
+class CUserMsg_ParticleManager_CreateSmokeGrid;
+struct CUserMsg_ParticleManager_CreateSmokeGridDefaultTypeInternal;
+extern CUserMsg_ParticleManager_CreateSmokeGridDefaultTypeInternal _CUserMsg_ParticleManager_CreateSmokeGrid_default_instance_;
 class CUserMsg_ParticleManager_DestroyParticle;
 struct CUserMsg_ParticleManager_DestroyParticleDefaultTypeInternal;
 extern CUserMsg_ParticleManager_DestroyParticleDefaultTypeInternal _CUserMsg_ParticleManager_DestroyParticle_default_instance_;
@@ -439,6 +442,7 @@ template<> ::CUserMsg_ParticleManager_ChangeControlPointAttachment* Arena::Creat
 template<> ::CUserMsg_ParticleManager_ClearModellistOverride* Arena::CreateMaybeMessage<::CUserMsg_ParticleManager_ClearModellistOverride>(Arena*);
 template<> ::CUserMsg_ParticleManager_CreateParticle* Arena::CreateMaybeMessage<::CUserMsg_ParticleManager_CreateParticle>(Arena*);
 template<> ::CUserMsg_ParticleManager_CreatePhysicsSim* Arena::CreateMaybeMessage<::CUserMsg_ParticleManager_CreatePhysicsSim>(Arena*);
+template<> ::CUserMsg_ParticleManager_CreateSmokeGrid* Arena::CreateMaybeMessage<::CUserMsg_ParticleManager_CreateSmokeGrid>(Arena*);
 template<> ::CUserMsg_ParticleManager_DestroyParticle* Arena::CreateMaybeMessage<::CUserMsg_ParticleManager_DestroyParticle>(Arena*);
 template<> ::CUserMsg_ParticleManager_DestroyParticleInvolving* Arena::CreateMaybeMessage<::CUserMsg_ParticleManager_DestroyParticleInvolving>(Arena*);
 template<> ::CUserMsg_ParticleManager_DestroyParticleNamed* Arena::CreateMaybeMessage<::CUserMsg_ParticleManager_DestroyParticleNamed>(Arena*);
@@ -643,11 +647,12 @@ enum PARTICLE_MESSAGE : int {
   GAME_PARTICLE_MANAGER_EVENT_ADD_FAN = 36,
   GAME_PARTICLE_MANAGER_EVENT_UPDATE_FAN = 37,
   GAME_PARTICLE_MANAGER_EVENT_SET_CLUSTER_GROWTH = 38,
-  GAME_PARTICLE_MANAGER_EVENT_REMOVE_FAN = 39
+  GAME_PARTICLE_MANAGER_EVENT_REMOVE_FAN = 39,
+  GAME_PARTICLE_MANAGER_EVENT_CREATE_SMOKE_GRID = 40
 };
 bool PARTICLE_MESSAGE_IsValid(int value);
 constexpr PARTICLE_MESSAGE PARTICLE_MESSAGE_MIN = GAME_PARTICLE_MANAGER_EVENT_CREATE;
-constexpr PARTICLE_MESSAGE PARTICLE_MESSAGE_MAX = GAME_PARTICLE_MANAGER_EVENT_REMOVE_FAN;
+constexpr PARTICLE_MESSAGE PARTICLE_MESSAGE_MAX = GAME_PARTICLE_MANAGER_EVENT_CREATE_SMOKE_GRID;
 constexpr int PARTICLE_MESSAGE_ARRAYSIZE = PARTICLE_MESSAGE_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* PARTICLE_MESSAGE_descriptor();
@@ -14680,6 +14685,171 @@ class CUserMsg_ParticleManager_DestroyPhysicsSim final :
 };
 // -------------------------------------------------------------------
 
+class CUserMsg_ParticleManager_CreateSmokeGrid final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CUserMsg_ParticleManager.CreateSmokeGrid) */ {
+ public:
+  inline CUserMsg_ParticleManager_CreateSmokeGrid() : CUserMsg_ParticleManager_CreateSmokeGrid(nullptr) {}
+  ~CUserMsg_ParticleManager_CreateSmokeGrid() override;
+  explicit PROTOBUF_CONSTEXPR CUserMsg_ParticleManager_CreateSmokeGrid(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CUserMsg_ParticleManager_CreateSmokeGrid(const CUserMsg_ParticleManager_CreateSmokeGrid& from);
+  CUserMsg_ParticleManager_CreateSmokeGrid(CUserMsg_ParticleManager_CreateSmokeGrid&& from) noexcept
+    : CUserMsg_ParticleManager_CreateSmokeGrid() {
+    *this = ::std::move(from);
+  }
+
+  inline CUserMsg_ParticleManager_CreateSmokeGrid& operator=(const CUserMsg_ParticleManager_CreateSmokeGrid& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CUserMsg_ParticleManager_CreateSmokeGrid& operator=(CUserMsg_ParticleManager_CreateSmokeGrid&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CUserMsg_ParticleManager_CreateSmokeGrid& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CUserMsg_ParticleManager_CreateSmokeGrid* internal_default_instance() {
+    return reinterpret_cast<const CUserMsg_ParticleManager_CreateSmokeGrid*>(
+               &_CUserMsg_ParticleManager_CreateSmokeGrid_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    74;
+
+  friend void swap(CUserMsg_ParticleManager_CreateSmokeGrid& a, CUserMsg_ParticleManager_CreateSmokeGrid& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CUserMsg_ParticleManager_CreateSmokeGrid* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CUserMsg_ParticleManager_CreateSmokeGrid* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CUserMsg_ParticleManager_CreateSmokeGrid* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CUserMsg_ParticleManager_CreateSmokeGrid>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CUserMsg_ParticleManager_CreateSmokeGrid& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CUserMsg_ParticleManager_CreateSmokeGrid& from) {
+    CUserMsg_ParticleManager_CreateSmokeGrid::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CUserMsg_ParticleManager_CreateSmokeGrid* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CUserMsg_ParticleManager.CreateSmokeGrid";
+  }
+  protected:
+  explicit CUserMsg_ParticleManager_CreateSmokeGrid(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kVdataNameFieldNumber = 1,
+  };
+  // optional string vdata_name = 1;
+  bool has_vdata_name() const;
+  private:
+  bool _internal_has_vdata_name() const;
+  public:
+  void clear_vdata_name();
+  const std::string& vdata_name() const;
+  template <typename ArgT0 = const std::string&, typename... ArgT>
+  void set_vdata_name(ArgT0&& arg0, ArgT... args);
+  std::string* mutable_vdata_name();
+  PROTOBUF_NODISCARD std::string* release_vdata_name();
+  void set_allocated_vdata_name(std::string* vdata_name);
+  private:
+  const std::string& _internal_vdata_name() const;
+  inline PROTOBUF_ALWAYS_INLINE void _internal_set_vdata_name(const std::string& value);
+  std::string* _internal_mutable_vdata_name();
+  public:
+
+  // @@protoc_insertion_point(class_scope:CUserMsg_ParticleManager.CreateSmokeGrid)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr vdata_name_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_usermessages_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CUserMsg_ParticleManager_SetVData final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CUserMsg_ParticleManager.SetVData) */ {
  public:
@@ -14735,7 +14905,7 @@ class CUserMsg_ParticleManager_SetVData final :
                &_CUserMsg_ParticleManager_SetVData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    75;
 
   friend void swap(CUserMsg_ParticleManager_SetVData& a, CUserMsg_ParticleManager_SetVData& b) {
     a.Swap(&b);
@@ -14900,7 +15070,7 @@ class CUserMsg_ParticleManager_SetMaterialOverride final :
                &_CUserMsg_ParticleManager_SetMaterialOverride_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    76;
 
   friend void swap(CUserMsg_ParticleManager_SetMaterialOverride& a, CUserMsg_ParticleManager_SetMaterialOverride& b) {
     a.Swap(&b);
@@ -15080,7 +15250,7 @@ class CUserMsg_ParticleManager_AddFan final :
                &_CUserMsg_ParticleManager_AddFan_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    77;
 
   friend void swap(CUserMsg_ParticleManager_AddFan& a, CUserMsg_ParticleManager_AddFan& b) {
     a.Swap(&b);
@@ -15530,7 +15700,7 @@ class CUserMsg_ParticleManager_UpdateFan final :
                &_CUserMsg_ParticleManager_UpdateFan_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    78;
 
   friend void swap(CUserMsg_ParticleManager_UpdateFan& a, CUserMsg_ParticleManager_UpdateFan& b) {
     a.Swap(&b);
@@ -15804,7 +15974,7 @@ class CUserMsg_ParticleManager_RemoveFan final :
                &_CUserMsg_ParticleManager_RemoveFan_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    79;
 
   friend void swap(CUserMsg_ParticleManager_RemoveFan& a, CUserMsg_ParticleManager_RemoveFan& b) {
     a.Swap(&b);
@@ -15930,7 +16100,7 @@ class CUserMsg_ParticleManager_SetParticleClusterGrowth final :
                &_CUserMsg_ParticleManager_SetParticleClusterGrowth_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    80;
 
   friend void swap(CUserMsg_ParticleManager_SetParticleClusterGrowth& a, CUserMsg_ParticleManager_SetParticleClusterGrowth& b) {
     a.Swap(&b);
@@ -16110,7 +16280,7 @@ class CUserMsg_ParticleManager final :
                &_CUserMsg_ParticleManager_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    81;
 
   friend void swap(CUserMsg_ParticleManager& a, CUserMsg_ParticleManager& b) {
     a.Swap(&b);
@@ -16213,6 +16383,7 @@ class CUserMsg_ParticleManager final :
   typedef CUserMsg_ParticleManager_SetParticleNamedValueContext SetParticleNamedValueContext;
   typedef CUserMsg_ParticleManager_CreatePhysicsSim CreatePhysicsSim;
   typedef CUserMsg_ParticleManager_DestroyPhysicsSim DestroyPhysicsSim;
+  typedef CUserMsg_ParticleManager_CreateSmokeGrid CreateSmokeGrid;
   typedef CUserMsg_ParticleManager_SetVData SetVData;
   typedef CUserMsg_ParticleManager_SetMaterialOverride SetMaterialOverride;
   typedef CUserMsg_ParticleManager_AddFan AddFan;
@@ -16262,6 +16433,7 @@ class CUserMsg_ParticleManager final :
     kUpdateFanFieldNumber = 40,
     kSetParticleClusterGrowthFieldNumber = 41,
     kRemoveFanFieldNumber = 42,
+    kCreateSmokeGridFieldNumber = 43,
     kTypeFieldNumber = 1,
     kIndexFieldNumber = 2,
   };
@@ -16967,6 +17139,24 @@ class CUserMsg_ParticleManager final :
       ::CUserMsg_ParticleManager_RemoveFan* remove_fan);
   ::CUserMsg_ParticleManager_RemoveFan* unsafe_arena_release_remove_fan();
 
+  // optional .CUserMsg_ParticleManager.CreateSmokeGrid create_smoke_grid = 43;
+  bool has_create_smoke_grid() const;
+  private:
+  bool _internal_has_create_smoke_grid() const;
+  public:
+  void clear_create_smoke_grid();
+  const ::CUserMsg_ParticleManager_CreateSmokeGrid& create_smoke_grid() const;
+  PROTOBUF_NODISCARD ::CUserMsg_ParticleManager_CreateSmokeGrid* release_create_smoke_grid();
+  ::CUserMsg_ParticleManager_CreateSmokeGrid* mutable_create_smoke_grid();
+  void set_allocated_create_smoke_grid(::CUserMsg_ParticleManager_CreateSmokeGrid* create_smoke_grid);
+  private:
+  const ::CUserMsg_ParticleManager_CreateSmokeGrid& _internal_create_smoke_grid() const;
+  ::CUserMsg_ParticleManager_CreateSmokeGrid* _internal_mutable_create_smoke_grid();
+  public:
+  void unsafe_arena_set_allocated_create_smoke_grid(
+      ::CUserMsg_ParticleManager_CreateSmokeGrid* create_smoke_grid);
+  ::CUserMsg_ParticleManager_CreateSmokeGrid* unsafe_arena_release_create_smoke_grid();
+
   // optional .PARTICLE_MESSAGE type = 1 [default = GAME_PARTICLE_MANAGER_EVENT_CREATE];
   bool has_type() const;
   private:
@@ -17234,6 +17424,7 @@ class CUserMsg_ParticleManager final :
     ::CUserMsg_ParticleManager_UpdateFan* update_fan_;
     ::CUserMsg_ParticleManager_SetParticleClusterGrowth* set_particle_cluster_growth_;
     ::CUserMsg_ParticleManager_RemoveFan* remove_fan_;
+    ::CUserMsg_ParticleManager_CreateSmokeGrid* create_smoke_grid_;
     int type_;
     uint32_t index_;
   };
@@ -17297,7 +17488,7 @@ class CUserMsg_HudError final :
                &_CUserMsg_HudError_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    82;
 
   friend void swap(CUserMsg_HudError& a, CUserMsg_HudError& b) {
     a.Swap(&b);
@@ -17457,7 +17648,7 @@ class CUserMsg_CustomGameEvent final :
                &_CUserMsg_CustomGameEvent_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    83;
 
   friend void swap(CUserMsg_CustomGameEvent& a, CUserMsg_CustomGameEvent& b) {
     a.Swap(&b);
@@ -17642,7 +17833,7 @@ class CUserMessageHapticsManagerPulse final :
                &_CUserMessageHapticsManagerPulse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    84;
 
   friend void swap(CUserMessageHapticsManagerPulse& a, CUserMessageHapticsManagerPulse& b) {
     a.Swap(&b);
@@ -17847,7 +18038,7 @@ class CUserMessageHapticsManagerEffect final :
                &_CUserMessageHapticsManagerEffect_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    85;
 
   friend void swap(CUserMessageHapticsManagerEffect& a, CUserMessageHapticsManagerEffect& b) {
     a.Swap(&b);
@@ -18037,7 +18228,7 @@ class CUserMessageAnimStateGraphState final :
                &_CUserMessageAnimStateGraphState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    86;
 
   friend void swap(CUserMessageAnimStateGraphState& a, CUserMessageAnimStateGraphState& b) {
     a.Swap(&b);
@@ -18217,7 +18408,7 @@ class CUserMessageUpdateCssClasses final :
                &_CUserMessageUpdateCssClasses_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    87;
 
   friend void swap(CUserMessageUpdateCssClasses& a, CUserMessageUpdateCssClasses& b) {
     a.Swap(&b);
@@ -18412,7 +18603,7 @@ class CUserMessageServerFrameTime final :
                &_CUserMessageServerFrameTime_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    88;
 
   friend void swap(CUserMessageServerFrameTime& a, CUserMessageServerFrameTime& b) {
     a.Swap(&b);
@@ -18572,7 +18763,7 @@ class CUserMessageLagCompensationError final :
                &_CUserMessageLagCompensationError_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    89;
 
   friend void swap(CUserMessageLagCompensationError& a, CUserMessageLagCompensationError& b) {
     a.Swap(&b);
@@ -18732,7 +18923,7 @@ class CUserMessageRequestDllStatus final :
                &_CUserMessageRequestDllStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    90;
 
   friend void swap(CUserMessageRequestDllStatus& a, CUserMessageRequestDllStatus& b) {
     a.Swap(&b);
@@ -18912,7 +19103,7 @@ class CUserMessageRequestUtilAction final :
                &_CUserMessageRequestUtilAction_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    91;
 
   friend void swap(CUserMessageRequestUtilAction& a, CUserMessageRequestUtilAction& b) {
     a.Swap(&b);
@@ -19132,7 +19323,7 @@ class CUserMessage_UtilMsg_Response_ItemDetail final :
                &_CUserMessage_UtilMsg_Response_ItemDetail_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    92;
 
   friend void swap(CUserMessage_UtilMsg_Response_ItemDetail& a, CUserMessage_UtilMsg_Response_ItemDetail& b) {
     a.Swap(&b);
@@ -19342,7 +19533,7 @@ class CUserMessage_UtilMsg_Response final :
                &_CUserMessage_UtilMsg_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    92;
+    93;
 
   friend void swap(CUserMessage_UtilMsg_Response& a, CUserMessage_UtilMsg_Response& b) {
     a.Swap(&b);
@@ -19692,7 +19883,7 @@ class CUserMessage_DllStatus_CVDiagnostic final :
                &_CUserMessage_DllStatus_CVDiagnostic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    93;
+    94;
 
   friend void swap(CUserMessage_DllStatus_CVDiagnostic& a, CUserMessage_DllStatus_CVDiagnostic& b) {
     a.Swap(&b);
@@ -19902,7 +20093,7 @@ class CUserMessage_DllStatus_CModule final :
                &_CUserMessage_DllStatus_CModule_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    94;
+    95;
 
   friend void swap(CUserMessage_DllStatus_CModule& a, CUserMessage_DllStatus_CModule& b) {
     a.Swap(&b);
@@ -20112,7 +20303,7 @@ class CUserMessage_DllStatus final :
                &_CUserMessage_DllStatus_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    95;
+    96;
 
   friend void swap(CUserMessage_DllStatus& a, CUserMessage_DllStatus& b) {
     a.Swap(&b);
@@ -20400,7 +20591,7 @@ class CUserMessageRequestInventory final :
                &_CUserMessageRequestInventory_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    96;
+    97;
 
   friend void swap(CUserMessageRequestInventory& a, CUserMessageRequestInventory& b) {
     a.Swap(&b);
@@ -20590,7 +20781,7 @@ class CUserMessage_Inventory_Response_InventoryDetail final :
                &_CUserMessage_Inventory_Response_InventoryDetail_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    97;
+    98;
 
   friend void swap(CUserMessage_Inventory_Response_InventoryDetail& a, CUserMessage_Inventory_Response_InventoryDetail& b) {
     a.Swap(&b);
@@ -20895,7 +21086,7 @@ class CUserMessage_Inventory_Response final :
                &_CUserMessage_Inventory_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    98;
+    99;
 
   friend void swap(CUserMessage_Inventory_Response& a, CUserMessage_Inventory_Response& b) {
     a.Swap(&b);
@@ -21252,7 +21443,7 @@ class CUserMessageRequestDiagnostic_Diagnostic final :
                &_CUserMessageRequestDiagnostic_Diagnostic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    99;
+    100;
 
   friend void swap(CUserMessageRequestDiagnostic_Diagnostic& a, CUserMessageRequestDiagnostic_Diagnostic& b) {
     a.Swap(&b);
@@ -21607,7 +21798,7 @@ class CUserMessageRequestDiagnostic final :
                &_CUserMessageRequestDiagnostic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    100;
+    101;
 
   friend void swap(CUserMessageRequestDiagnostic& a, CUserMessageRequestDiagnostic& b) {
     a.Swap(&b);
@@ -21773,7 +21964,7 @@ class CUserMessage_Diagnostic_Response_Diagnostic final :
                &_CUserMessage_Diagnostic_Response_Diagnostic_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    101;
+    102;
 
   friend void swap(CUserMessage_Diagnostic_Response_Diagnostic& a, CUserMessage_Diagnostic_Response_Diagnostic& b) {
     a.Swap(&b);
@@ -22163,7 +22354,7 @@ class CUserMessage_Diagnostic_Response final :
                &_CUserMessage_Diagnostic_Response_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    102;
+    103;
 
   friend void swap(CUserMessage_Diagnostic_Response& a, CUserMessage_Diagnostic_Response& b) {
     a.Swap(&b);
@@ -22405,7 +22596,7 @@ class CUserMessage_ExtraUserData final :
                &_CUserMessage_ExtraUserData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    103;
+    104;
 
   friend void swap(CUserMessage_ExtraUserData& a, CUserMessage_ExtraUserData& b) {
     a.Swap(&b);
@@ -22647,7 +22838,7 @@ class CUserMessage_NotifyResponseFound_Criteria final :
                &_CUserMessage_NotifyResponseFound_Criteria_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    104;
+    105;
 
   friend void swap(CUserMessage_NotifyResponseFound_Criteria& a, CUserMessage_NotifyResponseFound_Criteria& b) {
     a.Swap(&b);
@@ -22827,7 +23018,7 @@ class CUserMessage_NotifyResponseFound final :
                &_CUserMessage_NotifyResponseFound_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    105;
+    106;
 
   friend void swap(CUserMessage_NotifyResponseFound& a, CUserMessage_NotifyResponseFound& b) {
     a.Swap(&b);
@@ -23233,7 +23424,7 @@ class CUserMessage_PlayResponseConditional final :
                &_CUserMessage_PlayResponseConditional_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    106;
+    107;
 
   friend void swap(CUserMessage_PlayResponseConditional& a, CUserMessage_PlayResponseConditional& b) {
     a.Swap(&b);
@@ -32339,6 +32530,78 @@ inline void CUserMsg_ParticleManager_CreatePhysicsSim::set_max_particle_count(ui
 
 // -------------------------------------------------------------------
 
+// CUserMsg_ParticleManager_CreateSmokeGrid
+
+// optional string vdata_name = 1;
+inline bool CUserMsg_ParticleManager_CreateSmokeGrid::_internal_has_vdata_name() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CUserMsg_ParticleManager_CreateSmokeGrid::has_vdata_name() const {
+  return _internal_has_vdata_name();
+}
+inline void CUserMsg_ParticleManager_CreateSmokeGrid::clear_vdata_name() {
+  _impl_.vdata_name_.ClearToEmpty();
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline const std::string& CUserMsg_ParticleManager_CreateSmokeGrid::vdata_name() const {
+  // @@protoc_insertion_point(field_get:CUserMsg_ParticleManager.CreateSmokeGrid.vdata_name)
+  return _internal_vdata_name();
+}
+template <typename ArgT0, typename... ArgT>
+inline PROTOBUF_ALWAYS_INLINE
+void CUserMsg_ParticleManager_CreateSmokeGrid::set_vdata_name(ArgT0&& arg0, ArgT... args) {
+ _impl_._has_bits_[0] |= 0x00000001u;
+ _impl_.vdata_name_.Set(static_cast<ArgT0 &&>(arg0), args..., GetArenaForAllocation());
+  // @@protoc_insertion_point(field_set:CUserMsg_ParticleManager.CreateSmokeGrid.vdata_name)
+}
+inline std::string* CUserMsg_ParticleManager_CreateSmokeGrid::mutable_vdata_name() {
+  std::string* _s = _internal_mutable_vdata_name();
+  // @@protoc_insertion_point(field_mutable:CUserMsg_ParticleManager.CreateSmokeGrid.vdata_name)
+  return _s;
+}
+inline const std::string& CUserMsg_ParticleManager_CreateSmokeGrid::_internal_vdata_name() const {
+  return _impl_.vdata_name_.Get();
+}
+inline void CUserMsg_ParticleManager_CreateSmokeGrid::_internal_set_vdata_name(const std::string& value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.vdata_name_.Set(value, GetArenaForAllocation());
+}
+inline std::string* CUserMsg_ParticleManager_CreateSmokeGrid::_internal_mutable_vdata_name() {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  return _impl_.vdata_name_.Mutable(GetArenaForAllocation());
+}
+inline std::string* CUserMsg_ParticleManager_CreateSmokeGrid::release_vdata_name() {
+  // @@protoc_insertion_point(field_release:CUserMsg_ParticleManager.CreateSmokeGrid.vdata_name)
+  if (!_internal_has_vdata_name()) {
+    return nullptr;
+  }
+  _impl_._has_bits_[0] &= ~0x00000001u;
+  auto* p = _impl_.vdata_name_.Release();
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.vdata_name_.IsDefault()) {
+    _impl_.vdata_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  return p;
+}
+inline void CUserMsg_ParticleManager_CreateSmokeGrid::set_allocated_vdata_name(std::string* vdata_name) {
+  if (vdata_name != nullptr) {
+    _impl_._has_bits_[0] |= 0x00000001u;
+  } else {
+    _impl_._has_bits_[0] &= ~0x00000001u;
+  }
+  _impl_.vdata_name_.SetAllocated(vdata_name, GetArenaForAllocation());
+#ifdef PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  if (_impl_.vdata_name_.IsDefault()) {
+    _impl_.vdata_name_.Set("", GetArenaForAllocation());
+  }
+#endif // PROTOBUF_FORCE_COPY_DEFAULT_STRING
+  // @@protoc_insertion_point(field_set_allocated:CUserMsg_ParticleManager.CreateSmokeGrid.vdata_name)
+}
+
+// -------------------------------------------------------------------
+
 // CUserMsg_ParticleManager_SetVData
 
 // optional string vdata_name = 1;
@@ -34016,7 +34279,7 @@ inline void CUserMsg_ParticleManager_SetParticleClusterGrowth::set_allocated_ori
 
 // optional .PARTICLE_MESSAGE type = 1 [default = GAME_PARTICLE_MANAGER_EVENT_CREATE];
 inline bool CUserMsg_ParticleManager::_internal_has_type() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
   return value;
 }
 inline bool CUserMsg_ParticleManager::has_type() const {
@@ -34024,7 +34287,7 @@ inline bool CUserMsg_ParticleManager::has_type() const {
 }
 inline void CUserMsg_ParticleManager::clear_type() {
   _impl_.type_ = 0;
-  _impl_._has_bits_[1] &= ~0x00000080u;
+  _impl_._has_bits_[1] &= ~0x00000100u;
 }
 inline ::PARTICLE_MESSAGE CUserMsg_ParticleManager::_internal_type() const {
   return static_cast< ::PARTICLE_MESSAGE >(_impl_.type_);
@@ -34035,7 +34298,7 @@ inline ::PARTICLE_MESSAGE CUserMsg_ParticleManager::type() const {
 }
 inline void CUserMsg_ParticleManager::_internal_set_type(::PARTICLE_MESSAGE value) {
   assert(::PARTICLE_MESSAGE_IsValid(value));
-  _impl_._has_bits_[1] |= 0x00000080u;
+  _impl_._has_bits_[1] |= 0x00000100u;
   _impl_.type_ = value;
 }
 inline void CUserMsg_ParticleManager::set_type(::PARTICLE_MESSAGE value) {
@@ -34045,7 +34308,7 @@ inline void CUserMsg_ParticleManager::set_type(::PARTICLE_MESSAGE value) {
 
 // optional uint32 index = 2;
 inline bool CUserMsg_ParticleManager::_internal_has_index() const {
-  bool value = (_impl_._has_bits_[1] & 0x00000100u) != 0;
+  bool value = (_impl_._has_bits_[1] & 0x00000200u) != 0;
   return value;
 }
 inline bool CUserMsg_ParticleManager::has_index() const {
@@ -34053,7 +34316,7 @@ inline bool CUserMsg_ParticleManager::has_index() const {
 }
 inline void CUserMsg_ParticleManager::clear_index() {
   _impl_.index_ = 0u;
-  _impl_._has_bits_[1] &= ~0x00000100u;
+  _impl_._has_bits_[1] &= ~0x00000200u;
 }
 inline uint32_t CUserMsg_ParticleManager::_internal_index() const {
   return _impl_.index_;
@@ -34063,7 +34326,7 @@ inline uint32_t CUserMsg_ParticleManager::index() const {
   return _internal_index();
 }
 inline void CUserMsg_ParticleManager::_internal_set_index(uint32_t value) {
-  _impl_._has_bits_[1] |= 0x00000100u;
+  _impl_._has_bits_[1] |= 0x00000200u;
   _impl_.index_ = value;
 }
 inline void CUserMsg_ParticleManager::set_index(uint32_t value) {
@@ -37579,6 +37842,96 @@ inline void CUserMsg_ParticleManager::set_allocated_remove_fan(::CUserMsg_Partic
   }
   _impl_.remove_fan_ = remove_fan;
   // @@protoc_insertion_point(field_set_allocated:CUserMsg_ParticleManager.remove_fan)
+}
+
+// optional .CUserMsg_ParticleManager.CreateSmokeGrid create_smoke_grid = 43;
+inline bool CUserMsg_ParticleManager::_internal_has_create_smoke_grid() const {
+  bool value = (_impl_._has_bits_[1] & 0x00000080u) != 0;
+  PROTOBUF_ASSUME(!value || _impl_.create_smoke_grid_ != nullptr);
+  return value;
+}
+inline bool CUserMsg_ParticleManager::has_create_smoke_grid() const {
+  return _internal_has_create_smoke_grid();
+}
+inline void CUserMsg_ParticleManager::clear_create_smoke_grid() {
+  if (_impl_.create_smoke_grid_ != nullptr) _impl_.create_smoke_grid_->Clear();
+  _impl_._has_bits_[1] &= ~0x00000080u;
+}
+inline const ::CUserMsg_ParticleManager_CreateSmokeGrid& CUserMsg_ParticleManager::_internal_create_smoke_grid() const {
+  const ::CUserMsg_ParticleManager_CreateSmokeGrid* p = _impl_.create_smoke_grid_;
+  return p != nullptr ? *p : reinterpret_cast<const ::CUserMsg_ParticleManager_CreateSmokeGrid&>(
+      ::_CUserMsg_ParticleManager_CreateSmokeGrid_default_instance_);
+}
+inline const ::CUserMsg_ParticleManager_CreateSmokeGrid& CUserMsg_ParticleManager::create_smoke_grid() const {
+  // @@protoc_insertion_point(field_get:CUserMsg_ParticleManager.create_smoke_grid)
+  return _internal_create_smoke_grid();
+}
+inline void CUserMsg_ParticleManager::unsafe_arena_set_allocated_create_smoke_grid(
+    ::CUserMsg_ParticleManager_CreateSmokeGrid* create_smoke_grid) {
+  if (GetArenaForAllocation() == nullptr) {
+    delete reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(_impl_.create_smoke_grid_);
+  }
+  _impl_.create_smoke_grid_ = create_smoke_grid;
+  if (create_smoke_grid) {
+    _impl_._has_bits_[1] |= 0x00000080u;
+  } else {
+    _impl_._has_bits_[1] &= ~0x00000080u;
+  }
+  // @@protoc_insertion_point(field_unsafe_arena_set_allocated:CUserMsg_ParticleManager.create_smoke_grid)
+}
+inline ::CUserMsg_ParticleManager_CreateSmokeGrid* CUserMsg_ParticleManager::release_create_smoke_grid() {
+  _impl_._has_bits_[1] &= ~0x00000080u;
+  ::CUserMsg_ParticleManager_CreateSmokeGrid* temp = _impl_.create_smoke_grid_;
+  _impl_.create_smoke_grid_ = nullptr;
+#ifdef PROTOBUF_FORCE_COPY_IN_RELEASE
+  auto* old =  reinterpret_cast<::PROTOBUF_NAMESPACE_ID::MessageLite*>(temp);
+  temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  if (GetArenaForAllocation() == nullptr) { delete old; }
+#else  // PROTOBUF_FORCE_COPY_IN_RELEASE
+  if (GetArenaForAllocation() != nullptr) {
+    temp = ::PROTOBUF_NAMESPACE_ID::internal::DuplicateIfNonNull(temp);
+  }
+#endif  // !PROTOBUF_FORCE_COPY_IN_RELEASE
+  return temp;
+}
+inline ::CUserMsg_ParticleManager_CreateSmokeGrid* CUserMsg_ParticleManager::unsafe_arena_release_create_smoke_grid() {
+  // @@protoc_insertion_point(field_release:CUserMsg_ParticleManager.create_smoke_grid)
+  _impl_._has_bits_[1] &= ~0x00000080u;
+  ::CUserMsg_ParticleManager_CreateSmokeGrid* temp = _impl_.create_smoke_grid_;
+  _impl_.create_smoke_grid_ = nullptr;
+  return temp;
+}
+inline ::CUserMsg_ParticleManager_CreateSmokeGrid* CUserMsg_ParticleManager::_internal_mutable_create_smoke_grid() {
+  _impl_._has_bits_[1] |= 0x00000080u;
+  if (_impl_.create_smoke_grid_ == nullptr) {
+    auto* p = CreateMaybeMessage<::CUserMsg_ParticleManager_CreateSmokeGrid>(GetArenaForAllocation());
+    _impl_.create_smoke_grid_ = p;
+  }
+  return _impl_.create_smoke_grid_;
+}
+inline ::CUserMsg_ParticleManager_CreateSmokeGrid* CUserMsg_ParticleManager::mutable_create_smoke_grid() {
+  ::CUserMsg_ParticleManager_CreateSmokeGrid* _msg = _internal_mutable_create_smoke_grid();
+  // @@protoc_insertion_point(field_mutable:CUserMsg_ParticleManager.create_smoke_grid)
+  return _msg;
+}
+inline void CUserMsg_ParticleManager::set_allocated_create_smoke_grid(::CUserMsg_ParticleManager_CreateSmokeGrid* create_smoke_grid) {
+  ::PROTOBUF_NAMESPACE_ID::Arena* message_arena = GetArenaForAllocation();
+  if (message_arena == nullptr) {
+    delete _impl_.create_smoke_grid_;
+  }
+  if (create_smoke_grid) {
+    ::PROTOBUF_NAMESPACE_ID::Arena* submessage_arena =
+        ::PROTOBUF_NAMESPACE_ID::Arena::InternalGetOwningArena(create_smoke_grid);
+    if (message_arena != submessage_arena) {
+      create_smoke_grid = ::PROTOBUF_NAMESPACE_ID::internal::GetOwnedMessage(
+          message_arena, create_smoke_grid, submessage_arena);
+    }
+    _impl_._has_bits_[1] |= 0x00000080u;
+  } else {
+    _impl_._has_bits_[1] &= ~0x00000080u;
+  }
+  _impl_.create_smoke_grid_ = create_smoke_grid;
+  // @@protoc_insertion_point(field_set_allocated:CUserMsg_ParticleManager.create_smoke_grid)
 }
 
 // -------------------------------------------------------------------
@@ -43056,6 +43409,8 @@ inline void CUserMessage_PlayResponseConditional::set_mix_priority(int32_t value
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

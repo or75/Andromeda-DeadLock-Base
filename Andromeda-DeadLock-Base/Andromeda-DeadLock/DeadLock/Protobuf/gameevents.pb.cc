@@ -548,7 +548,7 @@ const char descriptor_table_protodef_gameevents_2eproto[] PROTOBUF_SECTION_VARIA
   "\022\014\n\004name\030\002 \001(\t\032b\n\014descriptor_t\022\017\n\007eventi"
   "d\030\001 \001(\005\022\014\n\004name\030\002 \001(\t\0223\n\004keys\030\003 \003(\0132%.CM"
   "sgSource1LegacyGameEventList.key_t:\006\200\265\030\200"
-  "\300\001\"K\n\035CMsgSource1LegacyListenEvents\022\022\n\np"
+  "\200\002\"K\n\035CMsgSource1LegacyListenEvents\022\022\n\np"
   "layerslot\030\001 \001(\005\022\026\n\016eventarraybits\030\002 \003(\r\""
   "\270\002\n\032CMsgSource1LegacyGameEvent\022\022\n\nevent_"
   "name\030\001 \001(\t\022\017\n\007eventid\030\002 \001(\005\022/\n\004keys\030\003 \003("

@@ -76,7 +76,7 @@ namespace SDK
 			00007FFA820122F | call client.7FFA82A05750                              | GetBaseEntity
 			*/
 
-			auto ppGameEntitySystem = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B 0D ? ? ? ? 8B D0 E8 ? ? ? ? 44 8B 87" ) ) );
+			auto ppGameEntitySystem = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B ? ? ? ? ? 8B D0 E8 ? ? ? ? 44 8B 83 ? ? ? ? 33 FF" ) ) );
 
 			if ( !ppGameEntitySystem )
 				return nullptr;

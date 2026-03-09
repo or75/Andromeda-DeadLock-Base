@@ -224,6 +224,12 @@ extern CMsgServerSignoutData_ServerPerfStats_PerfSampleDefaultTypeInternal _CMsg
 class CMsgServerSignoutData_StreetBrawlData;
 struct CMsgServerSignoutData_StreetBrawlDataDefaultTypeInternal;
 extern CMsgServerSignoutData_StreetBrawlDataDefaultTypeInternal _CMsgServerSignoutData_StreetBrawlData_default_instance_;
+class CMsgServerSignoutData_StreetBrawlData_DraftItem;
+struct CMsgServerSignoutData_StreetBrawlData_DraftItemDefaultTypeInternal;
+extern CMsgServerSignoutData_StreetBrawlData_DraftItemDefaultTypeInternal _CMsgServerSignoutData_StreetBrawlData_DraftItem_default_instance_;
+class CMsgServerSignoutData_StreetBrawlData_DraftItemSet;
+struct CMsgServerSignoutData_StreetBrawlData_DraftItemSetDefaultTypeInternal;
+extern CMsgServerSignoutData_StreetBrawlData_DraftItemSetDefaultTypeInternal _CMsgServerSignoutData_StreetBrawlData_DraftItemSet_default_instance_;
 class CMsgServerSignoutData_StreetBrawlData_Round;
 struct CMsgServerSignoutData_StreetBrawlData_RoundDefaultTypeInternal;
 extern CMsgServerSignoutData_StreetBrawlData_RoundDefaultTypeInternal _CMsgServerSignoutData_StreetBrawlData_Round_default_instance_;
@@ -385,6 +391,8 @@ template<> ::CMsgServerSignoutData_ServerPerfStats_FrameCounts* Arena::CreateMay
 template<> ::CMsgServerSignoutData_ServerPerfStats_MatchPerfSamples* Arena::CreateMaybeMessage<::CMsgServerSignoutData_ServerPerfStats_MatchPerfSamples>(Arena*);
 template<> ::CMsgServerSignoutData_ServerPerfStats_PerfSample* Arena::CreateMaybeMessage<::CMsgServerSignoutData_ServerPerfStats_PerfSample>(Arena*);
 template<> ::CMsgServerSignoutData_StreetBrawlData* Arena::CreateMaybeMessage<::CMsgServerSignoutData_StreetBrawlData>(Arena*);
+template<> ::CMsgServerSignoutData_StreetBrawlData_DraftItem* Arena::CreateMaybeMessage<::CMsgServerSignoutData_StreetBrawlData_DraftItem>(Arena*);
+template<> ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet* Arena::CreateMaybeMessage<::CMsgServerSignoutData_StreetBrawlData_DraftItemSet>(Arena*);
 template<> ::CMsgServerSignoutData_StreetBrawlData_Round* Arena::CreateMaybeMessage<::CMsgServerSignoutData_StreetBrawlData_Round>(Arena*);
 template<> ::CMsgServerSignoutData_StreetBrawlData_RoundPlayer* Arena::CreateMaybeMessage<::CMsgServerSignoutData_StreetBrawlData_RoundPlayer>(Arena*);
 template<> ::CMsgServerSteamLearnCitadelPlayerMechanicalBehavior* Arena::CreateMaybeMessage<::CMsgServerSteamLearnCitadelPlayerMechanicalBehavior>(Arena*);
@@ -466,6 +474,54 @@ inline bool CMsgServerSignoutData_HeroXPGrant_EGrantReason_Parse(
     ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgServerSignoutData_HeroXPGrant_EGrantReason* value) {
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgServerSignoutData_HeroXPGrant_EGrantReason>(
     CMsgServerSignoutData_HeroXPGrant_EGrantReason_descriptor(), name, value);
+}
+enum CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome : int {
+  CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_k_eNotChosen = 0,
+  CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_k_eChosen = 1,
+  CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_k_eRerolled = 2
+};
+bool CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_IsValid(int value);
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_EDraftItemOutcome_MIN = CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_k_eNotChosen;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_EDraftItemOutcome_MAX = CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_k_eRerolled;
+constexpr int CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_EDraftItemOutcome_ARRAYSIZE = CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_EDraftItemOutcome_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_descriptor();
+template<typename T>
+inline const std::string& CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_descriptor(), enum_t_value);
+}
+inline bool CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome>(
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_descriptor(), name, value);
+}
+enum CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags : int {
+  CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_k_eHasUpgradeBit = 1,
+  CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_k_eHasAdditionalItem = 2,
+  CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_k_eRareItem = 4
+};
+bool CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_IsValid(int value);
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_EDraftItemFlags_MIN = CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_k_eHasUpgradeBit;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_EDraftItemFlags_MAX = CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_k_eRareItem;
+constexpr int CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_EDraftItemFlags_ARRAYSIZE = CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_EDraftItemFlags_MAX + 1;
+
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_descriptor();
+template<typename T>
+inline const std::string& CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags>::value ||
+    ::std::is_integral<T>::value,
+    "Incorrect type passed to function CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_Name.");
+  return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_descriptor(), enum_t_value);
+}
+inline bool CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags>(
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_descriptor(), name, value);
 }
 enum CMsgServerSignoutData_PenalizedPlayers_EPenaltyReason : int {
   CMsgServerSignoutData_PenalizedPlayers_EPenaltyReason_k_EPenaltyReason_Abandon = 0,
@@ -1062,6 +1118,7 @@ class CMsgServerCrashSentinelFile_GameInfo final :
     kWasServerShutdownFieldNumber = 8,
     kAllowMatchesFieldNumber = 10,
     kAllowHideoutFieldNumber = 11,
+    kWasLostLobbyFieldNumber = 12,
   };
   // repeated .CMsgServerCrashSentinelFile.Player players = 5;
   int players_size() const;
@@ -1198,6 +1255,19 @@ class CMsgServerCrashSentinelFile_GameInfo final :
   void _internal_set_allow_hideout(bool value);
   public:
 
+  // optional bool was_lost_lobby = 12;
+  bool has_was_lost_lobby() const;
+  private:
+  bool _internal_has_was_lost_lobby() const;
+  public:
+  void clear_was_lost_lobby();
+  bool was_lost_lobby() const;
+  void set_was_lost_lobby(bool value);
+  private:
+  bool _internal_was_lost_lobby() const;
+  void _internal_set_was_lost_lobby(bool value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgServerCrashSentinelFile.GameInfo)
  private:
   class _Internal;
@@ -1218,6 +1288,7 @@ class CMsgServerCrashSentinelFile_GameInfo final :
     bool was_server_shutdown_;
     bool allow_matches_;
     bool allow_hideout_;
+    bool was_lost_lobby_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fserver_2eproto;
@@ -3958,6 +4029,7 @@ class CSOCitadelServerStaticLobby_Member final :
     kIsCommsRestrictedFieldNumber = 9,
     kPartyDesiresLaningTogetherFieldNumber = 14,
     kRequiresSkillCalibrationFieldNumber = 18,
+    kRandomedHeroFieldNumber = 21,
     kBotDifficultyFieldNumber = 16,
     kMatchNumberFieldNumber = 20,
   };
@@ -4162,6 +4234,19 @@ class CSOCitadelServerStaticLobby_Member final :
   void _internal_set_requires_skill_calibration(bool value);
   public:
 
+  // optional bool randomed_hero = 21;
+  bool has_randomed_hero() const;
+  private:
+  bool _internal_has_randomed_hero() const;
+  public:
+  void clear_randomed_hero();
+  bool randomed_hero() const;
+  void set_randomed_hero(bool value);
+  private:
+  bool _internal_randomed_hero() const;
+  void _internal_set_randomed_hero(bool value);
+  public:
+
   // optional .ECitadelBotDifficulty bot_difficulty = 16 [default = k_ECitadelBotDifficulty_None];
   bool has_bot_difficulty() const;
   private:
@@ -4212,6 +4297,7 @@ class CSOCitadelServerStaticLobby_Member final :
     bool is_comms_restricted_;
     bool party_desires_laning_together_;
     bool requires_skill_calibration_;
+    bool randomed_hero_;
     int bot_difficulty_;
     uint32_t match_number_;
   };
@@ -4546,6 +4632,7 @@ class CSOCitadelServerStaticLobby final :
   enum : int {
     kExtraMessagesFieldNumber = 1,
     kMembersFieldNumber = 6,
+    kBannedHeroesFieldNumber = 29,
     kLevelNameFieldNumber = 5,
     kBroadcastUrlFieldNumber = 17,
     kGameplayExperimentFieldNumber = 27,
@@ -4603,6 +4690,28 @@ class CSOCitadelServerStaticLobby final :
   ::CSOCitadelServerStaticLobby_Member* add_members();
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSOCitadelServerStaticLobby_Member >&
       members() const;
+
+  // repeated uint32 banned_heroes = 29;
+  int banned_heroes_size() const;
+  private:
+  int _internal_banned_heroes_size() const;
+  public:
+  void clear_banned_heroes();
+  private:
+  uint32_t _internal_banned_heroes(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_banned_heroes() const;
+  void _internal_add_banned_heroes(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_banned_heroes();
+  public:
+  uint32_t banned_heroes(int index) const;
+  void set_banned_heroes(int index, uint32_t value);
+  void add_banned_heroes(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      banned_heroes() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_banned_heroes();
 
   // optional string level_name = 5;
   bool has_level_name() const;
@@ -4909,6 +5018,7 @@ class CSOCitadelServerStaticLobby final :
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CExtraMsgBlock > extra_messages_;
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CSOCitadelServerStaticLobby_Member > members_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > banned_heroes_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr level_name_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr broadcast_url_;
     ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr gameplay_experiment_;
@@ -14010,6 +14120,360 @@ class CMsgServerSignoutData_PlayerBehavior final :
 };
 // -------------------------------------------------------------------
 
+class CMsgServerSignoutData_StreetBrawlData_DraftItem final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgServerSignoutData_StreetBrawlData.DraftItem) */ {
+ public:
+  inline CMsgServerSignoutData_StreetBrawlData_DraftItem() : CMsgServerSignoutData_StreetBrawlData_DraftItem(nullptr) {}
+  ~CMsgServerSignoutData_StreetBrawlData_DraftItem() override;
+  explicit PROTOBUF_CONSTEXPR CMsgServerSignoutData_StreetBrawlData_DraftItem(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgServerSignoutData_StreetBrawlData_DraftItem(const CMsgServerSignoutData_StreetBrawlData_DraftItem& from);
+  CMsgServerSignoutData_StreetBrawlData_DraftItem(CMsgServerSignoutData_StreetBrawlData_DraftItem&& from) noexcept
+    : CMsgServerSignoutData_StreetBrawlData_DraftItem() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgServerSignoutData_StreetBrawlData_DraftItem& operator=(const CMsgServerSignoutData_StreetBrawlData_DraftItem& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgServerSignoutData_StreetBrawlData_DraftItem& operator=(CMsgServerSignoutData_StreetBrawlData_DraftItem&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgServerSignoutData_StreetBrawlData_DraftItem& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgServerSignoutData_StreetBrawlData_DraftItem* internal_default_instance() {
+    return reinterpret_cast<const CMsgServerSignoutData_StreetBrawlData_DraftItem*>(
+               &_CMsgServerSignoutData_StreetBrawlData_DraftItem_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    57;
+
+  friend void swap(CMsgServerSignoutData_StreetBrawlData_DraftItem& a, CMsgServerSignoutData_StreetBrawlData_DraftItem& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgServerSignoutData_StreetBrawlData_DraftItem* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgServerSignoutData_StreetBrawlData_DraftItem* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgServerSignoutData_StreetBrawlData_DraftItem* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgServerSignoutData_StreetBrawlData_DraftItem>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgServerSignoutData_StreetBrawlData_DraftItem& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgServerSignoutData_StreetBrawlData_DraftItem& from) {
+    CMsgServerSignoutData_StreetBrawlData_DraftItem::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgServerSignoutData_StreetBrawlData_DraftItem* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgServerSignoutData_StreetBrawlData.DraftItem";
+  }
+  protected:
+  explicit CMsgServerSignoutData_StreetBrawlData_DraftItem(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kAbilityIdFieldNumber = 1,
+    kFlagsFieldNumber = 2,
+    kOutcomeFieldNumber = 3,
+  };
+  // optional uint32 ability_id = 1;
+  bool has_ability_id() const;
+  private:
+  bool _internal_has_ability_id() const;
+  public:
+  void clear_ability_id();
+  uint32_t ability_id() const;
+  void set_ability_id(uint32_t value);
+  private:
+  uint32_t _internal_ability_id() const;
+  void _internal_set_ability_id(uint32_t value);
+  public:
+
+  // optional uint32 flags = 2;
+  bool has_flags() const;
+  private:
+  bool _internal_has_flags() const;
+  public:
+  void clear_flags();
+  uint32_t flags() const;
+  void set_flags(uint32_t value);
+  private:
+  uint32_t _internal_flags() const;
+  void _internal_set_flags(uint32_t value);
+  public:
+
+  // optional .CMsgServerSignoutData_StreetBrawlData.EDraftItemOutcome outcome = 3 [default = k_eNotChosen];
+  bool has_outcome() const;
+  private:
+  bool _internal_has_outcome() const;
+  public:
+  void clear_outcome();
+  ::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome outcome() const;
+  void set_outcome(::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome value);
+  private:
+  ::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome _internal_outcome() const;
+  void _internal_set_outcome(::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    uint32_t ability_id_;
+    uint32_t flags_;
+    int outcome_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_citadel_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
+class CMsgServerSignoutData_StreetBrawlData_DraftItemSet final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgServerSignoutData_StreetBrawlData.DraftItemSet) */ {
+ public:
+  inline CMsgServerSignoutData_StreetBrawlData_DraftItemSet() : CMsgServerSignoutData_StreetBrawlData_DraftItemSet(nullptr) {}
+  ~CMsgServerSignoutData_StreetBrawlData_DraftItemSet() override;
+  explicit PROTOBUF_CONSTEXPR CMsgServerSignoutData_StreetBrawlData_DraftItemSet(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgServerSignoutData_StreetBrawlData_DraftItemSet(const CMsgServerSignoutData_StreetBrawlData_DraftItemSet& from);
+  CMsgServerSignoutData_StreetBrawlData_DraftItemSet(CMsgServerSignoutData_StreetBrawlData_DraftItemSet&& from) noexcept
+    : CMsgServerSignoutData_StreetBrawlData_DraftItemSet() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgServerSignoutData_StreetBrawlData_DraftItemSet& operator=(const CMsgServerSignoutData_StreetBrawlData_DraftItemSet& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgServerSignoutData_StreetBrawlData_DraftItemSet& operator=(CMsgServerSignoutData_StreetBrawlData_DraftItemSet&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgServerSignoutData_StreetBrawlData_DraftItemSet& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgServerSignoutData_StreetBrawlData_DraftItemSet* internal_default_instance() {
+    return reinterpret_cast<const CMsgServerSignoutData_StreetBrawlData_DraftItemSet*>(
+               &_CMsgServerSignoutData_StreetBrawlData_DraftItemSet_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    58;
+
+  friend void swap(CMsgServerSignoutData_StreetBrawlData_DraftItemSet& a, CMsgServerSignoutData_StreetBrawlData_DraftItemSet& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgServerSignoutData_StreetBrawlData_DraftItemSet* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgServerSignoutData_StreetBrawlData_DraftItemSet* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgServerSignoutData_StreetBrawlData_DraftItemSet* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgServerSignoutData_StreetBrawlData_DraftItemSet>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgServerSignoutData_StreetBrawlData_DraftItemSet& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgServerSignoutData_StreetBrawlData_DraftItemSet& from) {
+    CMsgServerSignoutData_StreetBrawlData_DraftItemSet::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgServerSignoutData_StreetBrawlData_DraftItemSet* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgServerSignoutData_StreetBrawlData.DraftItemSet";
+  }
+  protected:
+  explicit CMsgServerSignoutData_StreetBrawlData_DraftItemSet(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemsFieldNumber = 1,
+  };
+  // repeated .CMsgServerSignoutData_StreetBrawlData.DraftItem items = 1;
+  int items_size() const;
+  private:
+  int _internal_items_size() const;
+  public:
+  void clear_items();
+  ::CMsgServerSignoutData_StreetBrawlData_DraftItem* mutable_items(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItem >*
+      mutable_items();
+  private:
+  const ::CMsgServerSignoutData_StreetBrawlData_DraftItem& _internal_items(int index) const;
+  ::CMsgServerSignoutData_StreetBrawlData_DraftItem* _internal_add_items();
+  public:
+  const ::CMsgServerSignoutData_StreetBrawlData_DraftItem& items(int index) const;
+  ::CMsgServerSignoutData_StreetBrawlData_DraftItem* add_items();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItem >&
+      items() const;
+
+  // @@protoc_insertion_point(class_scope:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItem > items_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_citadel_5fgcmessages_5fserver_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgServerSignoutData_StreetBrawlData_RoundPlayer final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgServerSignoutData_StreetBrawlData.RoundPlayer) */ {
  public:
@@ -14065,7 +14529,7 @@ class CMsgServerSignoutData_StreetBrawlData_RoundPlayer final :
                &_CMsgServerSignoutData_StreetBrawlData_RoundPlayer_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    57;
+    59;
 
   friend void swap(CMsgServerSignoutData_StreetBrawlData_RoundPlayer& a, CMsgServerSignoutData_StreetBrawlData_RoundPlayer& b) {
     a.Swap(&b);
@@ -14138,6 +14602,7 @@ class CMsgServerSignoutData_StreetBrawlData_RoundPlayer final :
   // accessors -------------------------------------------------------
 
   enum : int {
+    kDraftItemSetsFieldNumber = 9,
     kPlayerSlotFieldNumber = 1,
     kPlayerDamageFieldNumber = 2,
     kKillsFieldNumber = 3,
@@ -14147,6 +14612,24 @@ class CMsgServerSignoutData_StreetBrawlData_RoundPlayer final :
     kObjectiveDamageFieldNumber = 7,
     kObjectiveSpiritDamageFieldNumber = 8,
   };
+  // repeated .CMsgServerSignoutData_StreetBrawlData.DraftItemSet draft_item_sets = 9;
+  int draft_item_sets_size() const;
+  private:
+  int _internal_draft_item_sets_size() const;
+  public:
+  void clear_draft_item_sets();
+  ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet* mutable_draft_item_sets(int index);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet >*
+      mutable_draft_item_sets();
+  private:
+  const ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet& _internal_draft_item_sets(int index) const;
+  ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet* _internal_add_draft_item_sets();
+  public:
+  const ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet& draft_item_sets(int index) const;
+  ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet* add_draft_item_sets();
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet >&
+      draft_item_sets() const;
+
   // optional uint32 player_slot = 1;
   bool has_player_slot() const;
   private:
@@ -14261,6 +14744,7 @@ class CMsgServerSignoutData_StreetBrawlData_RoundPlayer final :
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet > draft_item_sets_;
     uint32_t player_slot_;
     uint32_t player_damage_;
     uint32_t kills_;
@@ -14330,7 +14814,7 @@ class CMsgServerSignoutData_StreetBrawlData_Round final :
                &_CMsgServerSignoutData_StreetBrawlData_Round_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    58;
+    60;
 
   friend void swap(CMsgServerSignoutData_StreetBrawlData_Round& a, CMsgServerSignoutData_StreetBrawlData_Round& b) {
     a.Swap(&b);
@@ -14540,7 +15024,7 @@ class CMsgServerSignoutData_StreetBrawlData final :
                &_CMsgServerSignoutData_StreetBrawlData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    59;
+    61;
 
   friend void swap(CMsgServerSignoutData_StreetBrawlData& a, CMsgServerSignoutData_StreetBrawlData& b) {
     a.Swap(&b);
@@ -14610,8 +15094,74 @@ class CMsgServerSignoutData_StreetBrawlData final :
 
   // nested types ----------------------------------------------------
 
+  typedef CMsgServerSignoutData_StreetBrawlData_DraftItem DraftItem;
+  typedef CMsgServerSignoutData_StreetBrawlData_DraftItemSet DraftItemSet;
   typedef CMsgServerSignoutData_StreetBrawlData_RoundPlayer RoundPlayer;
   typedef CMsgServerSignoutData_StreetBrawlData_Round Round;
+
+  typedef CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome EDraftItemOutcome;
+  static constexpr EDraftItemOutcome k_eNotChosen =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_k_eNotChosen;
+  static constexpr EDraftItemOutcome k_eChosen =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_k_eChosen;
+  static constexpr EDraftItemOutcome k_eRerolled =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_k_eRerolled;
+  static inline bool EDraftItemOutcome_IsValid(int value) {
+    return CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_IsValid(value);
+  }
+  static constexpr EDraftItemOutcome EDraftItemOutcome_MIN =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_EDraftItemOutcome_MIN;
+  static constexpr EDraftItemOutcome EDraftItemOutcome_MAX =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_EDraftItemOutcome_MAX;
+  static constexpr int EDraftItemOutcome_ARRAYSIZE =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_EDraftItemOutcome_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EDraftItemOutcome_descriptor() {
+    return CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EDraftItemOutcome_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EDraftItemOutcome>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EDraftItemOutcome_Name.");
+    return CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_Name(enum_t_value);
+  }
+  static inline bool EDraftItemOutcome_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EDraftItemOutcome* value) {
+    return CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_Parse(name, value);
+  }
+
+  typedef CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags EDraftItemFlags;
+  static constexpr EDraftItemFlags k_eHasUpgradeBit =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_k_eHasUpgradeBit;
+  static constexpr EDraftItemFlags k_eHasAdditionalItem =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_k_eHasAdditionalItem;
+  static constexpr EDraftItemFlags k_eRareItem =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_k_eRareItem;
+  static inline bool EDraftItemFlags_IsValid(int value) {
+    return CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_IsValid(value);
+  }
+  static constexpr EDraftItemFlags EDraftItemFlags_MIN =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_EDraftItemFlags_MIN;
+  static constexpr EDraftItemFlags EDraftItemFlags_MAX =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_EDraftItemFlags_MAX;
+  static constexpr int EDraftItemFlags_ARRAYSIZE =
+    CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_EDraftItemFlags_ARRAYSIZE;
+  static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
+  EDraftItemFlags_descriptor() {
+    return CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_descriptor();
+  }
+  template<typename T>
+  static inline const std::string& EDraftItemFlags_Name(T enum_t_value) {
+    static_assert(::std::is_same<T, EDraftItemFlags>::value ||
+      ::std::is_integral<T>::value,
+      "Incorrect type passed to function EDraftItemFlags_Name.");
+    return CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_Name(enum_t_value);
+  }
+  static inline bool EDraftItemFlags_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
+      EDraftItemFlags* value) {
+    return CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_Parse(name, value);
+  }
 
   // accessors -------------------------------------------------------
 
@@ -14707,7 +15257,7 @@ class CMsgServerSignoutData_PenalizedPlayers_Penalty final :
                &_CMsgServerSignoutData_PenalizedPlayers_Penalty_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    60;
+    62;
 
   friend void swap(CMsgServerSignoutData_PenalizedPlayers_Penalty& a, CMsgServerSignoutData_PenalizedPlayers_Penalty& b) {
     a.Swap(&b);
@@ -14912,7 +15462,7 @@ class CMsgServerSignoutData_PenalizedPlayers final :
                &_CMsgServerSignoutData_PenalizedPlayers_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    61;
+    63;
 
   friend void swap(CMsgServerSignoutData_PenalizedPlayers& a, CMsgServerSignoutData_PenalizedPlayers& b) {
     a.Swap(&b);
@@ -15112,7 +15662,7 @@ class CMsgMatchData_PlayerItem final :
                &_CMsgMatchData_PlayerItem_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    62;
+    64;
 
   friend void swap(CMsgMatchData_PlayerItem& a, CMsgMatchData_PlayerItem& b) {
     a.Swap(&b);
@@ -15347,7 +15897,7 @@ class CMsgMatchData_AuxStat final :
                &_CMsgMatchData_AuxStat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    63;
+    65;
 
   friend void swap(CMsgMatchData_AuxStat& a, CMsgMatchData_AuxStat& b) {
     a.Swap(&b);
@@ -15522,7 +16072,7 @@ class CMsgMatchData_PlayerInfo final :
                &_CMsgMatchData_PlayerInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    64;
+    66;
 
   friend void swap(CMsgMatchData_PlayerInfo& a, CMsgMatchData_PlayerInfo& b) {
     a.Swap(&b);
@@ -16546,7 +17096,7 @@ class CMsgMatchData_TeamInfo final :
                &_CMsgMatchData_TeamInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    65;
+    67;
 
   friend void swap(CMsgMatchData_TeamInfo& a, CMsgMatchData_TeamInfo& b) {
     a.Swap(&b);
@@ -16726,7 +17276,7 @@ class CMsgMatchData final :
                &_CMsgMatchData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    66;
+    68;
 
   friend void swap(CMsgMatchData& a, CMsgMatchData& b) {
     a.Swap(&b);
@@ -17283,7 +17833,7 @@ class CMsgServerToGCMatchSignout final :
                &_CMsgServerToGCMatchSignout_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    67;
+    69;
 
   friend void swap(CMsgServerToGCMatchSignout& a, CMsgServerToGCMatchSignout& b) {
     a.Swap(&b);
@@ -17528,7 +18078,7 @@ class CMsgServerToGCMatchSignoutResponse final :
                &_CMsgServerToGCMatchSignoutResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    68;
+    70;
 
   friend void swap(CMsgServerToGCMatchSignoutResponse& a, CMsgServerToGCMatchSignoutResponse& b) {
     a.Swap(&b);
@@ -17723,7 +18273,7 @@ class CMsgServerWelcomeCitadel final :
                &_CMsgServerWelcomeCitadel_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    71;
 
   friend void swap(CMsgServerWelcomeCitadel& a, CMsgServerWelcomeCitadel& b) {
     a.Swap(&b);
@@ -17849,7 +18399,7 @@ class CMsgServerToGCIdlePing final :
                &_CMsgServerToGCIdlePing_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    72;
 
   friend void swap(CMsgServerToGCIdlePing& a, CMsgServerToGCIdlePing& b) {
     a.Swap(&b);
@@ -18008,7 +18558,7 @@ class CMsgGCToServerRequestPing final :
                &_CMsgGCToServerRequestPing_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    73;
 
   friend void swap(CMsgGCToServerRequestPing& a, CMsgGCToServerRequestPing& b) {
     a.Swap(&b);
@@ -18134,7 +18684,7 @@ class CMsgGCToServerAllocateForMatch final :
                &_CMsgGCToServerAllocateForMatch_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    74;
 
   friend void swap(CMsgGCToServerAllocateForMatch& a, CMsgGCToServerAllocateForMatch& b) {
     a.Swap(&b);
@@ -18294,7 +18844,7 @@ class CMsgGCToServerAllocateForMatchResponse final :
                &_CMsgGCToServerAllocateForMatchResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    75;
 
   friend void swap(CMsgGCToServerAllocateForMatchResponse& a, CMsgGCToServerAllocateForMatchResponse& b) {
     a.Swap(&b);
@@ -18454,7 +19004,7 @@ class CMsgGCToServerAllocateForHideout final :
                &_CMsgGCToServerAllocateForHideout_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    76;
 
   friend void swap(CMsgGCToServerAllocateForHideout& a, CMsgGCToServerAllocateForHideout& b) {
     a.Swap(&b);
@@ -18614,7 +19164,7 @@ class CMsgGCToServerAllocateForHideoutResponse final :
                &_CMsgGCToServerAllocateForHideoutResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    75;
+    77;
 
   friend void swap(CMsgGCToServerAllocateForHideoutResponse& a, CMsgGCToServerAllocateForHideoutResponse& b) {
     a.Swap(&b);
@@ -18789,7 +19339,7 @@ class CMsgServerToGCEnterMatchmaking final :
                &_CMsgServerToGCEnterMatchmaking_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    76;
+    78;
 
   friend void swap(CMsgServerToGCEnterMatchmaking& a, CMsgServerToGCEnterMatchmaking& b) {
     a.Swap(&b);
@@ -19109,7 +19659,7 @@ class CMsgGCToServerCancelAllocateForMatch final :
                &_CMsgGCToServerCancelAllocateForMatch_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    77;
+    79;
 
   friend void swap(CMsgGCToServerCancelAllocateForMatch& a, CMsgGCToServerCancelAllocateForMatch& b) {
     a.Swap(&b);
@@ -19284,7 +19834,7 @@ class CMsgServerToGCUpdateLobbyServerState final :
                &_CMsgServerToGCUpdateLobbyServerState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    78;
+    80;
 
   friend void swap(CMsgServerToGCUpdateLobbyServerState& a, CMsgServerToGCUpdateLobbyServerState& b) {
     a.Swap(&b);
@@ -19474,7 +20024,7 @@ class CMsgServerToGCAbandonMatch_Player final :
                &_CMsgServerToGCAbandonMatch_Player_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    79;
+    81;
 
   friend void swap(CMsgServerToGCAbandonMatch_Player& a, CMsgServerToGCAbandonMatch_Player& b) {
     a.Swap(&b);
@@ -19664,7 +20214,7 @@ class CMsgServerToGCAbandonMatch final :
                &_CMsgServerToGCAbandonMatch_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    80;
+    82;
 
   friend void swap(CMsgServerToGCAbandonMatch& a, CMsgServerToGCAbandonMatch& b) {
     a.Swap(&b);
@@ -19789,6 +20339,7 @@ class CMsgServerToGCAbandonMatch final :
     kWasServerShutdownFieldNumber = 17,
     kAllowMatchesFieldNumber = 21,
     kAllowHideoutFieldNumber = 22,
+    kWasLostLobbyFieldNumber = 23,
     kReasonCodeFieldNumber = 4,
   };
   // repeated .CMsgServerToGCAbandonMatch.Player players = 8;
@@ -20056,6 +20607,19 @@ class CMsgServerToGCAbandonMatch final :
   void _internal_set_allow_hideout(bool value);
   public:
 
+  // optional bool was_lost_lobby = 23;
+  bool has_was_lost_lobby() const;
+  private:
+  bool _internal_has_was_lost_lobby() const;
+  public:
+  void clear_was_lost_lobby();
+  bool was_lost_lobby() const;
+  void set_was_lost_lobby(bool value);
+  private:
+  bool _internal_was_lost_lobby() const;
+  void _internal_set_was_lost_lobby(bool value);
+  public:
+
   // optional .CMsgServerToGCAbandonMatch.EReason reason_code = 4 [default = eReason_ServerCrash];
   bool has_reason_code() const;
   private:
@@ -20099,6 +20663,7 @@ class CMsgServerToGCAbandonMatch final :
     bool was_server_shutdown_;
     bool allow_matches_;
     bool allow_hideout_;
+    bool was_lost_lobby_;
     int reason_code_;
   };
   union { Impl_ _impl_; };
@@ -20160,7 +20725,7 @@ class CMsgServerToGCAbandonMatchResponse final :
                &_CMsgServerToGCAbandonMatchResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    81;
+    83;
 
   friend void swap(CMsgServerToGCAbandonMatchResponse& a, CMsgServerToGCAbandonMatchResponse& b) {
     a.Swap(&b);
@@ -20285,7 +20850,7 @@ class CMsgServerToGCTestConnection final :
                &_CMsgServerToGCTestConnection_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    82;
+    84;
 
   friend void swap(CMsgServerToGCTestConnection& a, CMsgServerToGCTestConnection& b) {
     a.Swap(&b);
@@ -20410,7 +20975,7 @@ class CMsgServerToGCTestConnectionResponse final :
                &_CMsgServerToGCTestConnectionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    83;
+    85;
 
   friend void swap(CMsgServerToGCTestConnectionResponse& a, CMsgServerToGCTestConnectionResponse& b) {
     a.Swap(&b);
@@ -20536,7 +21101,7 @@ class CMsgGCToServerSetServerConVar final :
                &_CMsgGCToServerSetServerConVar_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    84;
+    86;
 
   friend void swap(CMsgGCToServerSetServerConVar& a, CMsgGCToServerSetServerConVar& b) {
     a.Swap(&b);
@@ -20721,7 +21286,7 @@ class CMsgGCToServerSetServerConVarResponse final :
                &_CMsgGCToServerSetServerConVarResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    85;
+    87;
 
   friend void swap(CMsgGCToServerSetServerConVarResponse& a, CMsgGCToServerSetServerConVarResponse& b) {
     a.Swap(&b);
@@ -20881,7 +21446,7 @@ class CMsgGCToServerAddSpectator final :
                &_CMsgGCToServerAddSpectator_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    86;
+    88;
 
   friend void swap(CMsgGCToServerAddSpectator& a, CMsgGCToServerAddSpectator& b) {
     a.Swap(&b);
@@ -21071,7 +21636,7 @@ class CMsgGCToServerAddSpectatorResponse final :
                &_CMsgGCToServerAddSpectatorResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    87;
+    89;
 
   friend void swap(CMsgGCToServerAddSpectatorResponse& a, CMsgGCToServerAddSpectatorResponse& b) {
     a.Swap(&b);
@@ -21278,7 +21843,7 @@ class CMsgServerToGCRequestPlayerHeroData final :
                &_CMsgServerToGCRequestPlayerHeroData_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    88;
+    90;
 
   friend void swap(CMsgServerToGCRequestPlayerHeroData& a, CMsgServerToGCRequestPlayerHeroData& b) {
     a.Swap(&b);
@@ -21453,7 +22018,7 @@ class CMsgServerToGCRequestPlayerHeroDataResponse final :
                &_CMsgServerToGCRequestPlayerHeroDataResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    89;
+    91;
 
   friend void swap(CMsgServerToGCRequestPlayerHeroDataResponse& a, CMsgServerToGCRequestPlayerHeroDataResponse& b) {
     a.Swap(&b);
@@ -21671,7 +22236,7 @@ class CMsgServerSteamLearnCitadelSignOutPlayerInfo final :
                &_CMsgServerSteamLearnCitadelSignOutPlayerInfo_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    90;
+    92;
 
   friend void swap(CMsgServerSteamLearnCitadelSignOutPlayerInfo& a, CMsgServerSteamLearnCitadelSignOutPlayerInfo& b) {
     a.Swap(&b);
@@ -21906,7 +22471,7 @@ class CMsgServerSteamLearnCitadelPlayerMechanicalBehavior final :
                &_CMsgServerSteamLearnCitadelPlayerMechanicalBehavior_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    91;
+    93;
 
   friend void swap(CMsgServerSteamLearnCitadelPlayerMechanicalBehavior& a, CMsgServerSteamLearnCitadelPlayerMechanicalBehavior& b) {
     a.Swap(&b);
@@ -22717,6 +23282,34 @@ inline void CMsgServerCrashSentinelFile_GameInfo::_internal_set_allow_hideout(bo
 inline void CMsgServerCrashSentinelFile_GameInfo::set_allow_hideout(bool value) {
   _internal_set_allow_hideout(value);
   // @@protoc_insertion_point(field_set:CMsgServerCrashSentinelFile.GameInfo.allow_hideout)
+}
+
+// optional bool was_lost_lobby = 12;
+inline bool CMsgServerCrashSentinelFile_GameInfo::_internal_has_was_lost_lobby() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000200u) != 0;
+  return value;
+}
+inline bool CMsgServerCrashSentinelFile_GameInfo::has_was_lost_lobby() const {
+  return _internal_has_was_lost_lobby();
+}
+inline void CMsgServerCrashSentinelFile_GameInfo::clear_was_lost_lobby() {
+  _impl_.was_lost_lobby_ = false;
+  _impl_._has_bits_[0] &= ~0x00000200u;
+}
+inline bool CMsgServerCrashSentinelFile_GameInfo::_internal_was_lost_lobby() const {
+  return _impl_.was_lost_lobby_;
+}
+inline bool CMsgServerCrashSentinelFile_GameInfo::was_lost_lobby() const {
+  // @@protoc_insertion_point(field_get:CMsgServerCrashSentinelFile.GameInfo.was_lost_lobby)
+  return _internal_was_lost_lobby();
+}
+inline void CMsgServerCrashSentinelFile_GameInfo::_internal_set_was_lost_lobby(bool value) {
+  _impl_._has_bits_[0] |= 0x00000200u;
+  _impl_.was_lost_lobby_ = value;
+}
+inline void CMsgServerCrashSentinelFile_GameInfo::set_was_lost_lobby(bool value) {
+  _internal_set_was_lost_lobby(value);
+  // @@protoc_insertion_point(field_set:CMsgServerCrashSentinelFile.GameInfo.was_lost_lobby)
 }
 
 // -------------------------------------------------------------------
@@ -24706,7 +25299,7 @@ inline void CSOCitadelServerStaticLobby_Member::set_party_desires_laning_togethe
 
 // optional .ECitadelBotDifficulty bot_difficulty = 16 [default = k_ECitadelBotDifficulty_None];
 inline bool CSOCitadelServerStaticLobby_Member::_internal_has_bot_difficulty() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CSOCitadelServerStaticLobby_Member::has_bot_difficulty() const {
@@ -24714,7 +25307,7 @@ inline bool CSOCitadelServerStaticLobby_Member::has_bot_difficulty() const {
 }
 inline void CSOCitadelServerStaticLobby_Member::clear_bot_difficulty() {
   _impl_.bot_difficulty_ = 0;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline ::ECitadelBotDifficulty CSOCitadelServerStaticLobby_Member::_internal_bot_difficulty() const {
   return static_cast< ::ECitadelBotDifficulty >(_impl_.bot_difficulty_);
@@ -24725,7 +25318,7 @@ inline ::ECitadelBotDifficulty CSOCitadelServerStaticLobby_Member::bot_difficult
 }
 inline void CSOCitadelServerStaticLobby_Member::_internal_set_bot_difficulty(::ECitadelBotDifficulty value) {
   assert(::ECitadelBotDifficulty_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.bot_difficulty_ = value;
 }
 inline void CSOCitadelServerStaticLobby_Member::set_bot_difficulty(::ECitadelBotDifficulty value) {
@@ -24850,7 +25443,7 @@ inline void CSOCitadelServerStaticLobby_Member::set_allocated_hero_data(::CMsgPl
 
 // optional uint32 match_number = 20;
 inline bool CSOCitadelServerStaticLobby_Member::_internal_has_match_number() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CSOCitadelServerStaticLobby_Member::has_match_number() const {
@@ -24858,7 +25451,7 @@ inline bool CSOCitadelServerStaticLobby_Member::has_match_number() const {
 }
 inline void CSOCitadelServerStaticLobby_Member::clear_match_number() {
   _impl_.match_number_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline uint32_t CSOCitadelServerStaticLobby_Member::_internal_match_number() const {
   return _impl_.match_number_;
@@ -24868,12 +25461,40 @@ inline uint32_t CSOCitadelServerStaticLobby_Member::match_number() const {
   return _internal_match_number();
 }
 inline void CSOCitadelServerStaticLobby_Member::_internal_set_match_number(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.match_number_ = value;
 }
 inline void CSOCitadelServerStaticLobby_Member::set_match_number(uint32_t value) {
   _internal_set_match_number(value);
   // @@protoc_insertion_point(field_set:CSOCitadelServerStaticLobby.Member.match_number)
+}
+
+// optional bool randomed_hero = 21;
+inline bool CSOCitadelServerStaticLobby_Member::_internal_has_randomed_hero() const {
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  return value;
+}
+inline bool CSOCitadelServerStaticLobby_Member::has_randomed_hero() const {
+  return _internal_has_randomed_hero();
+}
+inline void CSOCitadelServerStaticLobby_Member::clear_randomed_hero() {
+  _impl_.randomed_hero_ = false;
+  _impl_._has_bits_[0] &= ~0x00002000u;
+}
+inline bool CSOCitadelServerStaticLobby_Member::_internal_randomed_hero() const {
+  return _impl_.randomed_hero_;
+}
+inline bool CSOCitadelServerStaticLobby_Member::randomed_hero() const {
+  // @@protoc_insertion_point(field_get:CSOCitadelServerStaticLobby.Member.randomed_hero)
+  return _internal_randomed_hero();
+}
+inline void CSOCitadelServerStaticLobby_Member::_internal_set_randomed_hero(bool value) {
+  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_.randomed_hero_ = value;
+}
+inline void CSOCitadelServerStaticLobby_Member::set_randomed_hero(bool value) {
+  _internal_set_randomed_hero(value);
+  // @@protoc_insertion_point(field_set:CSOCitadelServerStaticLobby.Member.randomed_hero)
 }
 
 // -------------------------------------------------------------------
@@ -25799,6 +26420,53 @@ inline void CSOCitadelServerStaticLobby::_internal_set_rewards_eligible(bool val
 inline void CSOCitadelServerStaticLobby::set_rewards_eligible(bool value) {
   _internal_set_rewards_eligible(value);
   // @@protoc_insertion_point(field_set:CSOCitadelServerStaticLobby.rewards_eligible)
+}
+
+// repeated uint32 banned_heroes = 29;
+inline int CSOCitadelServerStaticLobby::_internal_banned_heroes_size() const {
+  return _impl_.banned_heroes_.size();
+}
+inline int CSOCitadelServerStaticLobby::banned_heroes_size() const {
+  return _internal_banned_heroes_size();
+}
+inline void CSOCitadelServerStaticLobby::clear_banned_heroes() {
+  _impl_.banned_heroes_.Clear();
+}
+inline uint32_t CSOCitadelServerStaticLobby::_internal_banned_heroes(int index) const {
+  return _impl_.banned_heroes_.Get(index);
+}
+inline uint32_t CSOCitadelServerStaticLobby::banned_heroes(int index) const {
+  // @@protoc_insertion_point(field_get:CSOCitadelServerStaticLobby.banned_heroes)
+  return _internal_banned_heroes(index);
+}
+inline void CSOCitadelServerStaticLobby::set_banned_heroes(int index, uint32_t value) {
+  _impl_.banned_heroes_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CSOCitadelServerStaticLobby.banned_heroes)
+}
+inline void CSOCitadelServerStaticLobby::_internal_add_banned_heroes(uint32_t value) {
+  _impl_.banned_heroes_.Add(value);
+}
+inline void CSOCitadelServerStaticLobby::add_banned_heroes(uint32_t value) {
+  _internal_add_banned_heroes(value);
+  // @@protoc_insertion_point(field_add:CSOCitadelServerStaticLobby.banned_heroes)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CSOCitadelServerStaticLobby::_internal_banned_heroes() const {
+  return _impl_.banned_heroes_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CSOCitadelServerStaticLobby::banned_heroes() const {
+  // @@protoc_insertion_point(field_list:CSOCitadelServerStaticLobby.banned_heroes)
+  return _internal_banned_heroes();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CSOCitadelServerStaticLobby::_internal_mutable_banned_heroes() {
+  return &_impl_.banned_heroes_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CSOCitadelServerStaticLobby::mutable_banned_heroes() {
+  // @@protoc_insertion_point(field_mutable_list:CSOCitadelServerStaticLobby.banned_heroes)
+  return _internal_mutable_banned_heroes();
 }
 
 // -------------------------------------------------------------------
@@ -32737,6 +33405,139 @@ CMsgServerSignoutData_PlayerBehavior::players() const {
 
 // -------------------------------------------------------------------
 
+// CMsgServerSignoutData_StreetBrawlData_DraftItem
+
+// optional uint32 ability_id = 1;
+inline bool CMsgServerSignoutData_StreetBrawlData_DraftItem::_internal_has_ability_id() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CMsgServerSignoutData_StreetBrawlData_DraftItem::has_ability_id() const {
+  return _internal_has_ability_id();
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::clear_ability_id() {
+  _impl_.ability_id_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline uint32_t CMsgServerSignoutData_StreetBrawlData_DraftItem::_internal_ability_id() const {
+  return _impl_.ability_id_;
+}
+inline uint32_t CMsgServerSignoutData_StreetBrawlData_DraftItem::ability_id() const {
+  // @@protoc_insertion_point(field_get:CMsgServerSignoutData_StreetBrawlData.DraftItem.ability_id)
+  return _internal_ability_id();
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::_internal_set_ability_id(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.ability_id_ = value;
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::set_ability_id(uint32_t value) {
+  _internal_set_ability_id(value);
+  // @@protoc_insertion_point(field_set:CMsgServerSignoutData_StreetBrawlData.DraftItem.ability_id)
+}
+
+// optional uint32 flags = 2;
+inline bool CMsgServerSignoutData_StreetBrawlData_DraftItem::_internal_has_flags() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CMsgServerSignoutData_StreetBrawlData_DraftItem::has_flags() const {
+  return _internal_has_flags();
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::clear_flags() {
+  _impl_.flags_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline uint32_t CMsgServerSignoutData_StreetBrawlData_DraftItem::_internal_flags() const {
+  return _impl_.flags_;
+}
+inline uint32_t CMsgServerSignoutData_StreetBrawlData_DraftItem::flags() const {
+  // @@protoc_insertion_point(field_get:CMsgServerSignoutData_StreetBrawlData.DraftItem.flags)
+  return _internal_flags();
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::_internal_set_flags(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.flags_ = value;
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::set_flags(uint32_t value) {
+  _internal_set_flags(value);
+  // @@protoc_insertion_point(field_set:CMsgServerSignoutData_StreetBrawlData.DraftItem.flags)
+}
+
+// optional .CMsgServerSignoutData_StreetBrawlData.EDraftItemOutcome outcome = 3 [default = k_eNotChosen];
+inline bool CMsgServerSignoutData_StreetBrawlData_DraftItem::_internal_has_outcome() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CMsgServerSignoutData_StreetBrawlData_DraftItem::has_outcome() const {
+  return _internal_has_outcome();
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::clear_outcome() {
+  _impl_.outcome_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline ::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome CMsgServerSignoutData_StreetBrawlData_DraftItem::_internal_outcome() const {
+  return static_cast< ::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome >(_impl_.outcome_);
+}
+inline ::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome CMsgServerSignoutData_StreetBrawlData_DraftItem::outcome() const {
+  // @@protoc_insertion_point(field_get:CMsgServerSignoutData_StreetBrawlData.DraftItem.outcome)
+  return _internal_outcome();
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::_internal_set_outcome(::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome value) {
+  assert(::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_IsValid(value));
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.outcome_ = value;
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::set_outcome(::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome value) {
+  _internal_set_outcome(value);
+  // @@protoc_insertion_point(field_set:CMsgServerSignoutData_StreetBrawlData.DraftItem.outcome)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgServerSignoutData_StreetBrawlData_DraftItemSet
+
+// repeated .CMsgServerSignoutData_StreetBrawlData.DraftItem items = 1;
+inline int CMsgServerSignoutData_StreetBrawlData_DraftItemSet::_internal_items_size() const {
+  return _impl_.items_.size();
+}
+inline int CMsgServerSignoutData_StreetBrawlData_DraftItemSet::items_size() const {
+  return _internal_items_size();
+}
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItemSet::clear_items() {
+  _impl_.items_.Clear();
+}
+inline ::CMsgServerSignoutData_StreetBrawlData_DraftItem* CMsgServerSignoutData_StreetBrawlData_DraftItemSet::mutable_items(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgServerSignoutData_StreetBrawlData.DraftItemSet.items)
+  return _impl_.items_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItem >*
+CMsgServerSignoutData_StreetBrawlData_DraftItemSet::mutable_items() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgServerSignoutData_StreetBrawlData.DraftItemSet.items)
+  return &_impl_.items_;
+}
+inline const ::CMsgServerSignoutData_StreetBrawlData_DraftItem& CMsgServerSignoutData_StreetBrawlData_DraftItemSet::_internal_items(int index) const {
+  return _impl_.items_.Get(index);
+}
+inline const ::CMsgServerSignoutData_StreetBrawlData_DraftItem& CMsgServerSignoutData_StreetBrawlData_DraftItemSet::items(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgServerSignoutData_StreetBrawlData.DraftItemSet.items)
+  return _internal_items(index);
+}
+inline ::CMsgServerSignoutData_StreetBrawlData_DraftItem* CMsgServerSignoutData_StreetBrawlData_DraftItemSet::_internal_add_items() {
+  return _impl_.items_.Add();
+}
+inline ::CMsgServerSignoutData_StreetBrawlData_DraftItem* CMsgServerSignoutData_StreetBrawlData_DraftItemSet::add_items() {
+  ::CMsgServerSignoutData_StreetBrawlData_DraftItem* _add = _internal_add_items();
+  // @@protoc_insertion_point(field_add:CMsgServerSignoutData_StreetBrawlData.DraftItemSet.items)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItem >&
+CMsgServerSignoutData_StreetBrawlData_DraftItemSet::items() const {
+  // @@protoc_insertion_point(field_list:CMsgServerSignoutData_StreetBrawlData.DraftItemSet.items)
+  return _impl_.items_;
+}
+
+// -------------------------------------------------------------------
+
 // CMsgServerSignoutData_StreetBrawlData_RoundPlayer
 
 // optional uint32 player_slot = 1;
@@ -32961,6 +33762,46 @@ inline void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::_internal_set_obj
 inline void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::set_objective_spirit_damage(uint32_t value) {
   _internal_set_objective_spirit_damage(value);
   // @@protoc_insertion_point(field_set:CMsgServerSignoutData_StreetBrawlData.RoundPlayer.objective_spirit_damage)
+}
+
+// repeated .CMsgServerSignoutData_StreetBrawlData.DraftItemSet draft_item_sets = 9;
+inline int CMsgServerSignoutData_StreetBrawlData_RoundPlayer::_internal_draft_item_sets_size() const {
+  return _impl_.draft_item_sets_.size();
+}
+inline int CMsgServerSignoutData_StreetBrawlData_RoundPlayer::draft_item_sets_size() const {
+  return _internal_draft_item_sets_size();
+}
+inline void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::clear_draft_item_sets() {
+  _impl_.draft_item_sets_.Clear();
+}
+inline ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet* CMsgServerSignoutData_StreetBrawlData_RoundPlayer::mutable_draft_item_sets(int index) {
+  // @@protoc_insertion_point(field_mutable:CMsgServerSignoutData_StreetBrawlData.RoundPlayer.draft_item_sets)
+  return _impl_.draft_item_sets_.Mutable(index);
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet >*
+CMsgServerSignoutData_StreetBrawlData_RoundPlayer::mutable_draft_item_sets() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgServerSignoutData_StreetBrawlData.RoundPlayer.draft_item_sets)
+  return &_impl_.draft_item_sets_;
+}
+inline const ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet& CMsgServerSignoutData_StreetBrawlData_RoundPlayer::_internal_draft_item_sets(int index) const {
+  return _impl_.draft_item_sets_.Get(index);
+}
+inline const ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet& CMsgServerSignoutData_StreetBrawlData_RoundPlayer::draft_item_sets(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgServerSignoutData_StreetBrawlData.RoundPlayer.draft_item_sets)
+  return _internal_draft_item_sets(index);
+}
+inline ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet* CMsgServerSignoutData_StreetBrawlData_RoundPlayer::_internal_add_draft_item_sets() {
+  return _impl_.draft_item_sets_.Add();
+}
+inline ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet* CMsgServerSignoutData_StreetBrawlData_RoundPlayer::add_draft_item_sets() {
+  ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet* _add = _internal_add_draft_item_sets();
+  // @@protoc_insertion_point(field_add:CMsgServerSignoutData_StreetBrawlData.RoundPlayer.draft_item_sets)
+  return _add;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet >&
+CMsgServerSignoutData_StreetBrawlData_RoundPlayer::draft_item_sets() const {
+  // @@protoc_insertion_point(field_list:CMsgServerSignoutData_StreetBrawlData.RoundPlayer.draft_item_sets)
+  return _impl_.draft_item_sets_;
 }
 
 // -------------------------------------------------------------------
@@ -37149,7 +37990,7 @@ inline void CMsgServerToGCAbandonMatch::set_cluster_id(uint32_t value) {
 
 // optional .CMsgServerToGCAbandonMatch.EReason reason_code = 4 [default = eReason_ServerCrash];
 inline bool CMsgServerToGCAbandonMatch::_internal_has_reason_code() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
   return value;
 }
 inline bool CMsgServerToGCAbandonMatch::has_reason_code() const {
@@ -37157,7 +37998,7 @@ inline bool CMsgServerToGCAbandonMatch::has_reason_code() const {
 }
 inline void CMsgServerToGCAbandonMatch::clear_reason_code() {
   _impl_.reason_code_ = 1;
-  _impl_._has_bits_[0] &= ~0x00080000u;
+  _impl_._has_bits_[0] &= ~0x00100000u;
 }
 inline ::CMsgServerToGCAbandonMatch_EReason CMsgServerToGCAbandonMatch::_internal_reason_code() const {
   return static_cast< ::CMsgServerToGCAbandonMatch_EReason >(_impl_.reason_code_);
@@ -37168,7 +38009,7 @@ inline ::CMsgServerToGCAbandonMatch_EReason CMsgServerToGCAbandonMatch::reason_c
 }
 inline void CMsgServerToGCAbandonMatch::_internal_set_reason_code(::CMsgServerToGCAbandonMatch_EReason value) {
   assert(::CMsgServerToGCAbandonMatch_EReason_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_._has_bits_[0] |= 0x00100000u;
   _impl_.reason_code_ = value;
 }
 inline void CMsgServerToGCAbandonMatch::set_reason_code(::CMsgServerToGCAbandonMatch_EReason value) {
@@ -37664,6 +38505,34 @@ inline void CMsgServerToGCAbandonMatch::_internal_set_allow_hideout(bool value) 
 inline void CMsgServerToGCAbandonMatch::set_allow_hideout(bool value) {
   _internal_set_allow_hideout(value);
   // @@protoc_insertion_point(field_set:CMsgServerToGCAbandonMatch.allow_hideout)
+}
+
+// optional bool was_lost_lobby = 23;
+inline bool CMsgServerToGCAbandonMatch::_internal_has_was_lost_lobby() const {
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  return value;
+}
+inline bool CMsgServerToGCAbandonMatch::has_was_lost_lobby() const {
+  return _internal_has_was_lost_lobby();
+}
+inline void CMsgServerToGCAbandonMatch::clear_was_lost_lobby() {
+  _impl_.was_lost_lobby_ = false;
+  _impl_._has_bits_[0] &= ~0x00080000u;
+}
+inline bool CMsgServerToGCAbandonMatch::_internal_was_lost_lobby() const {
+  return _impl_.was_lost_lobby_;
+}
+inline bool CMsgServerToGCAbandonMatch::was_lost_lobby() const {
+  // @@protoc_insertion_point(field_get:CMsgServerToGCAbandonMatch.was_lost_lobby)
+  return _internal_was_lost_lobby();
+}
+inline void CMsgServerToGCAbandonMatch::_internal_set_was_lost_lobby(bool value) {
+  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_.was_lost_lobby_ = value;
+}
+inline void CMsgServerToGCAbandonMatch::set_was_lost_lobby(bool value) {
+  _internal_set_was_lost_lobby(value);
+  // @@protoc_insertion_point(field_set:CMsgServerToGCAbandonMatch.was_lost_lobby)
 }
 
 // -------------------------------------------------------------------
@@ -39214,6 +40083,10 @@ inline void CMsgServerSteamLearnCitadelPlayerMechanicalBehavior::set_wall_jumps_
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -39229,6 +40102,16 @@ template <> struct is_proto_enum< ::CMsgServerSignoutData_HeroXPGrant_EGrantReas
 template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CMsgServerSignoutData_HeroXPGrant_EGrantReason>() {
   return ::CMsgServerSignoutData_HeroXPGrant_EGrantReason_descriptor();
+}
+template <> struct is_proto_enum< ::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome>() {
+  return ::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_descriptor();
+}
+template <> struct is_proto_enum< ::CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags> : ::std::true_type {};
+template <>
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags>() {
+  return ::CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_descriptor();
 }
 template <> struct is_proto_enum< ::CMsgServerSignoutData_PenalizedPlayers_EPenaltyReason> : ::std::true_type {};
 template <>

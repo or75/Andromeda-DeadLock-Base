@@ -1291,7 +1291,20 @@ struct CCitadelUserMessage_ImportantAbilityUsedDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMessage_ImportantAbilityUsedDefaultTypeInternal _CCitadelUserMessage_ImportantAbilityUsed_default_instance_;
-static ::_pb::Metadata file_level_metadata_citadel_5fusermessages_2eproto[74];
+PROTOBUF_CONSTEXPR CCitadelUserMsg_BannedHeroes::CCitadelUserMsg_BannedHeroes(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.banned_hero_ids_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CCitadelUserMsg_BannedHeroesDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CCitadelUserMsg_BannedHeroesDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CCitadelUserMsg_BannedHeroesDefaultTypeInternal() {}
+  union {
+    CCitadelUserMsg_BannedHeroes _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_BannedHeroesDefaultTypeInternal _CCitadelUserMsg_BannedHeroes_default_instance_;
+static ::_pb::Metadata file_level_metadata_citadel_5fusermessages_2eproto[75];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_citadel_5fusermessages_2eproto[10];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_citadel_5fusermessages_2eproto = nullptr;
 
@@ -2366,6 +2379,13 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   1,
   2,
   0,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_BannedHeroes, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_BannedHeroes, _impl_.banned_hero_ids_),
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 7, -1, sizeof(::CUserMessageEmpty)},
@@ -2442,6 +2462,7 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 1028, 1038, -1, sizeof(::CCitadelUserMsg_StreetBrawlScoring)},
   { 1042, 1053, -1, sizeof(::CCitadelUserMsg_HudGameAnnouncement)},
   { 1058, 1067, -1, sizeof(::CCitadelUserMessage_ImportantAbilityUsed)},
+  { 1070, -1, -1, sizeof(::CCitadelUserMsg_BannedHeroes)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2519,6 +2540,7 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CCitadelUserMsg_StreetBrawlScoring_default_instance_._instance,
   &::_CCitadelUserMsg_HudGameAnnouncement_default_instance_._instance,
   &::_CCitadelUserMessage_ImportantAbilityUsed_default_instance_._instance,
+  &::_CCitadelUserMsg_BannedHeroes_default_instance_._instance,
 };
 
 const char descriptor_table_protodef_citadel_5fusermessages_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
@@ -2598,7 +2620,7 @@ const char descriptor_table_protodef_citadel_5fusermessages_2eproto[] PROTOBUF_S
   "\001(\r\022\033\n\023hero_id_interrupter\030\005 \001(\r\"u\n\"CCit"
   "adelUserMsg_AbilityLateFailure\022\033\n\017entind"
   "ex_caster\030\001 \001(\005:\002-1\022\034\n\020entindex_ability\030"
-  "\002 \001(\005:\002-1\022\024\n\014failure_type\030\003 \001(\r\"\312\005\n#CCit"
+  "\002 \001(\005:\002-1\022\024\n\014failure_type\030\003 \001(\r\"\321\005\n#CCit"
   "adelUserMsg_RecentDamageSummary\022\027\n\013playe"
   "r_slot\030\001 \001(\005:\002-1\022I\n\016damage_records\030\002 \003(\013"
   "21.CCitadelUserMsg_RecentDamageSummary.D"
@@ -2616,300 +2638,302 @@ const char descriptor_table_protodef_citadel_5fusermessages_2eproto[] PROTOBUF_S
   "\032\221\001\n\016ModifierRecord\022\022\n\nability_id\030\001 \001(\r\022"
   "\030\n\020modifier_type_id\030\002 \001(\r\022\033\n\017entindex_ca"
   "ster\030\003 \001(\005:\002-1\022\022\n\nstart_time\030\004 \001(\002\022\020\n\010en"
-  "d_time\030\005 \001(\002\022\016\n\006debuff\030\006 \001(\010\":\n$CCitadel"
-  "UserMsg_SpectatorTeamChanged\022\022\n\nteamnumb"
-  "er\030\001 \001(\005\"\330\001\n\031CCitadelUserMsg_ChatWheel\022\027"
-  "\n\017chat_message_id\030\001 \001(\r\022\027\n\013player_slot\030\002"
-  " \001(\005:\002-1\022\031\n\rpawn_entindex\030\003 \001(\005:\002-1\022\022\n\na"
-  "ccount_id\030\004 \001(\r\022\017\n\007hero_id\030\005 \001(\r\022\017\n\007para"
-  "m_1\030\006 \001(\t\0228\n\nlane_color\030\007 \001(\0162\016.CMsgLane"
-  "Color:\024k_ELaneColor_Invalid\"\214\001\n\027CCitadel"
-  "UserMsg_ChatMsg\022\027\n\013player_slot\030\001 \001(\005:\002-1"
-  "\022\014\n\004text\030\002 \001(\t\022\020\n\010all_chat\030\003 \001(\010\0228\n\nlane"
-  "_color\030\004 \001(\0162\016.CMsgLaneColor:\024k_ELaneCol"
-  "or_Invalid\"\247\002\n\033CCitadelUserMsg_GoldHisto"
-  "ry\022\033\n\017entindex_player\030\001 \001(\005:\002-1\022A\n\016minut"
-  "e_records\030\002 \003(\0132).CCitadelUserMsg_GoldHi"
-  "story.MinuteRecord\032C\n\nGoldRecord\022\027\n\017curr"
-  "ency_source\030\001 \001(\005\022\014\n\004gold\030\002 \001(\005\022\016\n\006event"
-  "s\030\003 \001(\005\032c\n\014MinuteRecord\022\024\n\014match_minute\030"
-  "\001 \001(\005\022=\n\014gold_records\030\002 \003(\0132\'.CCitadelUs"
-  "erMsg_GoldHistory.GoldRecord\"\272\n\n CCitade"
-  "lUserMsg_CameraController\022.\n\006action\030\001 \001("
-  "\0162\r.CameraAction:\017k_EAction_AddOp\0229\n\tope"
-  "ration\030\002 \001(\0162\020.CameraOperation:\024k_ECamer"
-  "aOp_Maintain\0221\n\005param\030\003 \001(\0162\014.CameraPara"
-  "m:\024k_EParam_ClearAllOps\022D\n\nparam_mode\030\014 "
-  "\001(\0162\020.CameraParamMode:\036k_EParamMode_Allo"
-  "wInOneContext\022\r\n\005delay\030\004 \001(\002\022\027\n\017relative"
-  "_values\030\013 \001(\010\022\031\n\021context_symbol_id\030\005 \001(\r"
-  "\022\023\n\010priority\030\r \001(\r:\0011\022<\n\010maintain\030\006 \001(\0132"
-  "*.CCitadelUserMsg_CameraController.Maint"
-  "ain\022<\n\010approach\030\007 \001(\0132*.CCitadelUserMsg_"
-  "CameraController.Approach\0228\n\006spring\030\010 \001("
-  "\0132(.CCitadelUserMsg_CameraController.Spr"
-  "ing\0224\n\004lerp\030\t \001(\0132&.CCitadelUserMsg_Came"
-  "raController.Lerp\0222\n\003lag\030\n \001(\0132%.CCitade"
-  "lUserMsg_CameraController.Lag\032\037\n\010Maintai"
-  "n\022\023\n\010duration\030\001 \001(\002:\0010\032\304\001\n\010Approach\022\022\n\005s"
-  "peed\030\001 \001(\002:\003600\022\032\n\rdefault_speed\030\002 \001(\002:\003"
-  "600\022\032\n\014acceleration\030\003 \001(\002:\0041000\022\027\n\014min_d"
-  "uration\030\004 \001(\002:\0010\022\026\n\016approach_float\030\005 \001(\002"
-  "\022$\n\017approach_vector\030\006 \001(\0132\013.CMsgVector\022\025"
-  "\n\rchase_default\030\007 \001(\010\032\216\001\n\006Spring\022\033\n\017spri"
-  "ng_strength\030\001 \001(\002:\00210\022\024\n\tmin_speed\030\004 \001(\002"
-  ":\0010\022\027\n\014max_duration\030\005 \001(\002:\0010\022\024\n\014target_f"
-  "loat\030\006 \001(\002\022\"\n\rtarget_vector\030\007 \001(\0132\013.CMsg"
-  "Vector\032\243\001\n\004Lerp\022\023\n\013start_float\030\001 \001(\002\022!\n\014"
-  "start_vector\030\002 \001(\0132\013.CMsgVector\022\021\n\tend_f"
-  "loat\030\003 \001(\002\022\037\n\nend_vector\030\004 \001(\0132\013.CMsgVec"
-  "tor\022\014\n\004bias\030\005 \001(\002\022\014\n\004gain\030\006 \001(\002\022\023\n\010durat"
-  "ion\030\007 \001(\002:\0011\032\232\001\n\003Lag\022\024\n\014min_duration\030\001 \001"
-  "(\002\022\020\n\010lag_time\030\002 \001(\002\022\021\n\tmax_speed\030\003 \001(\002\022"
-  "\027\n\017spring_strength\030\004 \001(\002\022\?\n1increase_spr"
-  "ing_strength_to_keep_target_on_screen\030\005 "
-  "\001(\010:\004true\"A\n CCitadelUserMsg_PostMatchDe"
-  "tails\022\025\n\rmatch_details\030\001 \001(\014:\006\200\265\030\300\204=\"\215\001\n"
-  "\031CCitadelUserMsg_ChatEvent\022J\n\004type\030\001 \001(\016"
-  "2\024.ECitadelChatMessage:&CITADEL_CHAT_MES"
-  "SAGE_UNPAUSE_COUNTDOWN\022\016\n\006values\030\002 \003(\r\022\024"
-  "\n\014player_slots\030\003 \003(\005\"\345\001\n\032CCitadelUserMsg"
-  "_HeroKilled\022\033\n\017entindex_victim\030\001 \001(\005:\002-1"
-  "\022\036\n\022entindex_inflictor\030\002 \001(\005:\002-1\022\035\n\021enti"
-  "ndex_attacker\030\003 \001(\005:\002-1\022\032\n\022entindex_assi"
-  "sters\030\004 \003(\005\022\033\n\017entindex_scorer\030\005 \001(\005:\002-1"
-  "\022\026\n\016respawn_reason\030\006 \001(\005\022\032\n\022victim_team_"
-  "number\030\007 \001(\005\"\241\001\n*CCitadelEntityMsg_Break"
-  "ablePropSpawnDebris\022\037\n\nentity_msg\030\001 \001(\0132"
-  "\013.CEntityMsg\022\037\n\ndamage_pos\030\002 \001(\0132\013.CMsgV"
-  "ector\022\016\n\006damage\030\003 \001(\002\022!\n\014damage_force\030\004 "
-  "\001(\0132\013.CMsgVector\"t\n\032CCitadelUserMsg_Retu"
-  "rnIdol\022\026\n\016location_index\030\001 \001(\005\022$\n\017return"
-  "_location\030\002 \001(\0132\013.CMsgVector\022\030\n\020location"
-  "_enabled\030\003 \001(\010\"d\n%CCitadelUserMsg_SetCli"
-  "entCameraAngles\022\027\n\013player_slot\030\001 \001(\005:\002-1"
-  "\022\"\n\rcamera_angles\030\002 \001(\0132\013.CMsgQAngle\"\214\001\n"
-  "\035CCitadelUserMessage_BulletHit\022\016\n\006shotid"
-  "\030\001 \001(\005\022\016\n\006pellet\030\002 \001(\005\022\030\n\014hit_entindex\030\003"
-  " \001(\005:\002-1\022\033\n\017weapon_entindex\030\004 \001(\005:\002-1\022\024\n"
-  "\014is_predicted\030\005 \001(\010\"_\n!CCitadelUserMessa"
-  "ge_ObjectiveMask\022\034\n\024objective_mask_team0"
-  "\030\002 \001(\004\022\034\n\024objective_mask_team1\030\003 \001(\004\"v\n#"
-  "CCitadelUserMessage_ModifierApplied\022\033\n\017e"
-  "ntindex_caster\030\001 \001(\005:\002-1\022\033\n\017entindex_par"
-  "ent\030\002 \001(\005:\002-1\022\025\n\rserial_number\030\003 \001(\005\"\315\001\n"
-  "\'CCitadelUserMessage_AuraModifierApplied"
-  "\022\033\n\017entindex_caster\030\001 \001(\005:\002-1\022\033\n\017entinde"
-  "x_target\030\002 \001(\005:\002-1\022\030\n\020modifier_type_id\030\003"
-  " \001(\r\022\036\n\026modifier_serial_number\030\004 \001(\005\022\027\n\017"
-  "aura_start_time\030\005 \001(\002\022\025\n\raura_end_time\030\006"
-  " \001(\002\"%\n#CCitadelUserMsg_ObstructedShotFi"
-  "red\"\370\001\n\"CCitadelUserMsg_PostProcessingAn"
-  "im\022\032\n\016entindex_owner\030\001 \001(\005:\002-1\022\030\n\020clear_"
-  "all_states\030\002 \001(\010\022>\n\005state\030\003 \001(\0162\031.PostPr"
-  "ocessingGameStates:\024PostProcState_Killed"
-  "\022\r\n\005delay\030\004 \001(\002\022\024\n\014fade_in_time\030\005 \001(\002\022\021\n"
-  "\thold_time\030\006 \001(\002\022\025\n\rfade_out_time\030\007 \001(\002\022"
-  "\r\n\005scale\030\010 \001(\002\"\230\001\n\037CCitadelUserMsg_Death"
-  "ReplayData\022\031\n\rkiller_scorer\030\001 \001(\005:\002-1\022\034\n"
-  "\020killer_inflictor\030\002 \001(\005:\002-1\022<\n\016damage_su"
-  "mmary\030\003 \001(\0132$.CCitadelUserMsg_RecentDama"
-  "geSummary\"!\n\037CCitadelUserMsg_ForceShopCl"
-  "osed\"\307\002\n&CCitadelUserMsg_PlayerLifetimeS"
-  "tatInfo\022;\n\005stats\030\001 \003(\0132,.CCitadelUserMsg"
-  "_PlayerLifetimeStatInfo.Stat\022\020\n\010match_id"
-  "\030\002 \001(\004\022\024\n\014end_of_match\030\003 \001(\010\022\031\n\021is_offic"
-  "ial_match\030\004 \001(\010\032\234\001\n\004Stat\022\021\n\tstat_name\030\001 "
-  "\001(\t\022\023\n\013match_total\030\002 \001(\r\022\026\n\016lifetime_val"
-  "ue\030\003 \001(\r\022\020\n\010priority\030\004 \001(\r\022\031\n\021prev_lifet"
-  "ime_max\030\005 \001(\r\022\021\n\tstat_type\030\006 \001(\r\022\024\n\014stat"
-  "_type_id\030\007 \001(\r\"\245\001\n\037CCitadelUserMsg_Stami"
-  "naConsumed\022\033\n\017entindex_target\030\001 \001(\005:\002-1\022"
-  "\026\n\016stamina_before\030\003 \001(\002\022\025\n\rstamina_after"
-  "\030\004 \001(\002\022\017\n\007drained\030\005 \001(\010\022\023\n\013stamina_max\030\006"
-  " \001(\002\022\020\n\010gametime\030\007 \001(\002\"\212\001\n!CCitadelUserM"
-  "essage_AbilityNotify\022\033\n\017entindex_victim\030"
-  "\001 \001(\005:\002-1\022\035\n\021entindex_attacker\030\002 \001(\005:\002-1"
-  "\022\022\n\nability_id\030\003 \001(\r\022\025\n\rstatus_impact\030\004 "
-  "\001(\r\"\206\002\n#CCitadelUserMessage_CurrencyChan"
-  "ged\022\022\n\006userid\030\001 \001(\005:\002-1\022\025\n\rcurrency_type"
-  "\030\002 \001(\005\022\027\n\017currency_source\030\003 \001(\005\022\r\n\005delta"
-  "\030\004 \001(\005\022\024\n\014notification\030\005 \001(\010\022\033\n\017entindex"
-  "_victim\030\006 \001(\005:\002-1\022\037\n\nvictim_pos\030\007 \001(\0132\013."
-  "CMsgVector\022\021\n\tplaysound\030\010 \001(\005\022\022\n\nability"
-  "_id\030\t \001(\r\022\021\n\tnew_value\030\n \001(\r\"I\n\034CCitadel"
-  "UserMessage_GameOver\022\024\n\014winning_team\030\001 \001"
-  "(\005\022\023\n\013just_a_test\030\002 \001(\010\"\227\002\n&CCitadelUser"
-  "Msg_GetDamageStatsResponse\022\023\n\013player_slo"
-  "t\030\001 \001(\r\022\024\n\014ability_name\030\002 \001(\t\022@\n\006damage\030"
-  "\003 \001(\01320.CCitadelUserMsg_GetDamageStatsRe"
-  "sponse.StatType\022A\n\007healing\030\004 \001(\01320.CCita"
-  "delUserMsg_GetDamageStatsResponse.StatTy"
-  "pe\032=\n\010StatType\022\036\n\022target_player_slot\030\001 \003"
-  "(\rB\002\020\001\022\021\n\005value\030\002 \003(\rB\002\020\001\"j\n*CCitadelUse"
-  "rMsg_ParticipantStartSoundEvent\022&\n\005event"
-  "\030\001 \001(\0132\027.CMsgSosStartSoundEvent\022\024\n\014playe"
-  "r_slots\030\002 \003(\005\"h\n)CCitadelUserMsg_Partici"
-  "pantStopSoundEvent\022%\n\005event\030\001 \001(\0132\026.CMsg"
-  "SosStopSoundEvent\022\024\n\014player_slots\030\002 \003(\005\""
-  "p\n-CCitadelUserMsg_ParticipantStopSoundE"
-  "ventHash\022)\n\005event\030\001 \001(\0132\032.CMsgSosStopSou"
-  "ndEventHash\022\024\n\014player_slots\030\002 \003(\005\"r\n.CCi"
-  "tadelUserMsg_ParticipantSetSoundEventPar"
-  "ams\022*\n\005event\030\001 \001(\0132\033.CMsgSosSetSoundEven"
-  "tParams\022\024\n\014player_slots\030\002 \003(\005\"v\n0CCitade"
-  "lUserMsg_ParticipantSetLibraryStackField"
-  "s\022,\n\005event\030\001 \001(\0132\035.CMsgSosSetLibraryStac"
-  "kFields\022\024\n\014player_slots\030\002 \003(\005\"\204\002\n\032CCitad"
-  "elUserMsg_BossKilled\022\026\n\016objective_team\030\001"
-  " \001(\005\022\035\n\025objective_mask_change\030\002 \001(\005\022\037\n\re"
-  "ntity_killed\030\003 \001(\r:\01016777215\022\033\n\023entity_k"
-  "illed_class\030\004 \001(\005\022\037\n\rentity_killer\030\005 \001(\r"
-  ":\01016777215\022\020\n\010gametime\030\006 \001(\002\022\030\n\020bosses_r"
-  "emaining\030\007 \001(\005\022$\n\017entity_position\030\010 \001(\0132"
-  "\013.CMsgVector\"m\n\033CCitadelUserMsg_BossDama"
-  "ged\022\026\n\016objective_team\030\001 \001(\005\022\024\n\014objective"
-  "_id\030\002 \001(\005\022 \n\016entity_damaged\030\003 \001(\r:\01016777"
-  "215\" \n\036CCitadelUserMsg_MidBossSpawned\"y\n"
-  "\033CCitadelUserMsg_RejuvStatus\022\024\n\014killing_"
-  "team\030\001 \001(\005\022\035\n\013player_pawn\030\002 \001(\r:\0101677721"
-  "5\022\021\n\tuser_team\030\003 \001(\005\022\022\n\nevent_type\030\004 \001(\005"
-  "\"\221\001\n\032CCitadelUserMsg_KillStreak\022\035\n\013playe"
-  "r_pawn\030\001 \001(\r:\01016777215\022\021\n\tnum_kills\030\002 \001("
-  "\005\022\026\n\016is_first_blood\030\003 \001(\010\022\024\n\014streak_ende"
-  "d\030\004 \001(\010\022\023\n\010duration\030\005 \001(\002:\0015\"{\n\027CCitadel"
-  "UserMsg_TeamMsg\022\022\n\nevent_type\030\001 \001(\005\022\023\n\013t"
-  "eam_number\030\002 \001(\005\022\022\n\nlane_color\030\003 \001(\005\022#\n\021"
-  "player_controller\030\004 \001(\r:\01016777215\"T\n\037CCi"
-  "tadelUserMsg_PlayerRespawned\022\035\n\013player_p"
-  "awn\030\001 \001(\r:\01016777215\022\022\n\nfacing_yaw\030\002 \001(\002\""
-  ":\n\037CCitadelUserMsg_CallCheaterVote\022\027\n\013pl"
-  "ayer_slot\030\001 \001(\005:\002-1\"G\n\034CCitadelUserMessa"
-  "ge_MeleeHit\022\030\n\014hit_entindex\030\001 \001(\005:\002-1\022\r\n"
-  "\005heavy\030\002 \001(\010\"R\n CCitadelUserMsg_FlexSlot"
-  "Unlocked\022\023\n\013team_number\030\001 \001(\005\022\031\n\021flexslo"
-  "t_unlocked\030\002 \001(\005\"v\n,CCitadelUserMessage_"
-  "ItemPurchaseNotification\022\022\n\006userid\030\001 \001(\005"
-  ":\002-1\022\022\n\nability_id\030\002 \001(\r\022\014\n\004sell\030\003 \001(\010\022\020"
-  "\n\010quickbuy\030\004 \001(\010\"R\n\034CCitadelUserMsg_Seas"
-  "onalKill\022\030\n\006killer\030\001 \001(\r:\01016777215\022\030\n\006vi"
-  "ctim\030\002 \001(\r:\01016777215\"C\n\032CCitadelUserMsg_"
-  "MusicQueue\022\023\n\013music_state\030\001 \001(\005\022\020\n\010overr"
-  "ide\030\002 \001(\010\"H\n\037CCitadelUserMsg_AG2ParamTri"
-  "gger\022\020\n\010param_id\030\001 \001(\t\022\023\n\013param_value\030\002 "
-  "\001(\t\"o\n\037CCitadelUserMsg_EntityPortalled\022\""
-  "\n\020entity_portalled\030\001 \001(\r:\01016777215\022(\n\020po"
-  "rtal_transform\030\002 \001(\0132\016.CMsgTransform\"|\n\""
-  "CCitadelUserMsg_StreetBrawlScoring\022\024\n\014sc"
-  "oring_team\030\001 \001(\005\022\023\n\013just_a_test\030\002 \001(\010\022\026\n"
-  "\016sapphire_score\030\003 \001(\005\022\023\n\013amber_score\030\004 \001"
-  "(\005\"\261\001\n#CCitadelUserMsg_HudGameAnnounceme"
-  "nt\022\027\n\017title_locstring\030\001 \001(\t\022\035\n\025descripti"
-  "on_locstring\030\002 \001(\t\022\021\n\tclassname\030\003 \003(\t\022\034\n"
-  "\024dialog_variable_name\030\004 \003(\t\022!\n\031dialog_va"
-  "riable_locstring\030\005 \003(\t\"t\n(CCitadelUserMe"
-  "ssage_ImportantAbilityUsed\022\030\n\006player\030\001 \001"
-  "(\r:\01016777215\022\030\n\006caster\030\002 \001(\r:\01016777215\022\024"
-  "\n\014ability_name\030\003 \001(\t*\340\017\n\025CitadelUserMess"
-  "ageIds\022\026\n\021k_EUserMsg_Damage\020\254\002\022\027\n\022k_EUse"
-  "rMsg_MapPing\020\257\002\022\033\n\026k_EUserMsg_TeamReward"
-  "s\020\260\002\022\035\n\030k_EUserMsg_AbilityFailed\020\262\002\022\"\n\035k"
-  "_EUserMsg_TriggerDamageFlash\020\264\002\022 \n\033k_EUs"
-  "erMsg_AbilitiesChanged\020\265\002\022#\n\036k_EUserMsg_"
-  "RecentDamageSummary\020\266\002\022$\n\037k_EUserMsg_Spe"
-  "ctatorTeamChanged\020\267\002\022\031\n\024k_EUserMsg_ChatW"
-  "heel\020\270\002\022\033\n\026k_EUserMsg_GoldHistory\020\271\002\022\027\n\022"
-  "k_EUserMsg_ChatMsg\020\272\002\022\035\n\030k_EUserMsg_Quic"
-  "kResponse\020\273\002\022 \n\033k_EUserMsg_PostMatchDeta"
-  "ils\020\274\002\022\031\n\024k_EUserMsg_ChatEvent\020\275\002\022\"\n\035k_E"
-  "UserMsg_AbilityInterrupted\020\276\002\022\032\n\025k_EUser"
-  "Msg_HeroKilled\020\277\002\022\032\n\025k_EUserMsg_ReturnId"
-  "ol\020\300\002\022%\n k_EUserMsg_SetClientCameraAngle"
-  "s\020\301\002\022\027\n\022k_EUserMsg_MapLine\020\302\002\022\031\n\024k_EUser"
-  "Msg_BulletHit\020\303\002\022\035\n\030k_EUserMsg_Objective"
-  "Mask\020\304\002\022\037\n\032k_EUserMsg_ModifierApplied\020\305\002"
-  "\022 \n\033k_EUserMsg_CameraController\020\306\002\022#\n\036k_"
-  "EUserMsg_AuraModifierApplied\020\307\002\022#\n\036k_EUs"
-  "erMsg_ObstructedShotFired\020\311\002\022\"\n\035k_EUserM"
-  "sg_AbilityLateFailure\020\312\002\022\033\n\026k_EUserMsg_A"
-  "bilityPing\020\313\002\022\"\n\035k_EUserMsg_PostProcessi"
-  "ngAnim\020\314\002\022\037\n\032k_EUserMsg_DeathReplayData\020"
-  "\315\002\022&\n!k_EUserMsg_PlayerLifetimeStatInfo\020"
-  "\316\002\022\037\n\032k_EUserMsg_ForceShopClosed\020\320\002\022\037\n\032k"
-  "_EUserMsg_StaminaConsumed\020\321\002\022\035\n\030k_EUserM"
-  "sg_AbilityNotify\020\322\002\022&\n!k_EUserMsg_GetDam"
-  "ageStatsResponse\020\323\002\022*\n%k_EUserMsg_Partic"
-  "ipantStartSoundEvent\020\324\002\022)\n$k_EUserMsg_Pa"
-  "rticipantStopSoundEvent\020\325\002\022-\n(k_EUserMsg"
-  "_ParticipantStopSoundEventHash\020\326\002\022.\n)k_E"
-  "UserMsg_ParticipantSetSoundEventParams\020\327"
-  "\002\0220\n+k_EUserMsg_ParticipantSetLibrarySta"
-  "ckFields\020\330\002\022\037\n\032k_EUserMsg_CurrencyChange"
-  "d\020\331\002\022\030\n\023k_EUserMsg_GameOver\020\332\002\022\032\n\025k_EUse"
-  "rMsg_BossKilled\020\333\002\022\033\n\026k_EUserMsg_BossDam"
-  "aged\020\334\002\022\036\n\031k_EUserMsg_MidBossSpawned\020\335\002\022"
-  "\033\n\026k_EUserMsg_RejuvStatus\020\336\002\022\032\n\025k_EUserM"
-  "sg_KillStreak\020\337\002\022\027\n\022k_EUserMsg_TeamMsg\020\340"
-  "\002\022\037\n\032k_EUserMsg_PlayerRespawned\020\341\002\022\037\n\032k_"
-  "EUserMsg_CallCheaterVote\020\342\002\022\030\n\023k_EUserMs"
-  "g_MeleeHit\020\343\002\022 \n\033k_EUserMsg_FlexSlotUnlo"
-  "cked\020\344\002\022\034\n\027k_EUserMsg_SeasonalKill\020\345\002\022\032\n"
-  "\025k_EUserMsg_MusicQueue\020\346\002\022\037\n\032k_EUserMsg_"
-  "AG2ParamTrigger\020\347\002\022(\n#k_EUserMsg_ItemPur"
-  "chaseNotification\020\350\002\022\037\n\032k_EUserMsg_Entit"
-  "yPortalled\020\351\002\022\"\n\035k_EUserMsg_StreetBrawlS"
-  "coring\020\352\002\022#\n\036k_EUserMsg_HudGameAnnouncem"
-  "ent\020\353\002\022!\n\034k_EUserMsg_ItemDraftReaction\020\354"
-  "\002\022$\n\037k_EUserMsg_ImportantAbilityUsed\020\355\002*"
-  "E\n\027CitadelEntityMessageIds\022*\n%k_EEntityM"
-  "sg_BreakablePropSpawnDebris\020\364\003*\300\004\n\025ChatM"
-  "sgPingMarkerInfo\022o\n$k_EPingMarkerInfo_Sh"
-  "owMarkerAndSound\020\000\032E\302>BShow Ping Indicat"
-  "or at Ping Location, Play Ping Sound, an"
-  "d Play VO\022p\n$k_EPingMarkerInfo_ShowMarke"
-  "rOnSender\020\001\032F\302>CShow Ping Indicator on P"
-  "inging Player, Play Ping Sound, and Play"
-  " VO\022I\n$k_EPingMarkerInfo_HideMarkerAndSo"
-  "und\020\002\032\037\302>\034No Marker or Sound (just VO)\022b"
-  "\n k_EPingMarkerInfo_OnlyShowMarker\020\003\032<\302>"
-  "9Only Show Ping Indicator at Ping Locati"
-  "on (no ping sound)\022E\n\037k_EPingMarkerInfo_"
-  "OnlyPlaySound\020\004\032 \302>\035Only Play Ping Sound"
-  " (and VO)\022N\n\035k_EPingMarkerInfo_OnlyMiniM"
-  "ap\020\005\032+\302>(Only show on Minimap, no world,"
-  " no sound*\210\001\n\017CameraOperation\022\030\n\024k_ECame"
-  "raOp_Maintain\020\002\022\030\n\024k_ECameraOp_Approach\020"
-  "\003\022\026\n\022k_ECameraOp_Spring\020\004\022\024\n\020k_ECameraOp"
-  "_Lerp\020\005\022\023\n\017k_ECameraOp_Lag\020\006*\304\001\n\013CameraP"
-  "aram\022\030\n\024k_EParam_ClearAllOps\020\000\022\"\n\036k_EPar"
-  "am_ClearAllOpsForContext\020\001\022\025\n\021k_EParam_D"
-  "istance\020\002\022\020\n\014k_EParam_FOV\020\003\022\033\n\027k_EParam_"
-  "TargetPosition\020\004\022\027\n\023k_EParam_VertOffset\020"
-  "\005\022\030\n\024k_EParam_HorizOffset\020\006*_\n\017CameraPar"
-  "amMode\022\"\n\036k_EParamMode_AllowInOneContext"
-  "\020\000\022(\n$k_EParamMode_AllowInMultipleContex"
-  "ts\020\001*`\n\014CameraAction\022\023\n\017k_EAction_AddOp\020"
-  "\000\022\031\n\025k_EAction_ClearAllOps\020\001\022 \n\034k_EActio"
-  "n_ClearOpsForContext\020\002*\231\004\n\023ECitadelChatM"
-  "essage\022*\n&CITADEL_CHAT_MESSAGE_UNPAUSE_C"
-  "OUNTDOWN\020\001\022!\n\035CITADEL_CHAT_MESSAGE_UNPAU"
-  "SED\020\002\022&\n\"CITADEL_CHAT_MESSAGE_AUTO_UNPAU"
-  "SED\020\003\022(\n$CITADEL_CHAT_MESSAGE_PAUSE_COUN"
-  "TDOWN\020\004\022\037\n\033CITADEL_CHAT_MESSAGE_PAUSED\020\005"
-  "\022\"\n\036CITADEL_CHAT_MESSAGE_YOUPAUSED\020\006\022\"\n\036"
-  "CITADEL_CHAT_MESSAGE_CANTPAUSE\020\007\022(\n$CITA"
-  "DEL_CHAT_MESSAGE_CANTUNPAUSETEAM\020\010\022%\n!CI"
-  "TADEL_CHAT_MESSAGE_NOPAUSESLEFT\020\t\022%\n!CIT"
-  "ADEL_CHAT_MESSAGE_CANTPAUSEYET\020\n\022*\n&CITA"
-  "DEL_CHAT_MESSAGE_PREGAME_COUNTDOWN\020\013\022)\n%"
-  "CITADEL_CHAT_MESSAGE_NOTEAMPAUSESLEFT\020\014\022"
-  ")\n%CITADEL_CHAT_MESSAGE_COMMS_RESTRICTED"
-  "\020\r*\325\001\n\030PostProcessingGameStates\022\030\n\024PostP"
-  "rocState_Killed\020\000\022\027\n\023PostProcState_Black"
-  "\020\001\022$\n PostProcState_DoormanHotelVictim\020\002"
-  "\022\031\n\025PostProcState_Blinded\020\003\022\'\n#PostProcS"
-  "tate_DrifterDarknessCaster\020\004\022\034\n\030PostProc"
-  "State_MatchIntro\020\005"
+  "d_time\030\005 \001(\002\022\016\n\006debuff\030\006 \001(\010:\005\200\265\030\200@\":\n$C"
+  "CitadelUserMsg_SpectatorTeamChanged\022\022\n\nt"
+  "eamnumber\030\001 \001(\005\"\330\001\n\031CCitadelUserMsg_Chat"
+  "Wheel\022\027\n\017chat_message_id\030\001 \001(\r\022\027\n\013player"
+  "_slot\030\002 \001(\005:\002-1\022\031\n\rpawn_entindex\030\003 \001(\005:\002"
+  "-1\022\022\n\naccount_id\030\004 \001(\r\022\017\n\007hero_id\030\005 \001(\r\022"
+  "\017\n\007param_1\030\006 \001(\t\0228\n\nlane_color\030\007 \001(\0162\016.C"
+  "MsgLaneColor:\024k_ELaneColor_Invalid\"\214\001\n\027C"
+  "CitadelUserMsg_ChatMsg\022\027\n\013player_slot\030\001 "
+  "\001(\005:\002-1\022\014\n\004text\030\002 \001(\t\022\020\n\010all_chat\030\003 \001(\010\022"
+  "8\n\nlane_color\030\004 \001(\0162\016.CMsgLaneColor:\024k_E"
+  "LaneColor_Invalid\"\247\002\n\033CCitadelUserMsg_Go"
+  "ldHistory\022\033\n\017entindex_player\030\001 \001(\005:\002-1\022A"
+  "\n\016minute_records\030\002 \003(\0132).CCitadelUserMsg"
+  "_GoldHistory.MinuteRecord\032C\n\nGoldRecord\022"
+  "\027\n\017currency_source\030\001 \001(\005\022\014\n\004gold\030\002 \001(\005\022\016"
+  "\n\006events\030\003 \001(\005\032c\n\014MinuteRecord\022\024\n\014match_"
+  "minute\030\001 \001(\005\022=\n\014gold_records\030\002 \003(\0132\'.CCi"
+  "tadelUserMsg_GoldHistory.GoldRecord\"\272\n\n "
+  "CCitadelUserMsg_CameraController\022.\n\006acti"
+  "on\030\001 \001(\0162\r.CameraAction:\017k_EAction_AddOp"
+  "\0229\n\toperation\030\002 \001(\0162\020.CameraOperation:\024k"
+  "_ECameraOp_Maintain\0221\n\005param\030\003 \001(\0162\014.Cam"
+  "eraParam:\024k_EParam_ClearAllOps\022D\n\nparam_"
+  "mode\030\014 \001(\0162\020.CameraParamMode:\036k_EParamMo"
+  "de_AllowInOneContext\022\r\n\005delay\030\004 \001(\002\022\027\n\017r"
+  "elative_values\030\013 \001(\010\022\031\n\021context_symbol_i"
+  "d\030\005 \001(\r\022\023\n\010priority\030\r \001(\r:\0011\022<\n\010maintain"
+  "\030\006 \001(\0132*.CCitadelUserMsg_CameraControlle"
+  "r.Maintain\022<\n\010approach\030\007 \001(\0132*.CCitadelU"
+  "serMsg_CameraController.Approach\0228\n\006spri"
+  "ng\030\010 \001(\0132(.CCitadelUserMsg_CameraControl"
+  "ler.Spring\0224\n\004lerp\030\t \001(\0132&.CCitadelUserM"
+  "sg_CameraController.Lerp\0222\n\003lag\030\n \001(\0132%."
+  "CCitadelUserMsg_CameraController.Lag\032\037\n\010"
+  "Maintain\022\023\n\010duration\030\001 \001(\002:\0010\032\304\001\n\010Approa"
+  "ch\022\022\n\005speed\030\001 \001(\002:\003600\022\032\n\rdefault_speed\030"
+  "\002 \001(\002:\003600\022\032\n\014acceleration\030\003 \001(\002:\0041000\022\027"
+  "\n\014min_duration\030\004 \001(\002:\0010\022\026\n\016approach_floa"
+  "t\030\005 \001(\002\022$\n\017approach_vector\030\006 \001(\0132\013.CMsgV"
+  "ector\022\025\n\rchase_default\030\007 \001(\010\032\216\001\n\006Spring\022"
+  "\033\n\017spring_strength\030\001 \001(\002:\00210\022\024\n\tmin_spee"
+  "d\030\004 \001(\002:\0010\022\027\n\014max_duration\030\005 \001(\002:\0010\022\024\n\014t"
+  "arget_float\030\006 \001(\002\022\"\n\rtarget_vector\030\007 \001(\013"
+  "2\013.CMsgVector\032\243\001\n\004Lerp\022\023\n\013start_float\030\001 "
+  "\001(\002\022!\n\014start_vector\030\002 \001(\0132\013.CMsgVector\022\021"
+  "\n\tend_float\030\003 \001(\002\022\037\n\nend_vector\030\004 \001(\0132\013."
+  "CMsgVector\022\014\n\004bias\030\005 \001(\002\022\014\n\004gain\030\006 \001(\002\022\023"
+  "\n\010duration\030\007 \001(\002:\0011\032\232\001\n\003Lag\022\024\n\014min_durat"
+  "ion\030\001 \001(\002\022\020\n\010lag_time\030\002 \001(\002\022\021\n\tmax_speed"
+  "\030\003 \001(\002\022\027\n\017spring_strength\030\004 \001(\002\022\?\n1incre"
+  "ase_spring_strength_to_keep_target_on_sc"
+  "reen\030\005 \001(\010:\004true\"A\n CCitadelUserMsg_Post"
+  "MatchDetails\022\025\n\rmatch_details\030\001 \001(\014:\006\200\265\030"
+  "\300\204=\"\215\001\n\031CCitadelUserMsg_ChatEvent\022J\n\004typ"
+  "e\030\001 \001(\0162\024.ECitadelChatMessage:&CITADEL_C"
+  "HAT_MESSAGE_UNPAUSE_COUNTDOWN\022\016\n\006values\030"
+  "\002 \003(\r\022\024\n\014player_slots\030\003 \003(\005\"\345\001\n\032CCitadel"
+  "UserMsg_HeroKilled\022\033\n\017entindex_victim\030\001 "
+  "\001(\005:\002-1\022\036\n\022entindex_inflictor\030\002 \001(\005:\002-1\022"
+  "\035\n\021entindex_attacker\030\003 \001(\005:\002-1\022\032\n\022entind"
+  "ex_assisters\030\004 \003(\005\022\033\n\017entindex_scorer\030\005 "
+  "\001(\005:\002-1\022\026\n\016respawn_reason\030\006 \001(\005\022\032\n\022victi"
+  "m_team_number\030\007 \001(\005\"\241\001\n*CCitadelEntityMs"
+  "g_BreakablePropSpawnDebris\022\037\n\nentity_msg"
+  "\030\001 \001(\0132\013.CEntityMsg\022\037\n\ndamage_pos\030\002 \001(\0132"
+  "\013.CMsgVector\022\016\n\006damage\030\003 \001(\002\022!\n\014damage_f"
+  "orce\030\004 \001(\0132\013.CMsgVector\"t\n\032CCitadelUserM"
+  "sg_ReturnIdol\022\026\n\016location_index\030\001 \001(\005\022$\n"
+  "\017return_location\030\002 \001(\0132\013.CMsgVector\022\030\n\020l"
+  "ocation_enabled\030\003 \001(\010\"d\n%CCitadelUserMsg"
+  "_SetClientCameraAngles\022\027\n\013player_slot\030\001 "
+  "\001(\005:\002-1\022\"\n\rcamera_angles\030\002 \001(\0132\013.CMsgQAn"
+  "gle\"\214\001\n\035CCitadelUserMessage_BulletHit\022\016\n"
+  "\006shotid\030\001 \001(\005\022\016\n\006pellet\030\002 \001(\005\022\030\n\014hit_ent"
+  "index\030\003 \001(\005:\002-1\022\033\n\017weapon_entindex\030\004 \001(\005"
+  ":\002-1\022\024\n\014is_predicted\030\005 \001(\010\"_\n!CCitadelUs"
+  "erMessage_ObjectiveMask\022\034\n\024objective_mas"
+  "k_team0\030\002 \001(\004\022\034\n\024objective_mask_team1\030\003 "
+  "\001(\004\"v\n#CCitadelUserMessage_ModifierAppli"
+  "ed\022\033\n\017entindex_caster\030\001 \001(\005:\002-1\022\033\n\017entin"
+  "dex_parent\030\002 \001(\005:\002-1\022\025\n\rserial_number\030\003 "
+  "\001(\005\"\315\001\n\'CCitadelUserMessage_AuraModifier"
+  "Applied\022\033\n\017entindex_caster\030\001 \001(\005:\002-1\022\033\n\017"
+  "entindex_target\030\002 \001(\005:\002-1\022\030\n\020modifier_ty"
+  "pe_id\030\003 \001(\r\022\036\n\026modifier_serial_number\030\004 "
+  "\001(\005\022\027\n\017aura_start_time\030\005 \001(\002\022\025\n\raura_end"
+  "_time\030\006 \001(\002\"%\n#CCitadelUserMsg_Obstructe"
+  "dShotFired\"\370\001\n\"CCitadelUserMsg_PostProce"
+  "ssingAnim\022\032\n\016entindex_owner\030\001 \001(\005:\002-1\022\030\n"
+  "\020clear_all_states\030\002 \001(\010\022>\n\005state\030\003 \001(\0162\031"
+  ".PostProcessingGameStates:\024PostProcState"
+  "_Killed\022\r\n\005delay\030\004 \001(\002\022\024\n\014fade_in_time\030\005"
+  " \001(\002\022\021\n\thold_time\030\006 \001(\002\022\025\n\rfade_out_time"
+  "\030\007 \001(\002\022\r\n\005scale\030\010 \001(\002\"\230\001\n\037CCitadelUserMs"
+  "g_DeathReplayData\022\031\n\rkiller_scorer\030\001 \001(\005"
+  ":\002-1\022\034\n\020killer_inflictor\030\002 \001(\005:\002-1\022<\n\016da"
+  "mage_summary\030\003 \001(\0132$.CCitadelUserMsg_Rec"
+  "entDamageSummary\"!\n\037CCitadelUserMsg_Forc"
+  "eShopClosed\"\307\002\n&CCitadelUserMsg_PlayerLi"
+  "fetimeStatInfo\022;\n\005stats\030\001 \003(\0132,.CCitadel"
+  "UserMsg_PlayerLifetimeStatInfo.Stat\022\020\n\010m"
+  "atch_id\030\002 \001(\004\022\024\n\014end_of_match\030\003 \001(\010\022\031\n\021i"
+  "s_official_match\030\004 \001(\010\032\234\001\n\004Stat\022\021\n\tstat_"
+  "name\030\001 \001(\t\022\023\n\013match_total\030\002 \001(\r\022\026\n\016lifet"
+  "ime_value\030\003 \001(\r\022\020\n\010priority\030\004 \001(\r\022\031\n\021pre"
+  "v_lifetime_max\030\005 \001(\r\022\021\n\tstat_type\030\006 \001(\r\022"
+  "\024\n\014stat_type_id\030\007 \001(\r\"\245\001\n\037CCitadelUserMs"
+  "g_StaminaConsumed\022\033\n\017entindex_target\030\001 \001"
+  "(\005:\002-1\022\026\n\016stamina_before\030\003 \001(\002\022\025\n\rstamin"
+  "a_after\030\004 \001(\002\022\017\n\007drained\030\005 \001(\010\022\023\n\013stamin"
+  "a_max\030\006 \001(\002\022\020\n\010gametime\030\007 \001(\002\"\212\001\n!CCitad"
+  "elUserMessage_AbilityNotify\022\033\n\017entindex_"
+  "victim\030\001 \001(\005:\002-1\022\035\n\021entindex_attacker\030\002 "
+  "\001(\005:\002-1\022\022\n\nability_id\030\003 \001(\r\022\025\n\rstatus_im"
+  "pact\030\004 \001(\r\"\206\002\n#CCitadelUserMessage_Curre"
+  "ncyChanged\022\022\n\006userid\030\001 \001(\005:\002-1\022\025\n\rcurren"
+  "cy_type\030\002 \001(\005\022\027\n\017currency_source\030\003 \001(\005\022\r"
+  "\n\005delta\030\004 \001(\005\022\024\n\014notification\030\005 \001(\010\022\033\n\017e"
+  "ntindex_victim\030\006 \001(\005:\002-1\022\037\n\nvictim_pos\030\007"
+  " \001(\0132\013.CMsgVector\022\021\n\tplaysound\030\010 \001(\005\022\022\n\n"
+  "ability_id\030\t \001(\r\022\021\n\tnew_value\030\n \001(\r\"I\n\034C"
+  "CitadelUserMessage_GameOver\022\024\n\014winning_t"
+  "eam\030\001 \001(\005\022\023\n\013just_a_test\030\002 \001(\010\"\227\002\n&CCita"
+  "delUserMsg_GetDamageStatsResponse\022\023\n\013pla"
+  "yer_slot\030\001 \001(\r\022\024\n\014ability_name\030\002 \001(\t\022@\n\006"
+  "damage\030\003 \001(\01320.CCitadelUserMsg_GetDamage"
+  "StatsResponse.StatType\022A\n\007healing\030\004 \001(\0132"
+  "0.CCitadelUserMsg_GetDamageStatsResponse"
+  ".StatType\032=\n\010StatType\022\036\n\022target_player_s"
+  "lot\030\001 \003(\rB\002\020\001\022\021\n\005value\030\002 \003(\rB\002\020\001\"j\n*CCit"
+  "adelUserMsg_ParticipantStartSoundEvent\022&"
+  "\n\005event\030\001 \001(\0132\027.CMsgSosStartSoundEvent\022\024"
+  "\n\014player_slots\030\002 \003(\005\"h\n)CCitadelUserMsg_"
+  "ParticipantStopSoundEvent\022%\n\005event\030\001 \001(\013"
+  "2\026.CMsgSosStopSoundEvent\022\024\n\014player_slots"
+  "\030\002 \003(\005\"p\n-CCitadelUserMsg_ParticipantSto"
+  "pSoundEventHash\022)\n\005event\030\001 \001(\0132\032.CMsgSos"
+  "StopSoundEventHash\022\024\n\014player_slots\030\002 \003(\005"
+  "\"r\n.CCitadelUserMsg_ParticipantSetSoundE"
+  "ventParams\022*\n\005event\030\001 \001(\0132\033.CMsgSosSetSo"
+  "undEventParams\022\024\n\014player_slots\030\002 \003(\005\"v\n0"
+  "CCitadelUserMsg_ParticipantSetLibrarySta"
+  "ckFields\022,\n\005event\030\001 \001(\0132\035.CMsgSosSetLibr"
+  "aryStackFields\022\024\n\014player_slots\030\002 \003(\005\"\204\002\n"
+  "\032CCitadelUserMsg_BossKilled\022\026\n\016objective"
+  "_team\030\001 \001(\005\022\035\n\025objective_mask_change\030\002 \001"
+  "(\005\022\037\n\rentity_killed\030\003 \001(\r:\01016777215\022\033\n\023e"
+  "ntity_killed_class\030\004 \001(\005\022\037\n\rentity_kille"
+  "r\030\005 \001(\r:\01016777215\022\020\n\010gametime\030\006 \001(\002\022\030\n\020b"
+  "osses_remaining\030\007 \001(\005\022$\n\017entity_position"
+  "\030\010 \001(\0132\013.CMsgVector\"m\n\033CCitadelUserMsg_B"
+  "ossDamaged\022\026\n\016objective_team\030\001 \001(\005\022\024\n\014ob"
+  "jective_id\030\002 \001(\005\022 \n\016entity_damaged\030\003 \001(\r"
+  ":\01016777215\" \n\036CCitadelUserMsg_MidBossSpa"
+  "wned\"y\n\033CCitadelUserMsg_RejuvStatus\022\024\n\014k"
+  "illing_team\030\001 \001(\005\022\035\n\013player_pawn\030\002 \001(\r:\010"
+  "16777215\022\021\n\tuser_team\030\003 \001(\005\022\022\n\nevent_typ"
+  "e\030\004 \001(\005\"\221\001\n\032CCitadelUserMsg_KillStreak\022\035"
+  "\n\013player_pawn\030\001 \001(\r:\01016777215\022\021\n\tnum_kil"
+  "ls\030\002 \001(\005\022\026\n\016is_first_blood\030\003 \001(\010\022\024\n\014stre"
+  "ak_ended\030\004 \001(\010\022\023\n\010duration\030\005 \001(\002:\0015\"{\n\027C"
+  "CitadelUserMsg_TeamMsg\022\022\n\nevent_type\030\001 \001"
+  "(\005\022\023\n\013team_number\030\002 \001(\005\022\022\n\nlane_color\030\003 "
+  "\001(\005\022#\n\021player_controller\030\004 \001(\r:\01016777215"
+  "\"T\n\037CCitadelUserMsg_PlayerRespawned\022\035\n\013p"
+  "layer_pawn\030\001 \001(\r:\01016777215\022\022\n\nfacing_yaw"
+  "\030\002 \001(\002\":\n\037CCitadelUserMsg_CallCheaterVot"
+  "e\022\027\n\013player_slot\030\001 \001(\005:\002-1\"G\n\034CCitadelUs"
+  "erMessage_MeleeHit\022\030\n\014hit_entindex\030\001 \001(\005"
+  ":\002-1\022\r\n\005heavy\030\002 \001(\010\"R\n CCitadelUserMsg_F"
+  "lexSlotUnlocked\022\023\n\013team_number\030\001 \001(\005\022\031\n\021"
+  "flexslot_unlocked\030\002 \001(\005\"v\n,CCitadelUserM"
+  "essage_ItemPurchaseNotification\022\022\n\006useri"
+  "d\030\001 \001(\005:\002-1\022\022\n\nability_id\030\002 \001(\r\022\014\n\004sell\030"
+  "\003 \001(\010\022\020\n\010quickbuy\030\004 \001(\010\"R\n\034CCitadelUserM"
+  "sg_SeasonalKill\022\030\n\006killer\030\001 \001(\r:\0101677721"
+  "5\022\030\n\006victim\030\002 \001(\r:\01016777215\"C\n\032CCitadelU"
+  "serMsg_MusicQueue\022\023\n\013music_state\030\001 \001(\005\022\020"
+  "\n\010override\030\002 \001(\010\"H\n\037CCitadelUserMsg_AG2P"
+  "aramTrigger\022\020\n\010param_id\030\001 \001(\t\022\023\n\013param_v"
+  "alue\030\002 \001(\t\"o\n\037CCitadelUserMsg_EntityPort"
+  "alled\022\"\n\020entity_portalled\030\001 \001(\r:\0101677721"
+  "5\022(\n\020portal_transform\030\002 \001(\0132\016.CMsgTransf"
+  "orm\"|\n\"CCitadelUserMsg_StreetBrawlScorin"
+  "g\022\024\n\014scoring_team\030\001 \001(\005\022\023\n\013just_a_test\030\002"
+  " \001(\010\022\026\n\016sapphire_score\030\003 \001(\005\022\023\n\013amber_sc"
+  "ore\030\004 \001(\005\"\261\001\n#CCitadelUserMsg_HudGameAnn"
+  "ouncement\022\027\n\017title_locstring\030\001 \001(\t\022\035\n\025de"
+  "scription_locstring\030\002 \001(\t\022\021\n\tclassname\030\003"
+  " \003(\t\022\034\n\024dialog_variable_name\030\004 \003(\t\022!\n\031di"
+  "alog_variable_locstring\030\005 \003(\t\"t\n(CCitade"
+  "lUserMessage_ImportantAbilityUsed\022\030\n\006pla"
+  "yer\030\001 \001(\r:\01016777215\022\030\n\006caster\030\002 \001(\r:\010167"
+  "77215\022\024\n\014ability_name\030\003 \001(\t\"7\n\034CCitadelU"
+  "serMsg_BannedHeroes\022\027\n\017banned_hero_ids\030\001"
+  " \003(\r*\376\017\n\025CitadelUserMessageIds\022\026\n\021k_EUse"
+  "rMsg_Damage\020\254\002\022\027\n\022k_EUserMsg_MapPing\020\257\002\022"
+  "\033\n\026k_EUserMsg_TeamRewards\020\260\002\022\035\n\030k_EUserM"
+  "sg_AbilityFailed\020\262\002\022\"\n\035k_EUserMsg_Trigge"
+  "rDamageFlash\020\264\002\022 \n\033k_EUserMsg_AbilitiesC"
+  "hanged\020\265\002\022#\n\036k_EUserMsg_RecentDamageSumm"
+  "ary\020\266\002\022$\n\037k_EUserMsg_SpectatorTeamChange"
+  "d\020\267\002\022\031\n\024k_EUserMsg_ChatWheel\020\270\002\022\033\n\026k_EUs"
+  "erMsg_GoldHistory\020\271\002\022\027\n\022k_EUserMsg_ChatM"
+  "sg\020\272\002\022\035\n\030k_EUserMsg_QuickResponse\020\273\002\022 \n\033"
+  "k_EUserMsg_PostMatchDetails\020\274\002\022\031\n\024k_EUse"
+  "rMsg_ChatEvent\020\275\002\022\"\n\035k_EUserMsg_AbilityI"
+  "nterrupted\020\276\002\022\032\n\025k_EUserMsg_HeroKilled\020\277"
+  "\002\022\032\n\025k_EUserMsg_ReturnIdol\020\300\002\022%\n k_EUser"
+  "Msg_SetClientCameraAngles\020\301\002\022\027\n\022k_EUserM"
+  "sg_MapLine\020\302\002\022\031\n\024k_EUserMsg_BulletHit\020\303\002"
+  "\022\035\n\030k_EUserMsg_ObjectiveMask\020\304\002\022\037\n\032k_EUs"
+  "erMsg_ModifierApplied\020\305\002\022 \n\033k_EUserMsg_C"
+  "ameraController\020\306\002\022#\n\036k_EUserMsg_AuraMod"
+  "ifierApplied\020\307\002\022#\n\036k_EUserMsg_Obstructed"
+  "ShotFired\020\311\002\022\"\n\035k_EUserMsg_AbilityLateFa"
+  "ilure\020\312\002\022\033\n\026k_EUserMsg_AbilityPing\020\313\002\022\"\n"
+  "\035k_EUserMsg_PostProcessingAnim\020\314\002\022\037\n\032k_E"
+  "UserMsg_DeathReplayData\020\315\002\022&\n!k_EUserMsg"
+  "_PlayerLifetimeStatInfo\020\316\002\022\037\n\032k_EUserMsg"
+  "_ForceShopClosed\020\320\002\022\037\n\032k_EUserMsg_Stamin"
+  "aConsumed\020\321\002\022\035\n\030k_EUserMsg_AbilityNotify"
+  "\020\322\002\022&\n!k_EUserMsg_GetDamageStatsResponse"
+  "\020\323\002\022*\n%k_EUserMsg_ParticipantStartSoundE"
+  "vent\020\324\002\022)\n$k_EUserMsg_ParticipantStopSou"
+  "ndEvent\020\325\002\022-\n(k_EUserMsg_ParticipantStop"
+  "SoundEventHash\020\326\002\022.\n)k_EUserMsg_Particip"
+  "antSetSoundEventParams\020\327\002\0220\n+k_EUserMsg_"
+  "ParticipantSetLibraryStackFields\020\330\002\022\037\n\032k"
+  "_EUserMsg_CurrencyChanged\020\331\002\022\030\n\023k_EUserM"
+  "sg_GameOver\020\332\002\022\032\n\025k_EUserMsg_BossKilled\020"
+  "\333\002\022\033\n\026k_EUserMsg_BossDamaged\020\334\002\022\036\n\031k_EUs"
+  "erMsg_MidBossSpawned\020\335\002\022\033\n\026k_EUserMsg_Re"
+  "juvStatus\020\336\002\022\032\n\025k_EUserMsg_KillStreak\020\337\002"
+  "\022\027\n\022k_EUserMsg_TeamMsg\020\340\002\022\037\n\032k_EUserMsg_"
+  "PlayerRespawned\020\341\002\022\037\n\032k_EUserMsg_CallChe"
+  "aterVote\020\342\002\022\030\n\023k_EUserMsg_MeleeHit\020\343\002\022 \n"
+  "\033k_EUserMsg_FlexSlotUnlocked\020\344\002\022\034\n\027k_EUs"
+  "erMsg_SeasonalKill\020\345\002\022\032\n\025k_EUserMsg_Musi"
+  "cQueue\020\346\002\022\037\n\032k_EUserMsg_AG2ParamTrigger\020"
+  "\347\002\022(\n#k_EUserMsg_ItemPurchaseNotificatio"
+  "n\020\350\002\022\037\n\032k_EUserMsg_EntityPortalled\020\351\002\022\"\n"
+  "\035k_EUserMsg_StreetBrawlScoring\020\352\002\022#\n\036k_E"
+  "UserMsg_HudGameAnnouncement\020\353\002\022!\n\034k_EUse"
+  "rMsg_ItemDraftReaction\020\354\002\022$\n\037k_EUserMsg_"
+  "ImportantAbilityUsed\020\355\002\022\034\n\027k_EUserMsg_Ba"
+  "nnedHeroes\020\356\002*E\n\027CitadelEntityMessageIds"
+  "\022*\n%k_EEntityMsg_BreakablePropSpawnDebri"
+  "s\020\364\003*\300\004\n\025ChatMsgPingMarkerInfo\022o\n$k_EPin"
+  "gMarkerInfo_ShowMarkerAndSound\020\000\032E\302>BSho"
+  "w Ping Indicator at Ping Location, Play "
+  "Ping Sound, and Play VO\022p\n$k_EPingMarker"
+  "Info_ShowMarkerOnSender\020\001\032F\302>CShow Ping "
+  "Indicator on Pinging Player, Play Ping S"
+  "ound, and Play VO\022I\n$k_EPingMarkerInfo_H"
+  "ideMarkerAndSound\020\002\032\037\302>\034No Marker or Sou"
+  "nd (just VO)\022b\n k_EPingMarkerInfo_OnlySh"
+  "owMarker\020\003\032<\302>9Only Show Ping Indicator "
+  "at Ping Location (no ping sound)\022E\n\037k_EP"
+  "ingMarkerInfo_OnlyPlaySound\020\004\032 \302>\035Only P"
+  "lay Ping Sound (and VO)\022N\n\035k_EPingMarker"
+  "Info_OnlyMiniMap\020\005\032+\302>(Only show on Mini"
+  "map, no world, no sound*\210\001\n\017CameraOperat"
+  "ion\022\030\n\024k_ECameraOp_Maintain\020\002\022\030\n\024k_ECame"
+  "raOp_Approach\020\003\022\026\n\022k_ECameraOp_Spring\020\004\022"
+  "\024\n\020k_ECameraOp_Lerp\020\005\022\023\n\017k_ECameraOp_Lag"
+  "\020\006*\304\001\n\013CameraParam\022\030\n\024k_EParam_ClearAllO"
+  "ps\020\000\022\"\n\036k_EParam_ClearAllOpsForContext\020\001"
+  "\022\025\n\021k_EParam_Distance\020\002\022\020\n\014k_EParam_FOV\020"
+  "\003\022\033\n\027k_EParam_TargetPosition\020\004\022\027\n\023k_EPar"
+  "am_VertOffset\020\005\022\030\n\024k_EParam_HorizOffset\020"
+  "\006*_\n\017CameraParamMode\022\"\n\036k_EParamMode_All"
+  "owInOneContext\020\000\022(\n$k_EParamMode_AllowIn"
+  "MultipleContexts\020\001*`\n\014CameraAction\022\023\n\017k_"
+  "EAction_AddOp\020\000\022\031\n\025k_EAction_ClearAllOps"
+  "\020\001\022 \n\034k_EAction_ClearOpsForContext\020\002*\231\004\n"
+  "\023ECitadelChatMessage\022*\n&CITADEL_CHAT_MES"
+  "SAGE_UNPAUSE_COUNTDOWN\020\001\022!\n\035CITADEL_CHAT"
+  "_MESSAGE_UNPAUSED\020\002\022&\n\"CITADEL_CHAT_MESS"
+  "AGE_AUTO_UNPAUSED\020\003\022(\n$CITADEL_CHAT_MESS"
+  "AGE_PAUSE_COUNTDOWN\020\004\022\037\n\033CITADEL_CHAT_ME"
+  "SSAGE_PAUSED\020\005\022\"\n\036CITADEL_CHAT_MESSAGE_Y"
+  "OUPAUSED\020\006\022\"\n\036CITADEL_CHAT_MESSAGE_CANTP"
+  "AUSE\020\007\022(\n$CITADEL_CHAT_MESSAGE_CANTUNPAU"
+  "SETEAM\020\010\022%\n!CITADEL_CHAT_MESSAGE_NOPAUSE"
+  "SLEFT\020\t\022%\n!CITADEL_CHAT_MESSAGE_CANTPAUS"
+  "EYET\020\n\022*\n&CITADEL_CHAT_MESSAGE_PREGAME_C"
+  "OUNTDOWN\020\013\022)\n%CITADEL_CHAT_MESSAGE_NOTEA"
+  "MPAUSESLEFT\020\014\022)\n%CITADEL_CHAT_MESSAGE_CO"
+  "MMS_RESTRICTED\020\r*\325\001\n\030PostProcessingGameS"
+  "tates\022\030\n\024PostProcState_Killed\020\000\022\027\n\023PostP"
+  "rocState_Black\020\001\022$\n PostProcState_Doorma"
+  "nHotelVictim\020\002\022\031\n\025PostProcState_Blinded\020"
+  "\003\022\'\n#PostProcState_DrifterDarknessCaster"
+  "\020\004\022\034\n\030PostProcState_MatchIntro\020\005"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fusermessages_2eproto_deps[4] = {
   &::descriptor_table_citadel_5fgcmessages_5fcommon_2eproto,
@@ -2919,9 +2943,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fusermessa
 };
 static ::_pbi::once_flag descriptor_table_citadel_5fusermessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_citadel_5fusermessages_2eproto = {
-    false, false, 15498, descriptor_table_protodef_citadel_5fusermessages_2eproto,
+    false, false, 15592, descriptor_table_protodef_citadel_5fusermessages_2eproto,
     "citadel_usermessages.proto",
-    &descriptor_table_citadel_5fusermessages_2eproto_once, descriptor_table_citadel_5fusermessages_2eproto_deps, 4, 74,
+    &descriptor_table_citadel_5fusermessages_2eproto_once, descriptor_table_citadel_5fusermessages_2eproto_deps, 4, 75,
     schemas, file_default_instances, TableStruct_citadel_5fusermessages_2eproto::offsets,
     file_level_metadata_citadel_5fusermessages_2eproto, file_level_enum_descriptors_citadel_5fusermessages_2eproto,
     file_level_service_descriptors_citadel_5fusermessages_2eproto,
@@ -3027,6 +3051,7 @@ bool CitadelUserMessageIds_IsValid(int value) {
     case 363:
     case 364:
     case 365:
+    case 366:
       return true;
     default:
       return false;
@@ -25990,6 +26015,194 @@ void CCitadelUserMessage_ImportantAbilityUsed::InternalSwap(CCitadelUserMessage_
       file_level_metadata_citadel_5fusermessages_2eproto[73]);
 }
 
+// ===================================================================
+
+class CCitadelUserMsg_BannedHeroes::_Internal {
+ public:
+};
+
+CCitadelUserMsg_BannedHeroes::CCitadelUserMsg_BannedHeroes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CCitadelUserMsg_BannedHeroes)
+}
+CCitadelUserMsg_BannedHeroes::CCitadelUserMsg_BannedHeroes(const CCitadelUserMsg_BannedHeroes& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CCitadelUserMsg_BannedHeroes* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.banned_hero_ids_){from._impl_.banned_hero_ids_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_BannedHeroes)
+}
+
+inline void CCitadelUserMsg_BannedHeroes::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.banned_hero_ids_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CCitadelUserMsg_BannedHeroes::~CCitadelUserMsg_BannedHeroes() {
+  // @@protoc_insertion_point(destructor:CCitadelUserMsg_BannedHeroes)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CCitadelUserMsg_BannedHeroes::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.banned_hero_ids_.~RepeatedField();
+}
+
+void CCitadelUserMsg_BannedHeroes::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CCitadelUserMsg_BannedHeroes::Clear() {
+// @@protoc_insertion_point(message_clear_start:CCitadelUserMsg_BannedHeroes)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.banned_hero_ids_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CCitadelUserMsg_BannedHeroes::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated uint32 banned_hero_ids = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_banned_hero_ids(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<8>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 10) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_banned_hero_ids(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CCitadelUserMsg_BannedHeroes::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMsg_BannedHeroes)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated uint32 banned_hero_ids = 1;
+  for (int i = 0, n = this->_internal_banned_hero_ids_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_banned_hero_ids(i), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMsg_BannedHeroes)
+  return target;
+}
+
+size_t CCitadelUserMsg_BannedHeroes::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_BannedHeroes)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint32 banned_hero_ids = 1;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.banned_hero_ids_);
+    total_size += 1 *
+                  ::_pbi::FromIntSize(this->_internal_banned_hero_ids_size());
+    total_size += data_size;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMsg_BannedHeroes::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CCitadelUserMsg_BannedHeroes::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_BannedHeroes::GetClassData() const { return &_class_data_; }
+
+
+void CCitadelUserMsg_BannedHeroes::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CCitadelUserMsg_BannedHeroes*>(&to_msg);
+  auto& from = static_cast<const CCitadelUserMsg_BannedHeroes&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMsg_BannedHeroes)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.banned_hero_ids_.MergeFrom(from._impl_.banned_hero_ids_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CCitadelUserMsg_BannedHeroes::CopyFrom(const CCitadelUserMsg_BannedHeroes& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMsg_BannedHeroes)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CCitadelUserMsg_BannedHeroes::IsInitialized() const {
+  return true;
+}
+
+void CCitadelUserMsg_BannedHeroes::InternalSwap(CCitadelUserMsg_BannedHeroes* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.banned_hero_ids_.InternalSwap(&other->_impl_.banned_hero_ids_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_BannedHeroes::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
+      file_level_metadata_citadel_5fusermessages_2eproto[74]);
+}
+
 // @@protoc_insertion_point(namespace_scope)
 PROTOBUF_NAMESPACE_OPEN
 template<> PROTOBUF_NOINLINE ::CUserMessageEmpty*
@@ -26287,6 +26500,10 @@ Arena::CreateMaybeMessage< ::CCitadelUserMsg_HudGameAnnouncement >(Arena* arena)
 template<> PROTOBUF_NOINLINE ::CCitadelUserMessage_ImportantAbilityUsed*
 Arena::CreateMaybeMessage< ::CCitadelUserMessage_ImportantAbilityUsed >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCitadelUserMessage_ImportantAbilityUsed >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_BannedHeroes*
+Arena::CreateMaybeMessage< ::CCitadelUserMsg_BannedHeroes >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CCitadelUserMsg_BannedHeroes >(arena);
 }
 PROTOBUF_NAMESPACE_CLOSE
 

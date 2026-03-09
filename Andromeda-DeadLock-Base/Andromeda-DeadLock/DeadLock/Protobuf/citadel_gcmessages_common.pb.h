@@ -846,11 +846,12 @@ enum ECitadelGameMode : int {
   k_ECitadelGameMode_Normal = 1,
   k_ECitadelGameMode_1v1Test = 2,
   k_ECitadelGameMode_Sandbox = 3,
-  k_ECitadelGameMode_StreetBrawl = 4
+  k_ECitadelGameMode_StreetBrawl = 4,
+  k_ECitadelGameMode_ExploreNYC = 5
 };
 bool ECitadelGameMode_IsValid(int value);
 constexpr ECitadelGameMode ECitadelGameMode_MIN = k_ECitadelGameMode_Invalid;
-constexpr ECitadelGameMode ECitadelGameMode_MAX = k_ECitadelGameMode_StreetBrawl;
+constexpr ECitadelGameMode ECitadelGameMode_MAX = k_ECitadelGameMode_ExploreNYC;
 constexpr int ECitadelGameMode_ARRAYSIZE = ECitadelGameMode_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECitadelGameMode_descriptor();
@@ -2490,6 +2491,7 @@ class CMsgHeroSelectionMatchInfo final :
 
   enum : int {
     kHeroSelectionsFieldNumber = 1,
+    kBannedHeroesFieldNumber = 2,
   };
   // repeated .CMsgHeroSelectionMatchInfo.Hero hero_selections = 1;
   int hero_selections_size() const;
@@ -2509,6 +2511,28 @@ class CMsgHeroSelectionMatchInfo final :
   const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgHeroSelectionMatchInfo_Hero >&
       hero_selections() const;
 
+  // repeated uint32 banned_heroes = 2;
+  int banned_heroes_size() const;
+  private:
+  int _internal_banned_heroes_size() const;
+  public:
+  void clear_banned_heroes();
+  private:
+  uint32_t _internal_banned_heroes(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_banned_heroes() const;
+  void _internal_add_banned_heroes(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_banned_heroes();
+  public:
+  uint32_t banned_heroes(int index) const;
+  void set_banned_heroes(int index, uint32_t value);
+  void add_banned_heroes(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      banned_heroes() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_banned_heroes();
+
   // @@protoc_insertion_point(class_scope:CMsgHeroSelectionMatchInfo)
  private:
   class _Internal;
@@ -2518,6 +2542,7 @@ class CMsgHeroSelectionMatchInfo final :
   typedef void DestructorSkippable_;
   struct Impl_ {
     ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgHeroSelectionMatchInfo_Hero > hero_selections_;
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > banned_heroes_;
     mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
   };
   union { Impl_ _impl_; };
@@ -17749,6 +17774,53 @@ inline const ::PROTOBUF_NAMESPACE_ID::RepeatedPtrField< ::CMsgHeroSelectionMatch
 CMsgHeroSelectionMatchInfo::hero_selections() const {
   // @@protoc_insertion_point(field_list:CMsgHeroSelectionMatchInfo.hero_selections)
   return _impl_.hero_selections_;
+}
+
+// repeated uint32 banned_heroes = 2;
+inline int CMsgHeroSelectionMatchInfo::_internal_banned_heroes_size() const {
+  return _impl_.banned_heroes_.size();
+}
+inline int CMsgHeroSelectionMatchInfo::banned_heroes_size() const {
+  return _internal_banned_heroes_size();
+}
+inline void CMsgHeroSelectionMatchInfo::clear_banned_heroes() {
+  _impl_.banned_heroes_.Clear();
+}
+inline uint32_t CMsgHeroSelectionMatchInfo::_internal_banned_heroes(int index) const {
+  return _impl_.banned_heroes_.Get(index);
+}
+inline uint32_t CMsgHeroSelectionMatchInfo::banned_heroes(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgHeroSelectionMatchInfo.banned_heroes)
+  return _internal_banned_heroes(index);
+}
+inline void CMsgHeroSelectionMatchInfo::set_banned_heroes(int index, uint32_t value) {
+  _impl_.banned_heroes_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgHeroSelectionMatchInfo.banned_heroes)
+}
+inline void CMsgHeroSelectionMatchInfo::_internal_add_banned_heroes(uint32_t value) {
+  _impl_.banned_heroes_.Add(value);
+}
+inline void CMsgHeroSelectionMatchInfo::add_banned_heroes(uint32_t value) {
+  _internal_add_banned_heroes(value);
+  // @@protoc_insertion_point(field_add:CMsgHeroSelectionMatchInfo.banned_heroes)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgHeroSelectionMatchInfo::_internal_banned_heroes() const {
+  return _impl_.banned_heroes_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgHeroSelectionMatchInfo::banned_heroes() const {
+  // @@protoc_insertion_point(field_list:CMsgHeroSelectionMatchInfo.banned_heroes)
+  return _internal_banned_heroes();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgHeroSelectionMatchInfo::_internal_mutable_banned_heroes() {
+  return &_impl_.banned_heroes_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgHeroSelectionMatchInfo::mutable_banned_heroes() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgHeroSelectionMatchInfo.banned_heroes)
+  return _internal_mutable_banned_heroes();
 }
 
 // -------------------------------------------------------------------

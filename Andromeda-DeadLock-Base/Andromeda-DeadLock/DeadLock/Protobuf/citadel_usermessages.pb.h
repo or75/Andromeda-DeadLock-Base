@@ -101,6 +101,9 @@ extern CCitadelUserMsg_AbilityLateFailureDefaultTypeInternal _CCitadelUserMsg_Ab
 class CCitadelUserMsg_AbilityPing;
 struct CCitadelUserMsg_AbilityPingDefaultTypeInternal;
 extern CCitadelUserMsg_AbilityPingDefaultTypeInternal _CCitadelUserMsg_AbilityPing_default_instance_;
+class CCitadelUserMsg_BannedHeroes;
+struct CCitadelUserMsg_BannedHeroesDefaultTypeInternal;
+extern CCitadelUserMsg_BannedHeroesDefaultTypeInternal _CCitadelUserMsg_BannedHeroes_default_instance_;
 class CCitadelUserMsg_BossDamaged;
 struct CCitadelUserMsg_BossDamagedDefaultTypeInternal;
 extern CCitadelUserMsg_BossDamagedDefaultTypeInternal _CCitadelUserMsg_BossDamaged_default_instance_;
@@ -290,6 +293,7 @@ template<> ::CCitadelUserMsg_AbilitiesChanged* Arena::CreateMaybeMessage<::CCita
 template<> ::CCitadelUserMsg_AbilityInterrupted* Arena::CreateMaybeMessage<::CCitadelUserMsg_AbilityInterrupted>(Arena*);
 template<> ::CCitadelUserMsg_AbilityLateFailure* Arena::CreateMaybeMessage<::CCitadelUserMsg_AbilityLateFailure>(Arena*);
 template<> ::CCitadelUserMsg_AbilityPing* Arena::CreateMaybeMessage<::CCitadelUserMsg_AbilityPing>(Arena*);
+template<> ::CCitadelUserMsg_BannedHeroes* Arena::CreateMaybeMessage<::CCitadelUserMsg_BannedHeroes>(Arena*);
 template<> ::CCitadelUserMsg_BossDamaged* Arena::CreateMaybeMessage<::CCitadelUserMsg_BossDamaged>(Arena*);
 template<> ::CCitadelUserMsg_BossKilled* Arena::CreateMaybeMessage<::CCitadelUserMsg_BossKilled>(Arena*);
 template<> ::CCitadelUserMsg_CallCheaterVote* Arena::CreateMaybeMessage<::CCitadelUserMsg_CallCheaterVote>(Arena*);
@@ -436,11 +440,12 @@ enum CitadelUserMessageIds : int {
   k_EUserMsg_StreetBrawlScoring = 362,
   k_EUserMsg_HudGameAnnouncement = 363,
   k_EUserMsg_ItemDraftReaction = 364,
-  k_EUserMsg_ImportantAbilityUsed = 365
+  k_EUserMsg_ImportantAbilityUsed = 365,
+  k_EUserMsg_BannedHeroes = 366
 };
 bool CitadelUserMessageIds_IsValid(int value);
 constexpr CitadelUserMessageIds CitadelUserMessageIds_MIN = k_EUserMsg_Damage;
-constexpr CitadelUserMessageIds CitadelUserMessageIds_MAX = k_EUserMsg_ImportantAbilityUsed;
+constexpr CitadelUserMessageIds CitadelUserMessageIds_MAX = k_EUserMsg_BannedHeroes;
 constexpr int CitadelUserMessageIds_ARRAYSIZE = CitadelUserMessageIds_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CitadelUserMessageIds_descriptor();
@@ -16486,6 +16491,174 @@ class CCitadelUserMessage_ImportantAbilityUsed final :
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fusermessages_2eproto;
 };
+// -------------------------------------------------------------------
+
+class CCitadelUserMsg_BannedHeroes final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCitadelUserMsg_BannedHeroes) */ {
+ public:
+  inline CCitadelUserMsg_BannedHeroes() : CCitadelUserMsg_BannedHeroes(nullptr) {}
+  ~CCitadelUserMsg_BannedHeroes() override;
+  explicit PROTOBUF_CONSTEXPR CCitadelUserMsg_BannedHeroes(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CCitadelUserMsg_BannedHeroes(const CCitadelUserMsg_BannedHeroes& from);
+  CCitadelUserMsg_BannedHeroes(CCitadelUserMsg_BannedHeroes&& from) noexcept
+    : CCitadelUserMsg_BannedHeroes() {
+    *this = ::std::move(from);
+  }
+
+  inline CCitadelUserMsg_BannedHeroes& operator=(const CCitadelUserMsg_BannedHeroes& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CCitadelUserMsg_BannedHeroes& operator=(CCitadelUserMsg_BannedHeroes&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CCitadelUserMsg_BannedHeroes& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CCitadelUserMsg_BannedHeroes* internal_default_instance() {
+    return reinterpret_cast<const CCitadelUserMsg_BannedHeroes*>(
+               &_CCitadelUserMsg_BannedHeroes_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    74;
+
+  friend void swap(CCitadelUserMsg_BannedHeroes& a, CCitadelUserMsg_BannedHeroes& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CCitadelUserMsg_BannedHeroes* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CCitadelUserMsg_BannedHeroes* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CCitadelUserMsg_BannedHeroes* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CCitadelUserMsg_BannedHeroes>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CCitadelUserMsg_BannedHeroes& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CCitadelUserMsg_BannedHeroes& from) {
+    CCitadelUserMsg_BannedHeroes::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CCitadelUserMsg_BannedHeroes* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CCitadelUserMsg_BannedHeroes";
+  }
+  protected:
+  explicit CCitadelUserMsg_BannedHeroes(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kBannedHeroIdsFieldNumber = 1,
+  };
+  // repeated uint32 banned_hero_ids = 1;
+  int banned_hero_ids_size() const;
+  private:
+  int _internal_banned_hero_ids_size() const;
+  public:
+  void clear_banned_hero_ids();
+  private:
+  uint32_t _internal_banned_hero_ids(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_banned_hero_ids() const;
+  void _internal_add_banned_hero_ids(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_banned_hero_ids();
+  public:
+  uint32_t banned_hero_ids(int index) const;
+  void set_banned_hero_ids(int index, uint32_t value);
+  void add_banned_hero_ids(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      banned_hero_ids() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_banned_hero_ids();
+
+  // @@protoc_insertion_point(class_scope:CCitadelUserMsg_BannedHeroes)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > banned_hero_ids_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_citadel_5fusermessages_2eproto;
+};
 // ===================================================================
 
 
@@ -28568,9 +28741,62 @@ inline void CCitadelUserMessage_ImportantAbilityUsed::set_allocated_ability_name
   // @@protoc_insertion_point(field_set_allocated:CCitadelUserMessage_ImportantAbilityUsed.ability_name)
 }
 
+// -------------------------------------------------------------------
+
+// CCitadelUserMsg_BannedHeroes
+
+// repeated uint32 banned_hero_ids = 1;
+inline int CCitadelUserMsg_BannedHeroes::_internal_banned_hero_ids_size() const {
+  return _impl_.banned_hero_ids_.size();
+}
+inline int CCitadelUserMsg_BannedHeroes::banned_hero_ids_size() const {
+  return _internal_banned_hero_ids_size();
+}
+inline void CCitadelUserMsg_BannedHeroes::clear_banned_hero_ids() {
+  _impl_.banned_hero_ids_.Clear();
+}
+inline uint32_t CCitadelUserMsg_BannedHeroes::_internal_banned_hero_ids(int index) const {
+  return _impl_.banned_hero_ids_.Get(index);
+}
+inline uint32_t CCitadelUserMsg_BannedHeroes::banned_hero_ids(int index) const {
+  // @@protoc_insertion_point(field_get:CCitadelUserMsg_BannedHeroes.banned_hero_ids)
+  return _internal_banned_hero_ids(index);
+}
+inline void CCitadelUserMsg_BannedHeroes::set_banned_hero_ids(int index, uint32_t value) {
+  _impl_.banned_hero_ids_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CCitadelUserMsg_BannedHeroes.banned_hero_ids)
+}
+inline void CCitadelUserMsg_BannedHeroes::_internal_add_banned_hero_ids(uint32_t value) {
+  _impl_.banned_hero_ids_.Add(value);
+}
+inline void CCitadelUserMsg_BannedHeroes::add_banned_hero_ids(uint32_t value) {
+  _internal_add_banned_hero_ids(value);
+  // @@protoc_insertion_point(field_add:CCitadelUserMsg_BannedHeroes.banned_hero_ids)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CCitadelUserMsg_BannedHeroes::_internal_banned_hero_ids() const {
+  return _impl_.banned_hero_ids_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CCitadelUserMsg_BannedHeroes::banned_hero_ids() const {
+  // @@protoc_insertion_point(field_list:CCitadelUserMsg_BannedHeroes.banned_hero_ids)
+  return _internal_banned_hero_ids();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CCitadelUserMsg_BannedHeroes::_internal_mutable_banned_hero_ids() {
+  return &_impl_.banned_hero_ids_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CCitadelUserMsg_BannedHeroes::mutable_banned_hero_ids() {
+  // @@protoc_insertion_point(field_mutable_list:CCitadelUserMsg_BannedHeroes.banned_hero_ids)
+  return _internal_mutable_banned_hero_ids();
+}
+
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

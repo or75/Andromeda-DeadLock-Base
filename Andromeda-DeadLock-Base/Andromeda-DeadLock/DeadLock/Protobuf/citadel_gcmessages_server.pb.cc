@@ -48,7 +48,8 @@ PROTOBUF_CONSTEXPR CMsgServerCrashSentinelFile_GameInfo::CMsgServerCrashSentinel
   , /*decltype(_impl_.game_mode_)*/0
   , /*decltype(_impl_.was_server_shutdown_)*/false
   , /*decltype(_impl_.allow_matches_)*/false
-  , /*decltype(_impl_.allow_hideout_)*/false} {}
+  , /*decltype(_impl_.allow_hideout_)*/false
+  , /*decltype(_impl_.was_lost_lobby_)*/false} {}
 struct CMsgServerCrashSentinelFile_GameInfoDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgServerCrashSentinelFile_GameInfoDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -284,6 +285,7 @@ PROTOBUF_CONSTEXPR CSOCitadelServerStaticLobby_Member::CSOCitadelServerStaticLob
   , /*decltype(_impl_.is_comms_restricted_)*/false
   , /*decltype(_impl_.party_desires_laning_together_)*/false
   , /*decltype(_impl_.requires_skill_calibration_)*/false
+  , /*decltype(_impl_.randomed_hero_)*/false
   , /*decltype(_impl_.bot_difficulty_)*/0
   , /*decltype(_impl_.match_number_)*/0u} {}
 struct CSOCitadelServerStaticLobby_MemberDefaultTypeInternal {
@@ -315,6 +317,7 @@ PROTOBUF_CONSTEXPR CSOCitadelServerStaticLobby::CSOCitadelServerStaticLobby(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.extra_messages_)*/{}
   , /*decltype(_impl_.members_)*/{}
+  , /*decltype(_impl_.banned_heroes_)*/{}
   , /*decltype(_impl_.level_name_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.broadcast_url_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
   , /*decltype(_impl_.gameplay_experiment_)*/{&::_pbi::fixed_address_empty_string, ::_pbi::ConstantInitialized{}}
@@ -1044,10 +1047,40 @@ struct CMsgServerSignoutData_PlayerBehaviorDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgServerSignoutData_PlayerBehaviorDefaultTypeInternal _CMsgServerSignoutData_PlayerBehavior_default_instance_;
+PROTOBUF_CONSTEXPR CMsgServerSignoutData_StreetBrawlData_DraftItem::CMsgServerSignoutData_StreetBrawlData_DraftItem(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_._has_bits_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.ability_id_)*/0u
+  , /*decltype(_impl_.flags_)*/0u
+  , /*decltype(_impl_.outcome_)*/0} {}
+struct CMsgServerSignoutData_StreetBrawlData_DraftItemDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgServerSignoutData_StreetBrawlData_DraftItemDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgServerSignoutData_StreetBrawlData_DraftItemDefaultTypeInternal() {}
+  union {
+    CMsgServerSignoutData_StreetBrawlData_DraftItem _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgServerSignoutData_StreetBrawlData_DraftItemDefaultTypeInternal _CMsgServerSignoutData_StreetBrawlData_DraftItem_default_instance_;
+PROTOBUF_CONSTEXPR CMsgServerSignoutData_StreetBrawlData_DraftItemSet::CMsgServerSignoutData_StreetBrawlData_DraftItemSet(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.items_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CMsgServerSignoutData_StreetBrawlData_DraftItemSetDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgServerSignoutData_StreetBrawlData_DraftItemSetDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgServerSignoutData_StreetBrawlData_DraftItemSetDefaultTypeInternal() {}
+  union {
+    CMsgServerSignoutData_StreetBrawlData_DraftItemSet _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgServerSignoutData_StreetBrawlData_DraftItemSetDefaultTypeInternal _CMsgServerSignoutData_StreetBrawlData_DraftItemSet_default_instance_;
 PROTOBUF_CONSTEXPR CMsgServerSignoutData_StreetBrawlData_RoundPlayer::CMsgServerSignoutData_StreetBrawlData_RoundPlayer(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
+  , /*decltype(_impl_.draft_item_sets_)*/{}
   , /*decltype(_impl_.player_slot_)*/0u
   , /*decltype(_impl_.player_damage_)*/0u
   , /*decltype(_impl_.kills_)*/0u
@@ -1501,6 +1534,7 @@ PROTOBUF_CONSTEXPR CMsgServerToGCAbandonMatch::CMsgServerToGCAbandonMatch(
   , /*decltype(_impl_.was_server_shutdown_)*/false
   , /*decltype(_impl_.allow_matches_)*/false
   , /*decltype(_impl_.allow_hideout_)*/false
+  , /*decltype(_impl_.was_lost_lobby_)*/false
   , /*decltype(_impl_.reason_code_)*/1} {}
 struct CMsgServerToGCAbandonMatchDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CMsgServerToGCAbandonMatchDefaultTypeInternal()
@@ -1690,8 +1724,8 @@ struct CMsgServerSteamLearnCitadelPlayerMechanicalBehaviorDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgServerSteamLearnCitadelPlayerMechanicalBehaviorDefaultTypeInternal _CMsgServerSteamLearnCitadelPlayerMechanicalBehavior_default_instance_;
-static ::_pb::Metadata file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[92];
-static const ::_pb::EnumDescriptor* file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[12];
+static ::_pb::Metadata file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[94];
+static const ::_pb::EnumDescriptor* file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[14];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_citadel_5fgcmessages_5fserver_2eproto = nullptr;
 
 const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
@@ -1721,6 +1755,7 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::CMsgServerCrashSentinelFile_GameInfo, _impl_.hideout_lobby_id_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerCrashSentinelFile_GameInfo, _impl_.allow_matches_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerCrashSentinelFile_GameInfo, _impl_.allow_hideout_),
+  PROTOBUF_FIELD_OFFSET(::CMsgServerCrashSentinelFile_GameInfo, _impl_.was_lost_lobby_),
   0,
   1,
   2,
@@ -1731,6 +1766,7 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   4,
   7,
   8,
+  9,
   PROTOBUF_FIELD_OFFSET(::CMsgServerCrashSentinelFile, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerCrashSentinelFile, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1910,6 +1946,7 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby_Member, _impl_.requires_skill_calibration_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby_Member, _impl_.hero_data_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby_Member, _impl_.match_number_),
+  PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby_Member, _impl_.randomed_hero_),
   3,
   0,
   4,
@@ -1922,10 +1959,11 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   9,
   1,
   11,
-  13,
+  14,
   12,
   2,
-  14,
+  15,
+  13,
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby_DevSettings, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby_DevSettings, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1963,6 +2001,7 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby, _impl_.average_badge_team_1_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby, _impl_.gameplay_experiment_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby, _impl_.rewards_eligible_),
+  PROTOBUF_FIELD_OFFSET(::CSOCitadelServerStaticLobby, _impl_.banned_heroes_),
   ~0u,
   4,
   5,
@@ -1986,6 +2025,7 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   20,
   2,
   18,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerHideoutLobby, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelServerHideoutLobby, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2612,6 +2652,25 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_PlayerBehavior, _impl_.players_),
+  PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_DraftItem, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_DraftItem, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_DraftItem, _impl_.ability_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_DraftItem, _impl_.flags_),
+  PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_DraftItem, _impl_.outcome_),
+  0,
+  1,
+  2,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_DraftItemSet, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_DraftItemSet, _impl_.items_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_RoundPlayer, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_RoundPlayer, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2626,6 +2685,7 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_RoundPlayer, _impl_.assists_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_RoundPlayer, _impl_.objective_damage_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_RoundPlayer, _impl_.objective_spirit_damage_),
+  PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_RoundPlayer, _impl_.draft_item_sets_),
   0,
   1,
   2,
@@ -2634,6 +2694,7 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   5,
   6,
   7,
+  ~0u,
   PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_Round, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerSignoutData_StreetBrawlData_Round, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3055,10 +3116,11 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::CMsgServerToGCAbandonMatch, _impl_.routing_id_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerToGCAbandonMatch, _impl_.allow_matches_),
   PROTOBUF_FIELD_OFFSET(::CMsgServerToGCAbandonMatch, _impl_.allow_hideout_),
+  PROTOBUF_FIELD_OFFSET(::CMsgServerToGCAbandonMatch, _impl_.was_lost_lobby_),
   0,
   1,
   4,
-  19,
+  20,
   2,
   3,
   ~0u,
@@ -3076,6 +3138,7 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
   15,
   17,
   18,
+  19,
   ~0u,  // no _has_bits_
   PROTOBUF_FIELD_OFFSET(::CMsgServerToGCAbandonMatchResponse, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -3229,97 +3292,99 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets[] PROT
 };
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 8, -1, sizeof(::CMsgServerCrashSentinelFile_Player)},
-  { 10, 26, -1, sizeof(::CMsgServerCrashSentinelFile_GameInfo)},
-  { 36, 54, -1, sizeof(::CMsgServerCrashSentinelFile)},
-  { 66, 75, -1, sizeof(::CMsgAccountChallengesActive_Challenge)},
-  { 78, -1, -1, sizeof(::CMsgAccountChallengesActive)},
-  { 85, 96, -1, sizeof(::CServerLobbyData_PlayerMMR_Player)},
-  { 101, -1, -1, sizeof(::CServerLobbyData_PlayerMMR)},
-  { 108, 119, -1, sizeof(::CServerLobbyData_PlayerInfo)},
-  { 124, 132, -1, sizeof(::CServerLobbyData_PostMatchSurvey_PlayerSurvey)},
-  { 134, -1, -1, sizeof(::CServerLobbyData_PostMatchSurvey)},
-  { 141, 148, -1, sizeof(::CServerLobbyData_AutoTest)},
-  { 149, 157, -1, sizeof(::CServerLobbyData_PlayerStatValues_AccoladeThresholds)},
-  { 159, 168, -1, sizeof(::CServerLobbyData_PlayerStatValues_StatDistribution)},
-  { 171, -1, -1, sizeof(::CServerLobbyData_PlayerStatValues)},
-  { 179, 189, -1, sizeof(::CSOCitadelServerDynamicLobby)},
-  { 193, 215, -1, sizeof(::CSOCitadelServerStaticLobby_Member)},
-  { 231, 238, -1, sizeof(::CSOCitadelServerStaticLobby_DevSettings)},
-  { 239, 268, -1, sizeof(::CSOCitadelServerStaticLobby)},
-  { 291, 298, -1, sizeof(::CSOCitadelServerHideoutLobby)},
-  { 299, 308, -1, sizeof(::CMsgServerSignoutData_ServerPerfStats_FrameCounts)},
-  { 311, 326, -1, sizeof(::CMsgServerSignoutData_ServerPerfStats_PerfSample)},
-  { 335, 344, -1, sizeof(::CMsgServerSignoutData_ServerPerfStats_MatchPerfSamples)},
-  { 347, 363, -1, sizeof(::CMsgServerSignoutData_ServerPerfStats)},
-  { 373, 390, -1, sizeof(::CMsgServerToGCUpdateMatchInfo)},
-  { 401, 411, -1, sizeof(::CMsgServerToGCMatchSignoutPermission)},
-  { 415, 424, -1, sizeof(::CMsgServerToGCMatchSignoutPermissionResponse)},
-  { 427, 440, -1, sizeof(::CMsgServerSignoutData_Disconnections_CMsgMatchDisconnection)},
-  { 447, -1, -1, sizeof(::CMsgServerSignoutData_Disconnections)},
-  { 454, 461, -1, sizeof(::CMsgServerSignoutData_MatchDevStats_PlayerSlot)},
-  { 462, -1, -1, sizeof(::CMsgServerSignoutData_MatchDevStats)},
-  { 469, 478, -1, sizeof(::CMsgServerSignoutData_DetailedStats_Position)},
-  { 481, 519, -1, sizeof(::CMsgServerSignoutData_DetailedStats_TimeSample_Stats)},
-  { 551, 575, -1, sizeof(::CMsgServerSignoutData_DetailedStats_TimeSample_GoldStats)},
-  { 593, 602, -1, sizeof(::CMsgServerSignoutData_DetailedStats_TimeSample)},
-  { 605, 622, -1, sizeof(::CMsgServerSignoutData_DetailedStats_Objective)},
-  { 633, 642, -1, sizeof(::CMsgServerSignoutData_DetailedStats_MidBoss)},
-  { 645, 653, -1, sizeof(::CMsgServerSignoutData_DetailedStats_Player)},
-  { 655, -1, -1, sizeof(::CMsgServerSignoutData_DetailedStats)},
-  { 664, 692, -1, sizeof(::CMsgServerSignoutData_PerfData)},
-  { 714, 722, -1, sizeof(::CMsgServerSignoutData_BookRewards_BookReward)},
-  { 724, 732, -1, sizeof(::CMsgServerSignoutData_BookRewards_AccountRewards)},
-  { 734, -1, -1, sizeof(::CMsgServerSignoutData_BookRewards)},
-  { 741, 749, -1, sizeof(::CMsgServerSignoutData_ChallengeProgress_ChallengeProgress)},
-  { 751, 759, -1, sizeof(::CMsgServerSignoutData_ChallengeProgress_AccountChallenges)},
-  { 761, -1, -1, sizeof(::CMsgServerSignoutData_ChallengeProgress)},
-  { 768, 777, -1, sizeof(::CMsgServerSignoutData_HeroXPGrant_HeroXPGrant)},
-  { 780, 788, -1, sizeof(::CMsgServerSignoutData_HeroXPGrant_AccountXPGrant)},
-  { 790, -1, -1, sizeof(::CMsgServerSignoutData_HeroXPGrant)},
-  { 797, 807, -1, sizeof(::CMsgServerSignoutData_MatchKills_Kill)},
-  { 811, -1, -1, sizeof(::CMsgServerSignoutData_MatchKills)},
-  { 818, 828, -1, sizeof(::CMsgServerSignoutData_AccountStatChanges_Stat)},
-  { 832, 840, -1, sizeof(::CMsgServerSignoutData_AccountStatChanges_AccountStats)},
-  { 842, -1, -1, sizeof(::CMsgServerSignoutData_AccountStatChanges)},
-  { 849, 859, -1, sizeof(::CMsgServerSignoutData_PlayerChat_ChatLine)},
-  { 863, -1, -1, sizeof(::CMsgServerSignoutData_PlayerChat)},
-  { 870, 893, -1, sizeof(::CMsgServerSignoutData_PlayerBehavior_Player)},
-  { 910, -1, -1, sizeof(::CMsgServerSignoutData_PlayerBehavior)},
-  { 917, 931, -1, sizeof(::CMsgServerSignoutData_StreetBrawlData_RoundPlayer)},
-  { 939, 949, -1, sizeof(::CMsgServerSignoutData_StreetBrawlData_Round)},
-  { 953, -1, -1, sizeof(::CMsgServerSignoutData_StreetBrawlData)},
-  { 960, 970, -1, sizeof(::CMsgServerSignoutData_PenalizedPlayers_Penalty)},
-  { 974, -1, -1, sizeof(::CMsgServerSignoutData_PenalizedPlayers)},
-  { 981, 993, -1, sizeof(::CMsgMatchData_PlayerItem)},
-  { 999, 1007, -1, sizeof(::CMsgMatchData_AuxStat)},
-  { 1009, 1072, -1, sizeof(::CMsgMatchData_PlayerInfo)},
-  { 1129, 1137, -1, sizeof(::CMsgMatchData_TeamInfo)},
-  { 1139, 1168, -1, sizeof(::CMsgMatchData)},
-  { 1191, 1203, -1, sizeof(::CMsgServerToGCMatchSignout)},
-  { 1209, 1216, -1, sizeof(::CMsgServerToGCMatchSignoutResponse)},
-  { 1217, -1, -1, sizeof(::CMsgServerWelcomeCitadel)},
-  { 1223, 1230, -1, sizeof(::CMsgServerToGCIdlePing)},
-  { 1231, -1, -1, sizeof(::CMsgGCToServerRequestPing)},
-  { 1237, 1244, -1, sizeof(::CMsgGCToServerAllocateForMatch)},
-  { 1245, 1252, -1, sizeof(::CMsgGCToServerAllocateForMatchResponse)},
-  { 1253, 1260, -1, sizeof(::CMsgGCToServerAllocateForHideout)},
-  { 1261, 1269, -1, sizeof(::CMsgGCToServerAllocateForHideoutResponse)},
-  { 1271, 1288, -1, sizeof(::CMsgServerToGCEnterMatchmaking)},
-  { 1299, 1307, -1, sizeof(::CMsgGCToServerCancelAllocateForMatch)},
-  { 1309, 1318, -1, sizeof(::CMsgServerToGCUpdateLobbyServerState)},
-  { 1321, 1330, -1, sizeof(::CMsgServerToGCAbandonMatch_Player)},
-  { 1333, 1360, -1, sizeof(::CMsgServerToGCAbandonMatch)},
-  { 1381, -1, -1, sizeof(::CMsgServerToGCAbandonMatchResponse)},
-  { 1387, -1, -1, sizeof(::CMsgServerToGCTestConnection)},
-  { 1393, -1, -1, sizeof(::CMsgServerToGCTestConnectionResponse)},
-  { 1399, 1407, -1, sizeof(::CMsgGCToServerSetServerConVar)},
-  { 1409, 1416, -1, sizeof(::CMsgGCToServerSetServerConVarResponse)},
-  { 1417, 1426, -1, sizeof(::CMsgGCToServerAddSpectator)},
-  { 1429, 1437, -1, sizeof(::CMsgGCToServerAddSpectatorResponse)},
-  { 1439, 1447, -1, sizeof(::CMsgServerToGCRequestPlayerHeroData)},
-  { 1449, 1457, -1, sizeof(::CMsgServerToGCRequestPlayerHeroDataResponse)},
-  { 1459, 1471, -1, sizeof(::CMsgServerSteamLearnCitadelSignOutPlayerInfo)},
-  { 1477, 1507, -1, sizeof(::CMsgServerSteamLearnCitadelPlayerMechanicalBehavior)},
+  { 10, 27, -1, sizeof(::CMsgServerCrashSentinelFile_GameInfo)},
+  { 38, 56, -1, sizeof(::CMsgServerCrashSentinelFile)},
+  { 68, 77, -1, sizeof(::CMsgAccountChallengesActive_Challenge)},
+  { 80, -1, -1, sizeof(::CMsgAccountChallengesActive)},
+  { 87, 98, -1, sizeof(::CServerLobbyData_PlayerMMR_Player)},
+  { 103, -1, -1, sizeof(::CServerLobbyData_PlayerMMR)},
+  { 110, 121, -1, sizeof(::CServerLobbyData_PlayerInfo)},
+  { 126, 134, -1, sizeof(::CServerLobbyData_PostMatchSurvey_PlayerSurvey)},
+  { 136, -1, -1, sizeof(::CServerLobbyData_PostMatchSurvey)},
+  { 143, 150, -1, sizeof(::CServerLobbyData_AutoTest)},
+  { 151, 159, -1, sizeof(::CServerLobbyData_PlayerStatValues_AccoladeThresholds)},
+  { 161, 170, -1, sizeof(::CServerLobbyData_PlayerStatValues_StatDistribution)},
+  { 173, -1, -1, sizeof(::CServerLobbyData_PlayerStatValues)},
+  { 181, 191, -1, sizeof(::CSOCitadelServerDynamicLobby)},
+  { 195, 218, -1, sizeof(::CSOCitadelServerStaticLobby_Member)},
+  { 235, 242, -1, sizeof(::CSOCitadelServerStaticLobby_DevSettings)},
+  { 243, 273, -1, sizeof(::CSOCitadelServerStaticLobby)},
+  { 297, 304, -1, sizeof(::CSOCitadelServerHideoutLobby)},
+  { 305, 314, -1, sizeof(::CMsgServerSignoutData_ServerPerfStats_FrameCounts)},
+  { 317, 332, -1, sizeof(::CMsgServerSignoutData_ServerPerfStats_PerfSample)},
+  { 341, 350, -1, sizeof(::CMsgServerSignoutData_ServerPerfStats_MatchPerfSamples)},
+  { 353, 369, -1, sizeof(::CMsgServerSignoutData_ServerPerfStats)},
+  { 379, 396, -1, sizeof(::CMsgServerToGCUpdateMatchInfo)},
+  { 407, 417, -1, sizeof(::CMsgServerToGCMatchSignoutPermission)},
+  { 421, 430, -1, sizeof(::CMsgServerToGCMatchSignoutPermissionResponse)},
+  { 433, 446, -1, sizeof(::CMsgServerSignoutData_Disconnections_CMsgMatchDisconnection)},
+  { 453, -1, -1, sizeof(::CMsgServerSignoutData_Disconnections)},
+  { 460, 467, -1, sizeof(::CMsgServerSignoutData_MatchDevStats_PlayerSlot)},
+  { 468, -1, -1, sizeof(::CMsgServerSignoutData_MatchDevStats)},
+  { 475, 484, -1, sizeof(::CMsgServerSignoutData_DetailedStats_Position)},
+  { 487, 525, -1, sizeof(::CMsgServerSignoutData_DetailedStats_TimeSample_Stats)},
+  { 557, 581, -1, sizeof(::CMsgServerSignoutData_DetailedStats_TimeSample_GoldStats)},
+  { 599, 608, -1, sizeof(::CMsgServerSignoutData_DetailedStats_TimeSample)},
+  { 611, 628, -1, sizeof(::CMsgServerSignoutData_DetailedStats_Objective)},
+  { 639, 648, -1, sizeof(::CMsgServerSignoutData_DetailedStats_MidBoss)},
+  { 651, 659, -1, sizeof(::CMsgServerSignoutData_DetailedStats_Player)},
+  { 661, -1, -1, sizeof(::CMsgServerSignoutData_DetailedStats)},
+  { 670, 698, -1, sizeof(::CMsgServerSignoutData_PerfData)},
+  { 720, 728, -1, sizeof(::CMsgServerSignoutData_BookRewards_BookReward)},
+  { 730, 738, -1, sizeof(::CMsgServerSignoutData_BookRewards_AccountRewards)},
+  { 740, -1, -1, sizeof(::CMsgServerSignoutData_BookRewards)},
+  { 747, 755, -1, sizeof(::CMsgServerSignoutData_ChallengeProgress_ChallengeProgress)},
+  { 757, 765, -1, sizeof(::CMsgServerSignoutData_ChallengeProgress_AccountChallenges)},
+  { 767, -1, -1, sizeof(::CMsgServerSignoutData_ChallengeProgress)},
+  { 774, 783, -1, sizeof(::CMsgServerSignoutData_HeroXPGrant_HeroXPGrant)},
+  { 786, 794, -1, sizeof(::CMsgServerSignoutData_HeroXPGrant_AccountXPGrant)},
+  { 796, -1, -1, sizeof(::CMsgServerSignoutData_HeroXPGrant)},
+  { 803, 813, -1, sizeof(::CMsgServerSignoutData_MatchKills_Kill)},
+  { 817, -1, -1, sizeof(::CMsgServerSignoutData_MatchKills)},
+  { 824, 834, -1, sizeof(::CMsgServerSignoutData_AccountStatChanges_Stat)},
+  { 838, 846, -1, sizeof(::CMsgServerSignoutData_AccountStatChanges_AccountStats)},
+  { 848, -1, -1, sizeof(::CMsgServerSignoutData_AccountStatChanges)},
+  { 855, 865, -1, sizeof(::CMsgServerSignoutData_PlayerChat_ChatLine)},
+  { 869, -1, -1, sizeof(::CMsgServerSignoutData_PlayerChat)},
+  { 876, 899, -1, sizeof(::CMsgServerSignoutData_PlayerBehavior_Player)},
+  { 916, -1, -1, sizeof(::CMsgServerSignoutData_PlayerBehavior)},
+  { 923, 932, -1, sizeof(::CMsgServerSignoutData_StreetBrawlData_DraftItem)},
+  { 935, -1, -1, sizeof(::CMsgServerSignoutData_StreetBrawlData_DraftItemSet)},
+  { 942, 957, -1, sizeof(::CMsgServerSignoutData_StreetBrawlData_RoundPlayer)},
+  { 966, 976, -1, sizeof(::CMsgServerSignoutData_StreetBrawlData_Round)},
+  { 980, -1, -1, sizeof(::CMsgServerSignoutData_StreetBrawlData)},
+  { 987, 997, -1, sizeof(::CMsgServerSignoutData_PenalizedPlayers_Penalty)},
+  { 1001, -1, -1, sizeof(::CMsgServerSignoutData_PenalizedPlayers)},
+  { 1008, 1020, -1, sizeof(::CMsgMatchData_PlayerItem)},
+  { 1026, 1034, -1, sizeof(::CMsgMatchData_AuxStat)},
+  { 1036, 1099, -1, sizeof(::CMsgMatchData_PlayerInfo)},
+  { 1156, 1164, -1, sizeof(::CMsgMatchData_TeamInfo)},
+  { 1166, 1195, -1, sizeof(::CMsgMatchData)},
+  { 1218, 1230, -1, sizeof(::CMsgServerToGCMatchSignout)},
+  { 1236, 1243, -1, sizeof(::CMsgServerToGCMatchSignoutResponse)},
+  { 1244, -1, -1, sizeof(::CMsgServerWelcomeCitadel)},
+  { 1250, 1257, -1, sizeof(::CMsgServerToGCIdlePing)},
+  { 1258, -1, -1, sizeof(::CMsgGCToServerRequestPing)},
+  { 1264, 1271, -1, sizeof(::CMsgGCToServerAllocateForMatch)},
+  { 1272, 1279, -1, sizeof(::CMsgGCToServerAllocateForMatchResponse)},
+  { 1280, 1287, -1, sizeof(::CMsgGCToServerAllocateForHideout)},
+  { 1288, 1296, -1, sizeof(::CMsgGCToServerAllocateForHideoutResponse)},
+  { 1298, 1315, -1, sizeof(::CMsgServerToGCEnterMatchmaking)},
+  { 1326, 1334, -1, sizeof(::CMsgGCToServerCancelAllocateForMatch)},
+  { 1336, 1345, -1, sizeof(::CMsgServerToGCUpdateLobbyServerState)},
+  { 1348, 1357, -1, sizeof(::CMsgServerToGCAbandonMatch_Player)},
+  { 1360, 1388, -1, sizeof(::CMsgServerToGCAbandonMatch)},
+  { 1410, -1, -1, sizeof(::CMsgServerToGCAbandonMatchResponse)},
+  { 1416, -1, -1, sizeof(::CMsgServerToGCTestConnection)},
+  { 1422, -1, -1, sizeof(::CMsgServerToGCTestConnectionResponse)},
+  { 1428, 1436, -1, sizeof(::CMsgGCToServerSetServerConVar)},
+  { 1438, 1445, -1, sizeof(::CMsgGCToServerSetServerConVarResponse)},
+  { 1446, 1455, -1, sizeof(::CMsgGCToServerAddSpectator)},
+  { 1458, 1466, -1, sizeof(::CMsgGCToServerAddSpectatorResponse)},
+  { 1468, 1476, -1, sizeof(::CMsgServerToGCRequestPlayerHeroData)},
+  { 1478, 1486, -1, sizeof(::CMsgServerToGCRequestPlayerHeroDataResponse)},
+  { 1488, 1500, -1, sizeof(::CMsgServerSteamLearnCitadelSignOutPlayerInfo)},
+  { 1506, 1536, -1, sizeof(::CMsgServerSteamLearnCitadelPlayerMechanicalBehavior)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -3380,6 +3445,8 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgServerSignoutData_PlayerChat_default_instance_._instance,
   &::_CMsgServerSignoutData_PlayerBehavior_Player_default_instance_._instance,
   &::_CMsgServerSignoutData_PlayerBehavior_default_instance_._instance,
+  &::_CMsgServerSignoutData_StreetBrawlData_DraftItem_default_instance_._instance,
+  &::_CMsgServerSignoutData_StreetBrawlData_DraftItemSet_default_instance_._instance,
   &::_CMsgServerSignoutData_StreetBrawlData_RoundPlayer_default_instance_._instance,
   &::_CMsgServerSignoutData_StreetBrawlData_Round_default_instance_._instance,
   &::_CMsgServerSignoutData_StreetBrawlData_default_instance_._instance,
@@ -3421,7 +3488,7 @@ const char descriptor_table_protodef_citadel_5fgcmessages_5fserver_2eproto[] PRO
   "\n\037citadel_gcmessages_server.proto\032\023steam"
   "messages.proto\032\026gcsdk_gcmessages.proto\032\025"
   "base_gcmessages.proto\032\037citadel_gcmessage"
-  "s_common.proto\"\360\005\n\033CMsgServerCrashSentin"
+  "s_common.proto\"\210\006\n\033CMsgServerCrashSentin"
   "elFile\022\017\n\007version\030\001 \001(\r\022\027\n\017server_steam_"
   "id\030\002 \001(\006\022\035\n\025server_public_ip_addr\030\003 \001(\007\022"
   "\023\n\013server_port\030\004 \001(\r\022\031\n\021server_cluster_i"
@@ -3431,7 +3498,7 @@ const char descriptor_table_protodef_citadel_5fgcmessages_5fserver_2eproto[] PRO
   "fo\022\036\n\026server_private_ip_addr\030\n \001(\r\022\023\n\013in"
   "stance_id\030\013 \001(\r\022\030\n\020server_region_id\030\014 \001("
   "\r\032-\n\006Player\022\022\n\naccount_id\030\001 \001(\r\022\017\n\007hero_"
-  "id\030\002 \001(\r\032\346\002\n\010GameInfo\022\020\n\010match_id\030\001 \001(\004\022"
+  "id\030\002 \001(\r\032\376\002\n\010GameInfo\022\020\n\010match_id\030\001 \001(\004\022"
   "\020\n\010lobby_id\030\002 \001(\006\022\024\n\014server_state\030\003 \001(\r\022"
   "4\n\007players\030\005 \003(\0132#.CMsgServerCrashSentin"
   "elFile.Player\022C\n\nmatch_mode\030\006 \001(\0162\022.ECit"
@@ -3440,510 +3507,523 @@ const char descriptor_table_protodef_citadel_5fgcmessages_5fserver_2eproto[] PRO
   ":\032k_ECitadelGameMode_Invalid\022\033\n\023was_serv"
   "er_shutdown\030\010 \001(\010\022\030\n\020hideout_lobby_id\030\t "
   "\001(\004\022\025\n\rallow_matches\030\n \001(\010\022\025\n\rallow_hide"
-  "out\030\013 \001(\010\"\244\001\n\033CMsgAccountChallengesActiv"
-  "e\022:\n\nchallenges\030\001 \003(\0132&.CMsgAccountChall"
-  "engesActive.Challenge\032I\n\tChallenge\022\024\n\014ch"
-  "allenge_id\030\001 \001(\004\022\020\n\010progress\030\002 \001(\r\022\024\n\014ma"
-  "x_progress\030\003 \001(\r\"\326\001\n\032CServerLobbyData_Pl"
-  "ayerMMR\0223\n\007players\030\001 \003(\0132\".CServerLobbyD"
-  "ata_PlayerMMR.Player\032\202\001\n\006Player\022\022\n\nplaye"
-  "r_mmr\030\002 \001(\r\022\032\n\022player_uncertainty\030\003 \001(\r\022"
-  "\020\n\010hero_mmr\030\004 \001(\r\022!\n\031hero_mmr_with_uncer"
-  "tainty\030\005 \001(\r\022\023\n\013player_slot\030\006 \001(\r\"\351\001\n\033CS"
-  "erverLobbyData_PlayerInfo\022\022\n\naccount_id\030"
-  "\001 \001(\r\022,\n\raccount_stats\030\002 \003(\0132\025.CMsgAccou"
-  "ntHeroStats\022(\n\tbook_info\030\005 \003(\0132\025.CMsgAcc"
-  "ountBookStats\0220\n\nchallenges\030\007 \001(\0132\034.CMsg"
-  "AccountChallengesActive\022,\n\rglobal_equips"
-  "\030\010 \001(\0132\025.CMsgEquippedItemList\"\234\001\n CServe"
-  "rLobbyData_PostMatchSurvey\022\?\n\007surveys\030\001 "
-  "\003(\0132..CServerLobbyData_PostMatchSurvey.P"
-  "layerSurvey\0327\n\014PlayerSurvey\022\022\n\naccount_i"
-  "d\030\001 \001(\r\022\023\n\013question_id\030\002 \001(\r\"3\n\031CServerL"
-  "obbyData_AutoTest\022\026\n\016max_duration_s\030\002 \001("
-  "\r\"\343\002\n!CServerLobbyData_PlayerStatValues\022"
-  "H\n\taccolades\030\001 \003(\01325.CServerLobbyData_Pl"
-  "ayerStatValues.AccoladeThresholds\022O\n\022sta"
-  "t_distributions\030\002 \003(\01323.CServerLobbyData"
-  "_PlayerStatValues.StatDistribution\032=\n\022Ac"
-  "coladeThresholds\022\023\n\013accolade_id\030\001 \001(\r\022\022\n"
-  "\nthresholds\030\002 \003(\r\032d\n\020StatDistribution\022\027\n"
-  "\017tracked_stat_id\030\001 \001(\r\022\031\n\021tracked_stat_m"
-  "ean\030\002 \001(\002\022\034\n\024tracked_stat_std_dev\030\003 \001(\002\""
-  "\201\001\n\034CSOCitadelServerDynamicLobby\022\020\n\010lobb"
-  "y_id\030\001 \001(\004\022\034\n\020left_account_ids\030\002 \003(\rB\002\020\001"
-  "\022\030\n\020broadcast_active\030\003 \001(\010\022\027\n\017spectator_"
-  "count\030\004 \001(\r\"\312\013\n\033CSOCitadelServerStaticLo"
-  "bby\022\'\n\016extra_messages\030\001 \003(\0132\017.CExtraMsgB"
-  "lock\022\027\n\017server_steam_id\030\002 \001(\006\022\020\n\010lobby_i"
-  "d\030\003 \001(\004\022\023\n\013replay_salt\030\004 \001(\007\022\022\n\nlevel_na"
-  "me\030\005 \001(\t\0224\n\007members\030\006 \003(\0132#.CSOCitadelSe"
-  "rverStaticLobby.Member\022>\n\014dev_settings\030\007"
-  " \001(\0132(.CSOCitadelServerStaticLobby.DevSe"
-  "ttings\022\032\n\022gc_provided_heroes\030\010 \001(\010\022L\n\016bo"
-  "t_difficulty\030\t \001(\0162\026.ECitadelBotDifficul"
-  "ty:\034k_ECitadelBotDifficulty_None\022\025\n\rmeta"
-  "data_salt\030\n \001(\007\022\030\n\020match_start_time\030\013 \001("
-  "\r\022B\n\013region_mode\030\020 \001(\0162\023.ECitadelRegionM"
-  "ode:\030k_ECitadelRegionMode_ROW\022\025\n\rbroadca"
-  "st_url\030\021 \001(\t\022\027\n\017new_player_pool\030\022 \001(\010\022\024\n"
-  "\014low_pri_pool\030\023 \001(\010\022\034\n\024is_restricted_acc"
-  "ess\030\024 \001(\010\022\026\n\016cheats_enabled\030\025 \001(\010\022 \n\030dup"
-  "licate_heroes_enabled\030\026 \001(\010\022#\n\033is_high_s"
-  "kill_range_parties\030\027 \001(\010\022\034\n\024average_badg"
-  "e_team_0\030\031 \001(\r\022\034\n\024average_badge_team_1\030\032"
-  " \001(\r\022\033\n\023gameplay_experiment\030\033 \001(\t\022\030\n\020rew"
-  "ards_eligible\030\034 \001(\010\032\313\004\n\006Member\022\022\n\naccoun"
-  "t_id\030\001 \001(\r\022\024\n\014persona_name\030\002 \001(\t\022;\n\004team"
-  "\030\003 \001(\0162\022.ECitadelLobbyTeam:\031k_ECitadelLo"
-  "bbyTeam_Team0\022\023\n\013player_slot\030\004 \001(\r\022\017\n\007he"
-  "ro_id\030\005 \001(\r\022\023\n\013party_index\030\006 \001(\r\0222\n\010plat"
-  "form\030\007 \001(\0162\014.EGCPlatform:\022k_eGCPlatform_"
-  "None\0229\n\taward_ids\030\010 \003(\0162&.CSOCitadelServ"
-  "erStaticLobby.EAwardIDs\022\033\n\023is_comms_rest"
-  "ricted\030\t \001(\010\022\017\n\007lane_id\030\n \001(\r\022+\n\017gc_acco"
-  "unt_data\030\r \001(\0132\022.CMsgGCAccountData\022%\n\035pa"
-  "rty_desires_laning_together\030\016 \001(\010\022L\n\016bot"
-  "_difficulty\030\020 \001(\0162\026.ECitadelBotDifficult"
-  "y:\034k_ECitadelBotDifficulty_None\022\"\n\032requi"
-  "res_skill_calibration\030\022 \001(\010\022&\n\thero_data"
-  "\030\023 \001(\0132\023.CMsgPlayerHeroData\022\024\n\014match_num"
-  "ber\030\024 \001(\r\032%\n\013DevSettings\022\026\n\016console_stri"
-  "ng\030\001 \001(\t\".\n\tEAwardIDs\022!\n\035k_eAward_KingPa"
-  "nda_DEPRECATED\020\001\"8\n\034CSOCitadelServerHide"
-  "outLobby\022\030\n\020hideout_lobby_id\030\001 \001(\004\"\343\007\n%C"
-  "MsgServerSignoutData_ServerPerfStats\022\031\n\021"
-  "peak_memory_bytes\030\001 \001(\004\022\030\n\020end_memory_by"
-  "tes\030\002 \001(\004\022\036\n\026frame_time_max_micro_s\030\003 \001("
-  "\r\022\035\n\025frame_time_95_micro_s\030\004 \001(\r\022\036\n\026fram"
-  "e_time_avg_micro_s\030\005 \001(\r\022\"\n\032frame_idle_t"
-  "ime_95_micro_s\030\006 \001(\r\022#\n\033frame_idle_time_"
-  "avg_micro_s\030\007 \001(\r\022\035\n\025frame_time_80_micro"
-  "_s\030\010 \001(\r\022\035\n\025frame_time_99_micro_s\030\t \001(\r\022"
-  "M\n\014perf_samples\030\n \001(\01327.CMsgServerSignou"
-  "tData_ServerPerfStats.MatchPerfSamples\032H"
-  "\n\013FrameCounts\022\022\n\nnum_frames\030\001 \001(\r\022\023\n\013lon"
-  "gest_run\030\002 \001(\r\022\020\n\010num_runs\030\003 \001(\r\032\362\002\n\nPer"
-  "fSample\022\023\n\013game_time_s\030\001 \001(\r\022\021\n\tavg_fram"
-  "e\030\002 \001(\002\022\020\n\010avg_idle\030\003 \001(\002\022\024\n\014total_frame"
-  "s\030\004 \001(\r\022M\n\021performant_frames\030\005 \001(\01322.CMs"
-  "gServerSignoutData_ServerPerfStats.Frame"
-  "Counts\022G\n\013long_frames\030\006 \001(\01322.CMsgServer"
-  "SignoutData_ServerPerfStats.FrameCounts\022"
-  "K\n\017low_idle_frames\030\007 \001(\01322.CMsgServerSig"
-  "noutData_ServerPerfStats.FrameCounts\022\024\n\014"
-  "memory_bytes\030\010 \001(\004\022\031\n\021peak_memory_bytes\030"
-  "\t \001(\004\032\220\001\n\020MatchPerfSamples\022\034\n\024long_frame"
-  "_threshold\030\001 \001(\002\022\032\n\022low_idle_threshold\030\002"
-  " \001(\002\022B\n\007samples\030\003 \003(\01321.CMsgServerSignou"
-  "tData_ServerPerfStats.PerfSample\"\267\002\n\035CMs"
-  "gServerToGCUpdateMatchInfo\022\020\n\010lobby_id\030\001"
-  " \001(\004\022\024\n\014kills_team_0\030\003 \001(\r\022\024\n\014kills_team"
-  "_1\030\004 \001(\r\022\030\n\020net_worth_team_0\030\005 \001(\r\022\030\n\020ne"
-  "t_worth_team_1\030\006 \001(\r\022\022\n\nspectators\030\007 \001(\r"
-  "\022\034\n\024open_spectator_slots\030\010 \001(\r\022\035\n\025object"
-  "ives_mask_team0\030\t \001(\004\022\035\n\025objectives_mask"
-  "_team1\030\n \001(\004\022\031\n\021brawl_score_team0\030\013 \001(\r\022"
-  "\031\n\021brawl_score_team1\030\014 \001(\r\"\260\001\n$CMsgServe"
-  "rToGCMatchSignoutPermission\022\025\n\rsignout_s"
-  "tart\030\001 \001(\r\022\032\n\022permission_request\030\002 \001(\r\022\020"
-  "\n\010match_id\030\003 \001(\004\022C\n\nmatch_mode\030\004 \001(\0162\022.E"
-  "CitadelMatchMode:\033k_ECitadelMatchMode_In"
-  "valid\"r\n,CMsgServerToGCMatchSignoutPermi"
-  "ssionResponse\022\024\n\014can_sign_out\030\001 \001(\010\022\024\n\014r"
-  "etry_time_s\030\002 \001(\r\022\026\n\016requested_data\030\003 \003("
-  "\r\"\312\002\n$CMsgServerSignoutData_Disconnectio"
-  "ns\022T\n\016disconnections\030\001 \003(\0132<.CMsgServerS"
-  "ignoutData_Disconnections.CMsgMatchDisco"
-  "nnection\032\313\001\n\026CMsgMatchDisconnection\022\022\n\na"
-  "ccount_id\030\001 \001(\r\022\027\n\017disconnect_time\030\002 \001(\r"
-  "\022\030\n\020connection_state\030\003 \001(\r\022\023\n\013reason_cod"
-  "e\030\004 \001(\r\022\027\n\017reconnect_delay\030\005 \001(\r\022\035\n\025matc"
-  "h_disconnect_time\030\006 \001(\r\022\035\n\025match_reconne"
-  "ct_delay\030\007 \001(\r\"\212\001\n#CMsgServerSignoutData"
-  "_MatchDevStats\022@\n\007players\030\001 \003(\0132/.CMsgSe"
-  "rverSignoutData_MatchDevStats.PlayerSlot"
-  "\032!\n\nPlayerSlot\022\023\n\013player_slot\030\001 \001(\r\"\211\022\n#"
-  "CMsgServerSignoutData_DetailedStats\022A\n\014p"
-  "layer_stats\030\001 \003(\0132+.CMsgServerSignoutDat"
-  "a_DetailedStats.Player\022B\n\nobjectives\030\002 \003"
-  "(\0132..CMsgServerSignoutData_DetailedStats"
-  ".Objective\022>\n\010mid_boss\030\003 \003(\0132,.CMsgServe"
-  "rSignoutData_DetailedStats.MidBoss\032+\n\010Po"
-  "sition\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\032"
-  "\303\n\n\nTimeSample\022\024\n\014match_time_s\030\001 \001(\r\022D\n\005"
-  "stats\030\002 \001(\01325.CMsgServerSignoutData_Deta"
-  "iledStats.TimeSample.Stats\022M\n\ngold_stats"
-  "\030\004 \001(\01329.CMsgServerSignoutData_DetailedS"
-  "tats.TimeSample.GoldStats\032\351\005\n\005Stats\022\021\n\tn"
-  "et_worth\030\001 \001(\r\022\r\n\005kills\030\002 \001(\r\022\016\n\006deaths\030"
-  "\003 \001(\r\022\017\n\007assists\030\004 \001(\r\022\027\n\017possible_creep"
-  "s\030\005 \001(\r\022\023\n\013creep_kills\030\006 \001(\r\022\025\n\rneutral_"
-  "kills\030\007 \001(\r\022\024\n\014creep_damage\030\010 \001(\r\022\026\n\016neu"
-  "tral_damage\030\t \001(\r\022\023\n\013boss_damage\030\n \001(\r\022\025"
-  "\n\rplayer_damage\030\013 \001(\r\022\016\n\006denies\030\014 \001(\r\022\026\n"
-  "\016player_healing\030\r \001(\r\022\026\n\016ability_points\030"
-  "\016 \001(\r\022\024\n\014self_healing\030\017 \001(\r\022\033\n\023player_da"
-  "mage_taken\030\020 \001(\r\022\022\n\nmax_health\030\021 \001(\r\022\024\n\014"
-  "weapon_power\030\022 \001(\r\022\022\n\ntech_power\030\023 \001(\r\022\021"
-  "\n\tshots_hit\030\024 \001(\r\022\024\n\014shots_missed\030\025 \001(\r\022"
-  "\027\n\017damage_absorbed\030\026 \001(\r\022\033\n\023absorption_p"
-  "rovided\030\027 \001(\r\022\026\n\016heal_prevented\030\032 \001(\r\022\021\n"
-  "\theal_lost\030\033 \001(\r\022\031\n\021player_barriering\030\034 "
-  "\001(\r\022\030\n\020teammate_healing\030- \001(\r\022\033\n\023teammat"
-  "e_barriering\030. \001(\r\022\023\n\013self_damage\030/ \001(\r\022"
-  "\037\n\027damage_per_hero_ability\0300 \003(\r\022\034\n\024play"
-  "er_bullet_damage\0301 \001(\r\022\035\n\025player_ability"
-  "_damage\0302 \001(\r\032\235\003\n\tGoldStats\022\016\n\006player\030\001 "
-  "\001(\r\022\022\n\nplayer_orb\030\002 \001(\r\022\026\n\016lane_creep_or"
-  "b\030\003 \001(\r\022\031\n\021neutral_creep_orb\030\004 \001(\r\022\014\n\004bo"
-  "ss\030\005 \001(\r\022\020\n\010boss_orb\030\006 \001(\r\022\020\n\010treasure\030\007"
-  " \001(\r\022\016\n\006denied\030\010 \001(\r\022\022\n\ndeath_loss\030\t \001(\r"
-  "\022\022\n\nlane_creep\030\n \001(\r\022\025\n\rneutral_creep\030\013 "
-  "\001(\r\022\022\n\nteam_bonus\030\014 \001(\r\022\033\n\023ability_assas"
-  "sinate\030\r \001(\r\022\035\n\025item_trophy_collector\030\016 "
-  "\001(\r\022\036\n\026item_cultist_sacrifice\030\017 \001(\r\022\026\n\016c"
-  "omeback_kills\030\020 \001(\r\022\031\n\021comeback_treasure"
-  "\030\021 \001(\r\022\025\n\rcomeback_misc\030\022 \001(\r\032\222\003\n\tObject"
-  "ive\022\030\n\020destroyed_time_s\030\002 \001(\r\022\024\n\014creep_d"
-  "amage\030\004 \001(\r\022\036\n\026creep_damage_mitigated\030\005 "
-  "\001(\r\022\025\n\rplayer_damage\030\006 \001(\r\022\033\n\023first_dama"
-  "ge_time_s\030\010 \001(\r\022O\n\021team_objective_id\030\t \001"
-  "(\0162\026.ECitadelTeamObjective:\034k_eCitadelTe"
-  "amObjective_Core\022;\n\004team\030\n \001(\0162\022.ECitade"
-  "lLobbyTeam:\031k_ECitadelLobbyTeam_Team0\022\027\n"
-  "\017players_damaged\030\013 \001(\r\022\031\n\021players_destro"
-  "yed\030\014 \001(\r\022!\n\031enemy_count_dmg_mitigated\030\r"
-  " \003(\r\022\034\n\024player_spirit_damage\030\016 \001(\r\032\254\001\n\007M"
-  "idBoss\022B\n\013team_killed\030\001 \001(\0162\022.ECitadelLo"
-  "bbyTeam:\031k_ECitadelLobbyTeam_Team0\022C\n\014te"
-  "am_claimed\030\002 \001(\0162\022.ECitadelLobbyTeam:\031k_"
-  "ECitadelLobbyTeam_Team0\022\030\n\020destroyed_tim"
-  "e_s\030\003 \001(\r\032d\n\006Player\022\023\n\013player_slot\030\001 \001(\r"
-  "\022E\n\014time_samples\030\003 \003(\0132/.CMsgServerSigno"
-  "utData_DetailedStats.TimeSample\"\342\005\n\036CMsg"
-  "ServerSignoutData_PerfData\022\032\n\022average_fr"
-  "ame_time\030\001 \003(\002\022\026\n\016max_frame_time\030\002 \003(\002\022!"
-  "\n\031server_average_frame_time\030\003 \001(\002\022\035\n\025ser"
-  "ver_max_frame_time\030\004 \001(\002\022\034\n\024average_comp"
-  "ute_time\030\005 \003(\002\022\030\n\020max_compute_time\030\006 \003(\002"
-  "\022 \n\030average_client_tick_time\030\007 \003(\002\022\034\n\024ma"
-  "x_client_tick_time\030\010 \003(\002\022$\n\034average_clie"
-  "nt_simulate_time\030\t \003(\002\022 \n\030max_client_sim"
-  "ulate_time\030\n \003(\002\022\033\n\023average_output_time\030"
-  "\013 \003(\002\022\027\n\017max_output_time\030\014 \003(\002\0223\n+averag"
-  "e_wait_for_rendering_to_complete_time\030\r "
-  "\003(\002\022/\n\'max_wait_for_rendering_to_complet"
-  "e_time\030\016 \003(\002\022\031\n\021average_swap_time\030\017 \003(\002\022"
-  "\025\n\rmax_swap_time\030\020 \003(\002\022!\n\031average_frame_"
-  "update_time\030\021 \003(\002\022\035\n\025max_frame_update_ti"
-  "me\030\022 \003(\002\022\031\n\021average_idle_time\030\023 \003(\002\022\025\n\rm"
-  "ax_idle_time\030\024 \003(\002\022%\n\035average_input_proc"
-  "essing_time\030\025 \003(\002\022!\n\031max_input_processin"
-  "g_time\030\026 \003(\002\"\213\002\n!CMsgServerSignoutData_B"
-  "ookRewards\022J\n\017account_rewards\030\001 \003(\01321.CM"
-  "sgServerSignoutData_BookRewards.AccountR"
-  "ewards\0320\n\nBookReward\022\017\n\007book_id\030\001 \001(\r\022\021\n"
-  "\txp_reward\030\002 \001(\r\032h\n\016AccountRewards\022\022\n\nac"
-  "count_id\030\001 \001(\r\022B\n\013book_reward\030\002 \001(\0132-.CM"
-  "sgServerSignoutData_BookRewards.BookRewa"
-  "rd\"\267\002\n\'CMsgServerSignoutData_ChallengePr"
-  "ogress\022V\n\022account_challenges\030\001 \003(\0132:.CMs"
-  "gServerSignoutData_ChallengeProgress.Acc"
-  "ountChallenges\032;\n\021ChallengeProgress\022\024\n\014c"
-  "hallenge_id\030\001 \001(\004\022\020\n\010progress\030\002 \001(\r\032w\n\021A"
-  "ccountChallenges\022\022\n\naccount_id\030\001 \001(\r\022N\n\n"
-  "challenges\030\002 \003(\0132:.CMsgServerSignoutData"
-  "_ChallengeProgress.ChallengeProgress\"\234\003\n"
-  "!CMsgServerSignoutData_HeroXPGrant\022E\n\nac"
-  "count_xp\030\001 \003(\01321.CMsgServerSignoutData_H"
-  "eroXPGrant.AccountXPGrant\032\177\n\013HeroXPGrant"
-  "\022\017\n\007hero_id\030\001 \001(\r\022\020\n\010xp_grant\030\002 \001(\r\022M\n\006r"
-  "eason\030\003 \001(\0162/.CMsgServerSignoutData_Hero"
-  "XPGrant.EGrantReason:\014k_eGrant_Win\032f\n\016Ac"
-  "countXPGrant\022\022\n\naccount_id\030\001 \001(\r\022@\n\010xp_g"
-  "rant\030\002 \003(\0132..CMsgServerSignoutData_HeroX"
-  "PGrant.HeroXPGrant\"G\n\014EGrantReason\022\020\n\014k_"
-  "eGrant_Win\020\000\022\021\n\rk_eGrant_Loss\020\001\022\022\n\016k_eGr"
-  "ant_Award\020\002\"\254\001\n CMsgServerSignoutData_Ma"
-  "tchKills\0225\n\005kills\030\001 \003(\0132&.CMsgServerSign"
-  "outData_MatchKills.Kill\032Q\n\004Kill\022\016\n\006kille"
-  "r\030\001 \001(\r\022\016\n\006victim\030\002 \001(\r\022\022\n\nmatch_time\030\003 "
-  "\001(\r\022\025\n\rkiller_streak\030\004 \001(\r\"\310\002\n(CMsgServe"
-  "rSignoutData_AccountStatChanges\022M\n\raccou"
-  "nt_stats\030\001 \003(\01326.CMsgServerSignoutData_A"
-  "ccountStatChanges.AccountStats\032j\n\004Stat\022\017"
-  "\n\007hero_id\030\001 \001(\r\022\017\n\007stat_id\030\002 \001(\r\022\r\n\005valu"
-  "e\030\003 \001(\r\0221\n\005medal\030\004 \001(\0162\031.ECitadelAccount"
-  "StatMedal:\007k_eNone\032a\n\014AccountStats\022\022\n\nac"
-  "count_id\030\001 \001(\r\022=\n\005stats\030\002 \003(\0132..CMsgServ"
-  "erSignoutData_AccountStatChanges.Stat\"\274\001"
-  "\n CMsgServerSignoutData_PlayerChat\022>\n\nch"
-  "at_lines\030\001 \003(\0132*.CMsgServerSignoutData_P"
-  "layerChat.ChatLine\032X\n\010ChatLine\022\023\n\013player"
-  "_slot\030\001 \001(\r\022\021\n\tgame_time\030\002 \001(\002\022\021\n\tteam_o"
-  "nly\030\003 \001(\010\022\021\n\tchat_line\030\004 \001(\t\"\272\004\n$CMsgSer"
-  "verSignoutData_PlayerBehavior\022=\n\007players"
-  "\030\001 \003(\0132,.CMsgServerSignoutData_PlayerBeh"
-  "avior.Player\032\322\003\n\006Player\022\022\n\naccount_id\030\001 "
-  "\001(\r\022\032\n\022team_chat_messages\030\002 \001(\r\022\031\n\021all_c"
-  "hat_messages\030\003 \001(\r\022\r\n\005pings\030\004 \001(\r\022\032\n\022voi"
-  "ce_chat_seconds\030\005 \001(\r\022\016\n\006pauses\030\006 \001(\r\022\030\n"
-  "\020total_pause_time\030\007 \001(\r\022\023\n\013disconnects\030\010"
-  " \001(\r\022\037\n\027first_all_chat_gametime\030\t \001(\r\022!\n"
-  "\031first_voice_chat_gametime\030\n \001(\r\022\027\n\017tota"
-  "l_idle_time\030\013 \001(\r\022\033\n\023total_inactive_time"
-  "\030\014 \001(\r\022\035\n\025total_disconnect_time\030\r \001(\r\022 \n"
-  "\030first_team_chat_gametime\030\016 \001(\r\022\033\n\023first"
-  "_all_chat_time\030\017 \001(\r\022\035\n\025first_voice_chat"
-  "_time\030\020 \001(\r\022\034\n\024first_team_chat_time\030\021 \001("
-  "\r\"\342\003\n%CMsgServerSignoutData_StreetBrawlD"
-  "ata\022<\n\006rounds\030\001 \003(\0132,.CMsgServerSignoutD"
-  "ata_StreetBrawlData.Round\032\274\001\n\013RoundPlaye"
-  "r\022\023\n\013player_slot\030\001 \001(\r\022\025\n\rplayer_damage\030"
-  "\002 \001(\r\022\r\n\005kills\030\003 \001(\r\022\026\n\016player_healing\030\004"
-  " \001(\r\022\016\n\006deaths\030\005 \001(\r\022\017\n\007assists\030\006 \001(\r\022\030\n"
-  "\020objective_damage\030\007 \001(\r\022\037\n\027objective_spi"
-  "rit_damage\030\010 \001(\r\032\273\001\n\005Round\022\024\n\014round_numb"
-  "er\030\001 \001(\r\022\022\n\nround_time\030\002 \001(\r\022C\n\014winning_"
-  "team\030\003 \001(\0162\022.ECitadelLobbyTeam:\031k_ECitad"
-  "elLobbyTeam_Team0\022C\n\007players\030\005 \003(\01322.CMs"
-  "gServerSignoutData_StreetBrawlData.Round"
-  "Player\"\306\003\n&CMsgServerSignoutData_Penaliz"
-  "edPlayers\022J\n\021penalized_players\030\001 \003(\0132/.C"
-  "MsgServerSignoutData_PenalizedPlayers.Pe"
-  "nalty\032\251\001\n\007Penalty\022\022\n\naccount_id\030\001 \001(\r\022`\n"
-  "\006reason\030\002 \001(\01626.CMsgServerSignoutData_Pe"
-  "nalizedPlayers.EPenaltyReason:\030k_EPenalt"
-  "yReason_Abandon\022\024\n\014match_time_s\030\003 \001(\r\022\022\n"
-  "\ntime_stamp\030\004 \001(\r\"\243\001\n\016EPenaltyReason\022\034\n\030"
-  "k_EPenaltyReason_Abandon\020\000\022(\n$k_EPenalty"
-  "Reason_DisconnectedTooLong\020\001\022\030\n\024k_EPenal"
-  "tyReason_AFK\020\002\022/\n+k_EPenaltyReason_Disco"
-  "nnectedTooLongPregame\020\003\"\354\026\n\rCMsgMatchDat"
-  "a\022\030\n\020match_duration_s\030\001 \001(\r\022C\n\nend_reaso"
-  "n\030\002 \001(\0162\031.CMsgMatchData.EEndReason:\024k_EE"
-  "ndReason_TeamWin\022C\n\014winning_team\030\003 \001(\0162\022"
-  ".ECitadelLobbyTeam:\031k_ECitadelLobbyTeam_"
-  "Team0\022*\n\007players\030\004 \003(\0132\031.CMsgMatchData.P"
-  "layerInfo\022\036\n\026objectives_mask_legacy\030\005 \001("
-  "\r\022\026\n\016server_version\030\006 \001(\r\022@\n\tgame_mode\030\007"
-  " \001(\0162\021.ECitadelGameMode:\032k_ECitadelGameM"
-  "ode_Invalid\022C\n\nmatch_mode\030\010 \001(\0162\022.ECitad"
-  "elMatchMode:\033k_ECitadelMatchMode_Invalid"
-  "\022\035\n\025objectives_mask_team0\030\t \001(\004\022\035\n\025objec"
-  "tives_mask_team1\030\n \001(\004\022\026\n\016match_end_time"
-  "\030\013 \001(\r\022\023\n\013stomp_score\030\014 \001(\002\022\027\n\017safe_to_a"
-  "bandon\030\r \001(\010\022\024\n\014team_abandon\030\016 \001(\010\022\027\n\017ne"
-  "w_player_pool\030\017 \001(\010\022\024\n\014low_pri_pool\030\020 \001("
-  "\010\022\022\n\nnot_scored\030\021 \001(\010\022\022\n\nteam_score\030\022 \003("
-  "\r\022&\n\005teams\030\023 \003(\0132\027.CMsgMatchData.TeamInf"
-  "o\022-\n\023match_tracked_stats\030\024 \003(\0132\020.CMsgTra"
-  "ckedStat\022 \n\030winner_pct_time_in_enemy\030\025 \001"
-  "(\002\022!\n\031forgive_existing_abandons\030\026 \001(\010\022\036\n"
-  "\026brawl_avg_round_time_s\030\027 \001(\r\032\205\001\n\nPlayer"
-  "Item\022\017\n\007item_id\030\001 \001(\r\022\023\n\013game_time_s\030\002 \001"
-  "(\r\022\022\n\nupgrade_id\030\003 \001(\r\022\023\n\013sold_time_s\030\004 "
-  "\001(\r\022\r\n\005flags\030\005 \001(\r\022\031\n\021imbued_ability_id\030"
-  "\006 \001(\r\032\\\n\007AuxStat\022=\n\007stat_id\030\001 \001(\0162\025.ECit"
-  "adelMatchAuxStat:\025k_eMatchAuxStat_Dummy\022"
-  "\022\n\nstat_value\030\002 \001(\r\032\370\013\n\nPlayerInfo\022\022\n\nac"
-  "count_id\030\001 \001(\r\022;\n\004team\030\002 \001(\0162\022.ECitadelL"
-  "obbyTeam:\031k_ECitadelLobbyTeam_Team0\022\023\n\013p"
-  "layer_slot\030\003 \001(\r\022!\n\031hero_mmr_with_uncert"
-  "ainty\030\004 \001(\r\022\022\n\nplayer_mmr\030\005 \001(\r\022\032\n\022playe"
-  "r_uncertainty\030\006 \001(\r\022\017\n\007hero_id\030\007 \001(\r\022\r\n\005"
-  "kills\030\010 \001(\r\022\016\n\006deaths\030\t \001(\r\022\021\n\tnet_worth"
-  "\030\n \001(\r\022\017\n\007assists\030\013 \001(\r\022\020\n\010hero_mmr\030\014 \001("
-  "\r\022(\n\005items\030\r \003(\0132\031.CMsgMatchData.PlayerI"
-  "tem\022\021\n\tgpm_10min\030\016 \001(\r\022\021\n\tgpm_15min\030\017 \001("
-  "\r\022\021\n\tgpm_20min\030\020 \001(\r\022\021\n\tgpm_25min\030\021 \001(\r\022"
-  "\021\n\tgpm_30min\030\022 \001(\r\022\021\n\tgpm_35min\030\023 \001(\r\022\017\n"
-  "\007gpm_end\030\024 \001(\r\022\021\n\tlast_hits\030\025 \001(\r\022\016\n\006den"
-  "ies\030\026 \001(\r\022\026\n\016ability_points\030\027 \001(\r\022\r\n\005lev"
-  "el\030\030 \001(\r\022\025\n\rassigned_lane\030\031 \001(\r\022\023\n\013party"
-  "_index\030\032 \001(\r\0222\n\010platform\030\033 \001(\0162\014.EGCPlat"
-  "form:\022k_eGCPlatform_None\022\026\n\016ability_dama"
-  "ge\030\034 \001(\r\022\025\n\rbullet_damage\030\035 \001(\r\022\030\n\020hero_"
-  "bullets_hit\030\036 \001(\r\022\035\n\025hero_bullets_hit_cr"
-  "it\030\037 \001(\r\022\026\n\016player_healing\030  \001(\r\022\032\n\022hero"
-  "_bullets_fired\030! \001(\r\022#\n\033hero_incoming_bu"
-  "llets_fired\030\" \001(\r\022!\n\031hero_incoming_bulle"
-  "ts_hit\030# \001(\r\022\"\n\032hero_incoming_bullets_cr"
-  "it\030$ \001(\r\022\023\n\013time_dead_s\030% \001(\r\022\034\n\024player_"
-  "bullet_damage\030& \001(\r\022\035\n\025player_ability_da"
-  "mage\030\' \001(\r\022\033\n\023player_melee_damage\030( \001(\r\022"
-  "\034\n\024abandon_match_time_s\030) \001(\r\022\032\n\022abandon"
-  "_time_stamp\030* \001(\r\022\035\n\025trooper_kill_exclud"
-  "ed\030+ \001(\r\022 \n\030hero_bullets_lucky_shots\030, \001"
-  "(\r\022\025\n\rhero_build_id\030- \001(\r\022\030\n\020objective_d"
-  "amage\030. \001(\r\022\032\n\022avg_time_to_kill_s\030/ \001(\002\022"
-  "\"\n\032requires_skill_calibration\0300 \001(\010\022\031\n\021p"
-  "layer_barriering\0301 \001(\r\022\030\n\020teammate_heali"
-  "ng\0302 \001(\r\022\033\n\023teammate_barriering\0303 \001(\r\022\023\n"
-  "\013self_damage\0304 \001(\r\022\024\n\014match_number\0305 \001(\r"
-  "\022\037\n\027damage_per_hero_ability\0306 \003(\r\022)\n\taux"
-  "_stats\0307 \003(\0132\026.CMsgMatchData.AuxStat\022.\n\024"
-  "player_tracked_stats\0308 \003(\0132\020.CMsgTracked"
-  "Stat\022\030\n\020new_player_score\0309 \001(\002\032u\n\010TeamIn"
-  "fo\022;\n\004team\030\001 \001(\0162\022.ECitadelLobbyTeam:\031k_"
-  "ECitadelLobbyTeam_Team0\022,\n\022team_tracked_"
-  "stats\030\002 \003(\0132\020.CMsgTrackedStat\"\306\001\n\nEEndRe"
-  "ason\022\030\n\024k_EEndReason_TeamWin\020\000\022\032\n\026k_EEnd"
-  "Reason_MatchDraw\020\001\022\035\n\031k_EEndReason_AllAb"
-  "andoned\020\002\022\036\n\032k_EEndReason_NetworkIssues\020"
-  "\003\022\034\n\030k_EEndReason_MatchLength\020\004\022%\n!k_EEn"
-  "dReason_PlayerNeverConnected\020\005\"\273\001\n\032CMsgS"
-  "erverToGCMatchSignout\022(\n\017additional_data"
-  "\030\001 \003(\0132\017.CExtraMsgBlock\022\027\n\017signout_attem"
-  "pt\030\002 \001(\r\022\020\n\010lobby_id\030\003 \001(\004\022\020\n\010match_id\030\004"
-  " \001(\004\022\022\n\ncluster_id\030\t \001(\r\022\"\n\nmatch_data\030\n"
-  " \001(\0132\016.CMsgMatchData\"\261\002\n\"CMsgServerToGCM"
-  "atchSignoutResponse\022[\n\006result\030\001 \001(\01622.CM"
-  "sgServerToGCMatchSignoutResponse.ESignou"
-  "tResult:\027k_ESignout_Failed_Retry\"\255\001\n\016ESi"
-  "gnoutResult\022\033\n\027k_ESignout_Failed_Retry\020\001"
-  "\022\035\n\031k_ESignout_Failed_NoRetry\020\002\022\036\n\032k_ESi"
-  "gnout_Failed_InFlight\020\003\022\026\n\022k_ESignout_Su"
-  "ccess\020\004\022\'\n#k_ESignout_Success_AlreadySig"
-  "nedOut\020\005\"\032\n\030CMsgServerWelcomeCitadel\"0\n\026"
-  "CMsgServerToGCIdlePing\022\026\n\016server_version"
-  "\030\001 \001(\r\"\033\n\031CMsgGCToServerRequestPing\"2\n\036C"
-  "MsgGCToServerAllocateForMatch\022\020\n\010match_i"
-  "d\030\001 \001(\004\"9\n&CMsgGCToServerAllocateForMatc"
-  "hResponse\022\017\n\007success\030\001 \001(\010\"<\n CMsgGCToSe"
-  "rverAllocateForHideout\022\030\n\020hideout_lobby_"
-  "id\030\001 \001(\004\"U\n(CMsgGCToServerAllocateForHid"
-  "eoutResponse\022\030\n\020hideout_lobby_id\030\001 \001(\004\022\017"
-  "\n\007success\030\002 \001(\010\"\231\002\n\036CMsgServerToGCEnterM"
-  "atchmaking\022\026\n\016server_version\030\001 \001(\r\022\022\n\nse"
-  "arch_key\030\002 \001(\t\022\021\n\tregion_id\030\003 \001(\r\022\022\n\nclu"
-  "ster_id\030\004 \001(\r\022\030\n\020server_public_ip\030\005 \001(\r\022"
-  "\031\n\021server_private_ip\030\006 \001(\r\022\023\n\013server_por"
-  "t\030\007 \001(\r\022\023\n\013sdr_address\030\t \001(\014\022\027\n\017replay_g"
-  "roup_id\030\n \001(\r\022\025\n\rallow_matches\030\013 \001(\010\022\025\n\r"
-  "allow_hideout\030\014 \001(\010\"R\n$CMsgGCToServerCan"
-  "celAllocateForMatch\022\020\n\010match_id\030\001 \001(\004\022\030\n"
-  "\020hideout_lobby_id\030\002 \001(\004\"\227\001\n$CMsgServerTo"
-  "GCUpdateLobbyServerState\022\020\n\010lobby_id\030\001 \001"
-  "(\004\022D\n\014server_state\030\002 \001(\0162\022.ELobbyServerS"
-  "tate:\032k_eLobbyServerState_Assign\022\027\n\017safe"
-  "_to_abandon\030\003 \001(\010\"\254\006\n\032CMsgServerToGCAban"
-  "donMatch\022\027\n\017server_steam_id\030\001 \001(\006\022\020\n\010lob"
-  "by_id\030\002 \001(\006\022\022\n\ncluster_id\030\003 \001(\r\022M\n\013reaso"
-  "n_code\030\004 \001(\0162#.CMsgServerToGCAbandonMatc"
-  "h.EReason:\023eReason_ServerCrash\022\027\n\017additi"
-  "onal_data\030\005 \001(\004\022\020\n\010match_id\030\006 \001(\004\0223\n\007pla"
-  "yers\030\010 \003(\0132\".CMsgServerToGCAbandonMatch."
-  "Player\022\031\n\021public_ip_address\030\t \001(\007\022\014\n\004por"
-  "t\030\n \001(\r\022\026\n\016server_version\030\013 \001(\r\022\013\n\003pid\030\014"
-  " \001(\r\022\023\n\013instance_id\030\r \001(\r\022\032\n\022private_ip_"
-  "address\030\016 \001(\r\022C\n\nmatch_mode\030\017 \001(\0162\022.ECit"
+  "out\030\013 \001(\010\022\026\n\016was_lost_lobby\030\014 \001(\010\"\244\001\n\033CM"
+  "sgAccountChallengesActive\022:\n\nchallenges\030"
+  "\001 \003(\0132&.CMsgAccountChallengesActive.Chal"
+  "lenge\032I\n\tChallenge\022\024\n\014challenge_id\030\001 \001(\004"
+  "\022\020\n\010progress\030\002 \001(\r\022\024\n\014max_progress\030\003 \001(\r"
+  "\"\326\001\n\032CServerLobbyData_PlayerMMR\0223\n\007playe"
+  "rs\030\001 \003(\0132\".CServerLobbyData_PlayerMMR.Pl"
+  "ayer\032\202\001\n\006Player\022\022\n\nplayer_mmr\030\002 \001(\r\022\032\n\022p"
+  "layer_uncertainty\030\003 \001(\r\022\020\n\010hero_mmr\030\004 \001("
+  "\r\022!\n\031hero_mmr_with_uncertainty\030\005 \001(\r\022\023\n\013"
+  "player_slot\030\006 \001(\r\"\351\001\n\033CServerLobbyData_P"
+  "layerInfo\022\022\n\naccount_id\030\001 \001(\r\022,\n\raccount"
+  "_stats\030\002 \003(\0132\025.CMsgAccountHeroStats\022(\n\tb"
+  "ook_info\030\005 \003(\0132\025.CMsgAccountBookStats\0220\n"
+  "\nchallenges\030\007 \001(\0132\034.CMsgAccountChallenge"
+  "sActive\022,\n\rglobal_equips\030\010 \001(\0132\025.CMsgEqu"
+  "ippedItemList\"\234\001\n CServerLobbyData_PostM"
+  "atchSurvey\022\?\n\007surveys\030\001 \003(\0132..CServerLob"
+  "byData_PostMatchSurvey.PlayerSurvey\0327\n\014P"
+  "layerSurvey\022\022\n\naccount_id\030\001 \001(\r\022\023\n\013quest"
+  "ion_id\030\002 \001(\r\"3\n\031CServerLobbyData_AutoTes"
+  "t\022\026\n\016max_duration_s\030\002 \001(\r\"\343\002\n!CServerLob"
+  "byData_PlayerStatValues\022H\n\taccolades\030\001 \003"
+  "(\01325.CServerLobbyData_PlayerStatValues.A"
+  "ccoladeThresholds\022O\n\022stat_distributions\030"
+  "\002 \003(\01323.CServerLobbyData_PlayerStatValue"
+  "s.StatDistribution\032=\n\022AccoladeThresholds"
+  "\022\023\n\013accolade_id\030\001 \001(\r\022\022\n\nthresholds\030\002 \003("
+  "\r\032d\n\020StatDistribution\022\027\n\017tracked_stat_id"
+  "\030\001 \001(\r\022\031\n\021tracked_stat_mean\030\002 \001(\002\022\034\n\024tra"
+  "cked_stat_std_dev\030\003 \001(\002\"\201\001\n\034CSOCitadelSe"
+  "rverDynamicLobby\022\020\n\010lobby_id\030\001 \001(\004\022\034\n\020le"
+  "ft_account_ids\030\002 \003(\rB\002\020\001\022\030\n\020broadcast_ac"
+  "tive\030\003 \001(\010\022\027\n\017spectator_count\030\004 \001(\r\"\370\013\n\033"
+  "CSOCitadelServerStaticLobby\022\'\n\016extra_mes"
+  "sages\030\001 \003(\0132\017.CExtraMsgBlock\022\027\n\017server_s"
+  "team_id\030\002 \001(\006\022\020\n\010lobby_id\030\003 \001(\004\022\023\n\013repla"
+  "y_salt\030\004 \001(\007\022\022\n\nlevel_name\030\005 \001(\t\0224\n\007memb"
+  "ers\030\006 \003(\0132#.CSOCitadelServerStaticLobby."
+  "Member\022>\n\014dev_settings\030\007 \001(\0132(.CSOCitade"
+  "lServerStaticLobby.DevSettings\022\032\n\022gc_pro"
+  "vided_heroes\030\010 \001(\010\022L\n\016bot_difficulty\030\t \001"
+  "(\0162\026.ECitadelBotDifficulty:\034k_ECitadelBo"
+  "tDifficulty_None\022\025\n\rmetadata_salt\030\n \001(\007\022"
+  "\030\n\020match_start_time\030\013 \001(\r\022B\n\013region_mode"
+  "\030\020 \001(\0162\023.ECitadelRegionMode:\030k_ECitadelR"
+  "egionMode_ROW\022\025\n\rbroadcast_url\030\021 \001(\t\022\027\n\017"
+  "new_player_pool\030\022 \001(\010\022\024\n\014low_pri_pool\030\023 "
+  "\001(\010\022\034\n\024is_restricted_access\030\024 \001(\010\022\026\n\016che"
+  "ats_enabled\030\025 \001(\010\022 \n\030duplicate_heroes_en"
+  "abled\030\026 \001(\010\022#\n\033is_high_skill_range_parti"
+  "es\030\027 \001(\010\022\034\n\024average_badge_team_0\030\031 \001(\r\022\034"
+  "\n\024average_badge_team_1\030\032 \001(\r\022\033\n\023gameplay"
+  "_experiment\030\033 \001(\t\022\030\n\020rewards_eligible\030\034 "
+  "\001(\010\022\025\n\rbanned_heroes\030\035 \003(\r\032\342\004\n\006Member\022\022\n"
+  "\naccount_id\030\001 \001(\r\022\024\n\014persona_name\030\002 \001(\t\022"
+  ";\n\004team\030\003 \001(\0162\022.ECitadelLobbyTeam:\031k_ECi"
+  "tadelLobbyTeam_Team0\022\023\n\013player_slot\030\004 \001("
+  "\r\022\017\n\007hero_id\030\005 \001(\r\022\023\n\013party_index\030\006 \001(\r\022"
+  "2\n\010platform\030\007 \001(\0162\014.EGCPlatform:\022k_eGCPl"
+  "atform_None\0229\n\taward_ids\030\010 \003(\0162&.CSOCita"
+  "delServerStaticLobby.EAwardIDs\022\033\n\023is_com"
+  "ms_restricted\030\t \001(\010\022\017\n\007lane_id\030\n \001(\r\022+\n\017"
+  "gc_account_data\030\r \001(\0132\022.CMsgGCAccountDat"
+  "a\022%\n\035party_desires_laning_together\030\016 \001(\010"
+  "\022L\n\016bot_difficulty\030\020 \001(\0162\026.ECitadelBotDi"
+  "fficulty:\034k_ECitadelBotDifficulty_None\022\""
+  "\n\032requires_skill_calibration\030\022 \001(\010\022&\n\the"
+  "ro_data\030\023 \001(\0132\023.CMsgPlayerHeroData\022\024\n\014ma"
+  "tch_number\030\024 \001(\r\022\025\n\rrandomed_hero\030\025 \001(\010\032"
+  "%\n\013DevSettings\022\026\n\016console_string\030\001 \001(\t\"."
+  "\n\tEAwardIDs\022!\n\035k_eAward_KingPanda_DEPREC"
+  "ATED\020\001\"8\n\034CSOCitadelServerHideoutLobby\022\030"
+  "\n\020hideout_lobby_id\030\001 \001(\004\"\343\007\n%CMsgServerS"
+  "ignoutData_ServerPerfStats\022\031\n\021peak_memor"
+  "y_bytes\030\001 \001(\004\022\030\n\020end_memory_bytes\030\002 \001(\004\022"
+  "\036\n\026frame_time_max_micro_s\030\003 \001(\r\022\035\n\025frame"
+  "_time_95_micro_s\030\004 \001(\r\022\036\n\026frame_time_avg"
+  "_micro_s\030\005 \001(\r\022\"\n\032frame_idle_time_95_mic"
+  "ro_s\030\006 \001(\r\022#\n\033frame_idle_time_avg_micro_"
+  "s\030\007 \001(\r\022\035\n\025frame_time_80_micro_s\030\010 \001(\r\022\035"
+  "\n\025frame_time_99_micro_s\030\t \001(\r\022M\n\014perf_sa"
+  "mples\030\n \001(\01327.CMsgServerSignoutData_Serv"
+  "erPerfStats.MatchPerfSamples\032H\n\013FrameCou"
+  "nts\022\022\n\nnum_frames\030\001 \001(\r\022\023\n\013longest_run\030\002"
+  " \001(\r\022\020\n\010num_runs\030\003 \001(\r\032\362\002\n\nPerfSample\022\023\n"
+  "\013game_time_s\030\001 \001(\r\022\021\n\tavg_frame\030\002 \001(\002\022\020\n"
+  "\010avg_idle\030\003 \001(\002\022\024\n\014total_frames\030\004 \001(\r\022M\n"
+  "\021performant_frames\030\005 \001(\01322.CMsgServerSig"
+  "noutData_ServerPerfStats.FrameCounts\022G\n\013"
+  "long_frames\030\006 \001(\01322.CMsgServerSignoutDat"
+  "a_ServerPerfStats.FrameCounts\022K\n\017low_idl"
+  "e_frames\030\007 \001(\01322.CMsgServerSignoutData_S"
+  "erverPerfStats.FrameCounts\022\024\n\014memory_byt"
+  "es\030\010 \001(\004\022\031\n\021peak_memory_bytes\030\t \001(\004\032\220\001\n\020"
+  "MatchPerfSamples\022\034\n\024long_frame_threshold"
+  "\030\001 \001(\002\022\032\n\022low_idle_threshold\030\002 \001(\002\022B\n\007sa"
+  "mples\030\003 \003(\01321.CMsgServerSignoutData_Serv"
+  "erPerfStats.PerfSample\"\267\002\n\035CMsgServerToG"
+  "CUpdateMatchInfo\022\020\n\010lobby_id\030\001 \001(\004\022\024\n\014ki"
+  "lls_team_0\030\003 \001(\r\022\024\n\014kills_team_1\030\004 \001(\r\022\030"
+  "\n\020net_worth_team_0\030\005 \001(\r\022\030\n\020net_worth_te"
+  "am_1\030\006 \001(\r\022\022\n\nspectators\030\007 \001(\r\022\034\n\024open_s"
+  "pectator_slots\030\010 \001(\r\022\035\n\025objectives_mask_"
+  "team0\030\t \001(\004\022\035\n\025objectives_mask_team1\030\n \001"
+  "(\004\022\031\n\021brawl_score_team0\030\013 \001(\r\022\031\n\021brawl_s"
+  "core_team1\030\014 \001(\r\"\260\001\n$CMsgServerToGCMatch"
+  "SignoutPermission\022\025\n\rsignout_start\030\001 \001(\r"
+  "\022\032\n\022permission_request\030\002 \001(\r\022\020\n\010match_id"
+  "\030\003 \001(\004\022C\n\nmatch_mode\030\004 \001(\0162\022.ECitadelMat"
+  "chMode:\033k_ECitadelMatchMode_Invalid\"r\n,C"
+  "MsgServerToGCMatchSignoutPermissionRespo"
+  "nse\022\024\n\014can_sign_out\030\001 \001(\010\022\024\n\014retry_time_"
+  "s\030\002 \001(\r\022\026\n\016requested_data\030\003 \003(\r\"\312\002\n$CMsg"
+  "ServerSignoutData_Disconnections\022T\n\016disc"
+  "onnections\030\001 \003(\0132<.CMsgServerSignoutData"
+  "_Disconnections.CMsgMatchDisconnection\032\313"
+  "\001\n\026CMsgMatchDisconnection\022\022\n\naccount_id\030"
+  "\001 \001(\r\022\027\n\017disconnect_time\030\002 \001(\r\022\030\n\020connec"
+  "tion_state\030\003 \001(\r\022\023\n\013reason_code\030\004 \001(\r\022\027\n"
+  "\017reconnect_delay\030\005 \001(\r\022\035\n\025match_disconne"
+  "ct_time\030\006 \001(\r\022\035\n\025match_reconnect_delay\030\007"
+  " \001(\r\"\212\001\n#CMsgServerSignoutData_MatchDevS"
+  "tats\022@\n\007players\030\001 \003(\0132/.CMsgServerSignou"
+  "tData_MatchDevStats.PlayerSlot\032!\n\nPlayer"
+  "Slot\022\023\n\013player_slot\030\001 \001(\r\"\211\022\n#CMsgServer"
+  "SignoutData_DetailedStats\022A\n\014player_stat"
+  "s\030\001 \003(\0132+.CMsgServerSignoutData_Detailed"
+  "Stats.Player\022B\n\nobjectives\030\002 \003(\0132..CMsgS"
+  "erverSignoutData_DetailedStats.Objective"
+  "\022>\n\010mid_boss\030\003 \003(\0132,.CMsgServerSignoutDa"
+  "ta_DetailedStats.MidBoss\032+\n\010Position\022\t\n\001"
+  "x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001(\002\032\303\n\n\nTimeSa"
+  "mple\022\024\n\014match_time_s\030\001 \001(\r\022D\n\005stats\030\002 \001("
+  "\01325.CMsgServerSignoutData_DetailedStats."
+  "TimeSample.Stats\022M\n\ngold_stats\030\004 \001(\01329.C"
+  "MsgServerSignoutData_DetailedStats.TimeS"
+  "ample.GoldStats\032\351\005\n\005Stats\022\021\n\tnet_worth\030\001"
+  " \001(\r\022\r\n\005kills\030\002 \001(\r\022\016\n\006deaths\030\003 \001(\r\022\017\n\007a"
+  "ssists\030\004 \001(\r\022\027\n\017possible_creeps\030\005 \001(\r\022\023\n"
+  "\013creep_kills\030\006 \001(\r\022\025\n\rneutral_kills\030\007 \001("
+  "\r\022\024\n\014creep_damage\030\010 \001(\r\022\026\n\016neutral_damag"
+  "e\030\t \001(\r\022\023\n\013boss_damage\030\n \001(\r\022\025\n\rplayer_d"
+  "amage\030\013 \001(\r\022\016\n\006denies\030\014 \001(\r\022\026\n\016player_he"
+  "aling\030\r \001(\r\022\026\n\016ability_points\030\016 \001(\r\022\024\n\014s"
+  "elf_healing\030\017 \001(\r\022\033\n\023player_damage_taken"
+  "\030\020 \001(\r\022\022\n\nmax_health\030\021 \001(\r\022\024\n\014weapon_pow"
+  "er\030\022 \001(\r\022\022\n\ntech_power\030\023 \001(\r\022\021\n\tshots_hi"
+  "t\030\024 \001(\r\022\024\n\014shots_missed\030\025 \001(\r\022\027\n\017damage_"
+  "absorbed\030\026 \001(\r\022\033\n\023absorption_provided\030\027 "
+  "\001(\r\022\026\n\016heal_prevented\030\032 \001(\r\022\021\n\theal_lost"
+  "\030\033 \001(\r\022\031\n\021player_barriering\030\034 \001(\r\022\030\n\020tea"
+  "mmate_healing\030- \001(\r\022\033\n\023teammate_barrieri"
+  "ng\030. \001(\r\022\023\n\013self_damage\030/ \001(\r\022\037\n\027damage_"
+  "per_hero_ability\0300 \003(\r\022\034\n\024player_bullet_"
+  "damage\0301 \001(\r\022\035\n\025player_ability_damage\0302 "
+  "\001(\r\032\235\003\n\tGoldStats\022\016\n\006player\030\001 \001(\r\022\022\n\npla"
+  "yer_orb\030\002 \001(\r\022\026\n\016lane_creep_orb\030\003 \001(\r\022\031\n"
+  "\021neutral_creep_orb\030\004 \001(\r\022\014\n\004boss\030\005 \001(\r\022\020"
+  "\n\010boss_orb\030\006 \001(\r\022\020\n\010treasure\030\007 \001(\r\022\016\n\006de"
+  "nied\030\010 \001(\r\022\022\n\ndeath_loss\030\t \001(\r\022\022\n\nlane_c"
+  "reep\030\n \001(\r\022\025\n\rneutral_creep\030\013 \001(\r\022\022\n\ntea"
+  "m_bonus\030\014 \001(\r\022\033\n\023ability_assassinate\030\r \001"
+  "(\r\022\035\n\025item_trophy_collector\030\016 \001(\r\022\036\n\026ite"
+  "m_cultist_sacrifice\030\017 \001(\r\022\026\n\016comeback_ki"
+  "lls\030\020 \001(\r\022\031\n\021comeback_treasure\030\021 \001(\r\022\025\n\r"
+  "comeback_misc\030\022 \001(\r\032\222\003\n\tObjective\022\030\n\020des"
+  "troyed_time_s\030\002 \001(\r\022\024\n\014creep_damage\030\004 \001("
+  "\r\022\036\n\026creep_damage_mitigated\030\005 \001(\r\022\025\n\rpla"
+  "yer_damage\030\006 \001(\r\022\033\n\023first_damage_time_s\030"
+  "\010 \001(\r\022O\n\021team_objective_id\030\t \001(\0162\026.ECita"
+  "delTeamObjective:\034k_eCitadelTeamObjectiv"
+  "e_Core\022;\n\004team\030\n \001(\0162\022.ECitadelLobbyTeam"
+  ":\031k_ECitadelLobbyTeam_Team0\022\027\n\017players_d"
+  "amaged\030\013 \001(\r\022\031\n\021players_destroyed\030\014 \001(\r\022"
+  "!\n\031enemy_count_dmg_mitigated\030\r \003(\r\022\034\n\024pl"
+  "ayer_spirit_damage\030\016 \001(\r\032\254\001\n\007MidBoss\022B\n\013"
+  "team_killed\030\001 \001(\0162\022.ECitadelLobbyTeam:\031k"
+  "_ECitadelLobbyTeam_Team0\022C\n\014team_claimed"
+  "\030\002 \001(\0162\022.ECitadelLobbyTeam:\031k_ECitadelLo"
+  "bbyTeam_Team0\022\030\n\020destroyed_time_s\030\003 \001(\r\032"
+  "d\n\006Player\022\023\n\013player_slot\030\001 \001(\r\022E\n\014time_s"
+  "amples\030\003 \003(\0132/.CMsgServerSignoutData_Det"
+  "ailedStats.TimeSample\"\342\005\n\036CMsgServerSign"
+  "outData_PerfData\022\032\n\022average_frame_time\030\001"
+  " \003(\002\022\026\n\016max_frame_time\030\002 \003(\002\022!\n\031server_a"
+  "verage_frame_time\030\003 \001(\002\022\035\n\025server_max_fr"
+  "ame_time\030\004 \001(\002\022\034\n\024average_compute_time\030\005"
+  " \003(\002\022\030\n\020max_compute_time\030\006 \003(\002\022 \n\030averag"
+  "e_client_tick_time\030\007 \003(\002\022\034\n\024max_client_t"
+  "ick_time\030\010 \003(\002\022$\n\034average_client_simulat"
+  "e_time\030\t \003(\002\022 \n\030max_client_simulate_time"
+  "\030\n \003(\002\022\033\n\023average_output_time\030\013 \003(\002\022\027\n\017m"
+  "ax_output_time\030\014 \003(\002\0223\n+average_wait_for"
+  "_rendering_to_complete_time\030\r \003(\002\022/\n\'max"
+  "_wait_for_rendering_to_complete_time\030\016 \003"
+  "(\002\022\031\n\021average_swap_time\030\017 \003(\002\022\025\n\rmax_swa"
+  "p_time\030\020 \003(\002\022!\n\031average_frame_update_tim"
+  "e\030\021 \003(\002\022\035\n\025max_frame_update_time\030\022 \003(\002\022\031"
+  "\n\021average_idle_time\030\023 \003(\002\022\025\n\rmax_idle_ti"
+  "me\030\024 \003(\002\022%\n\035average_input_processing_tim"
+  "e\030\025 \003(\002\022!\n\031max_input_processing_time\030\026 \003"
+  "(\002\"\213\002\n!CMsgServerSignoutData_BookRewards"
+  "\022J\n\017account_rewards\030\001 \003(\01321.CMsgServerSi"
+  "gnoutData_BookRewards.AccountRewards\0320\n\n"
+  "BookReward\022\017\n\007book_id\030\001 \001(\r\022\021\n\txp_reward"
+  "\030\002 \001(\r\032h\n\016AccountRewards\022\022\n\naccount_id\030\001"
+  " \001(\r\022B\n\013book_reward\030\002 \001(\0132-.CMsgServerSi"
+  "gnoutData_BookRewards.BookReward\"\267\002\n\'CMs"
+  "gServerSignoutData_ChallengeProgress\022V\n\022"
+  "account_challenges\030\001 \003(\0132:.CMsgServerSig"
+  "noutData_ChallengeProgress.AccountChalle"
+  "nges\032;\n\021ChallengeProgress\022\024\n\014challenge_i"
+  "d\030\001 \001(\004\022\020\n\010progress\030\002 \001(\r\032w\n\021AccountChal"
+  "lenges\022\022\n\naccount_id\030\001 \001(\r\022N\n\nchallenges"
+  "\030\002 \003(\0132:.CMsgServerSignoutData_Challenge"
+  "Progress.ChallengeProgress\"\234\003\n!CMsgServe"
+  "rSignoutData_HeroXPGrant\022E\n\naccount_xp\030\001"
+  " \003(\01321.CMsgServerSignoutData_HeroXPGrant"
+  ".AccountXPGrant\032\177\n\013HeroXPGrant\022\017\n\007hero_i"
+  "d\030\001 \001(\r\022\020\n\010xp_grant\030\002 \001(\r\022M\n\006reason\030\003 \001("
+  "\0162/.CMsgServerSignoutData_HeroXPGrant.EG"
+  "rantReason:\014k_eGrant_Win\032f\n\016AccountXPGra"
+  "nt\022\022\n\naccount_id\030\001 \001(\r\022@\n\010xp_grant\030\002 \003(\013"
+  "2..CMsgServerSignoutData_HeroXPGrant.Her"
+  "oXPGrant\"G\n\014EGrantReason\022\020\n\014k_eGrant_Win"
+  "\020\000\022\021\n\rk_eGrant_Loss\020\001\022\022\n\016k_eGrant_Award\020"
+  "\002\"\254\001\n CMsgServerSignoutData_MatchKills\0225"
+  "\n\005kills\030\001 \003(\0132&.CMsgServerSignoutData_Ma"
+  "tchKills.Kill\032Q\n\004Kill\022\016\n\006killer\030\001 \001(\r\022\016\n"
+  "\006victim\030\002 \001(\r\022\022\n\nmatch_time\030\003 \001(\r\022\025\n\rkil"
+  "ler_streak\030\004 \001(\r\"\310\002\n(CMsgServerSignoutDa"
+  "ta_AccountStatChanges\022M\n\raccount_stats\030\001"
+  " \003(\01326.CMsgServerSignoutData_AccountStat"
+  "Changes.AccountStats\032j\n\004Stat\022\017\n\007hero_id\030"
+  "\001 \001(\r\022\017\n\007stat_id\030\002 \001(\r\022\r\n\005value\030\003 \001(\r\0221\n"
+  "\005medal\030\004 \001(\0162\031.ECitadelAccountStatMedal:"
+  "\007k_eNone\032a\n\014AccountStats\022\022\n\naccount_id\030\001"
+  " \001(\r\022=\n\005stats\030\002 \003(\0132..CMsgServerSignoutD"
+  "ata_AccountStatChanges.Stat\"\274\001\n CMsgServ"
+  "erSignoutData_PlayerChat\022>\n\nchat_lines\030\001"
+  " \003(\0132*.CMsgServerSignoutData_PlayerChat."
+  "ChatLine\032X\n\010ChatLine\022\023\n\013player_slot\030\001 \001("
+  "\r\022\021\n\tgame_time\030\002 \001(\002\022\021\n\tteam_only\030\003 \001(\010\022"
+  "\021\n\tchat_line\030\004 \001(\t\"\272\004\n$CMsgServerSignout"
+  "Data_PlayerBehavior\022=\n\007players\030\001 \003(\0132,.C"
+  "MsgServerSignoutData_PlayerBehavior.Play"
+  "er\032\322\003\n\006Player\022\022\n\naccount_id\030\001 \001(\r\022\032\n\022tea"
+  "m_chat_messages\030\002 \001(\r\022\031\n\021all_chat_messag"
+  "es\030\003 \001(\r\022\r\n\005pings\030\004 \001(\r\022\032\n\022voice_chat_se"
+  "conds\030\005 \001(\r\022\016\n\006pauses\030\006 \001(\r\022\030\n\020total_pau"
+  "se_time\030\007 \001(\r\022\023\n\013disconnects\030\010 \001(\r\022\037\n\027fi"
+  "rst_all_chat_gametime\030\t \001(\r\022!\n\031first_voi"
+  "ce_chat_gametime\030\n \001(\r\022\027\n\017total_idle_tim"
+  "e\030\013 \001(\r\022\033\n\023total_inactive_time\030\014 \001(\r\022\035\n\025"
+  "total_disconnect_time\030\r \001(\r\022 \n\030first_tea"
+  "m_chat_gametime\030\016 \001(\r\022\033\n\023first_all_chat_"
+  "time\030\017 \001(\r\022\035\n\025first_voice_chat_time\030\020 \001("
+  "\r\022\034\n\024first_team_chat_time\030\021 \001(\r\"\246\007\n%CMsg"
+  "ServerSignoutData_StreetBrawlData\022<\n\006rou"
+  "nds\030\001 \003(\0132,.CMsgServerSignoutData_Street"
+  "BrawlData.Round\032\207\001\n\tDraftItem\022\022\n\nability"
+  "_id\030\001 \001(\r\022\r\n\005flags\030\002 \001(\r\022W\n\007outcome\030\003 \001("
+  "\01628.CMsgServerSignoutData_StreetBrawlDat"
+  "a.EDraftItemOutcome:\014k_eNotChosen\032O\n\014Dra"
+  "ftItemSet\022\?\n\005items\030\001 \003(\01320.CMsgServerSig"
+  "noutData_StreetBrawlData.DraftItem\032\212\002\n\013R"
+  "oundPlayer\022\023\n\013player_slot\030\001 \001(\r\022\025\n\rplaye"
+  "r_damage\030\002 \001(\r\022\r\n\005kills\030\003 \001(\r\022\026\n\016player_"
+  "healing\030\004 \001(\r\022\016\n\006deaths\030\005 \001(\r\022\017\n\007assists"
+  "\030\006 \001(\r\022\030\n\020objective_damage\030\007 \001(\r\022\037\n\027obje"
+  "ctive_spirit_damage\030\010 \001(\r\022L\n\017draft_item_"
+  "sets\030\t \003(\01323.CMsgServerSignoutData_Stree"
+  "tBrawlData.DraftItemSet\032\273\001\n\005Round\022\024\n\014rou"
+  "nd_number\030\001 \001(\r\022\022\n\nround_time\030\002 \001(\r\022C\n\014w"
+  "inning_team\030\003 \001(\0162\022.ECitadelLobbyTeam:\031k"
+  "_ECitadelLobbyTeam_Team0\022C\n\007players\030\005 \003("
+  "\01322.CMsgServerSignoutData_StreetBrawlDat"
+  "a.RoundPlayer\"E\n\021EDraftItemOutcome\022\020\n\014k_"
+  "eNotChosen\020\000\022\r\n\tk_eChosen\020\001\022\017\n\013k_eReroll"
+  "ed\020\002\"R\n\017EDraftItemFlags\022\024\n\020k_eHasUpgrade"
+  "Bit\020\001\022\030\n\024k_eHasAdditionalItem\020\002\022\017\n\013k_eRa"
+  "reItem\020\004\"\306\003\n&CMsgServerSignoutData_Penal"
+  "izedPlayers\022J\n\021penalized_players\030\001 \003(\0132/"
+  ".CMsgServerSignoutData_PenalizedPlayers."
+  "Penalty\032\251\001\n\007Penalty\022\022\n\naccount_id\030\001 \001(\r\022"
+  "`\n\006reason\030\002 \001(\01626.CMsgServerSignoutData_"
+  "PenalizedPlayers.EPenaltyReason:\030k_EPena"
+  "ltyReason_Abandon\022\024\n\014match_time_s\030\003 \001(\r\022"
+  "\022\n\ntime_stamp\030\004 \001(\r\"\243\001\n\016EPenaltyReason\022\034"
+  "\n\030k_EPenaltyReason_Abandon\020\000\022(\n$k_EPenal"
+  "tyReason_DisconnectedTooLong\020\001\022\030\n\024k_EPen"
+  "altyReason_AFK\020\002\022/\n+k_EPenaltyReason_Dis"
+  "connectedTooLongPregame\020\003\"\354\026\n\rCMsgMatchD"
+  "ata\022\030\n\020match_duration_s\030\001 \001(\r\022C\n\nend_rea"
+  "son\030\002 \001(\0162\031.CMsgMatchData.EEndReason:\024k_"
+  "EEndReason_TeamWin\022C\n\014winning_team\030\003 \001(\016"
+  "2\022.ECitadelLobbyTeam:\031k_ECitadelLobbyTea"
+  "m_Team0\022*\n\007players\030\004 \003(\0132\031.CMsgMatchData"
+  ".PlayerInfo\022\036\n\026objectives_mask_legacy\030\005 "
+  "\001(\r\022\026\n\016server_version\030\006 \001(\r\022@\n\tgame_mode"
+  "\030\007 \001(\0162\021.ECitadelGameMode:\032k_ECitadelGam"
+  "eMode_Invalid\022C\n\nmatch_mode\030\010 \001(\0162\022.ECit"
   "adelMatchMode:\033k_ECitadelMatchMode_Inval"
-  "id\022@\n\tgame_mode\030\020 \001(\0162\021.ECitadelGameMode"
-  ":\032k_ECitadelGameMode_Invalid\022\033\n\023was_serv"
-  "er_shutdown\030\021 \001(\010\022\021\n\tregion_id\030\022 \001(\r\022\030\n\020"
-  "hideout_lobby_id\030\023 \001(\004\022\022\n\nrouting_id\030\024 \001"
-  "(\004\022\025\n\rallow_matches\030\025 \001(\010\022\025\n\rallow_hideo"
-  "ut\030\026 \001(\010\032F\n\006Player\022\022\n\naccount_id\030\001 \001(\r\022\027"
-  "\n\017additional_data\030\002 \001(\004\022\017\n\007hero_id\030\003 \001(\r"
-  "\"F\n\007EReason\022\027\n\023eReason_ServerCrash\020\001\022\"\n\036"
-  "eReason_ClientsFailedToConnect\020\002\"$\n\"CMsg"
-  "ServerToGCAbandonMatchResponse\"\036\n\034CMsgSe"
-  "rverToGCTestConnection\"&\n$CMsgServerToGC"
-  "TestConnectionResponse\"J\n\035CMsgGCToServer"
-  "SetServerConVar\022\023\n\013convar_name\030\001 \001(\t\022\024\n\014"
-  "convar_value\030\002 \001(\t\"8\n%CMsgGCToServerSetS"
-  "erverConVarResponse\022\017\n\007success\030\001 \001(\010\"_\n\032"
-  "CMsgGCToServerAddSpectator\022\020\n\010lobby_id\030\001"
-  " \001(\004\022\022\n\naccount_id\030\002 \001(\r\022\033\n\023account_to_s"
-  "pectate\030\003 \001(\r\"\332\001\n\"CMsgGCToServerAddSpect"
-  "atorResponse\022O\n\006result\030\001 \001(\0162-.CMsgGCToS"
-  "erverAddSpectatorResponse.EResponse:\020k_e"
-  "InternalError\022\035\n\025requesting_account_id\030\002"
-  " \001(\r\"D\n\tEResponse\022\024\n\020k_eInternalError\020\000\022"
-  "\016\n\nk_eSuccess\020\001\022\021\n\rk_eServerFull\020\002\"J\n#CM"
-  "sgServerToGCRequestPlayerHeroData\022\022\n\nacc"
-  "ount_id\030\001 \001(\r\022\017\n\007hero_id\030\002 \001(\r\"\251\002\n+CMsgS"
-  "erverToGCRequestPlayerHeroDataResponse\022V"
-  "\n\006result\030\001 \001(\01624.CMsgServerToGCRequestPl"
-  "ayerHeroDataResponse.EResult:\020k_eInterna"
-  "lError\022&\n\thero_data\030\002 \001(\0132\023.CMsgPlayerHe"
-  "roData\"z\n\007EResult\022\024\n\020k_eInternalError\020\000\022"
-  "\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDi"
-  "sabled\020\003\022\016\n\nk_eTimeout\020\004\022\030\n\024k_eInvalidPe"
-  "rmission\020\005\"\203\002\n,CMsgServerSteamLearnCitad"
-  "elSignOutPlayerInfo\022\022\n\naccount_id\030\001 \001(\005\022"
-  "\017\n\007hero_id\030\002 \001(\r\022\013\n\003mmr\030\003 \001(\r\022\032\n\022total_g"
-  "ames_played\030\004 \001(\r\022C\n\nmatch_mode\030\n \001(\0162\022."
-  "ECitadelMatchMode:\033k_ECitadelMatchMode_I"
-  "nvalid\022@\n\tgame_mode\030\013 \001(\0162\021.ECitadelGame"
-  "Mode:\032k_ECitadelGameMode_Invalid\"\262\005\n3CMs"
-  "gServerSteamLearnCitadelPlayerMechanical"
-  "Behavior\022\021\n\tnet_worth\030\001 \001(\r\022\016\n\006deaths\030\002 "
-  "\001(\r\022\026\n\016team_net_worth\030\003 \001(\r\022\034\n\024enemy_tea"
-  "m_net_worth\030\004 \001(\r\022\022\n\nteam_kills\030\005 \001(\r\022\030\n"
-  "\020enemy_team_kills\030\006 \001(\r\022\021\n\tgame_time\030\007 \001"
-  "(\002\022\037\n\027velocity_ratio_veryfast\030\010 \001(\002\022\033\n\023v"
-  "elocity_ratio_fast\030\t \001(\002\022\035\n\025velocity_rat"
-  "io_normal\030\n \001(\002\022\033\n\023velocity_ratio_slow\030\013"
-  " \001(\002\022\023\n\013slide_ratio\030\014 \001(\002\022\033\n\023item_cooldo"
-  "wn_ratio\030\r \001(\002\022\017\n\007parries\030\016 \001(\r\022\032\n\022time_"
-  "in_shop_ratio\030\017 \001(\002\022\016\n\006denies\030\020 \001(\r\022\013\n\003m"
-  "mr\030\022 \001(\r\022\032\n\022total_games_played\030\023 \001(\r\022\033\n\023"
-  "build_effectiveness\030\024 \001(\002\022\034\n\024net_worth_t"
-  "eam_ratio\030\025 \001(\002\022\034\n\024net_worth_game_ratio\030"
-  "\026 \001(\002\0228\n0time_spent_not_contributing_to_"
-  "game_events_ratio\030\027 \001(\002\022\035\n\025dash_jumps_pe"
-  "r_minute\030\030 \001(\002\022\035\n\025wall_jumps_per_minute\030"
-  "\031 \001(\002*\204\010\n\030EGCCitadelServerMessages\022+\n&k_"
-  "EMsgServerToGCMatchSignoutPermission\020\234N\022"
-  "3\n.k_EMsgServerToGCMatchSignoutPermissio"
-  "nResponse\020\235N\022!\n\034k_EMsgServerToGCMatchSig"
-  "nout\020\236N\022)\n$k_EMsgServerToGCMatchSignoutR"
-  "esponse\020\237N\022!\n\034k_EMsgGCToServerAddSpectat"
-  "or\020\240N\022)\n$k_EMsgGCToServerAddSpectatorRes"
-  "ponse\020\241N\022\035\n\030k_EMsgServerToGCIdlePing\020\242N\022"
-  " \n\033k_EMsgGCToServerRequestPing\020\243N\022%\n k_E"
-  "MsgGCToServerAllocateForMatch\020\245N\022-\n(k_EM"
-  "sgGCToServerAllocateForMatchResponse\020\246N\022"
-  "%\n k_EMsgServerToGCEnterMatchmaking\020\247N\022+"
-  "\n&k_EMsgGCToServerCancelAllocateForMatch"
-  "\020\250N\022+\n&k_EMsgServerToGCUpdateLobbyServer"
-  "State\020\251N\022!\n\034k_EMsgServerToGCAbandonMatch"
-  "\020\252N\022)\n$k_EMsgServerToGCAbandonMatchRespo"
-  "nse\020\253N\022#\n\036k_EMsgServerToGCTestConnection"
-  "\020\254N\022+\n&k_EMsgServerToGCTestConnectionRes"
-  "ponse\020\255N\022$\n\037k_EMsgGCToServerSetServerCon"
-  "Var\020\267N\022,\n\'k_EMsgGCToServerSetServerConVa"
-  "rResponse\020\270N\022$\n\037k_EMsgServerToGCUpdateMa"
-  "tchInfo\020\271N\022*\n%k_EMsgServerToGCRequestPla"
-  "yerHeroData\020\274N\0222\n-k_EMsgServerToGCReques"
-  "tPlayerHeroDataResponse\020\275N\022\'\n\"k_EMsgGCTo"
-  "ServerAllocateForHideout\020\276N\022/\n*k_EMsgGCT"
-  "oServerAllocateForHideoutResponse\020\277N*1\n\024"
-  "ECitadelMatchAuxStat\022\031\n\025k_eMatchAuxStat_"
-  "Dummy\020\001*\313\001\n\022EGCServerLobbyData\022 \n\034k_ESer"
-  "verLobbyData_PlayerMMR\020\001\022!\n\035k_EServerLob"
-  "byData_PlayerInfo\020\002\022&\n\"k_EServerLobbyDat"
-  "a_PostMatchSurvey\020\003\022\037\n\033k_EServerLobbyDat"
-  "a_AutoTest\020\004\022\'\n#k_EServerLobbyData_Playe"
-  "rStatValues\020\005*\311\004\n\024EGCServerSignoutData\022\'"
-  "\n#k_EServerSignoutData_Disconnections\020\002\022"
-  "+\n\'k_EServerSignoutData_AccountStatChang"
-  "es\020\003\022&\n\"k_EServerSignoutData_DetailedSta"
-  "ts\020\004\022(\n$k_EServerSignoutData_ServerPerfS"
-  "tats\020\005\022!\n\035k_EServerSignoutData_PerfData\020"
-  "\006\022#\n\037k_EServerSignoutData_PlayerChat\020\007\022$"
-  "\n k_EServerSignoutData_BookRewards\020\010\022)\n%"
-  "k_EServerSignoutData_PenalizedPlayers\020\t\022"
-  "&\n\"k_EServerSignoutData_MatchDevStats\020\013\022"
-  "*\n&k_EServerSignoutData_ChallengeProgres"
-  "s\020\014\022$\n k_EServerSignoutData_HeroXPGrant\020"
-  "\r\022#\n\037k_EServerSignoutData_MatchKills\020\016\022\'"
-  "\n#k_EServerSignoutData_PlayerBehavior\020\017\022"
-  "(\n$k_EServerSignoutData_StreetBrawlData\020"
-  "\020"
+  "id\022\035\n\025objectives_mask_team0\030\t \001(\004\022\035\n\025obj"
+  "ectives_mask_team1\030\n \001(\004\022\026\n\016match_end_ti"
+  "me\030\013 \001(\r\022\023\n\013stomp_score\030\014 \001(\002\022\027\n\017safe_to"
+  "_abandon\030\r \001(\010\022\024\n\014team_abandon\030\016 \001(\010\022\027\n\017"
+  "new_player_pool\030\017 \001(\010\022\024\n\014low_pri_pool\030\020 "
+  "\001(\010\022\022\n\nnot_scored\030\021 \001(\010\022\022\n\nteam_score\030\022 "
+  "\003(\r\022&\n\005teams\030\023 \003(\0132\027.CMsgMatchData.TeamI"
+  "nfo\022-\n\023match_tracked_stats\030\024 \003(\0132\020.CMsgT"
+  "rackedStat\022 \n\030winner_pct_time_in_enemy\030\025"
+  " \001(\002\022!\n\031forgive_existing_abandons\030\026 \001(\010\022"
+  "\036\n\026brawl_avg_round_time_s\030\027 \001(\r\032\205\001\n\nPlay"
+  "erItem\022\017\n\007item_id\030\001 \001(\r\022\023\n\013game_time_s\030\002"
+  " \001(\r\022\022\n\nupgrade_id\030\003 \001(\r\022\023\n\013sold_time_s\030"
+  "\004 \001(\r\022\r\n\005flags\030\005 \001(\r\022\031\n\021imbued_ability_i"
+  "d\030\006 \001(\r\032\\\n\007AuxStat\022=\n\007stat_id\030\001 \001(\0162\025.EC"
+  "itadelMatchAuxStat:\025k_eMatchAuxStat_Dumm"
+  "y\022\022\n\nstat_value\030\002 \001(\r\032\370\013\n\nPlayerInfo\022\022\n\n"
+  "account_id\030\001 \001(\r\022;\n\004team\030\002 \001(\0162\022.ECitade"
+  "lLobbyTeam:\031k_ECitadelLobbyTeam_Team0\022\023\n"
+  "\013player_slot\030\003 \001(\r\022!\n\031hero_mmr_with_unce"
+  "rtainty\030\004 \001(\r\022\022\n\nplayer_mmr\030\005 \001(\r\022\032\n\022pla"
+  "yer_uncertainty\030\006 \001(\r\022\017\n\007hero_id\030\007 \001(\r\022\r"
+  "\n\005kills\030\010 \001(\r\022\016\n\006deaths\030\t \001(\r\022\021\n\tnet_wor"
+  "th\030\n \001(\r\022\017\n\007assists\030\013 \001(\r\022\020\n\010hero_mmr\030\014 "
+  "\001(\r\022(\n\005items\030\r \003(\0132\031.CMsgMatchData.Playe"
+  "rItem\022\021\n\tgpm_10min\030\016 \001(\r\022\021\n\tgpm_15min\030\017 "
+  "\001(\r\022\021\n\tgpm_20min\030\020 \001(\r\022\021\n\tgpm_25min\030\021 \001("
+  "\r\022\021\n\tgpm_30min\030\022 \001(\r\022\021\n\tgpm_35min\030\023 \001(\r\022"
+  "\017\n\007gpm_end\030\024 \001(\r\022\021\n\tlast_hits\030\025 \001(\r\022\016\n\006d"
+  "enies\030\026 \001(\r\022\026\n\016ability_points\030\027 \001(\r\022\r\n\005l"
+  "evel\030\030 \001(\r\022\025\n\rassigned_lane\030\031 \001(\r\022\023\n\013par"
+  "ty_index\030\032 \001(\r\0222\n\010platform\030\033 \001(\0162\014.EGCPl"
+  "atform:\022k_eGCPlatform_None\022\026\n\016ability_da"
+  "mage\030\034 \001(\r\022\025\n\rbullet_damage\030\035 \001(\r\022\030\n\020her"
+  "o_bullets_hit\030\036 \001(\r\022\035\n\025hero_bullets_hit_"
+  "crit\030\037 \001(\r\022\026\n\016player_healing\030  \001(\r\022\032\n\022he"
+  "ro_bullets_fired\030! \001(\r\022#\n\033hero_incoming_"
+  "bullets_fired\030\" \001(\r\022!\n\031hero_incoming_bul"
+  "lets_hit\030# \001(\r\022\"\n\032hero_incoming_bullets_"
+  "crit\030$ \001(\r\022\023\n\013time_dead_s\030% \001(\r\022\034\n\024playe"
+  "r_bullet_damage\030& \001(\r\022\035\n\025player_ability_"
+  "damage\030\' \001(\r\022\033\n\023player_melee_damage\030( \001("
+  "\r\022\034\n\024abandon_match_time_s\030) \001(\r\022\032\n\022aband"
+  "on_time_stamp\030* \001(\r\022\035\n\025trooper_kill_excl"
+  "uded\030+ \001(\r\022 \n\030hero_bullets_lucky_shots\030,"
+  " \001(\r\022\025\n\rhero_build_id\030- \001(\r\022\030\n\020objective"
+  "_damage\030. \001(\r\022\032\n\022avg_time_to_kill_s\030/ \001("
+  "\002\022\"\n\032requires_skill_calibration\0300 \001(\010\022\031\n"
+  "\021player_barriering\0301 \001(\r\022\030\n\020teammate_hea"
+  "ling\0302 \001(\r\022\033\n\023teammate_barriering\0303 \001(\r\022"
+  "\023\n\013self_damage\0304 \001(\r\022\024\n\014match_number\0305 \001"
+  "(\r\022\037\n\027damage_per_hero_ability\0306 \003(\r\022)\n\ta"
+  "ux_stats\0307 \003(\0132\026.CMsgMatchData.AuxStat\022."
+  "\n\024player_tracked_stats\0308 \003(\0132\020.CMsgTrack"
+  "edStat\022\030\n\020new_player_score\0309 \001(\002\032u\n\010Team"
+  "Info\022;\n\004team\030\001 \001(\0162\022.ECitadelLobbyTeam:\031"
+  "k_ECitadelLobbyTeam_Team0\022,\n\022team_tracke"
+  "d_stats\030\002 \003(\0132\020.CMsgTrackedStat\"\306\001\n\nEEnd"
+  "Reason\022\030\n\024k_EEndReason_TeamWin\020\000\022\032\n\026k_EE"
+  "ndReason_MatchDraw\020\001\022\035\n\031k_EEndReason_All"
+  "Abandoned\020\002\022\036\n\032k_EEndReason_NetworkIssue"
+  "s\020\003\022\034\n\030k_EEndReason_MatchLength\020\004\022%\n!k_E"
+  "EndReason_PlayerNeverConnected\020\005\"\273\001\n\032CMs"
+  "gServerToGCMatchSignout\022(\n\017additional_da"
+  "ta\030\001 \003(\0132\017.CExtraMsgBlock\022\027\n\017signout_att"
+  "empt\030\002 \001(\r\022\020\n\010lobby_id\030\003 \001(\004\022\020\n\010match_id"
+  "\030\004 \001(\004\022\022\n\ncluster_id\030\t \001(\r\022\"\n\nmatch_data"
+  "\030\n \001(\0132\016.CMsgMatchData\"\261\002\n\"CMsgServerToG"
+  "CMatchSignoutResponse\022[\n\006result\030\001 \001(\01622."
+  "CMsgServerToGCMatchSignoutResponse.ESign"
+  "outResult:\027k_ESignout_Failed_Retry\"\255\001\n\016E"
+  "SignoutResult\022\033\n\027k_ESignout_Failed_Retry"
+  "\020\001\022\035\n\031k_ESignout_Failed_NoRetry\020\002\022\036\n\032k_E"
+  "Signout_Failed_InFlight\020\003\022\026\n\022k_ESignout_"
+  "Success\020\004\022\'\n#k_ESignout_Success_AlreadyS"
+  "ignedOut\020\005\"\032\n\030CMsgServerWelcomeCitadel\"0"
+  "\n\026CMsgServerToGCIdlePing\022\026\n\016server_versi"
+  "on\030\001 \001(\r\"\033\n\031CMsgGCToServerRequestPing\"2\n"
+  "\036CMsgGCToServerAllocateForMatch\022\020\n\010match"
+  "_id\030\001 \001(\004\"9\n&CMsgGCToServerAllocateForMa"
+  "tchResponse\022\017\n\007success\030\001 \001(\010\"<\n CMsgGCTo"
+  "ServerAllocateForHideout\022\030\n\020hideout_lobb"
+  "y_id\030\001 \001(\004\"U\n(CMsgGCToServerAllocateForH"
+  "ideoutResponse\022\030\n\020hideout_lobby_id\030\001 \001(\004"
+  "\022\017\n\007success\030\002 \001(\010\"\231\002\n\036CMsgServerToGCEnte"
+  "rMatchmaking\022\026\n\016server_version\030\001 \001(\r\022\022\n\n"
+  "search_key\030\002 \001(\t\022\021\n\tregion_id\030\003 \001(\r\022\022\n\nc"
+  "luster_id\030\004 \001(\r\022\030\n\020server_public_ip\030\005 \001("
+  "\r\022\031\n\021server_private_ip\030\006 \001(\r\022\023\n\013server_p"
+  "ort\030\007 \001(\r\022\023\n\013sdr_address\030\t \001(\014\022\027\n\017replay"
+  "_group_id\030\n \001(\r\022\025\n\rallow_matches\030\013 \001(\010\022\025"
+  "\n\rallow_hideout\030\014 \001(\010\"R\n$CMsgGCToServerC"
+  "ancelAllocateForMatch\022\020\n\010match_id\030\001 \001(\004\022"
+  "\030\n\020hideout_lobby_id\030\002 \001(\004\"\227\001\n$CMsgServer"
+  "ToGCUpdateLobbyServerState\022\020\n\010lobby_id\030\001"
+  " \001(\004\022D\n\014server_state\030\002 \001(\0162\022.ELobbyServe"
+  "rState:\032k_eLobbyServerState_Assign\022\027\n\017sa"
+  "fe_to_abandon\030\003 \001(\010\"\304\006\n\032CMsgServerToGCAb"
+  "andonMatch\022\027\n\017server_steam_id\030\001 \001(\006\022\020\n\010l"
+  "obby_id\030\002 \001(\006\022\022\n\ncluster_id\030\003 \001(\r\022M\n\013rea"
+  "son_code\030\004 \001(\0162#.CMsgServerToGCAbandonMa"
+  "tch.EReason:\023eReason_ServerCrash\022\027\n\017addi"
+  "tional_data\030\005 \001(\004\022\020\n\010match_id\030\006 \001(\004\0223\n\007p"
+  "layers\030\010 \003(\0132\".CMsgServerToGCAbandonMatc"
+  "h.Player\022\031\n\021public_ip_address\030\t \001(\007\022\014\n\004p"
+  "ort\030\n \001(\r\022\026\n\016server_version\030\013 \001(\r\022\013\n\003pid"
+  "\030\014 \001(\r\022\023\n\013instance_id\030\r \001(\r\022\032\n\022private_i"
+  "p_address\030\016 \001(\r\022C\n\nmatch_mode\030\017 \001(\0162\022.EC"
+  "itadelMatchMode:\033k_ECitadelMatchMode_Inv"
+  "alid\022@\n\tgame_mode\030\020 \001(\0162\021.ECitadelGameMo"
+  "de:\032k_ECitadelGameMode_Invalid\022\033\n\023was_se"
+  "rver_shutdown\030\021 \001(\010\022\021\n\tregion_id\030\022 \001(\r\022\030"
+  "\n\020hideout_lobby_id\030\023 \001(\004\022\022\n\nrouting_id\030\024"
+  " \001(\004\022\025\n\rallow_matches\030\025 \001(\010\022\025\n\rallow_hid"
+  "eout\030\026 \001(\010\022\026\n\016was_lost_lobby\030\027 \001(\010\032F\n\006Pl"
+  "ayer\022\022\n\naccount_id\030\001 \001(\r\022\027\n\017additional_d"
+  "ata\030\002 \001(\004\022\017\n\007hero_id\030\003 \001(\r\"F\n\007EReason\022\027\n"
+  "\023eReason_ServerCrash\020\001\022\"\n\036eReason_Client"
+  "sFailedToConnect\020\002\"$\n\"CMsgServerToGCAban"
+  "donMatchResponse\"\036\n\034CMsgServerToGCTestCo"
+  "nnection\"&\n$CMsgServerToGCTestConnection"
+  "Response\"J\n\035CMsgGCToServerSetServerConVa"
+  "r\022\023\n\013convar_name\030\001 \001(\t\022\024\n\014convar_value\030\002"
+  " \001(\t\"8\n%CMsgGCToServerSetServerConVarRes"
+  "ponse\022\017\n\007success\030\001 \001(\010\"_\n\032CMsgGCToServer"
+  "AddSpectator\022\020\n\010lobby_id\030\001 \001(\004\022\022\n\naccoun"
+  "t_id\030\002 \001(\r\022\033\n\023account_to_spectate\030\003 \001(\r\""
+  "\332\001\n\"CMsgGCToServerAddSpectatorResponse\022O"
+  "\n\006result\030\001 \001(\0162-.CMsgGCToServerAddSpecta"
+  "torResponse.EResponse:\020k_eInternalError\022"
+  "\035\n\025requesting_account_id\030\002 \001(\r\"D\n\tERespo"
+  "nse\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020"
+  "\001\022\021\n\rk_eServerFull\020\002\"J\n#CMsgServerToGCRe"
+  "questPlayerHeroData\022\022\n\naccount_id\030\001 \001(\r\022"
+  "\017\n\007hero_id\030\002 \001(\r\"\251\002\n+CMsgServerToGCReque"
+  "stPlayerHeroDataResponse\022V\n\006result\030\001 \001(\016"
+  "24.CMsgServerToGCRequestPlayerHeroDataRe"
+  "sponse.EResult:\020k_eInternalError\022&\n\thero"
+  "_data\030\002 \001(\0132\023.CMsgPlayerHeroData\"z\n\007ERes"
+  "ult\022\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020"
+  "\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_"
+  "eTimeout\020\004\022\030\n\024k_eInvalidPermission\020\005\"\203\002\n"
+  ",CMsgServerSteamLearnCitadelSignOutPlaye"
+  "rInfo\022\022\n\naccount_id\030\001 \001(\005\022\017\n\007hero_id\030\002 \001"
+  "(\r\022\013\n\003mmr\030\003 \001(\r\022\032\n\022total_games_played\030\004 "
+  "\001(\r\022C\n\nmatch_mode\030\n \001(\0162\022.ECitadelMatchM"
+  "ode:\033k_ECitadelMatchMode_Invalid\022@\n\tgame"
+  "_mode\030\013 \001(\0162\021.ECitadelGameMode:\032k_ECitad"
+  "elGameMode_Invalid\"\262\005\n3CMsgServerSteamLe"
+  "arnCitadelPlayerMechanicalBehavior\022\021\n\tne"
+  "t_worth\030\001 \001(\r\022\016\n\006deaths\030\002 \001(\r\022\026\n\016team_ne"
+  "t_worth\030\003 \001(\r\022\034\n\024enemy_team_net_worth\030\004 "
+  "\001(\r\022\022\n\nteam_kills\030\005 \001(\r\022\030\n\020enemy_team_ki"
+  "lls\030\006 \001(\r\022\021\n\tgame_time\030\007 \001(\002\022\037\n\027velocity"
+  "_ratio_veryfast\030\010 \001(\002\022\033\n\023velocity_ratio_"
+  "fast\030\t \001(\002\022\035\n\025velocity_ratio_normal\030\n \001("
+  "\002\022\033\n\023velocity_ratio_slow\030\013 \001(\002\022\023\n\013slide_"
+  "ratio\030\014 \001(\002\022\033\n\023item_cooldown_ratio\030\r \001(\002"
+  "\022\017\n\007parries\030\016 \001(\r\022\032\n\022time_in_shop_ratio\030"
+  "\017 \001(\002\022\016\n\006denies\030\020 \001(\r\022\013\n\003mmr\030\022 \001(\r\022\032\n\022to"
+  "tal_games_played\030\023 \001(\r\022\033\n\023build_effectiv"
+  "eness\030\024 \001(\002\022\034\n\024net_worth_team_ratio\030\025 \001("
+  "\002\022\034\n\024net_worth_game_ratio\030\026 \001(\002\0228\n0time_"
+  "spent_not_contributing_to_game_events_ra"
+  "tio\030\027 \001(\002\022\035\n\025dash_jumps_per_minute\030\030 \001(\002"
+  "\022\035\n\025wall_jumps_per_minute\030\031 \001(\002*\204\010\n\030EGCC"
+  "itadelServerMessages\022+\n&k_EMsgServerToGC"
+  "MatchSignoutPermission\020\234N\0223\n.k_EMsgServe"
+  "rToGCMatchSignoutPermissionResponse\020\235N\022!"
+  "\n\034k_EMsgServerToGCMatchSignout\020\236N\022)\n$k_E"
+  "MsgServerToGCMatchSignoutResponse\020\237N\022!\n\034"
+  "k_EMsgGCToServerAddSpectator\020\240N\022)\n$k_EMs"
+  "gGCToServerAddSpectatorResponse\020\241N\022\035\n\030k_"
+  "EMsgServerToGCIdlePing\020\242N\022 \n\033k_EMsgGCToS"
+  "erverRequestPing\020\243N\022%\n k_EMsgGCToServerA"
+  "llocateForMatch\020\245N\022-\n(k_EMsgGCToServerAl"
+  "locateForMatchResponse\020\246N\022%\n k_EMsgServe"
+  "rToGCEnterMatchmaking\020\247N\022+\n&k_EMsgGCToSe"
+  "rverCancelAllocateForMatch\020\250N\022+\n&k_EMsgS"
+  "erverToGCUpdateLobbyServerState\020\251N\022!\n\034k_"
+  "EMsgServerToGCAbandonMatch\020\252N\022)\n$k_EMsgS"
+  "erverToGCAbandonMatchResponse\020\253N\022#\n\036k_EM"
+  "sgServerToGCTestConnection\020\254N\022+\n&k_EMsgS"
+  "erverToGCTestConnectionResponse\020\255N\022$\n\037k_"
+  "EMsgGCToServerSetServerConVar\020\267N\022,\n\'k_EM"
+  "sgGCToServerSetServerConVarResponse\020\270N\022$"
+  "\n\037k_EMsgServerToGCUpdateMatchInfo\020\271N\022*\n%"
+  "k_EMsgServerToGCRequestPlayerHeroData\020\274N"
+  "\0222\n-k_EMsgServerToGCRequestPlayerHeroDat"
+  "aResponse\020\275N\022\'\n\"k_EMsgGCToServerAllocate"
+  "ForHideout\020\276N\022/\n*k_EMsgGCToServerAllocat"
+  "eForHideoutResponse\020\277N*1\n\024ECitadelMatchA"
+  "uxStat\022\031\n\025k_eMatchAuxStat_Dummy\020\001*\313\001\n\022EG"
+  "CServerLobbyData\022 \n\034k_EServerLobbyData_P"
+  "layerMMR\020\001\022!\n\035k_EServerLobbyData_PlayerI"
+  "nfo\020\002\022&\n\"k_EServerLobbyData_PostMatchSur"
+  "vey\020\003\022\037\n\033k_EServerLobbyData_AutoTest\020\004\022\'"
+  "\n#k_EServerLobbyData_PlayerStatValues\020\005*"
+  "\311\004\n\024EGCServerSignoutData\022\'\n#k_EServerSig"
+  "noutData_Disconnections\020\002\022+\n\'k_EServerSi"
+  "gnoutData_AccountStatChanges\020\003\022&\n\"k_ESer"
+  "verSignoutData_DetailedStats\020\004\022(\n$k_ESer"
+  "verSignoutData_ServerPerfStats\020\005\022!\n\035k_ES"
+  "erverSignoutData_PerfData\020\006\022#\n\037k_EServer"
+  "SignoutData_PlayerChat\020\007\022$\n k_EServerSig"
+  "noutData_BookRewards\020\010\022)\n%k_EServerSigno"
+  "utData_PenalizedPlayers\020\t\022&\n\"k_EServerSi"
+  "gnoutData_MatchDevStats\020\013\022*\n&k_EServerSi"
+  "gnoutData_ChallengeProgress\020\014\022$\n k_EServ"
+  "erSignoutData_HeroXPGrant\020\r\022#\n\037k_EServer"
+  "SignoutData_MatchKills\020\016\022\'\n#k_EServerSig"
+  "noutData_PlayerBehavior\020\017\022(\n$k_EServerSi"
+  "gnoutData_StreetBrawlData\020\020"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fgcmessages_5fserver_2eproto_deps[4] = {
   &::descriptor_table_base_5fgcmessages_2eproto,
@@ -3953,9 +4033,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fgcmessage
 };
 static ::_pbi::once_flag descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_citadel_5fgcmessages_5fserver_2eproto = {
-    false, false, 21001, descriptor_table_protodef_citadel_5fgcmessages_5fserver_2eproto,
+    false, false, 21547, descriptor_table_protodef_citadel_5fgcmessages_5fserver_2eproto,
     "citadel_gcmessages_server.proto",
-    &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once, descriptor_table_citadel_5fgcmessages_5fserver_2eproto_deps, 4, 92,
+    &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once, descriptor_table_citadel_5fgcmessages_5fserver_2eproto_deps, 4, 94,
     schemas, file_default_instances, TableStruct_citadel_5fgcmessages_5fserver_2eproto::offsets,
     file_level_metadata_citadel_5fgcmessages_5fserver_2eproto, file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto,
     file_level_service_descriptors_citadel_5fgcmessages_5fserver_2eproto,
@@ -4008,9 +4088,55 @@ constexpr CMsgServerSignoutData_HeroXPGrant_EGrantReason CMsgServerSignoutData_H
 constexpr CMsgServerSignoutData_HeroXPGrant_EGrantReason CMsgServerSignoutData_HeroXPGrant::EGrantReason_MAX;
 constexpr int CMsgServerSignoutData_HeroXPGrant::EGrantReason_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgServerSignoutData_PenalizedPlayers_EPenaltyReason_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
   return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[2];
+}
+bool CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_IsValid(int value) {
+  switch (value) {
+    case 0:
+    case 1:
+    case 2:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome CMsgServerSignoutData_StreetBrawlData::k_eNotChosen;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome CMsgServerSignoutData_StreetBrawlData::k_eChosen;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome CMsgServerSignoutData_StreetBrawlData::k_eRerolled;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome CMsgServerSignoutData_StreetBrawlData::EDraftItemOutcome_MIN;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome CMsgServerSignoutData_StreetBrawlData::EDraftItemOutcome_MAX;
+constexpr int CMsgServerSignoutData_StreetBrawlData::EDraftItemOutcome_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[3];
+}
+bool CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags_IsValid(int value) {
+  switch (value) {
+    case 1:
+    case 2:
+    case 4:
+      return true;
+    default:
+      return false;
+  }
+}
+
+#if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags CMsgServerSignoutData_StreetBrawlData::k_eHasUpgradeBit;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags CMsgServerSignoutData_StreetBrawlData::k_eHasAdditionalItem;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags CMsgServerSignoutData_StreetBrawlData::k_eRareItem;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags CMsgServerSignoutData_StreetBrawlData::EDraftItemFlags_MIN;
+constexpr CMsgServerSignoutData_StreetBrawlData_EDraftItemFlags CMsgServerSignoutData_StreetBrawlData::EDraftItemFlags_MAX;
+constexpr int CMsgServerSignoutData_StreetBrawlData::EDraftItemFlags_ARRAYSIZE;
+#endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgServerSignoutData_PenalizedPlayers_EPenaltyReason_descriptor() {
+  ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[4];
 }
 bool CMsgServerSignoutData_PenalizedPlayers_EPenaltyReason_IsValid(int value) {
   switch (value) {
@@ -4035,7 +4161,7 @@ constexpr int CMsgServerSignoutData_PenalizedPlayers::EPenaltyReason_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgMatchData_EEndReason_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
-  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[3];
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[5];
 }
 bool CMsgMatchData_EEndReason_IsValid(int value) {
   switch (value) {
@@ -4064,7 +4190,7 @@ constexpr int CMsgMatchData::EEndReason_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgServerToGCMatchSignoutResponse_ESignoutResult_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
-  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[4];
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[6];
 }
 bool CMsgServerToGCMatchSignoutResponse_ESignoutResult_IsValid(int value) {
   switch (value) {
@@ -4091,7 +4217,7 @@ constexpr int CMsgServerToGCMatchSignoutResponse::ESignoutResult_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgServerToGCAbandonMatch_EReason_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
-  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[5];
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[7];
 }
 bool CMsgServerToGCAbandonMatch_EReason_IsValid(int value) {
   switch (value) {
@@ -4112,7 +4238,7 @@ constexpr int CMsgServerToGCAbandonMatch::EReason_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgGCToServerAddSpectatorResponse_EResponse_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
-  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[6];
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[8];
 }
 bool CMsgGCToServerAddSpectatorResponse_EResponse_IsValid(int value) {
   switch (value) {
@@ -4135,7 +4261,7 @@ constexpr int CMsgGCToServerAddSpectatorResponse::EResponse_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgServerToGCRequestPlayerHeroDataResponse_EResult_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
-  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[7];
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[9];
 }
 bool CMsgServerToGCRequestPlayerHeroDataResponse_EResult_IsValid(int value) {
   switch (value) {
@@ -4164,7 +4290,7 @@ constexpr int CMsgServerToGCRequestPlayerHeroDataResponse::EResult_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGCCitadelServerMessages_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
-  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[8];
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[10];
 }
 bool EGCCitadelServerMessages_IsValid(int value) {
   switch (value) {
@@ -4200,7 +4326,7 @@ bool EGCCitadelServerMessages_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECitadelMatchAuxStat_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
-  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[9];
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[11];
 }
 bool ECitadelMatchAuxStat_IsValid(int value) {
   switch (value) {
@@ -4213,7 +4339,7 @@ bool ECitadelMatchAuxStat_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGCServerLobbyData_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
-  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[10];
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[12];
 }
 bool EGCServerLobbyData_IsValid(int value) {
   switch (value) {
@@ -4230,7 +4356,7 @@ bool EGCServerLobbyData_IsValid(int value) {
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EGCServerSignoutData_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_citadel_5fgcmessages_5fserver_2eproto);
-  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[11];
+  return file_level_enum_descriptors_citadel_5fgcmessages_5fserver_2eproto[13];
 }
 bool EGCServerSignoutData_IsValid(int value) {
   switch (value) {
@@ -4524,6 +4650,9 @@ class CMsgServerCrashSentinelFile_GameInfo::_Internal {
   static void set_has_allow_hideout(HasBits* has_bits) {
     (*has_bits)[0] |= 256u;
   }
+  static void set_has_was_lost_lobby(HasBits* has_bits) {
+    (*has_bits)[0] |= 512u;
+  }
 };
 
 CMsgServerCrashSentinelFile_GameInfo::CMsgServerCrashSentinelFile_GameInfo(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -4547,12 +4676,13 @@ CMsgServerCrashSentinelFile_GameInfo::CMsgServerCrashSentinelFile_GameInfo(const
     , decltype(_impl_.game_mode_){}
     , decltype(_impl_.was_server_shutdown_){}
     , decltype(_impl_.allow_matches_){}
-    , decltype(_impl_.allow_hideout_){}};
+    , decltype(_impl_.allow_hideout_){}
+    , decltype(_impl_.was_lost_lobby_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.match_id_, &from._impl_.match_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.allow_hideout_) -
-    reinterpret_cast<char*>(&_impl_.match_id_)) + sizeof(_impl_.allow_hideout_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.was_lost_lobby_) -
+    reinterpret_cast<char*>(&_impl_.match_id_)) + sizeof(_impl_.was_lost_lobby_));
   // @@protoc_insertion_point(copy_constructor:CMsgServerCrashSentinelFile.GameInfo)
 }
 
@@ -4573,6 +4703,7 @@ inline void CMsgServerCrashSentinelFile_GameInfo::SharedCtor(
     , decltype(_impl_.was_server_shutdown_){false}
     , decltype(_impl_.allow_matches_){false}
     , decltype(_impl_.allow_hideout_){false}
+    , decltype(_impl_.was_lost_lobby_){false}
   };
 }
 
@@ -4607,7 +4738,11 @@ void CMsgServerCrashSentinelFile_GameInfo::Clear() {
         reinterpret_cast<char*>(&_impl_.allow_matches_) -
         reinterpret_cast<char*>(&_impl_.match_id_)) + sizeof(_impl_.allow_matches_));
   }
-  _impl_.allow_hideout_ = false;
+  if (cached_has_bits & 0x00000300u) {
+    ::memset(&_impl_.allow_hideout_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.was_lost_lobby_) -
+        reinterpret_cast<char*>(&_impl_.allow_hideout_)) + sizeof(_impl_.was_lost_lobby_));
+  }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
@@ -4721,6 +4856,15 @@ const char* CMsgServerCrashSentinelFile_GameInfo::_InternalParse(const char* ptr
         } else
           goto handle_unusual;
         continue;
+      // optional bool was_lost_lobby = 12;
+      case 12:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 96)) {
+          _Internal::set_has_was_lost_lobby(&has_bits);
+          _impl_.was_lost_lobby_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -4816,6 +4960,12 @@ uint8_t* CMsgServerCrashSentinelFile_GameInfo::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(11, this->_internal_allow_hideout(), target);
   }
 
+  // optional bool was_lost_lobby = 12;
+  if (cached_has_bits & 0x00000200u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(12, this->_internal_was_lost_lobby(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -4884,11 +5034,18 @@ size_t CMsgServerCrashSentinelFile_GameInfo::ByteSizeLong() const {
     }
 
   }
-  // optional bool allow_hideout = 11;
-  if (cached_has_bits & 0x00000100u) {
-    total_size += 1 + 1;
-  }
+  if (cached_has_bits & 0x00000300u) {
+    // optional bool allow_hideout = 11;
+    if (cached_has_bits & 0x00000100u) {
+      total_size += 1 + 1;
+    }
 
+    // optional bool was_lost_lobby = 12;
+    if (cached_has_bits & 0x00000200u) {
+      total_size += 1 + 1;
+    }
+
+  }
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
@@ -4936,8 +5093,14 @@ void CMsgServerCrashSentinelFile_GameInfo::MergeImpl(::PROTOBUF_NAMESPACE_ID::Me
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00000100u) {
-    _this->_internal_set_allow_hideout(from._internal_allow_hideout());
+  if (cached_has_bits & 0x00000300u) {
+    if (cached_has_bits & 0x00000100u) {
+      _this->_impl_.allow_hideout_ = from._impl_.allow_hideout_;
+    }
+    if (cached_has_bits & 0x00000200u) {
+      _this->_impl_.was_lost_lobby_ = from._impl_.was_lost_lobby_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
@@ -4959,8 +5122,8 @@ void CMsgServerCrashSentinelFile_GameInfo::InternalSwap(CMsgServerCrashSentinelF
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.players_.InternalSwap(&other->_impl_.players_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgServerCrashSentinelFile_GameInfo, _impl_.allow_hideout_)
-      + sizeof(CMsgServerCrashSentinelFile_GameInfo::_impl_.allow_hideout_)
+      PROTOBUF_FIELD_OFFSET(CMsgServerCrashSentinelFile_GameInfo, _impl_.was_lost_lobby_)
+      + sizeof(CMsgServerCrashSentinelFile_GameInfo::_impl_.was_lost_lobby_)
       - PROTOBUF_FIELD_OFFSET(CMsgServerCrashSentinelFile_GameInfo, _impl_.match_id_)>(
           reinterpret_cast<char*>(&_impl_.match_id_),
           reinterpret_cast<char*>(&other->_impl_.match_id_));
@@ -8514,7 +8677,7 @@ class CSOCitadelServerStaticLobby_Member::_Internal {
     (*has_bits)[0] |= 2048u;
   }
   static void set_has_bot_difficulty(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
+    (*has_bits)[0] |= 16384u;
   }
   static void set_has_requires_skill_calibration(HasBits* has_bits) {
     (*has_bits)[0] |= 4096u;
@@ -8524,7 +8687,10 @@ class CSOCitadelServerStaticLobby_Member::_Internal {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_match_number(HasBits* has_bits) {
-    (*has_bits)[0] |= 16384u;
+    (*has_bits)[0] |= 32768u;
+  }
+  static void set_has_randomed_hero(HasBits* has_bits) {
+    (*has_bits)[0] |= 8192u;
   }
 };
 
@@ -8570,6 +8736,7 @@ CSOCitadelServerStaticLobby_Member::CSOCitadelServerStaticLobby_Member(const CSO
     , decltype(_impl_.is_comms_restricted_){}
     , decltype(_impl_.party_desires_laning_together_){}
     , decltype(_impl_.requires_skill_calibration_){}
+    , decltype(_impl_.randomed_hero_){}
     , decltype(_impl_.bot_difficulty_){}
     , decltype(_impl_.match_number_){}};
 
@@ -8615,6 +8782,7 @@ inline void CSOCitadelServerStaticLobby_Member::SharedCtor(
     , decltype(_impl_.is_comms_restricted_){false}
     , decltype(_impl_.party_desires_laning_together_){false}
     , decltype(_impl_.requires_skill_calibration_){false}
+    , decltype(_impl_.randomed_hero_){false}
     , decltype(_impl_.bot_difficulty_){0}
     , decltype(_impl_.match_number_){0u}
   };
@@ -8671,7 +8839,7 @@ void CSOCitadelServerStaticLobby_Member::Clear() {
         reinterpret_cast<char*>(&_impl_.party_index_) -
         reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.party_index_));
   }
-  if (cached_has_bits & 0x00007f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     ::memset(&_impl_.platform_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.match_number_) -
         reinterpret_cast<char*>(&_impl_.platform_)) + sizeof(_impl_.match_number_));
@@ -8856,6 +9024,15 @@ const char* CSOCitadelServerStaticLobby_Member::_InternalParse(const char* ptr, 
         } else
           goto handle_unusual;
         continue;
+      // optional bool randomed_hero = 21;
+      case 21:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 168)) {
+          _Internal::set_has_randomed_hero(&has_bits);
+          _impl_.randomed_hero_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -8968,7 +9145,7 @@ uint8_t* CSOCitadelServerStaticLobby_Member::_InternalSerialize(
   }
 
   // optional .ECitadelBotDifficulty bot_difficulty = 16 [default = k_ECitadelBotDifficulty_None];
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       16, this->_internal_bot_difficulty(), target);
@@ -8988,9 +9165,15 @@ uint8_t* CSOCitadelServerStaticLobby_Member::_InternalSerialize(
   }
 
   // optional uint32 match_number = 20;
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(20, this->_internal_match_number(), target);
+  }
+
+  // optional bool randomed_hero = 21;
+  if (cached_has_bits & 0x00002000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(21, this->_internal_randomed_hero(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -9069,7 +9252,7 @@ size_t CSOCitadelServerStaticLobby_Member::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x00007f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     // optional .EGCPlatform platform = 7 [default = k_eGCPlatform_None];
     if (cached_has_bits & 0x00000100u) {
       total_size += 1 +
@@ -9096,14 +9279,19 @@ size_t CSOCitadelServerStaticLobby_Member::ByteSizeLong() const {
       total_size += 2 + 1;
     }
 
-    // optional .ECitadelBotDifficulty bot_difficulty = 16 [default = k_ECitadelBotDifficulty_None];
+    // optional bool randomed_hero = 21;
     if (cached_has_bits & 0x00002000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional .ECitadelBotDifficulty bot_difficulty = 16 [default = k_ECitadelBotDifficulty_None];
+    if (cached_has_bits & 0x00004000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_bot_difficulty());
     }
 
     // optional uint32 match_number = 20;
-    if (cached_has_bits & 0x00004000u) {
+    if (cached_has_bits & 0x00008000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_match_number());
@@ -9159,7 +9347,7 @@ void CSOCitadelServerStaticLobby_Member::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mess
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x00007f00u) {
+  if (cached_has_bits & 0x0000ff00u) {
     if (cached_has_bits & 0x00000100u) {
       _this->_impl_.platform_ = from._impl_.platform_;
     }
@@ -9176,9 +9364,12 @@ void CSOCitadelServerStaticLobby_Member::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mess
       _this->_impl_.requires_skill_calibration_ = from._impl_.requires_skill_calibration_;
     }
     if (cached_has_bits & 0x00002000u) {
-      _this->_impl_.bot_difficulty_ = from._impl_.bot_difficulty_;
+      _this->_impl_.randomed_hero_ = from._impl_.randomed_hero_;
     }
     if (cached_has_bits & 0x00004000u) {
+      _this->_impl_.bot_difficulty_ = from._impl_.bot_difficulty_;
+    }
+    if (cached_has_bits & 0x00008000u) {
       _this->_impl_.match_number_ = from._impl_.match_number_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -9534,6 +9725,7 @@ CSOCitadelServerStaticLobby::CSOCitadelServerStaticLobby(const CSOCitadelServerS
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.extra_messages_){from._impl_.extra_messages_}
     , decltype(_impl_.members_){from._impl_.members_}
+    , decltype(_impl_.banned_heroes_){from._impl_.banned_heroes_}
     , decltype(_impl_.level_name_){}
     , decltype(_impl_.broadcast_url_){}
     , decltype(_impl_.gameplay_experiment_){}
@@ -9599,6 +9791,7 @@ inline void CSOCitadelServerStaticLobby::SharedCtor(
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.extra_messages_){arena}
     , decltype(_impl_.members_){arena}
+    , decltype(_impl_.banned_heroes_){arena}
     , decltype(_impl_.level_name_){}
     , decltype(_impl_.broadcast_url_){}
     , decltype(_impl_.gameplay_experiment_){}
@@ -9648,6 +9841,7 @@ inline void CSOCitadelServerStaticLobby::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
   _impl_.extra_messages_.~RepeatedPtrField();
   _impl_.members_.~RepeatedPtrField();
+  _impl_.banned_heroes_.~RepeatedField();
   _impl_.level_name_.Destroy();
   _impl_.broadcast_url_.Destroy();
   _impl_.gameplay_experiment_.Destroy();
@@ -9666,6 +9860,7 @@ void CSOCitadelServerStaticLobby::Clear() {
 
   _impl_.extra_messages_.Clear();
   _impl_.members_.Clear();
+  _impl_.banned_heroes_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
@@ -9939,6 +10134,22 @@ const char* CSOCitadelServerStaticLobby::_InternalParse(const char* ptr, ::_pbi:
         } else
           goto handle_unusual;
         continue;
+      // repeated uint32 banned_heroes = 29;
+      case 29:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 232)) {
+          ptr -= 2;
+          do {
+            ptr += 2;
+            _internal_add_banned_heroes(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<232>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 234) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_banned_heroes(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -10127,6 +10338,12 @@ uint8_t* CSOCitadelServerStaticLobby::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(28, this->_internal_rewards_eligible(), target);
   }
 
+  // repeated uint32 banned_heroes = 29;
+  for (int i = 0, n = this->_internal_banned_heroes_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(29, this->_internal_banned_heroes(i), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10155,6 +10372,15 @@ size_t CSOCitadelServerStaticLobby::ByteSizeLong() const {
   for (const auto& msg : this->_impl_.members_) {
     total_size +=
       ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  // repeated uint32 banned_heroes = 29;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.banned_heroes_);
+    total_size += 2 *
+                  ::_pbi::FromIntSize(this->_internal_banned_heroes_size());
+    total_size += data_size;
   }
 
   cached_has_bits = _impl_._has_bits_[0];
@@ -10303,6 +10529,7 @@ void CSOCitadelServerStaticLobby::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to
 
   _this->_impl_.extra_messages_.MergeFrom(from._impl_.extra_messages_);
   _this->_impl_.members_.MergeFrom(from._impl_.members_);
+  _this->_impl_.banned_heroes_.MergeFrom(from._impl_.banned_heroes_);
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -10399,6 +10626,7 @@ void CSOCitadelServerStaticLobby::InternalSwap(CSOCitadelServerStaticLobby* othe
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.extra_messages_.InternalSwap(&other->_impl_.extra_messages_);
   _impl_.members_.InternalSwap(&other->_impl_.members_);
+  _impl_.banned_heroes_.InternalSwap(&other->_impl_.banned_heroes_);
   ::PROTOBUF_NAMESPACE_ID::internal::ArenaStringPtr::InternalSwap(
       &_impl_.level_name_, lhs_arena,
       &other->_impl_.level_name_, rhs_arena
@@ -23354,6 +23582,462 @@ void CMsgServerSignoutData_PlayerBehavior::InternalSwap(CMsgServerSignoutData_Pl
 
 // ===================================================================
 
+class CMsgServerSignoutData_StreetBrawlData_DraftItem::_Internal {
+ public:
+  using HasBits = decltype(std::declval<CMsgServerSignoutData_StreetBrawlData_DraftItem>()._impl_._has_bits_);
+  static void set_has_ability_id(HasBits* has_bits) {
+    (*has_bits)[0] |= 1u;
+  }
+  static void set_has_flags(HasBits* has_bits) {
+    (*has_bits)[0] |= 2u;
+  }
+  static void set_has_outcome(HasBits* has_bits) {
+    (*has_bits)[0] |= 4u;
+  }
+};
+
+CMsgServerSignoutData_StreetBrawlData_DraftItem::CMsgServerSignoutData_StreetBrawlData_DraftItem(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+}
+CMsgServerSignoutData_StreetBrawlData_DraftItem::CMsgServerSignoutData_StreetBrawlData_DraftItem(const CMsgServerSignoutData_StreetBrawlData_DraftItem& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgServerSignoutData_StreetBrawlData_DraftItem* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){from._impl_._has_bits_}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ability_id_){}
+    , decltype(_impl_.flags_){}
+    , decltype(_impl_.outcome_){}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  ::memcpy(&_impl_.ability_id_, &from._impl_.ability_id_,
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.outcome_) -
+    reinterpret_cast<char*>(&_impl_.ability_id_)) + sizeof(_impl_.outcome_));
+  // @@protoc_insertion_point(copy_constructor:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+}
+
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_._has_bits_){}
+    , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.ability_id_){0u}
+    , decltype(_impl_.flags_){0u}
+    , decltype(_impl_.outcome_){0}
+  };
+}
+
+CMsgServerSignoutData_StreetBrawlData_DraftItem::~CMsgServerSignoutData_StreetBrawlData_DraftItem() {
+  // @@protoc_insertion_point(destructor:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItem::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+}
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItem::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItem::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    ::memset(&_impl_.ability_id_, 0, static_cast<size_t>(
+        reinterpret_cast<char*>(&_impl_.outcome_) -
+        reinterpret_cast<char*>(&_impl_.ability_id_)) + sizeof(_impl_.outcome_));
+  }
+  _impl_._has_bits_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgServerSignoutData_StreetBrawlData_DraftItem::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  _Internal::HasBits has_bits{};
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // optional uint32 ability_id = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_ability_id(&has_bits);
+          _impl_.ability_id_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 flags = 2;
+      case 2:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
+          _Internal::set_has_flags(&has_bits);
+          _impl_.flags_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional .CMsgServerSignoutData_StreetBrawlData.EDraftItemOutcome outcome = 3 [default = k_eNotChosen];
+      case 3:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 24)) {
+          uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+          if (PROTOBUF_PREDICT_TRUE(::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome_IsValid(val))) {
+            _internal_set_outcome(static_cast<::CMsgServerSignoutData_StreetBrawlData_EDraftItemOutcome>(val));
+          } else {
+            ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(3, val, mutable_unknown_fields());
+          }
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  _impl_._has_bits_.Or(has_bits);
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgServerSignoutData_StreetBrawlData_DraftItem::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  // optional uint32 ability_id = 1;
+  if (cached_has_bits & 0x00000001u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_ability_id(), target);
+  }
+
+  // optional uint32 flags = 2;
+  if (cached_has_bits & 0x00000002u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(2, this->_internal_flags(), target);
+  }
+
+  // optional .CMsgServerSignoutData_StreetBrawlData.EDraftItemOutcome outcome = 3 [default = k_eNotChosen];
+  if (cached_has_bits & 0x00000004u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteEnumToArray(
+      3, this->_internal_outcome(), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+  return target;
+}
+
+size_t CMsgServerSignoutData_StreetBrawlData_DraftItem::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  cached_has_bits = _impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    // optional uint32 ability_id = 1;
+    if (cached_has_bits & 0x00000001u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_ability_id());
+    }
+
+    // optional uint32 flags = 2;
+    if (cached_has_bits & 0x00000002u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_flags());
+    }
+
+    // optional .CMsgServerSignoutData_StreetBrawlData.EDraftItemOutcome outcome = 3 [default = k_eNotChosen];
+    if (cached_has_bits & 0x00000004u) {
+      total_size += 1 +
+        ::_pbi::WireFormatLite::EnumSize(this->_internal_outcome());
+    }
+
+  }
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgServerSignoutData_StreetBrawlData_DraftItem::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgServerSignoutData_StreetBrawlData_DraftItem::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgServerSignoutData_StreetBrawlData_DraftItem::GetClassData() const { return &_class_data_; }
+
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItem::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgServerSignoutData_StreetBrawlData_DraftItem*>(&to_msg);
+  auto& from = static_cast<const CMsgServerSignoutData_StreetBrawlData_DraftItem&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  cached_has_bits = from._impl_._has_bits_[0];
+  if (cached_has_bits & 0x00000007u) {
+    if (cached_has_bits & 0x00000001u) {
+      _this->_impl_.ability_id_ = from._impl_.ability_id_;
+    }
+    if (cached_has_bits & 0x00000002u) {
+      _this->_impl_.flags_ = from._impl_.flags_;
+    }
+    if (cached_has_bits & 0x00000004u) {
+      _this->_impl_.outcome_ = from._impl_.outcome_;
+    }
+    _this->_impl_._has_bits_[0] |= cached_has_bits;
+  }
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItem::CopyFrom(const CMsgServerSignoutData_StreetBrawlData_DraftItem& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgServerSignoutData_StreetBrawlData.DraftItem)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgServerSignoutData_StreetBrawlData_DraftItem::IsInitialized() const {
+  return true;
+}
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItem::InternalSwap(CMsgServerSignoutData_StreetBrawlData_DraftItem* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
+      PROTOBUF_FIELD_OFFSET(CMsgServerSignoutData_StreetBrawlData_DraftItem, _impl_.outcome_)
+      + sizeof(CMsgServerSignoutData_StreetBrawlData_DraftItem::_impl_.outcome_)
+      - PROTOBUF_FIELD_OFFSET(CMsgServerSignoutData_StreetBrawlData_DraftItem, _impl_.ability_id_)>(
+          reinterpret_cast<char*>(&_impl_.ability_id_),
+          reinterpret_cast<char*>(&other->_impl_.ability_id_));
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerSignoutData_StreetBrawlData_DraftItem::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[57]);
+}
+
+// ===================================================================
+
+class CMsgServerSignoutData_StreetBrawlData_DraftItemSet::_Internal {
+ public:
+};
+
+CMsgServerSignoutData_StreetBrawlData_DraftItemSet::CMsgServerSignoutData_StreetBrawlData_DraftItemSet(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+}
+CMsgServerSignoutData_StreetBrawlData_DraftItemSet::CMsgServerSignoutData_StreetBrawlData_DraftItemSet(const CMsgServerSignoutData_StreetBrawlData_DraftItemSet& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgServerSignoutData_StreetBrawlData_DraftItemSet* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){from._impl_.items_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+}
+
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItemSet::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.items_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CMsgServerSignoutData_StreetBrawlData_DraftItemSet::~CMsgServerSignoutData_StreetBrawlData_DraftItemSet() {
+  // @@protoc_insertion_point(destructor:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgServerSignoutData_StreetBrawlData_DraftItemSet::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.items_.~RepeatedPtrField();
+}
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItemSet::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItemSet::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.items_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgServerSignoutData_StreetBrawlData_DraftItemSet::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated .CMsgServerSignoutData_StreetBrawlData.DraftItem items = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 10)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_items(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<10>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgServerSignoutData_StreetBrawlData_DraftItemSet::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated .CMsgServerSignoutData_StreetBrawlData.DraftItem items = 1;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_items_size()); i < n; i++) {
+    const auto& repfield = this->_internal_items(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(1, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+  return target;
+}
+
+size_t CMsgServerSignoutData_StreetBrawlData_DraftItemSet::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated .CMsgServerSignoutData_StreetBrawlData.DraftItem items = 1;
+  total_size += 1UL * this->_internal_items_size();
+  for (const auto& msg : this->_impl_.items_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgServerSignoutData_StreetBrawlData_DraftItemSet::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgServerSignoutData_StreetBrawlData_DraftItemSet::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgServerSignoutData_StreetBrawlData_DraftItemSet::GetClassData() const { return &_class_data_; }
+
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItemSet::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgServerSignoutData_StreetBrawlData_DraftItemSet*>(&to_msg);
+  auto& from = static_cast<const CMsgServerSignoutData_StreetBrawlData_DraftItemSet&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.items_.MergeFrom(from._impl_.items_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItemSet::CopyFrom(const CMsgServerSignoutData_StreetBrawlData_DraftItemSet& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgServerSignoutData_StreetBrawlData.DraftItemSet)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgServerSignoutData_StreetBrawlData_DraftItemSet::IsInitialized() const {
+  return true;
+}
+
+void CMsgServerSignoutData_StreetBrawlData_DraftItemSet::InternalSwap(CMsgServerSignoutData_StreetBrawlData_DraftItemSet* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.items_.InternalSwap(&other->_impl_.items_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerSignoutData_StreetBrawlData_DraftItemSet::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[58]);
+}
+
+// ===================================================================
+
 class CMsgServerSignoutData_StreetBrawlData_RoundPlayer::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgServerSignoutData_StreetBrawlData_RoundPlayer>()._impl_._has_bits_);
@@ -23395,6 +24079,7 @@ CMsgServerSignoutData_StreetBrawlData_RoundPlayer::CMsgServerSignoutData_StreetB
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.draft_item_sets_){from._impl_.draft_item_sets_}
     , decltype(_impl_.player_slot_){}
     , decltype(_impl_.player_damage_){}
     , decltype(_impl_.kills_){}
@@ -23418,6 +24103,7 @@ inline void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::SharedCtor(
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){}
     , /*decltype(_impl_._cached_size_)*/{}
+    , decltype(_impl_.draft_item_sets_){arena}
     , decltype(_impl_.player_slot_){0u}
     , decltype(_impl_.player_damage_){0u}
     , decltype(_impl_.kills_){0u}
@@ -23440,6 +24126,7 @@ CMsgServerSignoutData_StreetBrawlData_RoundPlayer::~CMsgServerSignoutData_Street
 
 inline void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.draft_item_sets_.~RepeatedPtrField();
 }
 
 void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::SetCachedSize(int size) const {
@@ -23452,6 +24139,7 @@ void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::Clear() {
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
+  _impl_.draft_item_sets_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     ::memset(&_impl_.player_slot_, 0, static_cast<size_t>(
@@ -23541,6 +24229,19 @@ const char* CMsgServerSignoutData_StreetBrawlData_RoundPlayer::_InternalParse(co
         } else
           goto handle_unusual;
         continue;
+      // repeated .CMsgServerSignoutData_StreetBrawlData.DraftItemSet draft_item_sets = 9;
+      case 9:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 74)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            ptr = ctx->ParseMessage(_internal_add_draft_item_sets(), ptr);
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<74>(ptr));
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -23620,6 +24321,14 @@ uint8_t* CMsgServerSignoutData_StreetBrawlData_RoundPlayer::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(8, this->_internal_objective_spirit_damage(), target);
   }
 
+  // repeated .CMsgServerSignoutData_StreetBrawlData.DraftItemSet draft_item_sets = 9;
+  for (unsigned i = 0,
+      n = static_cast<unsigned>(this->_internal_draft_item_sets_size()); i < n; i++) {
+    const auto& repfield = this->_internal_draft_item_sets(i);
+    target = ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::
+        InternalWriteMessage(9, repfield, repfield.GetCachedSize(), target, stream);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -23635,6 +24344,13 @@ size_t CMsgServerSignoutData_StreetBrawlData_RoundPlayer::ByteSizeLong() const {
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
+
+  // repeated .CMsgServerSignoutData_StreetBrawlData.DraftItemSet draft_item_sets = 9;
+  total_size += 1UL * this->_internal_draft_item_sets_size();
+  for (const auto& msg : this->_impl_.draft_item_sets_) {
+    total_size +=
+      ::PROTOBUF_NAMESPACE_ID::internal::WireFormatLite::MessageSize(msg);
+  }
 
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
@@ -23697,6 +24413,7 @@ void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::MergeImpl(::PROTOBUF_NAM
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
+  _this->_impl_.draft_item_sets_.MergeFrom(from._impl_.draft_item_sets_);
   cached_has_bits = from._impl_._has_bits_[0];
   if (cached_has_bits & 0x000000ffu) {
     if (cached_has_bits & 0x00000001u) {
@@ -23743,6 +24460,7 @@ void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::InternalSwap(CMsgServerS
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
+  _impl_.draft_item_sets_.InternalSwap(&other->_impl_.draft_item_sets_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
       PROTOBUF_FIELD_OFFSET(CMsgServerSignoutData_StreetBrawlData_RoundPlayer, _impl_.objective_spirit_damage_)
       + sizeof(CMsgServerSignoutData_StreetBrawlData_RoundPlayer::_impl_.objective_spirit_damage_)
@@ -23754,7 +24472,7 @@ void CMsgServerSignoutData_StreetBrawlData_RoundPlayer::InternalSwap(CMsgServerS
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerSignoutData_StreetBrawlData_RoundPlayer::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[57]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[59]);
 }
 
 // ===================================================================
@@ -24059,7 +24777,7 @@ void CMsgServerSignoutData_StreetBrawlData_Round::InternalSwap(CMsgServerSignout
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerSignoutData_StreetBrawlData_Round::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[58]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[60]);
 }
 
 // ===================================================================
@@ -24244,7 +24962,7 @@ void CMsgServerSignoutData_StreetBrawlData::InternalSwap(CMsgServerSignoutData_S
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerSignoutData_StreetBrawlData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[59]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[61]);
 }
 
 // ===================================================================
@@ -24543,7 +25261,7 @@ void CMsgServerSignoutData_PenalizedPlayers_Penalty::InternalSwap(CMsgServerSign
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerSignoutData_PenalizedPlayers_Penalty::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[60]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[62]);
 }
 
 // ===================================================================
@@ -24728,7 +25446,7 @@ void CMsgServerSignoutData_PenalizedPlayers::InternalSwap(CMsgServerSignoutData_
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerSignoutData_PenalizedPlayers::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[61]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[63]);
 }
 
 // ===================================================================
@@ -25077,7 +25795,7 @@ void CMsgMatchData_PlayerItem::InternalSwap(CMsgMatchData_PlayerItem* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgMatchData_PlayerItem::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[62]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[64]);
 }
 
 // ===================================================================
@@ -25315,7 +26033,7 @@ void CMsgMatchData_AuxStat::InternalSwap(CMsgMatchData_AuxStat* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgMatchData_AuxStat::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[63]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[65]);
 }
 
 // ===================================================================
@@ -27267,7 +27985,7 @@ void CMsgMatchData_PlayerInfo::InternalSwap(CMsgMatchData_PlayerInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgMatchData_PlayerInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[64]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[66]);
 }
 
 // ===================================================================
@@ -27501,7 +28219,7 @@ void CMsgMatchData_TeamInfo::InternalSwap(CMsgMatchData_TeamInfo* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgMatchData_TeamInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[65]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[67]);
 }
 
 // ===================================================================
@@ -28402,7 +29120,7 @@ void CMsgMatchData::InternalSwap(CMsgMatchData* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgMatchData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[66]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[68]);
 }
 
 // ===================================================================
@@ -28776,7 +29494,7 @@ void CMsgServerToGCMatchSignout::InternalSwap(CMsgServerToGCMatchSignout* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchSignout::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[67]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[69]);
 }
 
 // ===================================================================
@@ -28973,7 +29691,7 @@ void CMsgServerToGCMatchSignoutResponse::InternalSwap(CMsgServerToGCMatchSignout
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCMatchSignoutResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[68]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[70]);
 }
 
 // ===================================================================
@@ -29013,7 +29731,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgServerWelcomeCitadel::GetC
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerWelcomeCitadel::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[69]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[71]);
 }
 
 // ===================================================================
@@ -29204,7 +29922,7 @@ void CMsgServerToGCIdlePing::InternalSwap(CMsgServerToGCIdlePing* other) {
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCIdlePing::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[70]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[72]);
 }
 
 // ===================================================================
@@ -29244,7 +29962,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgGCToServerRequestPing::Get
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerRequestPing::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[71]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[73]);
 }
 
 // ===================================================================
@@ -29435,7 +30153,7 @@ void CMsgGCToServerAllocateForMatch::InternalSwap(CMsgGCToServerAllocateForMatch
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerAllocateForMatch::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[72]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[74]);
 }
 
 // ===================================================================
@@ -29626,7 +30344,7 @@ void CMsgGCToServerAllocateForMatchResponse::InternalSwap(CMsgGCToServerAllocate
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerAllocateForMatchResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[73]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[75]);
 }
 
 // ===================================================================
@@ -29817,7 +30535,7 @@ void CMsgGCToServerAllocateForHideout::InternalSwap(CMsgGCToServerAllocateForHid
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerAllocateForHideout::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[74]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[76]);
 }
 
 // ===================================================================
@@ -30054,7 +30772,7 @@ void CMsgGCToServerAllocateForHideoutResponse::InternalSwap(CMsgGCToServerAlloca
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerAllocateForHideoutResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[75]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[77]);
 }
 
 // ===================================================================
@@ -30608,7 +31326,7 @@ void CMsgServerToGCEnterMatchmaking::InternalSwap(CMsgServerToGCEnterMatchmaking
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCEnterMatchmaking::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[76]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[78]);
 }
 
 // ===================================================================
@@ -30845,7 +31563,7 @@ void CMsgGCToServerCancelAllocateForMatch::InternalSwap(CMsgGCToServerCancelAllo
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerCancelAllocateForMatch::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[77]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[79]);
 }
 
 // ===================================================================
@@ -31116,7 +31834,7 @@ void CMsgServerToGCUpdateLobbyServerState::InternalSwap(CMsgServerToGCUpdateLobb
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCUpdateLobbyServerState::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[78]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[80]);
 }
 
 // ===================================================================
@@ -31381,7 +32099,7 @@ void CMsgServerToGCAbandonMatch_Player::InternalSwap(CMsgServerToGCAbandonMatch_
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCAbandonMatch_Player::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[79]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[81]);
 }
 
 // ===================================================================
@@ -31399,7 +32117,7 @@ class CMsgServerToGCAbandonMatch::_Internal {
     (*has_bits)[0] |= 16u;
   }
   static void set_has_reason_code(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
+    (*has_bits)[0] |= 1048576u;
   }
   static void set_has_additional_data(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
@@ -31449,6 +32167,9 @@ class CMsgServerToGCAbandonMatch::_Internal {
   static void set_has_allow_hideout(HasBits* has_bits) {
     (*has_bits)[0] |= 262144u;
   }
+  static void set_has_was_lost_lobby(HasBits* has_bits) {
+    (*has_bits)[0] |= 524288u;
+  }
 };
 
 CMsgServerToGCAbandonMatch::CMsgServerToGCAbandonMatch(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -31483,6 +32204,7 @@ CMsgServerToGCAbandonMatch::CMsgServerToGCAbandonMatch(const CMsgServerToGCAband
     , decltype(_impl_.was_server_shutdown_){}
     , decltype(_impl_.allow_matches_){}
     , decltype(_impl_.allow_hideout_){}
+    , decltype(_impl_.was_lost_lobby_){}
     , decltype(_impl_.reason_code_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
@@ -31519,6 +32241,7 @@ inline void CMsgServerToGCAbandonMatch::SharedCtor(
     , decltype(_impl_.was_server_shutdown_){false}
     , decltype(_impl_.allow_matches_){false}
     , decltype(_impl_.allow_hideout_){false}
+    , decltype(_impl_.was_lost_lobby_){false}
     , decltype(_impl_.reason_code_){1}
   };
 }
@@ -31559,10 +32282,10 @@ void CMsgServerToGCAbandonMatch::Clear() {
         reinterpret_cast<char*>(&_impl_.routing_id_) -
         reinterpret_cast<char*>(&_impl_.pid_)) + sizeof(_impl_.routing_id_));
   }
-  if (cached_has_bits & 0x000f0000u) {
+  if (cached_has_bits & 0x001f0000u) {
     ::memset(&_impl_.was_server_shutdown_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.allow_hideout_) -
-        reinterpret_cast<char*>(&_impl_.was_server_shutdown_)) + sizeof(_impl_.allow_hideout_));
+        reinterpret_cast<char*>(&_impl_.was_lost_lobby_) -
+        reinterpret_cast<char*>(&_impl_.was_server_shutdown_)) + sizeof(_impl_.was_lost_lobby_));
     _impl_.reason_code_ = 1;
   }
   _impl_._has_bits_.Clear();
@@ -31781,6 +32504,15 @@ const char* CMsgServerToGCAbandonMatch::_InternalParse(const char* ptr, ::_pbi::
         } else
           goto handle_unusual;
         continue;
+      // optional bool was_lost_lobby = 23;
+      case 23:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 184)) {
+          _Internal::set_has_was_lost_lobby(&has_bits);
+          _impl_.was_lost_lobby_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -31831,7 +32563,7 @@ uint8_t* CMsgServerToGCAbandonMatch::_InternalSerialize(
   }
 
   // optional .CMsgServerToGCAbandonMatch.EReason reason_code = 4 [default = eReason_ServerCrash];
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00100000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       4, this->_internal_reason_code(), target);
@@ -31941,6 +32673,12 @@ uint8_t* CMsgServerToGCAbandonMatch::_InternalSerialize(
   if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(22, this->_internal_allow_hideout(), target);
+  }
+
+  // optional bool was_lost_lobby = 23;
+  if (cached_has_bits & 0x00080000u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteBoolToArray(23, this->_internal_was_lost_lobby(), target);
   }
 
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
@@ -32059,7 +32797,7 @@ size_t CMsgServerToGCAbandonMatch::ByteSizeLong() const {
     }
 
   }
-  if (cached_has_bits & 0x000f0000u) {
+  if (cached_has_bits & 0x001f0000u) {
     // optional bool was_server_shutdown = 17;
     if (cached_has_bits & 0x00010000u) {
       total_size += 2 + 1;
@@ -32075,8 +32813,13 @@ size_t CMsgServerToGCAbandonMatch::ByteSizeLong() const {
       total_size += 2 + 1;
     }
 
-    // optional .CMsgServerToGCAbandonMatch.EReason reason_code = 4 [default = eReason_ServerCrash];
+    // optional bool was_lost_lobby = 23;
     if (cached_has_bits & 0x00080000u) {
+      total_size += 2 + 1;
+    }
+
+    // optional .CMsgServerToGCAbandonMatch.EReason reason_code = 4 [default = eReason_ServerCrash];
+    if (cached_has_bits & 0x00100000u) {
       total_size += 1 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_reason_code());
     }
@@ -32156,7 +32899,7 @@ void CMsgServerToGCAbandonMatch::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x000f0000u) {
+  if (cached_has_bits & 0x001f0000u) {
     if (cached_has_bits & 0x00010000u) {
       _this->_impl_.was_server_shutdown_ = from._impl_.was_server_shutdown_;
     }
@@ -32167,6 +32910,9 @@ void CMsgServerToGCAbandonMatch::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_
       _this->_impl_.allow_hideout_ = from._impl_.allow_hideout_;
     }
     if (cached_has_bits & 0x00080000u) {
+      _this->_impl_.was_lost_lobby_ = from._impl_.was_lost_lobby_;
+    }
+    if (cached_has_bits & 0x00100000u) {
       _this->_impl_.reason_code_ = from._impl_.reason_code_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
@@ -32191,8 +32937,8 @@ void CMsgServerToGCAbandonMatch::InternalSwap(CMsgServerToGCAbandonMatch* other)
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.players_.InternalSwap(&other->_impl_.players_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgServerToGCAbandonMatch, _impl_.allow_hideout_)
-      + sizeof(CMsgServerToGCAbandonMatch::_impl_.allow_hideout_)
+      PROTOBUF_FIELD_OFFSET(CMsgServerToGCAbandonMatch, _impl_.was_lost_lobby_)
+      + sizeof(CMsgServerToGCAbandonMatch::_impl_.was_lost_lobby_)
       - PROTOBUF_FIELD_OFFSET(CMsgServerToGCAbandonMatch, _impl_.server_steam_id_)>(
           reinterpret_cast<char*>(&_impl_.server_steam_id_),
           reinterpret_cast<char*>(&other->_impl_.server_steam_id_));
@@ -32202,7 +32948,7 @@ void CMsgServerToGCAbandonMatch::InternalSwap(CMsgServerToGCAbandonMatch* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCAbandonMatch::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[80]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[82]);
 }
 
 // ===================================================================
@@ -32242,7 +32988,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgServerToGCAbandonMatchResp
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCAbandonMatchResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[81]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[83]);
 }
 
 // ===================================================================
@@ -32282,7 +33028,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgServerToGCTestConnection::
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCTestConnection::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[82]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[84]);
 }
 
 // ===================================================================
@@ -32322,7 +33068,7 @@ const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgServerToGCTestConnectionRe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCTestConnectionResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[83]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[85]);
 }
 
 // ===================================================================
@@ -32606,7 +33352,7 @@ void CMsgGCToServerSetServerConVar::InternalSwap(CMsgGCToServerSetServerConVar* 
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerSetServerConVar::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[84]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[86]);
 }
 
 // ===================================================================
@@ -32797,7 +33543,7 @@ void CMsgGCToServerSetServerConVarResponse::InternalSwap(CMsgGCToServerSetServer
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerSetServerConVarResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[85]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[87]);
 }
 
 // ===================================================================
@@ -33062,7 +33808,7 @@ void CMsgGCToServerAddSpectator::InternalSwap(CMsgGCToServerAddSpectator* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerAddSpectator::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[86]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[88]);
 }
 
 // ===================================================================
@@ -33305,7 +34051,7 @@ void CMsgGCToServerAddSpectatorResponse::InternalSwap(CMsgGCToServerAddSpectator
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgGCToServerAddSpectatorResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[87]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[89]);
 }
 
 // ===================================================================
@@ -33542,7 +34288,7 @@ void CMsgServerToGCRequestPlayerHeroData::InternalSwap(CMsgServerToGCRequestPlay
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCRequestPlayerHeroData::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[88]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[90]);
 }
 
 // ===================================================================
@@ -33799,7 +34545,7 @@ void CMsgServerToGCRequestPlayerHeroDataResponse::InternalSwap(CMsgServerToGCReq
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerToGCRequestPlayerHeroDataResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[89]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[91]);
 }
 
 // ===================================================================
@@ -34160,7 +34906,7 @@ void CMsgServerSteamLearnCitadelSignOutPlayerInfo::InternalSwap(CMsgServerSteamL
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerSteamLearnCitadelSignOutPlayerInfo::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[90]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[92]);
 }
 
 // ===================================================================
@@ -35039,7 +35785,7 @@ void CMsgServerSteamLearnCitadelPlayerMechanicalBehavior::InternalSwap(CMsgServe
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgServerSteamLearnCitadelPlayerMechanicalBehavior::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_getter, &descriptor_table_citadel_5fgcmessages_5fserver_2eproto_once,
-      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[91]);
+      file_level_metadata_citadel_5fgcmessages_5fserver_2eproto[93]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -35271,6 +36017,14 @@ Arena::CreateMaybeMessage< ::CMsgServerSignoutData_PlayerBehavior_Player >(Arena
 template<> PROTOBUF_NOINLINE ::CMsgServerSignoutData_PlayerBehavior*
 Arena::CreateMaybeMessage< ::CMsgServerSignoutData_PlayerBehavior >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgServerSignoutData_PlayerBehavior >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgServerSignoutData_StreetBrawlData_DraftItem*
+Arena::CreateMaybeMessage< ::CMsgServerSignoutData_StreetBrawlData_DraftItem >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgServerSignoutData_StreetBrawlData_DraftItem >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet*
+Arena::CreateMaybeMessage< ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgServerSignoutData_StreetBrawlData_DraftItemSet >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgServerSignoutData_StreetBrawlData_RoundPlayer*
 Arena::CreateMaybeMessage< ::CMsgServerSignoutData_StreetBrawlData_RoundPlayer >(Arena* arena) {
