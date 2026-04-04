@@ -19,31 +19,27 @@ static CDllLauncher g_CDllLauncher{};
 
 auto CDllLauncher::OnDllMain( LPVOID lpReserved , HINSTANCE hInstace ) -> void
 {
-#if ENABLE_MANUAL_MAP == 0 || DEVELOPER_BUILD
-	char szDllDir[MAX_PATH];
-
-	GetModuleFileNameA( hInstace , szDllDir , MAX_PATH );
-	
-	m_DllDir = szDllDir;
-	m_DllDir = m_DllDir.substr( 0 , m_DllDir.find_last_of( '\\' ) );
-	m_DllDir += '\\';
-#else
-	m_DllDir = "D:\\";
-#endif
-
-#if ENABLE_MANUAL_MAP == 1
 	if ( lpReserved )
 	{
 		ManualMapParam_t* pParam = reinterpret_cast<ManualMapParam_t*>( lpReserved );
 
 		if ( pParam )
 		{
-			m_DllDir = pParam->m_dllDir;
+			m_DllDir = pParam->m_DllDir;
 			m_DllDir = m_DllDir.substr( 0, m_DllDir.find_last_of( '\\' ) + 1 );
 		}
 			
 	}
-#endif
+	else
+	{
+		char szDllDir[MAX_PATH];
+
+		GetModuleFileNameA( hInstace , szDllDir , MAX_PATH );
+
+		m_DllDir = szDllDir;
+		m_DllDir = m_DllDir.substr( 0 , m_DllDir.find_last_of( '\\' ) );
+		m_DllDir += '\\';
+	}
 
 	m_hDllImage = hInstace;
 
@@ -53,9 +49,9 @@ auto CDllLauncher::OnDllMain( LPVOID lpReserved , HINSTANCE hInstace ) -> void
 	char szGameFile[MAX_PATH] = { 0 };
 	GetModuleFileNameA( 0 , szGameFile , MAX_PATH );
 
-	m_CSGODir = szGameFile;
-	m_CSGODir = m_CSGODir.substr( 0 , m_CSGODir.find_last_of( "\\/" ) );
-	m_CSGODir += '\\';
+	m_DeadLockDir = szGameFile;
+	m_DeadLockDir = m_DeadLockDir.substr( 0 , m_DeadLockDir.find_last_of( "\\/" ) );
+	m_DeadLockDir += '\\';
 
 	memset( szGameFile , 0 , MAX_PATH );
 
@@ -122,9 +118,9 @@ auto GetDllDir()->std::string&
 	return GetDllLauncher()->m_DllDir;
 }
 
-auto GetCSGODir() -> std::string
+auto GetDeadLockDir() -> std::string
 {
-	return GetDllLauncher()->m_CSGODir;
+	return GetDllLauncher()->m_DeadLockDir;
 }
 
 auto GetDllLauncher() -> CDllLauncher*

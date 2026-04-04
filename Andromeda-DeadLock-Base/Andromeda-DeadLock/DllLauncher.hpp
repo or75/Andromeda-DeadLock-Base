@@ -74,11 +74,11 @@ public:
 
 private:
 	friend auto GetDllDir()->std::string&;
-	friend auto GetCSGODir()->std::string;
+	friend auto GetDeadLockDir()->std::string;
 
 private:
 	std::string m_DllDir;
-	std::string m_CSGODir;
+	std::string m_DeadLockDir;
 
 private:
 	HINSTANCE m_hDllImage = nullptr;
@@ -92,5 +92,5 @@ private:
 };
 
 auto GetDllDir() -> std::string&;
-auto GetCSGODir() -> std::string;
+auto GetDeadLockDir() -> std::string;
 auto GetDllLauncher() -> CDllLauncher*;
