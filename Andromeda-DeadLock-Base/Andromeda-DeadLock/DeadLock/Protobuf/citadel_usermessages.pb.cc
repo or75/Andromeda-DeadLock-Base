@@ -1195,21 +1195,6 @@ struct CCitadelUserMsg_SeasonalKillDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_SeasonalKillDefaultTypeInternal _CCitadelUserMsg_SeasonalKill_default_instance_;
-PROTOBUF_CONSTEXPR CCitadelUserMsg_MusicQueue::CCitadelUserMsg_MusicQueue(
-    ::_pbi::ConstantInitialized): _impl_{
-    /*decltype(_impl_._has_bits_)*/{}
-  , /*decltype(_impl_._cached_size_)*/{}
-  , /*decltype(_impl_.music_state_)*/0
-  , /*decltype(_impl_.override_)*/false} {}
-struct CCitadelUserMsg_MusicQueueDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CCitadelUserMsg_MusicQueueDefaultTypeInternal()
-      : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CCitadelUserMsg_MusicQueueDefaultTypeInternal() {}
-  union {
-    CCitadelUserMsg_MusicQueue _instance;
-  };
-};
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_MusicQueueDefaultTypeInternal _CCitadelUserMsg_MusicQueue_default_instance_;
 PROTOBUF_CONSTEXPR CCitadelUserMsg_AG2ParamTrigger::CCitadelUserMsg_AG2ParamTrigger(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -1304,7 +1289,7 @@ struct CCitadelUserMsg_BannedHeroesDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CCitadelUserMsg_BannedHeroesDefaultTypeInternal _CCitadelUserMsg_BannedHeroes_default_instance_;
-static ::_pb::Metadata file_level_metadata_citadel_5fusermessages_2eproto[75];
+static ::_pb::Metadata file_level_metadata_citadel_5fusermessages_2eproto[74];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_citadel_5fusermessages_2eproto[10];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_citadel_5fusermessages_2eproto = nullptr;
 
@@ -2307,16 +2292,6 @@ const uint32_t TableStruct_citadel_5fusermessages_2eproto::offsets[] PROTOBUF_SE
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_SeasonalKill, _impl_.victim_),
   0,
   1,
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_MusicQueue, _impl_._has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_MusicQueue, _internal_metadata_),
-  ~0u,  // no _extensions_
-  ~0u,  // no _oneof_case_
-  ~0u,  // no _weak_field_map_
-  ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_MusicQueue, _impl_.music_state_),
-  PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_MusicQueue, _impl_.override_),
-  0,
-  1,
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_AG2ParamTrigger, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CCitadelUserMsg_AG2ParamTrigger, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2456,13 +2431,12 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 964, 972, -1, sizeof(::CCitadelUserMsg_FlexSlotUnlocked)},
   { 974, 984, -1, sizeof(::CCitadelUserMessage_ItemPurchaseNotification)},
   { 988, 996, -1, sizeof(::CCitadelUserMsg_SeasonalKill)},
-  { 998, 1006, -1, sizeof(::CCitadelUserMsg_MusicQueue)},
-  { 1008, 1016, -1, sizeof(::CCitadelUserMsg_AG2ParamTrigger)},
-  { 1018, 1026, -1, sizeof(::CCitadelUserMsg_EntityPortalled)},
-  { 1028, 1038, -1, sizeof(::CCitadelUserMsg_StreetBrawlScoring)},
-  { 1042, 1053, -1, sizeof(::CCitadelUserMsg_HudGameAnnouncement)},
-  { 1058, 1067, -1, sizeof(::CCitadelUserMessage_ImportantAbilityUsed)},
-  { 1070, -1, -1, sizeof(::CCitadelUserMsg_BannedHeroes)},
+  { 998, 1006, -1, sizeof(::CCitadelUserMsg_AG2ParamTrigger)},
+  { 1008, 1016, -1, sizeof(::CCitadelUserMsg_EntityPortalled)},
+  { 1018, 1028, -1, sizeof(::CCitadelUserMsg_StreetBrawlScoring)},
+  { 1032, 1043, -1, sizeof(::CCitadelUserMsg_HudGameAnnouncement)},
+  { 1048, 1057, -1, sizeof(::CCitadelUserMessage_ImportantAbilityUsed)},
+  { 1060, -1, -1, sizeof(::CCitadelUserMsg_BannedHeroes)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -2534,7 +2508,6 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CCitadelUserMsg_FlexSlotUnlocked_default_instance_._instance,
   &::_CCitadelUserMessage_ItemPurchaseNotification_default_instance_._instance,
   &::_CCitadelUserMsg_SeasonalKill_default_instance_._instance,
-  &::_CCitadelUserMsg_MusicQueue_default_instance_._instance,
   &::_CCitadelUserMsg_AG2ParamTrigger_default_instance_._instance,
   &::_CCitadelUserMsg_EntityPortalled_default_instance_._instance,
   &::_CCitadelUserMsg_StreetBrawlScoring_default_instance_._instance,
@@ -2815,125 +2788,125 @@ const char descriptor_table_protodef_citadel_5fusermessages_2eproto[] PROTOBUF_S
   "d\030\001 \001(\005:\002-1\022\022\n\nability_id\030\002 \001(\r\022\014\n\004sell\030"
   "\003 \001(\010\022\020\n\010quickbuy\030\004 \001(\010\"R\n\034CCitadelUserM"
   "sg_SeasonalKill\022\030\n\006killer\030\001 \001(\r:\0101677721"
-  "5\022\030\n\006victim\030\002 \001(\r:\01016777215\"C\n\032CCitadelU"
-  "serMsg_MusicQueue\022\023\n\013music_state\030\001 \001(\005\022\020"
-  "\n\010override\030\002 \001(\010\"H\n\037CCitadelUserMsg_AG2P"
-  "aramTrigger\022\020\n\010param_id\030\001 \001(\t\022\023\n\013param_v"
-  "alue\030\002 \001(\t\"o\n\037CCitadelUserMsg_EntityPort"
-  "alled\022\"\n\020entity_portalled\030\001 \001(\r:\0101677721"
-  "5\022(\n\020portal_transform\030\002 \001(\0132\016.CMsgTransf"
-  "orm\"|\n\"CCitadelUserMsg_StreetBrawlScorin"
-  "g\022\024\n\014scoring_team\030\001 \001(\005\022\023\n\013just_a_test\030\002"
-  " \001(\010\022\026\n\016sapphire_score\030\003 \001(\005\022\023\n\013amber_sc"
-  "ore\030\004 \001(\005\"\261\001\n#CCitadelUserMsg_HudGameAnn"
-  "ouncement\022\027\n\017title_locstring\030\001 \001(\t\022\035\n\025de"
-  "scription_locstring\030\002 \001(\t\022\021\n\tclassname\030\003"
-  " \003(\t\022\034\n\024dialog_variable_name\030\004 \003(\t\022!\n\031di"
-  "alog_variable_locstring\030\005 \003(\t\"t\n(CCitade"
-  "lUserMessage_ImportantAbilityUsed\022\030\n\006pla"
-  "yer\030\001 \001(\r:\01016777215\022\030\n\006caster\030\002 \001(\r:\010167"
-  "77215\022\024\n\014ability_name\030\003 \001(\t\"7\n\034CCitadelU"
-  "serMsg_BannedHeroes\022\027\n\017banned_hero_ids\030\001"
-  " \003(\r*\376\017\n\025CitadelUserMessageIds\022\026\n\021k_EUse"
-  "rMsg_Damage\020\254\002\022\027\n\022k_EUserMsg_MapPing\020\257\002\022"
-  "\033\n\026k_EUserMsg_TeamRewards\020\260\002\022\035\n\030k_EUserM"
-  "sg_AbilityFailed\020\262\002\022\"\n\035k_EUserMsg_Trigge"
-  "rDamageFlash\020\264\002\022 \n\033k_EUserMsg_AbilitiesC"
-  "hanged\020\265\002\022#\n\036k_EUserMsg_RecentDamageSumm"
-  "ary\020\266\002\022$\n\037k_EUserMsg_SpectatorTeamChange"
-  "d\020\267\002\022\031\n\024k_EUserMsg_ChatWheel\020\270\002\022\033\n\026k_EUs"
-  "erMsg_GoldHistory\020\271\002\022\027\n\022k_EUserMsg_ChatM"
-  "sg\020\272\002\022\035\n\030k_EUserMsg_QuickResponse\020\273\002\022 \n\033"
-  "k_EUserMsg_PostMatchDetails\020\274\002\022\031\n\024k_EUse"
-  "rMsg_ChatEvent\020\275\002\022\"\n\035k_EUserMsg_AbilityI"
-  "nterrupted\020\276\002\022\032\n\025k_EUserMsg_HeroKilled\020\277"
-  "\002\022\032\n\025k_EUserMsg_ReturnIdol\020\300\002\022%\n k_EUser"
-  "Msg_SetClientCameraAngles\020\301\002\022\027\n\022k_EUserM"
-  "sg_MapLine\020\302\002\022\031\n\024k_EUserMsg_BulletHit\020\303\002"
-  "\022\035\n\030k_EUserMsg_ObjectiveMask\020\304\002\022\037\n\032k_EUs"
-  "erMsg_ModifierApplied\020\305\002\022 \n\033k_EUserMsg_C"
-  "ameraController\020\306\002\022#\n\036k_EUserMsg_AuraMod"
-  "ifierApplied\020\307\002\022#\n\036k_EUserMsg_Obstructed"
-  "ShotFired\020\311\002\022\"\n\035k_EUserMsg_AbilityLateFa"
-  "ilure\020\312\002\022\033\n\026k_EUserMsg_AbilityPing\020\313\002\022\"\n"
-  "\035k_EUserMsg_PostProcessingAnim\020\314\002\022\037\n\032k_E"
-  "UserMsg_DeathReplayData\020\315\002\022&\n!k_EUserMsg"
-  "_PlayerLifetimeStatInfo\020\316\002\022\037\n\032k_EUserMsg"
-  "_ForceShopClosed\020\320\002\022\037\n\032k_EUserMsg_Stamin"
-  "aConsumed\020\321\002\022\035\n\030k_EUserMsg_AbilityNotify"
-  "\020\322\002\022&\n!k_EUserMsg_GetDamageStatsResponse"
-  "\020\323\002\022*\n%k_EUserMsg_ParticipantStartSoundE"
-  "vent\020\324\002\022)\n$k_EUserMsg_ParticipantStopSou"
-  "ndEvent\020\325\002\022-\n(k_EUserMsg_ParticipantStop"
-  "SoundEventHash\020\326\002\022.\n)k_EUserMsg_Particip"
-  "antSetSoundEventParams\020\327\002\0220\n+k_EUserMsg_"
-  "ParticipantSetLibraryStackFields\020\330\002\022\037\n\032k"
-  "_EUserMsg_CurrencyChanged\020\331\002\022\030\n\023k_EUserM"
-  "sg_GameOver\020\332\002\022\032\n\025k_EUserMsg_BossKilled\020"
-  "\333\002\022\033\n\026k_EUserMsg_BossDamaged\020\334\002\022\036\n\031k_EUs"
-  "erMsg_MidBossSpawned\020\335\002\022\033\n\026k_EUserMsg_Re"
-  "juvStatus\020\336\002\022\032\n\025k_EUserMsg_KillStreak\020\337\002"
-  "\022\027\n\022k_EUserMsg_TeamMsg\020\340\002\022\037\n\032k_EUserMsg_"
-  "PlayerRespawned\020\341\002\022\037\n\032k_EUserMsg_CallChe"
-  "aterVote\020\342\002\022\030\n\023k_EUserMsg_MeleeHit\020\343\002\022 \n"
-  "\033k_EUserMsg_FlexSlotUnlocked\020\344\002\022\034\n\027k_EUs"
-  "erMsg_SeasonalKill\020\345\002\022\032\n\025k_EUserMsg_Musi"
-  "cQueue\020\346\002\022\037\n\032k_EUserMsg_AG2ParamTrigger\020"
-  "\347\002\022(\n#k_EUserMsg_ItemPurchaseNotificatio"
-  "n\020\350\002\022\037\n\032k_EUserMsg_EntityPortalled\020\351\002\022\"\n"
-  "\035k_EUserMsg_StreetBrawlScoring\020\352\002\022#\n\036k_E"
-  "UserMsg_HudGameAnnouncement\020\353\002\022!\n\034k_EUse"
-  "rMsg_ItemDraftReaction\020\354\002\022$\n\037k_EUserMsg_"
-  "ImportantAbilityUsed\020\355\002\022\034\n\027k_EUserMsg_Ba"
-  "nnedHeroes\020\356\002*E\n\027CitadelEntityMessageIds"
-  "\022*\n%k_EEntityMsg_BreakablePropSpawnDebri"
-  "s\020\364\003*\300\004\n\025ChatMsgPingMarkerInfo\022o\n$k_EPin"
-  "gMarkerInfo_ShowMarkerAndSound\020\000\032E\302>BSho"
-  "w Ping Indicator at Ping Location, Play "
-  "Ping Sound, and Play VO\022p\n$k_EPingMarker"
-  "Info_ShowMarkerOnSender\020\001\032F\302>CShow Ping "
-  "Indicator on Pinging Player, Play Ping S"
-  "ound, and Play VO\022I\n$k_EPingMarkerInfo_H"
-  "ideMarkerAndSound\020\002\032\037\302>\034No Marker or Sou"
-  "nd (just VO)\022b\n k_EPingMarkerInfo_OnlySh"
-  "owMarker\020\003\032<\302>9Only Show Ping Indicator "
-  "at Ping Location (no ping sound)\022E\n\037k_EP"
-  "ingMarkerInfo_OnlyPlaySound\020\004\032 \302>\035Only P"
-  "lay Ping Sound (and VO)\022N\n\035k_EPingMarker"
-  "Info_OnlyMiniMap\020\005\032+\302>(Only show on Mini"
-  "map, no world, no sound*\210\001\n\017CameraOperat"
-  "ion\022\030\n\024k_ECameraOp_Maintain\020\002\022\030\n\024k_ECame"
-  "raOp_Approach\020\003\022\026\n\022k_ECameraOp_Spring\020\004\022"
-  "\024\n\020k_ECameraOp_Lerp\020\005\022\023\n\017k_ECameraOp_Lag"
-  "\020\006*\304\001\n\013CameraParam\022\030\n\024k_EParam_ClearAllO"
-  "ps\020\000\022\"\n\036k_EParam_ClearAllOpsForContext\020\001"
-  "\022\025\n\021k_EParam_Distance\020\002\022\020\n\014k_EParam_FOV\020"
-  "\003\022\033\n\027k_EParam_TargetPosition\020\004\022\027\n\023k_EPar"
-  "am_VertOffset\020\005\022\030\n\024k_EParam_HorizOffset\020"
-  "\006*_\n\017CameraParamMode\022\"\n\036k_EParamMode_All"
-  "owInOneContext\020\000\022(\n$k_EParamMode_AllowIn"
-  "MultipleContexts\020\001*`\n\014CameraAction\022\023\n\017k_"
-  "EAction_AddOp\020\000\022\031\n\025k_EAction_ClearAllOps"
-  "\020\001\022 \n\034k_EAction_ClearOpsForContext\020\002*\231\004\n"
-  "\023ECitadelChatMessage\022*\n&CITADEL_CHAT_MES"
-  "SAGE_UNPAUSE_COUNTDOWN\020\001\022!\n\035CITADEL_CHAT"
-  "_MESSAGE_UNPAUSED\020\002\022&\n\"CITADEL_CHAT_MESS"
-  "AGE_AUTO_UNPAUSED\020\003\022(\n$CITADEL_CHAT_MESS"
-  "AGE_PAUSE_COUNTDOWN\020\004\022\037\n\033CITADEL_CHAT_ME"
-  "SSAGE_PAUSED\020\005\022\"\n\036CITADEL_CHAT_MESSAGE_Y"
-  "OUPAUSED\020\006\022\"\n\036CITADEL_CHAT_MESSAGE_CANTP"
-  "AUSE\020\007\022(\n$CITADEL_CHAT_MESSAGE_CANTUNPAU"
-  "SETEAM\020\010\022%\n!CITADEL_CHAT_MESSAGE_NOPAUSE"
-  "SLEFT\020\t\022%\n!CITADEL_CHAT_MESSAGE_CANTPAUS"
-  "EYET\020\n\022*\n&CITADEL_CHAT_MESSAGE_PREGAME_C"
-  "OUNTDOWN\020\013\022)\n%CITADEL_CHAT_MESSAGE_NOTEA"
-  "MPAUSESLEFT\020\014\022)\n%CITADEL_CHAT_MESSAGE_CO"
-  "MMS_RESTRICTED\020\r*\325\001\n\030PostProcessingGameS"
-  "tates\022\030\n\024PostProcState_Killed\020\000\022\027\n\023PostP"
-  "rocState_Black\020\001\022$\n PostProcState_Doorma"
-  "nHotelVictim\020\002\022\031\n\025PostProcState_Blinded\020"
-  "\003\022\'\n#PostProcState_DrifterDarknessCaster"
-  "\020\004\022\034\n\030PostProcState_MatchIntro\020\005"
+  "5\022\030\n\006victim\030\002 \001(\r:\01016777215\"H\n\037CCitadelU"
+  "serMsg_AG2ParamTrigger\022\020\n\010param_id\030\001 \001(\t"
+  "\022\023\n\013param_value\030\002 \001(\t\"o\n\037CCitadelUserMsg"
+  "_EntityPortalled\022\"\n\020entity_portalled\030\001 \001"
+  "(\r:\01016777215\022(\n\020portal_transform\030\002 \001(\0132\016"
+  ".CMsgTransform\"|\n\"CCitadelUserMsg_Street"
+  "BrawlScoring\022\024\n\014scoring_team\030\001 \001(\005\022\023\n\013ju"
+  "st_a_test\030\002 \001(\010\022\026\n\016sapphire_score\030\003 \001(\005\022"
+  "\023\n\013amber_score\030\004 \001(\005\"\261\001\n#CCitadelUserMsg"
+  "_HudGameAnnouncement\022\027\n\017title_locstring\030"
+  "\001 \001(\t\022\035\n\025description_locstring\030\002 \001(\t\022\021\n\t"
+  "classname\030\003 \003(\t\022\034\n\024dialog_variable_name\030"
+  "\004 \003(\t\022!\n\031dialog_variable_locstring\030\005 \003(\t"
+  "\"t\n(CCitadelUserMessage_ImportantAbility"
+  "Used\022\030\n\006player\030\001 \001(\r:\01016777215\022\030\n\006caster"
+  "\030\002 \001(\r:\01016777215\022\024\n\014ability_name\030\003 \001(\t\"7"
+  "\n\034CCitadelUserMsg_BannedHeroes\022\027\n\017banned"
+  "_hero_ids\030\001 \003(\r*\342\017\n\025CitadelUserMessageId"
+  "s\022\026\n\021k_EUserMsg_Damage\020\254\002\022\027\n\022k_EUserMsg_"
+  "MapPing\020\257\002\022\033\n\026k_EUserMsg_TeamRewards\020\260\002\022"
+  "\035\n\030k_EUserMsg_AbilityFailed\020\262\002\022\"\n\035k_EUse"
+  "rMsg_TriggerDamageFlash\020\264\002\022 \n\033k_EUserMsg"
+  "_AbilitiesChanged\020\265\002\022#\n\036k_EUserMsg_Recen"
+  "tDamageSummary\020\266\002\022$\n\037k_EUserMsg_Spectato"
+  "rTeamChanged\020\267\002\022\031\n\024k_EUserMsg_ChatWheel\020"
+  "\270\002\022\033\n\026k_EUserMsg_GoldHistory\020\271\002\022\027\n\022k_EUs"
+  "erMsg_ChatMsg\020\272\002\022\035\n\030k_EUserMsg_QuickResp"
+  "onse\020\273\002\022 \n\033k_EUserMsg_PostMatchDetails\020\274"
+  "\002\022\031\n\024k_EUserMsg_ChatEvent\020\275\002\022\"\n\035k_EUserM"
+  "sg_AbilityInterrupted\020\276\002\022\032\n\025k_EUserMsg_H"
+  "eroKilled\020\277\002\022\032\n\025k_EUserMsg_ReturnIdol\020\300\002"
+  "\022%\n k_EUserMsg_SetClientCameraAngles\020\301\002\022"
+  "\027\n\022k_EUserMsg_MapLine\020\302\002\022\031\n\024k_EUserMsg_B"
+  "ulletHit\020\303\002\022\035\n\030k_EUserMsg_ObjectiveMask\020"
+  "\304\002\022\037\n\032k_EUserMsg_ModifierApplied\020\305\002\022 \n\033k"
+  "_EUserMsg_CameraController\020\306\002\022#\n\036k_EUser"
+  "Msg_AuraModifierApplied\020\307\002\022#\n\036k_EUserMsg"
+  "_ObstructedShotFired\020\311\002\022\"\n\035k_EUserMsg_Ab"
+  "ilityLateFailure\020\312\002\022\033\n\026k_EUserMsg_Abilit"
+  "yPing\020\313\002\022\"\n\035k_EUserMsg_PostProcessingAni"
+  "m\020\314\002\022\037\n\032k_EUserMsg_DeathReplayData\020\315\002\022&\n"
+  "!k_EUserMsg_PlayerLifetimeStatInfo\020\316\002\022\037\n"
+  "\032k_EUserMsg_ForceShopClosed\020\320\002\022\037\n\032k_EUse"
+  "rMsg_StaminaConsumed\020\321\002\022\035\n\030k_EUserMsg_Ab"
+  "ilityNotify\020\322\002\022&\n!k_EUserMsg_GetDamageSt"
+  "atsResponse\020\323\002\022*\n%k_EUserMsg_Participant"
+  "StartSoundEvent\020\324\002\022)\n$k_EUserMsg_Partici"
+  "pantStopSoundEvent\020\325\002\022-\n(k_EUserMsg_Part"
+  "icipantStopSoundEventHash\020\326\002\022.\n)k_EUserM"
+  "sg_ParticipantSetSoundEventParams\020\327\002\0220\n+"
+  "k_EUserMsg_ParticipantSetLibraryStackFie"
+  "lds\020\330\002\022\037\n\032k_EUserMsg_CurrencyChanged\020\331\002\022"
+  "\030\n\023k_EUserMsg_GameOver\020\332\002\022\032\n\025k_EUserMsg_"
+  "BossKilled\020\333\002\022\033\n\026k_EUserMsg_BossDamaged\020"
+  "\334\002\022\036\n\031k_EUserMsg_MidBossSpawned\020\335\002\022\033\n\026k_"
+  "EUserMsg_RejuvStatus\020\336\002\022\032\n\025k_EUserMsg_Ki"
+  "llStreak\020\337\002\022\027\n\022k_EUserMsg_TeamMsg\020\340\002\022\037\n\032"
+  "k_EUserMsg_PlayerRespawned\020\341\002\022\037\n\032k_EUser"
+  "Msg_CallCheaterVote\020\342\002\022\030\n\023k_EUserMsg_Mel"
+  "eeHit\020\343\002\022 \n\033k_EUserMsg_FlexSlotUnlocked\020"
+  "\344\002\022\034\n\027k_EUserMsg_SeasonalKill\020\345\002\022\037\n\032k_EU"
+  "serMsg_AG2ParamTrigger\020\347\002\022(\n#k_EUserMsg_"
+  "ItemPurchaseNotification\020\350\002\022\037\n\032k_EUserMs"
+  "g_EntityPortalled\020\351\002\022\"\n\035k_EUserMsg_Stree"
+  "tBrawlScoring\020\352\002\022#\n\036k_EUserMsg_HudGameAn"
+  "nouncement\020\353\002\022!\n\034k_EUserMsg_ItemDraftRea"
+  "ction\020\354\002\022$\n\037k_EUserMsg_ImportantAbilityU"
+  "sed\020\355\002\022\034\n\027k_EUserMsg_BannedHeroes\020\356\002*E\n\027"
+  "CitadelEntityMessageIds\022*\n%k_EEntityMsg_"
+  "BreakablePropSpawnDebris\020\364\003*\224\005\n\025ChatMsgP"
+  "ingMarkerInfo\022o\n$k_EPingMarkerInfo_ShowM"
+  "arkerAndSound\020\000\032E\302>BShow Ping Indicator "
+  "at Ping Location, Play Ping Sound, and P"
+  "lay VO\022p\n$k_EPingMarkerInfo_ShowMarkerOn"
+  "Sender\020\001\032F\302>CShow Ping Indicator on Ping"
+  "ing Player, Play Ping Sound, and Play VO"
+  "\022I\n$k_EPingMarkerInfo_HideMarkerAndSound"
+  "\020\002\032\037\302>\034No Marker or Sound (just VO)\022b\n k"
+  "_EPingMarkerInfo_OnlyShowMarker\020\003\032<\302>9On"
+  "ly Show Ping Indicator at Ping Location "
+  "(no ping sound)\022E\n\037k_EPingMarkerInfo_Onl"
+  "yPlaySound\020\004\032 \302>\035Only Play Ping Sound (a"
+  "nd VO)\022N\n\035k_EPingMarkerInfo_OnlyMiniMap\020"
+  "\005\032+\302>(Only show on Minimap, no world, no"
+  " sound\022R\n)k_EPingMarkerInfo_NoMarkerYesS"
+  "oundMiniMap\020\006\032#\302> No World, Just Minimap"
+  " and sound*\210\001\n\017CameraOperation\022\030\n\024k_ECam"
+  "eraOp_Maintain\020\002\022\030\n\024k_ECameraOp_Approach"
+  "\020\003\022\026\n\022k_ECameraOp_Spring\020\004\022\024\n\020k_ECameraO"
+  "p_Lerp\020\005\022\023\n\017k_ECameraOp_Lag\020\006*\304\001\n\013Camera"
+  "Param\022\030\n\024k_EParam_ClearAllOps\020\000\022\"\n\036k_EPa"
+  "ram_ClearAllOpsForContext\020\001\022\025\n\021k_EParam_"
+  "Distance\020\002\022\020\n\014k_EParam_FOV\020\003\022\033\n\027k_EParam"
+  "_TargetPosition\020\004\022\027\n\023k_EParam_VertOffset"
+  "\020\005\022\030\n\024k_EParam_HorizOffset\020\006*_\n\017CameraPa"
+  "ramMode\022\"\n\036k_EParamMode_AllowInOneContex"
+  "t\020\000\022(\n$k_EParamMode_AllowInMultipleConte"
+  "xts\020\001*`\n\014CameraAction\022\023\n\017k_EAction_AddOp"
+  "\020\000\022\031\n\025k_EAction_ClearAllOps\020\001\022 \n\034k_EActi"
+  "on_ClearOpsForContext\020\002*\231\004\n\023ECitadelChat"
+  "Message\022*\n&CITADEL_CHAT_MESSAGE_UNPAUSE_"
+  "COUNTDOWN\020\001\022!\n\035CITADEL_CHAT_MESSAGE_UNPA"
+  "USED\020\002\022&\n\"CITADEL_CHAT_MESSAGE_AUTO_UNPA"
+  "USED\020\003\022(\n$CITADEL_CHAT_MESSAGE_PAUSE_COU"
+  "NTDOWN\020\004\022\037\n\033CITADEL_CHAT_MESSAGE_PAUSED\020"
+  "\005\022\"\n\036CITADEL_CHAT_MESSAGE_YOUPAUSED\020\006\022\"\n"
+  "\036CITADEL_CHAT_MESSAGE_CANTPAUSE\020\007\022(\n$CIT"
+  "ADEL_CHAT_MESSAGE_CANTUNPAUSETEAM\020\010\022%\n!C"
+  "ITADEL_CHAT_MESSAGE_NOPAUSESLEFT\020\t\022%\n!CI"
+  "TADEL_CHAT_MESSAGE_CANTPAUSEYET\020\n\022*\n&CIT"
+  "ADEL_CHAT_MESSAGE_PREGAME_COUNTDOWN\020\013\022)\n"
+  "%CITADEL_CHAT_MESSAGE_NOTEAMPAUSESLEFT\020\014"
+  "\022)\n%CITADEL_CHAT_MESSAGE_COMMS_RESTRICTE"
+  "D\020\r*\325\001\n\030PostProcessingGameStates\022\030\n\024Post"
+  "ProcState_Killed\020\000\022\027\n\023PostProcState_Blac"
+  "k\020\001\022$\n PostProcState_DoormanHotelVictim\020"
+  "\002\022\031\n\025PostProcState_Blinded\020\003\022\'\n#PostProc"
+  "State_DrifterDarknessCaster\020\004\022\034\n\030PostPro"
+  "cState_MatchIntro\020\005"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fusermessages_2eproto_deps[4] = {
   &::descriptor_table_citadel_5fgcmessages_5fcommon_2eproto,
@@ -2943,9 +2916,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fusermessa
 };
 static ::_pbi::once_flag descriptor_table_citadel_5fusermessages_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_citadel_5fusermessages_2eproto = {
-    false, false, 15592, descriptor_table_protodef_citadel_5fusermessages_2eproto,
+    false, false, 15579, descriptor_table_protodef_citadel_5fusermessages_2eproto,
     "citadel_usermessages.proto",
-    &descriptor_table_citadel_5fusermessages_2eproto_once, descriptor_table_citadel_5fusermessages_2eproto_deps, 4, 75,
+    &descriptor_table_citadel_5fusermessages_2eproto_once, descriptor_table_citadel_5fusermessages_2eproto_deps, 4, 74,
     schemas, file_default_instances, TableStruct_citadel_5fusermessages_2eproto::offsets,
     file_level_metadata_citadel_5fusermessages_2eproto, file_level_enum_descriptors_citadel_5fusermessages_2eproto,
     file_level_service_descriptors_citadel_5fusermessages_2eproto,
@@ -3043,7 +3016,6 @@ bool CitadelUserMessageIds_IsValid(int value) {
     case 355:
     case 356:
     case 357:
-    case 358:
     case 359:
     case 360:
     case 361:
@@ -3083,6 +3055,7 @@ bool ChatMsgPingMarkerInfo_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
       return true;
     default:
       return false;
@@ -24256,243 +24229,6 @@ void CCitadelUserMsg_SeasonalKill::InternalSwap(CCitadelUserMsg_SeasonalKill* ot
 
 // ===================================================================
 
-class CCitadelUserMsg_MusicQueue::_Internal {
- public:
-  using HasBits = decltype(std::declval<CCitadelUserMsg_MusicQueue>()._impl_._has_bits_);
-  static void set_has_music_state(HasBits* has_bits) {
-    (*has_bits)[0] |= 1u;
-  }
-  static void set_has_override(HasBits* has_bits) {
-    (*has_bits)[0] |= 2u;
-  }
-};
-
-CCitadelUserMsg_MusicQueue::CCitadelUserMsg_MusicQueue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                         bool is_message_owned)
-  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
-  SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CCitadelUserMsg_MusicQueue)
-}
-CCitadelUserMsg_MusicQueue::CCitadelUserMsg_MusicQueue(const CCitadelUserMsg_MusicQueue& from)
-  : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CCitadelUserMsg_MusicQueue* const _this = this; (void)_this;
-  new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){from._impl_._has_bits_}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.music_state_){}
-    , decltype(_impl_.override_){}};
-
-  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-  ::memcpy(&_impl_.music_state_, &from._impl_.music_state_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.override_) -
-    reinterpret_cast<char*>(&_impl_.music_state_)) + sizeof(_impl_.override_));
-  // @@protoc_insertion_point(copy_constructor:CCitadelUserMsg_MusicQueue)
-}
-
-inline void CCitadelUserMsg_MusicQueue::SharedCtor(
-    ::_pb::Arena* arena, bool is_message_owned) {
-  (void)arena;
-  (void)is_message_owned;
-  new (&_impl_) Impl_{
-      decltype(_impl_._has_bits_){}
-    , /*decltype(_impl_._cached_size_)*/{}
-    , decltype(_impl_.music_state_){0}
-    , decltype(_impl_.override_){false}
-  };
-}
-
-CCitadelUserMsg_MusicQueue::~CCitadelUserMsg_MusicQueue() {
-  // @@protoc_insertion_point(destructor:CCitadelUserMsg_MusicQueue)
-  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
-  (void)arena;
-    return;
-  }
-  SharedDtor();
-}
-
-inline void CCitadelUserMsg_MusicQueue::SharedDtor() {
-  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
-}
-
-void CCitadelUserMsg_MusicQueue::SetCachedSize(int size) const {
-  _impl_._cached_size_.Set(size);
-}
-
-void CCitadelUserMsg_MusicQueue::Clear() {
-// @@protoc_insertion_point(message_clear_start:CCitadelUserMsg_MusicQueue)
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    ::memset(&_impl_.music_state_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.override_) -
-        reinterpret_cast<char*>(&_impl_.music_state_)) + sizeof(_impl_.override_));
-  }
-  _impl_._has_bits_.Clear();
-  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-}
-
-const char* CCitadelUserMsg_MusicQueue::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
-#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
-  _Internal::HasBits has_bits{};
-  while (!ctx->Done(&ptr)) {
-    uint32_t tag;
-    ptr = ::_pbi::ReadTag(ptr, &tag);
-    switch (tag >> 3) {
-      // optional int32 music_state = 1;
-      case 1:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
-          _Internal::set_has_music_state(&has_bits);
-          _impl_.music_state_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      // optional bool override = 2;
-      case 2:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 16)) {
-          _Internal::set_has_override(&has_bits);
-          _impl_.override_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
-        } else
-          goto handle_unusual;
-        continue;
-      default:
-        goto handle_unusual;
-    }  // switch
-  handle_unusual:
-    if ((tag == 0) || ((tag & 7) == 4)) {
-      CHK_(ptr);
-      ctx->SetLastTag(tag);
-      goto message_done;
-    }
-    ptr = UnknownFieldParse(
-        tag,
-        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
-        ptr, ctx);
-    CHK_(ptr != nullptr);
-  }  // while
-message_done:
-  _impl_._has_bits_.Or(has_bits);
-  return ptr;
-failure:
-  ptr = nullptr;
-  goto message_done;
-#undef CHK_
-}
-
-uint8_t* CCitadelUserMsg_MusicQueue::_InternalSerialize(
-    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CCitadelUserMsg_MusicQueue)
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  // optional int32 music_state = 1;
-  if (cached_has_bits & 0x00000001u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteInt32ToArray(1, this->_internal_music_state(), target);
-  }
-
-  // optional bool override = 2;
-  if (cached_has_bits & 0x00000002u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(2, this->_internal_override(), target);
-  }
-
-  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
-    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
-        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
-  }
-  // @@protoc_insertion_point(serialize_to_array_end:CCitadelUserMsg_MusicQueue)
-  return target;
-}
-
-size_t CCitadelUserMsg_MusicQueue::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CCitadelUserMsg_MusicQueue)
-  size_t total_size = 0;
-
-  uint32_t cached_has_bits = 0;
-  // Prevent compiler warnings about cached_has_bits being unused
-  (void) cached_has_bits;
-
-  cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    // optional int32 music_state = 1;
-    if (cached_has_bits & 0x00000001u) {
-      total_size += ::_pbi::WireFormatLite::Int32SizePlusOne(this->_internal_music_state());
-    }
-
-    // optional bool override = 2;
-    if (cached_has_bits & 0x00000002u) {
-      total_size += 1 + 1;
-    }
-
-  }
-  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
-}
-
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CCitadelUserMsg_MusicQueue::_class_data_ = {
-    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CCitadelUserMsg_MusicQueue::MergeImpl
-};
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CCitadelUserMsg_MusicQueue::GetClassData() const { return &_class_data_; }
-
-
-void CCitadelUserMsg_MusicQueue::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CCitadelUserMsg_MusicQueue*>(&to_msg);
-  auto& from = static_cast<const CCitadelUserMsg_MusicQueue&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CCitadelUserMsg_MusicQueue)
-  GOOGLE_DCHECK_NE(&from, _this);
-  uint32_t cached_has_bits = 0;
-  (void) cached_has_bits;
-
-  cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000003u) {
-    if (cached_has_bits & 0x00000001u) {
-      _this->_impl_.music_state_ = from._impl_.music_state_;
-    }
-    if (cached_has_bits & 0x00000002u) {
-      _this->_impl_.override_ = from._impl_.override_;
-    }
-    _this->_impl_._has_bits_[0] |= cached_has_bits;
-  }
-  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
-}
-
-void CCitadelUserMsg_MusicQueue::CopyFrom(const CCitadelUserMsg_MusicQueue& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CCitadelUserMsg_MusicQueue)
-  if (&from == this) return;
-  Clear();
-  MergeFrom(from);
-}
-
-bool CCitadelUserMsg_MusicQueue::IsInitialized() const {
-  return true;
-}
-
-void CCitadelUserMsg_MusicQueue::InternalSwap(CCitadelUserMsg_MusicQueue* other) {
-  using std::swap;
-  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
-  swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
-  ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_MusicQueue, _impl_.override_)
-      + sizeof(CCitadelUserMsg_MusicQueue::_impl_.override_)
-      - PROTOBUF_FIELD_OFFSET(CCitadelUserMsg_MusicQueue, _impl_.music_state_)>(
-          reinterpret_cast<char*>(&_impl_.music_state_),
-          reinterpret_cast<char*>(&other->_impl_.music_state_));
-}
-
-::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_MusicQueue::GetMetadata() const {
-  return ::_pbi::AssignDescriptors(
-      &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[68]);
-}
-
-// ===================================================================
-
 class CCitadelUserMsg_AG2ParamTrigger::_Internal {
  public:
   using HasBits = decltype(std::declval<CCitadelUserMsg_AG2ParamTrigger>()._impl_._has_bits_);
@@ -24772,7 +24508,7 @@ void CCitadelUserMsg_AG2ParamTrigger::InternalSwap(CCitadelUserMsg_AG2ParamTrigg
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_AG2ParamTrigger::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[69]);
+      file_level_metadata_citadel_5fusermessages_2eproto[68]);
 }
 
 // ===================================================================
@@ -25021,7 +24757,7 @@ void CCitadelUserMsg_EntityPortalled::InternalSwap(CCitadelUserMsg_EntityPortall
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_EntityPortalled::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[70]);
+      file_level_metadata_citadel_5fusermessages_2eproto[69]);
 }
 
 // ===================================================================
@@ -25314,7 +25050,7 @@ void CCitadelUserMsg_StreetBrawlScoring::InternalSwap(CCitadelUserMsg_StreetBraw
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_StreetBrawlScoring::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[71]);
+      file_level_metadata_citadel_5fusermessages_2eproto[70]);
 }
 
 // ===================================================================
@@ -25721,7 +25457,7 @@ void CCitadelUserMsg_HudGameAnnouncement::InternalSwap(CCitadelUserMsg_HudGameAn
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_HudGameAnnouncement::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[72]);
+      file_level_metadata_citadel_5fusermessages_2eproto[71]);
 }
 
 // ===================================================================
@@ -26012,7 +25748,7 @@ void CCitadelUserMessage_ImportantAbilityUsed::InternalSwap(CCitadelUserMessage_
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMessage_ImportantAbilityUsed::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[73]);
+      file_level_metadata_citadel_5fusermessages_2eproto[72]);
 }
 
 // ===================================================================
@@ -26200,7 +25936,7 @@ void CCitadelUserMsg_BannedHeroes::InternalSwap(CCitadelUserMsg_BannedHeroes* ot
 ::PROTOBUF_NAMESPACE_ID::Metadata CCitadelUserMsg_BannedHeroes::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_citadel_5fusermessages_2eproto_getter, &descriptor_table_citadel_5fusermessages_2eproto_once,
-      file_level_metadata_citadel_5fusermessages_2eproto[74]);
+      file_level_metadata_citadel_5fusermessages_2eproto[73]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -26476,10 +26212,6 @@ Arena::CreateMaybeMessage< ::CCitadelUserMessage_ItemPurchaseNotification >(Aren
 template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_SeasonalKill*
 Arena::CreateMaybeMessage< ::CCitadelUserMsg_SeasonalKill >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CCitadelUserMsg_SeasonalKill >(arena);
-}
-template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_MusicQueue*
-Arena::CreateMaybeMessage< ::CCitadelUserMsg_MusicQueue >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CCitadelUserMsg_MusicQueue >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CCitadelUserMsg_AG2ParamTrigger*
 Arena::CreateMaybeMessage< ::CCitadelUserMsg_AG2ParamTrigger >(Arena* arena) {

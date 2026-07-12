@@ -188,9 +188,6 @@ extern CCitadelUserMsg_MapPingDefaultTypeInternal _CCitadelUserMsg_MapPing_defau
 class CCitadelUserMsg_MidBossSpawned;
 struct CCitadelUserMsg_MidBossSpawnedDefaultTypeInternal;
 extern CCitadelUserMsg_MidBossSpawnedDefaultTypeInternal _CCitadelUserMsg_MidBossSpawned_default_instance_;
-class CCitadelUserMsg_MusicQueue;
-struct CCitadelUserMsg_MusicQueueDefaultTypeInternal;
-extern CCitadelUserMsg_MusicQueueDefaultTypeInternal _CCitadelUserMsg_MusicQueue_default_instance_;
 class CCitadelUserMsg_ObstructedShotFired;
 struct CCitadelUserMsg_ObstructedShotFiredDefaultTypeInternal;
 extern CCitadelUserMsg_ObstructedShotFiredDefaultTypeInternal _CCitadelUserMsg_ObstructedShotFired_default_instance_;
@@ -322,7 +319,6 @@ template<> ::CCitadelUserMsg_KillStreak* Arena::CreateMaybeMessage<::CCitadelUse
 template<> ::CCitadelUserMsg_MapLine* Arena::CreateMaybeMessage<::CCitadelUserMsg_MapLine>(Arena*);
 template<> ::CCitadelUserMsg_MapPing* Arena::CreateMaybeMessage<::CCitadelUserMsg_MapPing>(Arena*);
 template<> ::CCitadelUserMsg_MidBossSpawned* Arena::CreateMaybeMessage<::CCitadelUserMsg_MidBossSpawned>(Arena*);
-template<> ::CCitadelUserMsg_MusicQueue* Arena::CreateMaybeMessage<::CCitadelUserMsg_MusicQueue>(Arena*);
 template<> ::CCitadelUserMsg_ObstructedShotFired* Arena::CreateMaybeMessage<::CCitadelUserMsg_ObstructedShotFired>(Arena*);
 template<> ::CCitadelUserMsg_ParticipantSetLibraryStackFields* Arena::CreateMaybeMessage<::CCitadelUserMsg_ParticipantSetLibraryStackFields>(Arena*);
 template<> ::CCitadelUserMsg_ParticipantSetSoundEventParams* Arena::CreateMaybeMessage<::CCitadelUserMsg_ParticipantSetSoundEventParams>(Arena*);
@@ -433,7 +429,6 @@ enum CitadelUserMessageIds : int {
   k_EUserMsg_MeleeHit = 355,
   k_EUserMsg_FlexSlotUnlocked = 356,
   k_EUserMsg_SeasonalKill = 357,
-  k_EUserMsg_MusicQueue = 358,
   k_EUserMsg_AG2ParamTrigger = 359,
   k_EUserMsg_ItemPurchaseNotification = 360,
   k_EUserMsg_EntityPortalled = 361,
@@ -490,11 +485,12 @@ enum ChatMsgPingMarkerInfo : int {
   k_EPingMarkerInfo_HideMarkerAndSound = 2,
   k_EPingMarkerInfo_OnlyShowMarker = 3,
   k_EPingMarkerInfo_OnlyPlaySound = 4,
-  k_EPingMarkerInfo_OnlyMiniMap = 5
+  k_EPingMarkerInfo_OnlyMiniMap = 5,
+  k_EPingMarkerInfo_NoMarkerYesSoundMiniMap = 6
 };
 bool ChatMsgPingMarkerInfo_IsValid(int value);
 constexpr ChatMsgPingMarkerInfo ChatMsgPingMarkerInfo_MIN = k_EPingMarkerInfo_ShowMarkerAndSound;
-constexpr ChatMsgPingMarkerInfo ChatMsgPingMarkerInfo_MAX = k_EPingMarkerInfo_OnlyMiniMap;
+constexpr ChatMsgPingMarkerInfo ChatMsgPingMarkerInfo_MAX = k_EPingMarkerInfo_NoMarkerYesSoundMiniMap;
 constexpr int ChatMsgPingMarkerInfo_ARRAYSIZE = ChatMsgPingMarkerInfo_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ChatMsgPingMarkerInfo_descriptor();
@@ -15290,181 +15286,6 @@ class CCitadelUserMsg_SeasonalKill final :
 };
 // -------------------------------------------------------------------
 
-class CCitadelUserMsg_MusicQueue final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCitadelUserMsg_MusicQueue) */ {
- public:
-  inline CCitadelUserMsg_MusicQueue() : CCitadelUserMsg_MusicQueue(nullptr) {}
-  ~CCitadelUserMsg_MusicQueue() override;
-  explicit PROTOBUF_CONSTEXPR CCitadelUserMsg_MusicQueue(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
-
-  CCitadelUserMsg_MusicQueue(const CCitadelUserMsg_MusicQueue& from);
-  CCitadelUserMsg_MusicQueue(CCitadelUserMsg_MusicQueue&& from) noexcept
-    : CCitadelUserMsg_MusicQueue() {
-    *this = ::std::move(from);
-  }
-
-  inline CCitadelUserMsg_MusicQueue& operator=(const CCitadelUserMsg_MusicQueue& from) {
-    CopyFrom(from);
-    return *this;
-  }
-  inline CCitadelUserMsg_MusicQueue& operator=(CCitadelUserMsg_MusicQueue&& from) noexcept {
-    if (this == &from) return *this;
-    if (GetOwningArena() == from.GetOwningArena()
-  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
-        && GetOwningArena() != nullptr
-  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
-    ) {
-      InternalSwap(&from);
-    } else {
-      CopyFrom(from);
-    }
-    return *this;
-  }
-
-  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
-    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
-  }
-  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
-    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
-  }
-
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
-    return GetDescriptor();
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
-    return default_instance().GetMetadata().descriptor;
-  }
-  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
-    return default_instance().GetMetadata().reflection;
-  }
-  static const CCitadelUserMsg_MusicQueue& default_instance() {
-    return *internal_default_instance();
-  }
-  static inline const CCitadelUserMsg_MusicQueue* internal_default_instance() {
-    return reinterpret_cast<const CCitadelUserMsg_MusicQueue*>(
-               &_CCitadelUserMsg_MusicQueue_default_instance_);
-  }
-  static constexpr int kIndexInFileMessages =
-    68;
-
-  friend void swap(CCitadelUserMsg_MusicQueue& a, CCitadelUserMsg_MusicQueue& b) {
-    a.Swap(&b);
-  }
-  inline void Swap(CCitadelUserMsg_MusicQueue* other) {
-    if (other == this) return;
-  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() != nullptr &&
-        GetOwningArena() == other->GetOwningArena()) {
-   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
-    if (GetOwningArena() == other->GetOwningArena()) {
-  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
-      InternalSwap(other);
-    } else {
-      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
-    }
-  }
-  void UnsafeArenaSwap(CCitadelUserMsg_MusicQueue* other) {
-    if (other == this) return;
-    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
-    InternalSwap(other);
-  }
-
-  // implements Message ----------------------------------------------
-
-  CCitadelUserMsg_MusicQueue* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CCitadelUserMsg_MusicQueue>(arena);
-  }
-  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CCitadelUserMsg_MusicQueue& from);
-  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CCitadelUserMsg_MusicQueue& from) {
-    CCitadelUserMsg_MusicQueue::MergeImpl(*this, from);
-  }
-  private:
-  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
-  public:
-  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
-  bool IsInitialized() const final;
-
-  size_t ByteSizeLong() const final;
-  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
-  uint8_t* _InternalSerialize(
-      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
-  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
-
-  private:
-  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
-  void SharedDtor();
-  void SetCachedSize(int size) const final;
-  void InternalSwap(CCitadelUserMsg_MusicQueue* other);
-
-  private:
-  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
-  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CCitadelUserMsg_MusicQueue";
-  }
-  protected:
-  explicit CCitadelUserMsg_MusicQueue(::PROTOBUF_NAMESPACE_ID::Arena* arena,
-                       bool is_message_owned = false);
-  public:
-
-  static const ClassData _class_data_;
-  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
-
-  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
-
-  // nested types ----------------------------------------------------
-
-  // accessors -------------------------------------------------------
-
-  enum : int {
-    kMusicStateFieldNumber = 1,
-    kOverrideFieldNumber = 2,
-  };
-  // optional int32 music_state = 1;
-  bool has_music_state() const;
-  private:
-  bool _internal_has_music_state() const;
-  public:
-  void clear_music_state();
-  int32_t music_state() const;
-  void set_music_state(int32_t value);
-  private:
-  int32_t _internal_music_state() const;
-  void _internal_set_music_state(int32_t value);
-  public:
-
-  // optional bool override = 2;
-  bool has_override() const;
-  private:
-  bool _internal_has_override() const;
-  public:
-  void clear_override();
-  bool override() const;
-  void set_override(bool value);
-  private:
-  bool _internal_override() const;
-  void _internal_set_override(bool value);
-  public:
-
-  // @@protoc_insertion_point(class_scope:CCitadelUserMsg_MusicQueue)
- private:
-  class _Internal;
-
-  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
-  typedef void InternalArenaConstructable_;
-  typedef void DestructorSkippable_;
-  struct Impl_ {
-    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
-    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
-    int32_t music_state_;
-    bool override_;
-  };
-  union { Impl_ _impl_; };
-  friend struct ::TableStruct_citadel_5fusermessages_2eproto;
-};
-// -------------------------------------------------------------------
-
 class CCitadelUserMsg_AG2ParamTrigger final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCitadelUserMsg_AG2ParamTrigger) */ {
  public:
@@ -15520,7 +15341,7 @@ class CCitadelUserMsg_AG2ParamTrigger final :
                &_CCitadelUserMsg_AG2ParamTrigger_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    69;
+    68;
 
   friend void swap(CCitadelUserMsg_AG2ParamTrigger& a, CCitadelUserMsg_AG2ParamTrigger& b) {
     a.Swap(&b);
@@ -15705,7 +15526,7 @@ class CCitadelUserMsg_EntityPortalled final :
                &_CCitadelUserMsg_EntityPortalled_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    70;
+    69;
 
   friend void swap(CCitadelUserMsg_EntityPortalled& a, CCitadelUserMsg_EntityPortalled& b) {
     a.Swap(&b);
@@ -15885,7 +15706,7 @@ class CCitadelUserMsg_StreetBrawlScoring final :
                &_CCitadelUserMsg_StreetBrawlScoring_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    71;
+    70;
 
   friend void swap(CCitadelUserMsg_StreetBrawlScoring& a, CCitadelUserMsg_StreetBrawlScoring& b) {
     a.Swap(&b);
@@ -16090,7 +15911,7 @@ class CCitadelUserMsg_HudGameAnnouncement final :
                &_CCitadelUserMsg_HudGameAnnouncement_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    72;
+    71;
 
   friend void swap(CCitadelUserMsg_HudGameAnnouncement& a, CCitadelUserMsg_HudGameAnnouncement& b) {
     a.Swap(&b);
@@ -16353,7 +16174,7 @@ class CCitadelUserMessage_ImportantAbilityUsed final :
                &_CCitadelUserMessage_ImportantAbilityUsed_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    73;
+    72;
 
   friend void swap(CCitadelUserMessage_ImportantAbilityUsed& a, CCitadelUserMessage_ImportantAbilityUsed& b) {
     a.Swap(&b);
@@ -16548,7 +16369,7 @@ class CCitadelUserMsg_BannedHeroes final :
                &_CCitadelUserMsg_BannedHeroes_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    74;
+    73;
 
   friend void swap(CCitadelUserMsg_BannedHeroes& a, CCitadelUserMsg_BannedHeroes& b) {
     a.Swap(&b);
@@ -27815,66 +27636,6 @@ inline void CCitadelUserMsg_SeasonalKill::set_victim(uint32_t value) {
 
 // -------------------------------------------------------------------
 
-// CCitadelUserMsg_MusicQueue
-
-// optional int32 music_state = 1;
-inline bool CCitadelUserMsg_MusicQueue::_internal_has_music_state() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
-  return value;
-}
-inline bool CCitadelUserMsg_MusicQueue::has_music_state() const {
-  return _internal_has_music_state();
-}
-inline void CCitadelUserMsg_MusicQueue::clear_music_state() {
-  _impl_.music_state_ = 0;
-  _impl_._has_bits_[0] &= ~0x00000001u;
-}
-inline int32_t CCitadelUserMsg_MusicQueue::_internal_music_state() const {
-  return _impl_.music_state_;
-}
-inline int32_t CCitadelUserMsg_MusicQueue::music_state() const {
-  // @@protoc_insertion_point(field_get:CCitadelUserMsg_MusicQueue.music_state)
-  return _internal_music_state();
-}
-inline void CCitadelUserMsg_MusicQueue::_internal_set_music_state(int32_t value) {
-  _impl_._has_bits_[0] |= 0x00000001u;
-  _impl_.music_state_ = value;
-}
-inline void CCitadelUserMsg_MusicQueue::set_music_state(int32_t value) {
-  _internal_set_music_state(value);
-  // @@protoc_insertion_point(field_set:CCitadelUserMsg_MusicQueue.music_state)
-}
-
-// optional bool override = 2;
-inline bool CCitadelUserMsg_MusicQueue::_internal_has_override() const {
-  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
-  return value;
-}
-inline bool CCitadelUserMsg_MusicQueue::has_override() const {
-  return _internal_has_override();
-}
-inline void CCitadelUserMsg_MusicQueue::clear_override() {
-  _impl_.override_ = false;
-  _impl_._has_bits_[0] &= ~0x00000002u;
-}
-inline bool CCitadelUserMsg_MusicQueue::_internal_override() const {
-  return _impl_.override_;
-}
-inline bool CCitadelUserMsg_MusicQueue::override() const {
-  // @@protoc_insertion_point(field_get:CCitadelUserMsg_MusicQueue.override)
-  return _internal_override();
-}
-inline void CCitadelUserMsg_MusicQueue::_internal_set_override(bool value) {
-  _impl_._has_bits_[0] |= 0x00000002u;
-  _impl_.override_ = value;
-}
-inline void CCitadelUserMsg_MusicQueue::set_override(bool value) {
-  _internal_set_override(value);
-  // @@protoc_insertion_point(field_set:CCitadelUserMsg_MusicQueue.override)
-}
-
-// -------------------------------------------------------------------
-
 // CCitadelUserMsg_AG2ParamTrigger
 
 // optional string param_id = 1;
@@ -28795,8 +28556,6 @@ CCitadelUserMsg_BannedHeroes::mutable_banned_hero_ids() {
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
-// -------------------------------------------------------------------
-
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

@@ -22,6 +22,8 @@ namespace SDK
 	CSoundOpSystem* Interfaces::g_pSoundOpSystem = nullptr;
 
 	CUserCmd** Pointers::g_ppCUserCmd = nullptr;
+	CVPhys2World** Pointers::g_ppCVPhys2World = nullptr;
+	CGlobalVarsBase** Pointers::g_ppCGlobalVarsBase = nullptr;
 
 	auto Interfaces::SchemaSystem() -> CSchemaSystem*
 	{
@@ -140,5 +142,35 @@ GetGameEntitySystemPointer:;
 		}
 
 		return g_ppCUserCmd;
+	}
+
+	auto Pointers::GetCVPhys2World() -> CVPhys2World**
+	{
+		if ( !g_ppCVPhys2World )
+		{
+			auto ppCVPhys2World = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B 0D ? ? ? ? 4C 8D 44 24 ? F3 44 0F 11 64 24" ) ) );
+
+			if ( !ppCVPhys2World )
+				return nullptr;
+
+			g_ppCVPhys2World = *GetPtrAddress<CVPhys2World***>( ppCVPhys2World );
+		}
+
+		return g_ppCVPhys2World;
+	}
+
+	auto Pointers::GlobalVarsBase() -> CGlobalVarsBase*
+	{
+		if ( !g_ppCGlobalVarsBase )
+		{
+			auto ppCGlobalVarsBase = reinterpret_cast<uintptr_t>( FindPattern( CLIENT_DLL , XorStr( "48 8B 05 ? ? ? ? 44 8B B7 DC 00 00 00 8B 70 04 B8 FF FF 00 00 89 B7 DC 00 00 00 66 01 43 04" ) ) );
+
+			if ( !ppCGlobalVarsBase )
+				return nullptr;
+
+			g_ppCGlobalVarsBase = GetPtrAddress<CGlobalVarsBase**>( ppCGlobalVarsBase );
+		}
+
+		return *g_ppCGlobalVarsBase;
 	}
 }

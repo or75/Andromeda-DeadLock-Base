@@ -496,11 +496,12 @@ enum CMsgMatchMetaDataContents_EGoldSource : int {
   CMsgMatchMetaDataContents_EGoldSource_k_eAbilityAssassinate = 9,
   CMsgMatchMetaDataContents_EGoldSource_k_eItemTrophyCollector = 10,
   CMsgMatchMetaDataContents_EGoldSource_k_eItemCultistSacrifice = 11,
-  CMsgMatchMetaDataContents_EGoldSource_k_eBreakable = 12
+  CMsgMatchMetaDataContents_EGoldSource_k_eBreakable = 12,
+  CMsgMatchMetaDataContents_EGoldSource_k_eItemGooseEgg = 13
 };
 bool CMsgMatchMetaDataContents_EGoldSource_IsValid(int value);
 constexpr CMsgMatchMetaDataContents_EGoldSource CMsgMatchMetaDataContents_EGoldSource_EGoldSource_MIN = CMsgMatchMetaDataContents_EGoldSource_k_ePlayers;
-constexpr CMsgMatchMetaDataContents_EGoldSource CMsgMatchMetaDataContents_EGoldSource_EGoldSource_MAX = CMsgMatchMetaDataContents_EGoldSource_k_eBreakable;
+constexpr CMsgMatchMetaDataContents_EGoldSource CMsgMatchMetaDataContents_EGoldSource_EGoldSource_MAX = CMsgMatchMetaDataContents_EGoldSource_k_eItemGooseEgg;
 constexpr int CMsgMatchMetaDataContents_EGoldSource_EGoldSource_ARRAYSIZE = CMsgMatchMetaDataContents_EGoldSource_EGoldSource_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgMatchMetaDataContents_EGoldSource_descriptor();
@@ -847,11 +848,12 @@ enum ECitadelGameMode : int {
   k_ECitadelGameMode_1v1Test = 2,
   k_ECitadelGameMode_Sandbox = 3,
   k_ECitadelGameMode_StreetBrawl = 4,
-  k_ECitadelGameMode_ExploreNYC = 5
+  k_ECitadelGameMode_ExploreNYC = 5,
+  k_ECitadelGameMode_Internal = 6
 };
 bool ECitadelGameMode_IsValid(int value);
 constexpr ECitadelGameMode ECitadelGameMode_MIN = k_ECitadelGameMode_Invalid;
-constexpr ECitadelGameMode ECitadelGameMode_MAX = k_ECitadelGameMode_ExploreNYC;
+constexpr ECitadelGameMode ECitadelGameMode_MAX = k_ECitadelGameMode_Internal;
 constexpr int ECitadelGameMode_ARRAYSIZE = ECitadelGameMode_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECitadelGameMode_descriptor();
@@ -8125,6 +8127,7 @@ class CMsgMatchMetaDataContents_Items final :
     kSoldTimeSFieldNumber = 4,
     kFlagsFieldNumber = 5,
     kImbuedAbilityIdFieldNumber = 6,
+    kUpgradeInfoFieldNumber = 7,
   };
   // optional uint32 game_time_s = 1;
   bool has_game_time_s() const;
@@ -8204,6 +8207,19 @@ class CMsgMatchMetaDataContents_Items final :
   void _internal_set_imbued_ability_id(uint32_t value);
   public:
 
+  // optional uint32 upgrade_info = 7;
+  bool has_upgrade_info() const;
+  private:
+  bool _internal_has_upgrade_info() const;
+  public:
+  void clear_upgrade_info();
+  uint32_t upgrade_info() const;
+  void set_upgrade_info(uint32_t value);
+  private:
+  uint32_t _internal_upgrade_info() const;
+  void _internal_set_upgrade_info(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgMatchMetaDataContents.Items)
  private:
   class _Internal;
@@ -8220,6 +8236,7 @@ class CMsgMatchMetaDataContents_Items final :
     uint32_t sold_time_s_;
     uint32_t flags_;
     uint32_t imbued_ability_id_;
+    uint32_t upgrade_info_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fcommon_2eproto;
@@ -10811,7 +10828,6 @@ class CMsgMatchMetaDataContents_Players final :
     kLastHitsFieldNumber = 13,
     kDeniesFieldNumber = 14,
     kAbilityPointsFieldNumber = 15,
-    kPartyFieldNumber = 16,
     kAssignedLaneFieldNumber = 17,
     kLevelFieldNumber = 18,
     kAbandonMatchTimeSFieldNumber = 23,
@@ -11164,19 +11180,6 @@ class CMsgMatchMetaDataContents_Players final :
   void _internal_set_ability_points(uint32_t value);
   public:
 
-  // optional uint32 party = 16;
-  bool has_party() const;
-  private:
-  bool _internal_has_party() const;
-  public:
-  void clear_party();
-  uint32_t party() const;
-  void set_party(uint32_t value);
-  private:
-  uint32_t _internal_party() const;
-  void _internal_set_party(uint32_t value);
-  public:
-
   // optional uint32 assigned_lane = 17;
   bool has_assigned_lane() const;
   private:
@@ -11287,7 +11290,6 @@ class CMsgMatchMetaDataContents_Players final :
     uint32_t last_hits_;
     uint32_t denies_;
     uint32_t ability_points_;
-    uint32_t party_;
     uint32_t assigned_lane_;
     uint32_t level_;
     uint32_t abandon_match_time_s_;
@@ -13382,6 +13384,8 @@ class CMsgMatchMetaDataContents final :
     CMsgMatchMetaDataContents_EGoldSource_k_eItemCultistSacrifice;
   static constexpr EGoldSource k_eBreakable =
     CMsgMatchMetaDataContents_EGoldSource_k_eBreakable;
+  static constexpr EGoldSource k_eItemGooseEgg =
+    CMsgMatchMetaDataContents_EGoldSource_k_eItemGooseEgg;
   static inline bool EGoldSource_IsValid(int value) {
     return CMsgMatchMetaDataContents_EGoldSource_IsValid(value);
   }
@@ -22384,6 +22388,34 @@ inline void CMsgMatchMetaDataContents_Items::set_imbued_ability_id(uint32_t valu
   // @@protoc_insertion_point(field_set:CMsgMatchMetaDataContents.Items.imbued_ability_id)
 }
 
+// optional uint32 upgrade_info = 7;
+inline bool CMsgMatchMetaDataContents_Items::_internal_has_upgrade_info() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CMsgMatchMetaDataContents_Items::has_upgrade_info() const {
+  return _internal_has_upgrade_info();
+}
+inline void CMsgMatchMetaDataContents_Items::clear_upgrade_info() {
+  _impl_.upgrade_info_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline uint32_t CMsgMatchMetaDataContents_Items::_internal_upgrade_info() const {
+  return _impl_.upgrade_info_;
+}
+inline uint32_t CMsgMatchMetaDataContents_Items::upgrade_info() const {
+  // @@protoc_insertion_point(field_get:CMsgMatchMetaDataContents.Items.upgrade_info)
+  return _internal_upgrade_info();
+}
+inline void CMsgMatchMetaDataContents_Items::_internal_set_upgrade_info(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.upgrade_info_ = value;
+}
+inline void CMsgMatchMetaDataContents_Items::set_upgrade_info(uint32_t value) {
+  _internal_set_upgrade_info(value);
+  // @@protoc_insertion_point(field_set:CMsgMatchMetaDataContents.Items.upgrade_info)
+}
+
 // -------------------------------------------------------------------
 
 // CMsgMatchMetaDataContents_Ping
@@ -25030,37 +25062,9 @@ inline void CMsgMatchMetaDataContents_Players::set_ability_points(uint32_t value
   // @@protoc_insertion_point(field_set:CMsgMatchMetaDataContents.Players.ability_points)
 }
 
-// optional uint32 party = 16;
-inline bool CMsgMatchMetaDataContents_Players::_internal_has_party() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
-  return value;
-}
-inline bool CMsgMatchMetaDataContents_Players::has_party() const {
-  return _internal_has_party();
-}
-inline void CMsgMatchMetaDataContents_Players::clear_party() {
-  _impl_.party_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00001000u;
-}
-inline uint32_t CMsgMatchMetaDataContents_Players::_internal_party() const {
-  return _impl_.party_;
-}
-inline uint32_t CMsgMatchMetaDataContents_Players::party() const {
-  // @@protoc_insertion_point(field_get:CMsgMatchMetaDataContents.Players.party)
-  return _internal_party();
-}
-inline void CMsgMatchMetaDataContents_Players::_internal_set_party(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
-  _impl_.party_ = value;
-}
-inline void CMsgMatchMetaDataContents_Players::set_party(uint32_t value) {
-  _internal_set_party(value);
-  // @@protoc_insertion_point(field_set:CMsgMatchMetaDataContents.Players.party)
-}
-
 // optional uint32 assigned_lane = 17;
 inline bool CMsgMatchMetaDataContents_Players::_internal_has_assigned_lane() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CMsgMatchMetaDataContents_Players::has_assigned_lane() const {
@@ -25068,7 +25072,7 @@ inline bool CMsgMatchMetaDataContents_Players::has_assigned_lane() const {
 }
 inline void CMsgMatchMetaDataContents_Players::clear_assigned_lane() {
   _impl_.assigned_lane_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline uint32_t CMsgMatchMetaDataContents_Players::_internal_assigned_lane() const {
   return _impl_.assigned_lane_;
@@ -25078,7 +25082,7 @@ inline uint32_t CMsgMatchMetaDataContents_Players::assigned_lane() const {
   return _internal_assigned_lane();
 }
 inline void CMsgMatchMetaDataContents_Players::_internal_set_assigned_lane(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.assigned_lane_ = value;
 }
 inline void CMsgMatchMetaDataContents_Players::set_assigned_lane(uint32_t value) {
@@ -25088,7 +25092,7 @@ inline void CMsgMatchMetaDataContents_Players::set_assigned_lane(uint32_t value)
 
 // optional uint32 level = 18;
 inline bool CMsgMatchMetaDataContents_Players::_internal_has_level() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CMsgMatchMetaDataContents_Players::has_level() const {
@@ -25096,7 +25100,7 @@ inline bool CMsgMatchMetaDataContents_Players::has_level() const {
 }
 inline void CMsgMatchMetaDataContents_Players::clear_level() {
   _impl_.level_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline uint32_t CMsgMatchMetaDataContents_Players::_internal_level() const {
   return _impl_.level_;
@@ -25106,7 +25110,7 @@ inline uint32_t CMsgMatchMetaDataContents_Players::level() const {
   return _internal_level();
 }
 inline void CMsgMatchMetaDataContents_Players::_internal_set_level(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.level_ = value;
 }
 inline void CMsgMatchMetaDataContents_Players::set_level(uint32_t value) {
@@ -25283,7 +25287,7 @@ CMsgMatchMetaDataContents_Players::book_rewards() const {
 
 // optional uint32 abandon_match_time_s = 23;
 inline bool CMsgMatchMetaDataContents_Players::_internal_has_abandon_match_time_s() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CMsgMatchMetaDataContents_Players::has_abandon_match_time_s() const {
@@ -25291,7 +25295,7 @@ inline bool CMsgMatchMetaDataContents_Players::has_abandon_match_time_s() const 
 }
 inline void CMsgMatchMetaDataContents_Players::clear_abandon_match_time_s() {
   _impl_.abandon_match_time_s_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline uint32_t CMsgMatchMetaDataContents_Players::_internal_abandon_match_time_s() const {
   return _impl_.abandon_match_time_s_;
@@ -25301,7 +25305,7 @@ inline uint32_t CMsgMatchMetaDataContents_Players::abandon_match_time_s() const 
   return _internal_abandon_match_time_s();
 }
 inline void CMsgMatchMetaDataContents_Players::_internal_set_abandon_match_time_s(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.abandon_match_time_s_ = value;
 }
 inline void CMsgMatchMetaDataContents_Players::set_abandon_match_time_s(uint32_t value) {
@@ -25401,7 +25405,7 @@ inline void CMsgMatchMetaDataContents_Players::set_allocated_hero_data(::CMsgPla
 
 // optional bool rewards_eligible = 26;
 inline bool CMsgMatchMetaDataContents_Players::_internal_has_rewards_eligible() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CMsgMatchMetaDataContents_Players::has_rewards_eligible() const {
@@ -25409,7 +25413,7 @@ inline bool CMsgMatchMetaDataContents_Players::has_rewards_eligible() const {
 }
 inline void CMsgMatchMetaDataContents_Players::clear_rewards_eligible() {
   _impl_.rewards_eligible_ = false;
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline bool CMsgMatchMetaDataContents_Players::_internal_rewards_eligible() const {
   return _impl_.rewards_eligible_;
@@ -25419,7 +25423,7 @@ inline bool CMsgMatchMetaDataContents_Players::rewards_eligible() const {
   return _internal_rewards_eligible();
 }
 inline void CMsgMatchMetaDataContents_Players::_internal_set_rewards_eligible(bool value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.rewards_eligible_ = value;
 }
 inline void CMsgMatchMetaDataContents_Players::set_rewards_eligible(bool value) {
@@ -25509,7 +25513,7 @@ CMsgMatchMetaDataContents_Players::accolades() const {
 
 // optional uint32 mvp_rank = 28;
 inline bool CMsgMatchMetaDataContents_Players::_internal_has_mvp_rank() const {
-  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CMsgMatchMetaDataContents_Players::has_mvp_rank() const {
@@ -25517,7 +25521,7 @@ inline bool CMsgMatchMetaDataContents_Players::has_mvp_rank() const {
 }
 inline void CMsgMatchMetaDataContents_Players::clear_mvp_rank() {
   _impl_.mvp_rank_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
 }
 inline uint32_t CMsgMatchMetaDataContents_Players::_internal_mvp_rank() const {
   return _impl_.mvp_rank_;
@@ -25527,7 +25531,7 @@ inline uint32_t CMsgMatchMetaDataContents_Players::mvp_rank() const {
   return _internal_mvp_rank();
 }
 inline void CMsgMatchMetaDataContents_Players::_internal_set_mvp_rank(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00040000u;
+  _impl_._has_bits_[0] |= 0x00020000u;
   _impl_.mvp_rank_ = value;
 }
 inline void CMsgMatchMetaDataContents_Players::set_mvp_rank(uint32_t value) {
@@ -25537,7 +25541,7 @@ inline void CMsgMatchMetaDataContents_Players::set_mvp_rank(uint32_t value) {
 
 // optional bool earned_holiday_award_2025 = 29;
 inline bool CMsgMatchMetaDataContents_Players::_internal_has_earned_holiday_award_2025() const {
-  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CMsgMatchMetaDataContents_Players::has_earned_holiday_award_2025() const {
@@ -25545,7 +25549,7 @@ inline bool CMsgMatchMetaDataContents_Players::has_earned_holiday_award_2025() c
 }
 inline void CMsgMatchMetaDataContents_Players::clear_earned_holiday_award_2025() {
   _impl_.earned_holiday_award_2025_ = false;
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 inline bool CMsgMatchMetaDataContents_Players::_internal_earned_holiday_award_2025() const {
   return _impl_.earned_holiday_award_2025_;
@@ -25555,7 +25559,7 @@ inline bool CMsgMatchMetaDataContents_Players::earned_holiday_award_2025() const
   return _internal_earned_holiday_award_2025();
 }
 inline void CMsgMatchMetaDataContents_Players::_internal_set_earned_holiday_award_2025(bool value) {
-  _impl_._has_bits_[0] |= 0x00020000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.earned_holiday_award_2025_ = value;
 }
 inline void CMsgMatchMetaDataContents_Players::set_earned_holiday_award_2025(bool value) {

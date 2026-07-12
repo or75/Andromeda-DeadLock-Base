@@ -42,6 +42,8 @@ auto CSDK_Loader::LoadSDK() -> bool
 
 	// Pointers:
 	auto pCUserCmdArray = SDK::Pointers::GetFirstCUserCmdArray();
+	auto pCVPhys2World = SDK::Pointers::GetCVPhys2World();
+	auto pGlobalVarsBase = SDK::Pointers::GlobalVarsBase();
 	
 	// Return false if interface error
 	RETURN_FALSE_IF_INTERFACE_ERROR( pSchemaSystem );
@@ -52,6 +54,8 @@ auto CSDK_Loader::LoadSDK() -> bool
 
 	// Return false if pointer error
 	RETURN_FALSE_IF_POINTER_ERROR( pCUserCmdArray );
+	RETURN_FALSE_IF_POINTER_ERROR( pCVPhys2World );
+	RETURN_FALSE_IF_POINTER_ERROR( pGlobalVarsBase );
 	
 	// Log:
 #if LOG_SDK == 1
@@ -70,6 +74,8 @@ auto CSDK_Loader::LoadSDK() -> bool
 
 	// Pointers:
 	DEV_LOG( "[+] pCUserCmdArray: %p\n" , pCUserCmdArray );
+	DEV_LOG( "[+] pCVPhys2World: %p\n" , pCVPhys2World );
+	DEV_LOG( "[+] pGlobalVarsBase: %p\n" , pGlobalVarsBase );
 
 #endif
 

@@ -15,9 +15,11 @@ auto CFunctionList::OnInit() -> bool
 		&GetCUserCmdTick,
 		&GetCUserCmdArray,
 		&GetCUserCmdBySequenceNumber,
-		&C_EnvSky_Update,
 		&C_BaseEntity_GetBoneIdByName,
 		&C_BaseEntity_GetHitBoxSet,
+		&CVPhys2World_TraceShape,
+		&CTraceFilter_Constructor,
+		&KeyValues3_LoadKV3,
 	};
 
 	auto Searched = true;

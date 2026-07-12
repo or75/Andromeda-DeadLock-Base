@@ -29,9 +29,11 @@ public:
 	CBasePattern GetCUserCmdTick = { VmpStr( "GetCUserCmdTick" ) , VmpStr( "48 83 EC ? 4C 8B 0D ? ? ? ? 4C 8B DA" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern GetCUserCmdArray = { VmpStr( "GetCUserCmdArray" ) , VmpStr( "48 89 4C 24 ? 41 56 41 57" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern GetCUserCmdBySequenceNumber = { VmpStr( "GetCUserCmdBySequenceNumber" ) , VmpStr( "40 53 48 83 EC ? 8B DA E8 ? ? ? ? 4C 8B C0" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
-	CBasePattern C_EnvSky_Update = { VmpStr( "C_EnvSky::Update" ) , VmpStr( "40 53 48 83 EC 30 48 8B D9 E8 ? ? ? ? 48 8B 43" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_BaseEntity_GetBoneIdByName = { VmpStr( "C_BaseEntity::GetBoneIdByName" ) , VmpStr( "40 53 48 83 EC 20 48 8B 89 ? ? ? ? 48 8B DA 48 8B 01 FF 50 ? 48 8B C8" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
 	CBasePattern C_BaseEntity_GetHitBoxSet = { VmpStr( "C_BaseEntity::GetHitBoxSet" ) , VmpStr( "48 89 5C 24 ? 48 89 74 24 ? 57 48 81 EC 40 01 00 00 8B DA" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern CVPhys2World_TraceShape = { VmpStr( "CVPhys2World::TraceShape" ) , VmpStr( "48 89 5C 24 ? 48 89 4C 24 ? 55 56 41 54" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern CTraceFilter_Constructor = { VmpStr( "CTraceFilter::Constructor" ) , VmpStr( "48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 0F B6 41 ? 33 FF" ) , CLIENT_DLL , 0 , SEARCH_TYPE_NONE };
+	CBasePattern KeyValues3_LoadKV3 = { VmpStr( "KeyValues3::LoadKV3" ) , VmpStr( "?LoadKV3@@YA_NPEAVKeyValues3@@PEAVCUtlString@@PEBDAEBUKV3ID_t@@2I@Z" ) , TIER0_DLL , 0 , SEARCH_TYPE_PROC };
 };
 
 auto GetFunctionList() -> CFunctionList*;

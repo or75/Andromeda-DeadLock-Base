@@ -30,6 +30,19 @@ auto CAndromedaMenu::InitColors() -> void
 	m_ColorsVisual[XorStr( "Visual" )] =
 	{
 		{ &Settings::Colors::Visual::SoundStepEsp[0] , XorStr( "Sound Step Esp" ) },
+		{ &Settings::Colors::Visual::HeroEnemy[0] , XorStr( "Hero Enemy" ) },
+		{ &Settings::Colors::Visual::HeroEnemyVisible[0] , XorStr( "Hero Enemy Visible" ) },
+		{ &Settings::Colors::Visual::HeroTeam[0] , XorStr( "Hero Team" ) },
+		{ &Settings::Colors::Visual::HeroTeamVisible[0] , XorStr( "Hero Team Visible" ) },
+		{ &Settings::Colors::Visual::HeroSkeleton[0] , XorStr( "Hero Skeleton" ) },
+		{ &Settings::Colors::Visual::TrooperEnemy[0] , XorStr( "Trooper Enemy" ) },
+		{ &Settings::Colors::Visual::TrooperEnemyVisible[0] , XorStr( "Trooper Enemy Visible" ) },
+		{ &Settings::Colors::Visual::TrooperTeam[0] , XorStr( "Trooper Team" ) },
+		{ &Settings::Colors::Visual::TrooperTeamVisible[0] , XorStr( "Trooper Team Visible" ) },
+		{ &Settings::Colors::Visual::TrooperSkeleton[0] , XorStr( "Trooper Skeleton" ) },
+		{ &Settings::Colors::Visual::TrooperNeutral[0] , XorStr( "Trooper Neutral" ) },
+		{ &Settings::Colors::Visual::TrooperNeutralVisible[0] , XorStr( "Trooper Neutral Visible" ) },
+		{ &Settings::Colors::Visual::TrooperNeutralSkeleton[0] , XorStr( "Trooper Neutral Skeleton" ) },
 	};
 
 	m_ColorsManagerGroupList =
@@ -196,10 +209,44 @@ auto CAndromedaMenu::OnRenderVisual() -> void
 
 			RenderCheckBox( XorStr( "Active" ) , XorStr( "##Settings.Visual.Active" ) , Settings::Visual::Active );
 
+			RenderCheckBox( XorStr( "Only Visible" ) , XorStr( "##Settings.Visual.OnlyVisible" ) , Settings::Visual::OnlyVisible );
+
+			RenderCheckBox( XorStr( "Hero Team" ) , XorStr( "##Settings.Visual.HeroTeam" ) , Settings::Visual::HeroTeam );
+			RenderCheckBox( XorStr( "Hero Enemy" ) , XorStr( "##Settings.Visual.HeroEnemy" ) , Settings::Visual::HeroEnemy );
+			RenderCheckBox( XorStr( "Hero Box" ) , XorStr( "##Settings.Visual.HeroBox" ) , Settings::Visual::HeroBox );;
+			RenderCheckBox( XorStr( "Hero Skeleton" ) , XorStr( "##Settings.Visual.HeroSkeleton" ) , Settings::Visual::HeroSkeleton );
+
 			ImGui::Separator();
 
 			RenderCheckBox( XorStr( "Sound Step Esp" ) , XorStr( "##Settings.Visual.SoundStepEsp" ) , Settings::Visual::SoundStepEsp );
 
+			ImGui::Separator();
+
+			RenderCheckBox( XorStr( "Trooper Team" ) , XorStr( "##Settings.Visual.TrooperTeam" ) , Settings::Visual::TrooperTeam );
+			RenderCheckBox( XorStr( "Trooper Enemy" ) , XorStr( "##Settings.Visual.TrooperEnemy" ) , Settings::Visual::TrooperEnemy );
+			RenderCheckBox( XorStr( "Trooper Skeleton" ) , XorStr( "##Settings.Visual.TrooperSkeleton" ) , Settings::Visual::TrooperSkeleton );
+
+			ImGui::Separator();
+
+			RenderCheckBox( XorStr( "Trooper Neutral" ) , XorStr( "##Settings.Visual.TrooperNeutral" ) , Settings::Visual::TrooperNeutral );
+			RenderCheckBox( XorStr( "Trooper Neutral Skeleton" ) , XorStr( "##Settings.Visual.TrooperNeutralSkeleton" ) , Settings::Visual::TrooperNeutralSkeleton );
+
+			static constexpr auto LeftPadding = 165.f;
+
+			const char* szBoxTypes[] =
+			{
+				"Box",
+				"Outline Box",
+				"Coal Box",
+				"Outline Coal Box"
+			};
+
+			ImGui::Separator();
+
+			RenderComboBox( XorStr( "Hero Box Type" ) , XorStr( "##Settings.Visual.HeroBoxType" ) , Settings::Visual::HeroBoxType , szBoxTypes , IM_ARRAYSIZE( szBoxTypes ) , LeftPadding );
+			RenderComboBox( XorStr( "Trooper Box Type" ) , XorStr( "##Settings.Visual.TrooperBoxType" ) , Settings::Visual::TrooperBoxType , szBoxTypes , IM_ARRAYSIZE( szBoxTypes ) , LeftPadding );
+			RenderComboBox( XorStr( "Trooper Neutral Box Type" ) , XorStr( "##Settings.Visual.TrooperNeutralBoxType" ) , Settings::Visual::TrooperNeutralBoxType , szBoxTypes , IM_ARRAYSIZE( szBoxTypes ) , LeftPadding );
+			
 			ImGui::EndChild();
 			ImGui::EndGroup();
 		}

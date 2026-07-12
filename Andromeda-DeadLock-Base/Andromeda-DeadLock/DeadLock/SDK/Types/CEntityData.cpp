@@ -57,6 +57,46 @@ auto C_BaseEntity::IsNpcTrooper() -> bool
 	return false;
 }
 
+auto C_BaseEntity::IsNpcTrooperNeutral() -> bool
+{
+	const auto* pszDesingerName = pEntityIdentity()->DesingerName().String();
+
+	if ( pszDesingerName && strcmp( pszDesingerName , XorStr( "npc_trooper_neutral" ) ) == 0 )
+		return true;
+
+	return false;
+}
+
+auto C_BaseEntity::IsItemXP() -> bool
+{
+	const auto* pszDesingerName = pEntityIdentity()->DesingerName().String();
+
+	if ( pszDesingerName && strcmp( pszDesingerName , XorStr( "item_xp" ) ) == 0 )
+		return true;
+
+	return false;
+}
+
+auto C_BaseEntity::IsWorldItemPanel() -> bool
+{
+	const auto* pszDesingerName = pEntityIdentity()->DesingerName().String();
+
+	if ( pszDesingerName && strcmp( pszDesingerName , XorStr( "in_world_item_panel" ) ) == 0 )
+		return true;
+
+	return false;
+}
+
+auto C_BaseEntity::IsCitadelObserverPawn() -> bool
+{
+	auto pszBindingName = GetSchemaClassBinding()->m_bindingName();
+
+	if ( pszBindingName && strcmp( pszBindingName , XorStr( "C_CitadelObserverPawn" ) ) == 0 )
+		return true;
+
+	return false;
+}
+
 auto C_BaseEntity::GetOrigin() -> const Vector3&
 {
 	auto pGameSceneNode = m_pGameSceneNode();

@@ -8,6 +8,8 @@ class CGameEntitySystem;
 class CInputSystem;
 class CUserCmd;
 class CSoundOpSystem;
+class CVPhys2World;
+class CGlobalVarsBase;
 
 #define CLIENT_DLL				"client.dll"
 #define ENGINE2_DLL				"engine2.dll"
@@ -16,6 +18,7 @@ class CSoundOpSystem;
 #define SCHEMASYSTEM_DLL		"schemasystem.dll"
 #define INPUTSYSTEM_DLL			"inputsystem.dll"
 #define SOUNDSYSTEM_DLL			"soundsystem.dll"
+#define TIER0_DLL				"tier0.dll"
 
 namespace SDK
 {
@@ -40,8 +43,12 @@ namespace SDK
 	{
 	public:
 		static auto GetFirstCUserCmdArray() -> CUserCmd**;
+		static auto GetCVPhys2World() -> CVPhys2World**;
+		static auto GlobalVarsBase() -> CGlobalVarsBase*;
 
 	private:
 		static CUserCmd** g_ppCUserCmd;
+		static CVPhys2World** g_ppCVPhys2World;
+		static CGlobalVarsBase** g_ppCGlobalVarsBase;
 	};
 }

@@ -5,14 +5,23 @@
 
 #include <DeadLock/SDK/Math/Vector3.hpp>
 
-class C_CitadelPlayerPawn;
+class C_BaseEntity;
 
-extern std::vector<std::pair<std::string , std::string>> g_AllSkeletonPairBones;
+using VecCheckBones_t = std::vector<std::string_view>;
+
+extern VecCheckBones_t g_AllTraceVisibleHeroCheckBones;
+extern VecCheckBones_t g_AllTraceVisibleTropperCheckBones;
+extern VecCheckBones_t g_AllTraceVisibleTropperNeutralCheckBones;
+
+extern std::vector<std::pair<std::string , std::string>> g_AllSkeletonHeroPairBones;
+extern std::vector<std::pair<std::string , std::string>> g_AllSkeletonTrooperPairBones;
+extern std::vector<std::pair<std::string , std::string>> g_AllSkeletonTrooperNeutralPairBones;
 
 class CL_Bones final
 {
 public:
-	auto GetBonePositionByName( C_CitadelPlayerPawn* pC_CitadelPlayerPawn , const char* szBoneName ) -> Vector3;
+	// dont use CCitadelPlayerController
+	auto GetBonePositionByName( C_BaseEntity* pC_BaseEntity , const char* szBoneName ) -> Vector3;
 };
 
 auto GetCL_Bones() -> CL_Bones*;

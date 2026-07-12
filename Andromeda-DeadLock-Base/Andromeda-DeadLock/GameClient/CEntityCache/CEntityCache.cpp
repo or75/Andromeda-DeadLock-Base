@@ -63,6 +63,12 @@ auto CEntityCache::GetEntityType( C_BaseEntity* pBaseEntity ) -> CachedEntity_t:
 		return CachedEntity_t::CITADEL_PLAYER_PAWN;
 	else if ( pBaseEntity->IsNpcTrooper() )
 		return CachedEntity_t::NPC_TROOPER;
+	else if ( pBaseEntity->IsNpcTrooperNeutral() )
+		return CachedEntity_t::NPC_TROOPER_NEUTRAL;
+	else if ( pBaseEntity->IsItemXP() )
+		return CachedEntity_t::ITEM_XP;
+	else if ( pBaseEntity->IsWorldItemPanel() )
+		return CachedEntity_t::WORLD_ITEM_PANEL;
 
 	return CachedEntity_t::UNKNOWN;
 }

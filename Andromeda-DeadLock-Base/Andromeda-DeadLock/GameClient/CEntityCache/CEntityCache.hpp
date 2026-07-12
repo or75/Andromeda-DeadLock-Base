@@ -9,12 +9,15 @@
 
 struct CachedEntity_t
 {
-    enum Type
+    enum Type : uint32_t
     {
         UNKNOWN = 0 ,
         CITADEL_PLAYER_CONTROLLER ,
         CITADEL_PLAYER_PAWN ,
-        NPC_TROOPER,
+        NPC_TROOPER ,
+        NPC_TROOPER_NEUTRAL,
+        ITEM_XP ,
+        WORLD_ITEM_PANEL,
     };
 
     CHandle m_Handle = { INVALID_EHANDLE_INDEX };
@@ -23,7 +26,7 @@ struct CachedEntity_t
     Rect_t m_Bbox = { 0.f , 0.f , 0.f , 0.f };
 
     bool m_bDraw = false;
-    bool m_bVisible = false; // for only players
+    bool m_bVisible = false;
 };
 
 class IEntityCache
