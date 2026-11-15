@@ -55,12 +55,6 @@ extern CMsgClientToGCClaimEventActionDefaultTypeInternal _CMsgClientToGCClaimEve
 class CMsgClientToGCClaimEventActionResponse;
 struct CMsgClientToGCClaimEventActionResponseDefaultTypeInternal;
 extern CMsgClientToGCClaimEventActionResponseDefaultTypeInternal _CMsgClientToGCClaimEventActionResponse_default_instance_;
-class CMsgClientToGCDevDeleteEventActions;
-struct CMsgClientToGCDevDeleteEventActionsDefaultTypeInternal;
-extern CMsgClientToGCDevDeleteEventActionsDefaultTypeInternal _CMsgClientToGCDevDeleteEventActions_default_instance_;
-class CMsgClientToGCDevDeleteEventActionsResponse;
-struct CMsgClientToGCDevDeleteEventActionsResponseDefaultTypeInternal;
-extern CMsgClientToGCDevDeleteEventActionsResponseDefaultTypeInternal _CMsgClientToGCDevDeleteEventActionsResponse_default_instance_;
 class CMsgClientToGCDevGrantEventAction;
 struct CMsgClientToGCDevGrantEventActionDefaultTypeInternal;
 extern CMsgClientToGCDevGrantEventActionDefaultTypeInternal _CMsgClientToGCDevGrantEventAction_default_instance_;
@@ -79,6 +73,12 @@ extern CMsgClientToGCDevReloadEventSchemaDefaultTypeInternal _CMsgClientToGCDevR
 class CMsgClientToGCDevReloadEventSchemaResponse;
 struct CMsgClientToGCDevReloadEventSchemaResponseDefaultTypeInternal;
 extern CMsgClientToGCDevReloadEventSchemaResponseDefaultTypeInternal _CMsgClientToGCDevReloadEventSchemaResponse_default_instance_;
+class CMsgClientToGCDevResetEventActions;
+struct CMsgClientToGCDevResetEventActionsDefaultTypeInternal;
+extern CMsgClientToGCDevResetEventActionsDefaultTypeInternal _CMsgClientToGCDevResetEventActions_default_instance_;
+class CMsgClientToGCDevResetEventActionsResponse;
+struct CMsgClientToGCDevResetEventActionsResponseDefaultTypeInternal;
+extern CMsgClientToGCDevResetEventActionsResponseDefaultTypeInternal _CMsgClientToGCDevResetEventActionsResponse_default_instance_;
 class CMsgClientToGCDevResetEventState;
 struct CMsgClientToGCDevResetEventStateDefaultTypeInternal;
 extern CMsgClientToGCDevResetEventStateDefaultTypeInternal _CMsgClientToGCDevResetEventState_default_instance_;
@@ -97,6 +97,9 @@ extern CMsgClientToGCGetPeriodicResourceDefaultTypeInternal _CMsgClientToGCGetPe
 class CMsgClientToGCGetPeriodicResourceResponse;
 struct CMsgClientToGCGetPeriodicResourceResponseDefaultTypeInternal;
 extern CMsgClientToGCGetPeriodicResourceResponseDefaultTypeInternal _CMsgClientToGCGetPeriodicResourceResponse_default_instance_;
+class CMsgEventActionGrantLootListRewardData;
+struct CMsgEventActionGrantLootListRewardDataDefaultTypeInternal;
+extern CMsgEventActionGrantLootListRewardDataDefaultTypeInternal _CMsgEventActionGrantLootListRewardData_default_instance_;
 class CMsgEventActionGrantResult;
 struct CMsgEventActionGrantResultDefaultTypeInternal;
 extern CMsgEventActionGrantResultDefaultTypeInternal _CMsgEventActionGrantResult_default_instance_;
@@ -109,20 +112,21 @@ extern CMsgGCToClientPeriodicResourceUpdatedDefaultTypeInternal _CMsgGCToClientP
 PROTOBUF_NAMESPACE_OPEN
 template<> ::CMsgClientToGCClaimEventAction* Arena::CreateMaybeMessage<::CMsgClientToGCClaimEventAction>(Arena*);
 template<> ::CMsgClientToGCClaimEventActionResponse* Arena::CreateMaybeMessage<::CMsgClientToGCClaimEventActionResponse>(Arena*);
-template<> ::CMsgClientToGCDevDeleteEventActions* Arena::CreateMaybeMessage<::CMsgClientToGCDevDeleteEventActions>(Arena*);
-template<> ::CMsgClientToGCDevDeleteEventActionsResponse* Arena::CreateMaybeMessage<::CMsgClientToGCDevDeleteEventActionsResponse>(Arena*);
 template<> ::CMsgClientToGCDevGrantEventAction* Arena::CreateMaybeMessage<::CMsgClientToGCDevGrantEventAction>(Arena*);
 template<> ::CMsgClientToGCDevGrantEventActionResponse* Arena::CreateMaybeMessage<::CMsgClientToGCDevGrantEventActionResponse>(Arena*);
 template<> ::CMsgClientToGCDevGrantEventPoints* Arena::CreateMaybeMessage<::CMsgClientToGCDevGrantEventPoints>(Arena*);
 template<> ::CMsgClientToGCDevGrantEventPointsResponse* Arena::CreateMaybeMessage<::CMsgClientToGCDevGrantEventPointsResponse>(Arena*);
 template<> ::CMsgClientToGCDevReloadEventSchema* Arena::CreateMaybeMessage<::CMsgClientToGCDevReloadEventSchema>(Arena*);
 template<> ::CMsgClientToGCDevReloadEventSchemaResponse* Arena::CreateMaybeMessage<::CMsgClientToGCDevReloadEventSchemaResponse>(Arena*);
+template<> ::CMsgClientToGCDevResetEventActions* Arena::CreateMaybeMessage<::CMsgClientToGCDevResetEventActions>(Arena*);
+template<> ::CMsgClientToGCDevResetEventActionsResponse* Arena::CreateMaybeMessage<::CMsgClientToGCDevResetEventActionsResponse>(Arena*);
 template<> ::CMsgClientToGCDevResetEventState* Arena::CreateMaybeMessage<::CMsgClientToGCDevResetEventState>(Arena*);
 template<> ::CMsgClientToGCDevResetEventStateResponse* Arena::CreateMaybeMessage<::CMsgClientToGCDevResetEventStateResponse>(Arena*);
 template<> ::CMsgClientToGCGetEventPoints* Arena::CreateMaybeMessage<::CMsgClientToGCGetEventPoints>(Arena*);
 template<> ::CMsgClientToGCGetEventPointsResponse* Arena::CreateMaybeMessage<::CMsgClientToGCGetEventPointsResponse>(Arena*);
 template<> ::CMsgClientToGCGetPeriodicResource* Arena::CreateMaybeMessage<::CMsgClientToGCGetPeriodicResource>(Arena*);
 template<> ::CMsgClientToGCGetPeriodicResourceResponse* Arena::CreateMaybeMessage<::CMsgClientToGCGetPeriodicResourceResponse>(Arena*);
+template<> ::CMsgEventActionGrantLootListRewardData* Arena::CreateMaybeMessage<::CMsgEventActionGrantLootListRewardData>(Arena*);
 template<> ::CMsgEventActionGrantResult* Arena::CreateMaybeMessage<::CMsgEventActionGrantResult>(Arena*);
 template<> ::CMsgGCToClientEventPointsUpdated* Arena::CreateMaybeMessage<::CMsgGCToClientEventPointsUpdated>(Arena*);
 template<> ::CMsgGCToClientPeriodicResourceUpdated* Arena::CreateMaybeMessage<::CMsgGCToClientPeriodicResourceUpdated>(Arena*);
@@ -271,11 +275,15 @@ enum CMsgClientToGCDevGrantEventActionResponse_EResponse : int {
   CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eTooBusy = 2,
   CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eDisabled = 3,
   CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eTimeout = 4,
-  CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eNotAllowed = 5
+  CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eNotAllowed = 5,
+  CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eInvalidEvent = 6,
+  CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eInvalidAccount = 7,
+  CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eGrantFailed = 8,
+  CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eNotGranted = 9
 };
 bool CMsgClientToGCDevGrantEventActionResponse_EResponse_IsValid(int value);
 constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse_EResponse_EResponse_MIN = CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse_EResponse_EResponse_MAX = CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eNotAllowed;
+constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse_EResponse_EResponse_MAX = CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eNotGranted;
 constexpr int CMsgClientToGCDevGrantEventActionResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCDevGrantEventActionResponse_EResponse_EResponse_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCDevGrantEventActionResponse_EResponse_descriptor();
@@ -292,32 +300,34 @@ inline bool CMsgClientToGCDevGrantEventActionResponse_EResponse_Parse(
   return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCDevGrantEventActionResponse_EResponse>(
     CMsgClientToGCDevGrantEventActionResponse_EResponse_descriptor(), name, value);
 }
-enum CMsgClientToGCDevDeleteEventActionsResponse_EResponse : int {
-  CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eInternalError = 0,
-  CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eSuccess = 1,
-  CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eTooBusy = 2,
-  CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eDisabled = 3,
-  CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eTimeout = 4,
-  CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eNotAllowed = 5
+enum CMsgClientToGCDevResetEventActionsResponse_EResponse : int {
+  CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eInternalError = 0,
+  CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eSuccess = 1,
+  CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eTooBusy = 2,
+  CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eDisabled = 3,
+  CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eTimeout = 4,
+  CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eNotAllowed = 5,
+  CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eInvalidEvent = 6,
+  CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eInvalidAccount = 7
 };
-bool CMsgClientToGCDevDeleteEventActionsResponse_EResponse_IsValid(int value);
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse_EResponse_EResponse_MIN = CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse_EResponse_EResponse_MAX = CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eNotAllowed;
-constexpr int CMsgClientToGCDevDeleteEventActionsResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCDevDeleteEventActionsResponse_EResponse_EResponse_MAX + 1;
+bool CMsgClientToGCDevResetEventActionsResponse_EResponse_IsValid(int value);
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse_EResponse_EResponse_MIN = CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eInternalError;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse_EResponse_EResponse_MAX = CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eInvalidAccount;
+constexpr int CMsgClientToGCDevResetEventActionsResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCDevResetEventActionsResponse_EResponse_EResponse_MAX + 1;
 
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCDevDeleteEventActionsResponse_EResponse_descriptor();
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCDevResetEventActionsResponse_EResponse_descriptor();
 template<typename T>
-inline const std::string& CMsgClientToGCDevDeleteEventActionsResponse_EResponse_Name(T enum_t_value) {
-  static_assert(::std::is_same<T, CMsgClientToGCDevDeleteEventActionsResponse_EResponse>::value ||
+inline const std::string& CMsgClientToGCDevResetEventActionsResponse_EResponse_Name(T enum_t_value) {
+  static_assert(::std::is_same<T, CMsgClientToGCDevResetEventActionsResponse_EResponse>::value ||
     ::std::is_integral<T>::value,
-    "Incorrect type passed to function CMsgClientToGCDevDeleteEventActionsResponse_EResponse_Name.");
+    "Incorrect type passed to function CMsgClientToGCDevResetEventActionsResponse_EResponse_Name.");
   return ::PROTOBUF_NAMESPACE_ID::internal::NameOfEnum(
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_descriptor(), enum_t_value);
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_descriptor(), enum_t_value);
 }
-inline bool CMsgClientToGCDevDeleteEventActionsResponse_EResponse_Parse(
-    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCDevDeleteEventActionsResponse_EResponse* value) {
-  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCDevDeleteEventActionsResponse_EResponse>(
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_descriptor(), name, value);
+inline bool CMsgClientToGCDevResetEventActionsResponse_EResponse_Parse(
+    ::PROTOBUF_NAMESPACE_ID::ConstStringParam name, CMsgClientToGCDevResetEventActionsResponse_EResponse* value) {
+  return ::PROTOBUF_NAMESPACE_ID::internal::ParseNamedEnum<CMsgClientToGCDevResetEventActionsResponse_EResponse>(
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_descriptor(), name, value);
 }
 enum CMsgClientToGCClaimEventActionResponse_EResponse : int {
   CMsgClientToGCClaimEventActionResponse_EResponse_k_eInternalError = 0,
@@ -325,11 +335,21 @@ enum CMsgClientToGCClaimEventActionResponse_EResponse : int {
   CMsgClientToGCClaimEventActionResponse_EResponse_k_eTooBusy = 2,
   CMsgClientToGCClaimEventActionResponse_EResponse_k_eDisabled = 3,
   CMsgClientToGCClaimEventActionResponse_EResponse_k_eTimeout = 4,
-  CMsgClientToGCClaimEventActionResponse_EResponse_k_eNotAllowed = 5
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eNotAllowed = 5,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eInvalidAction = 6,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eInvalidEvent = 7,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eEventNotActive = 8,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eEventNotOwned = 9,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eInsufficientLevel = 10,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eInsufficientPoints = 11,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eAlreadyClaimed = 12,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eInvalidScoreMode = 13,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eRequiresSubscription = 14,
+  CMsgClientToGCClaimEventActionResponse_EResponse_k_eInvalidItem = 15
 };
 bool CMsgClientToGCClaimEventActionResponse_EResponse_IsValid(int value);
 constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse_EResponse_EResponse_MIN = CMsgClientToGCClaimEventActionResponse_EResponse_k_eInternalError;
-constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse_EResponse_EResponse_MAX = CMsgClientToGCClaimEventActionResponse_EResponse_k_eNotAllowed;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse_EResponse_EResponse_MAX = CMsgClientToGCClaimEventActionResponse_EResponse_k_eInvalidItem;
 constexpr int CMsgClientToGCClaimEventActionResponse_EResponse_EResponse_ARRAYSIZE = CMsgClientToGCClaimEventActionResponse_EResponse_EResponse_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCClaimEventActionResponse_EResponse_descriptor();
@@ -358,8 +378,8 @@ enum EGCEventClientMessages : int {
   k_EMsgClientToGCDevResetEventStateResponse = 15008,
   k_EMsgClientToGCDevGrantEventAction = 15009,
   k_EMsgClientToGCDevGrantEventActionResponse = 15010,
-  k_EMsgClientToGCDevDeleteEventActions = 15011,
-  k_EMsgClientToGCDevDeleteEventActionsResponse = 15012,
+  k_EMsgClientToGCDevResetEventActions = 15011,
+  k_EMsgClientToGCDevResetEventActionsResponse = 15012,
   k_EMsgClientToGCClaimEventAction = 15020,
   k_EMsgClientToGCClaimEventActionResponse = 15021,
   k_EMsgClientToGCGetPeriodicResource = 15100,
@@ -2984,6 +3004,14 @@ class CMsgClientToGCDevGrantEventActionResponse final :
     CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eTimeout;
   static constexpr EResponse k_eNotAllowed =
     CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eNotAllowed;
+  static constexpr EResponse k_eInvalidEvent =
+    CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eInvalidEvent;
+  static constexpr EResponse k_eInvalidAccount =
+    CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eInvalidAccount;
+  static constexpr EResponse k_eGrantFailed =
+    CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eGrantFailed;
+  static constexpr EResponse k_eNotGranted =
+    CMsgClientToGCDevGrantEventActionResponse_EResponse_k_eNotGranted;
   static inline bool EResponse_IsValid(int value) {
     return CMsgClientToGCDevGrantEventActionResponse_EResponse_IsValid(value);
   }
@@ -3044,24 +3072,24 @@ class CMsgClientToGCDevGrantEventActionResponse final :
 };
 // -------------------------------------------------------------------
 
-class CMsgClientToGCDevDeleteEventActions final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCDevDeleteEventActions) */ {
+class CMsgClientToGCDevResetEventActions final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCDevResetEventActions) */ {
  public:
-  inline CMsgClientToGCDevDeleteEventActions() : CMsgClientToGCDevDeleteEventActions(nullptr) {}
-  ~CMsgClientToGCDevDeleteEventActions() override;
-  explicit PROTOBUF_CONSTEXPR CMsgClientToGCDevDeleteEventActions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgClientToGCDevResetEventActions() : CMsgClientToGCDevResetEventActions(nullptr) {}
+  ~CMsgClientToGCDevResetEventActions() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCDevResetEventActions(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgClientToGCDevDeleteEventActions(const CMsgClientToGCDevDeleteEventActions& from);
-  CMsgClientToGCDevDeleteEventActions(CMsgClientToGCDevDeleteEventActions&& from) noexcept
-    : CMsgClientToGCDevDeleteEventActions() {
+  CMsgClientToGCDevResetEventActions(const CMsgClientToGCDevResetEventActions& from);
+  CMsgClientToGCDevResetEventActions(CMsgClientToGCDevResetEventActions&& from) noexcept
+    : CMsgClientToGCDevResetEventActions() {
     *this = ::std::move(from);
   }
 
-  inline CMsgClientToGCDevDeleteEventActions& operator=(const CMsgClientToGCDevDeleteEventActions& from) {
+  inline CMsgClientToGCDevResetEventActions& operator=(const CMsgClientToGCDevResetEventActions& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgClientToGCDevDeleteEventActions& operator=(CMsgClientToGCDevDeleteEventActions&& from) noexcept {
+  inline CMsgClientToGCDevResetEventActions& operator=(CMsgClientToGCDevResetEventActions&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -3091,20 +3119,20 @@ class CMsgClientToGCDevDeleteEventActions final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgClientToGCDevDeleteEventActions& default_instance() {
+  static const CMsgClientToGCDevResetEventActions& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgClientToGCDevDeleteEventActions* internal_default_instance() {
-    return reinterpret_cast<const CMsgClientToGCDevDeleteEventActions*>(
-               &_CMsgClientToGCDevDeleteEventActions_default_instance_);
+  static inline const CMsgClientToGCDevResetEventActions* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCDevResetEventActions*>(
+               &_CMsgClientToGCDevResetEventActions_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     14;
 
-  friend void swap(CMsgClientToGCDevDeleteEventActions& a, CMsgClientToGCDevDeleteEventActions& b) {
+  friend void swap(CMsgClientToGCDevResetEventActions& a, CMsgClientToGCDevResetEventActions& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgClientToGCDevDeleteEventActions* other) {
+  inline void Swap(CMsgClientToGCDevResetEventActions* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -3117,7 +3145,7 @@ class CMsgClientToGCDevDeleteEventActions final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgClientToGCDevDeleteEventActions* other) {
+  void UnsafeArenaSwap(CMsgClientToGCDevResetEventActions* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -3125,14 +3153,14 @@ class CMsgClientToGCDevDeleteEventActions final :
 
   // implements Message ----------------------------------------------
 
-  CMsgClientToGCDevDeleteEventActions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgClientToGCDevDeleteEventActions>(arena);
+  CMsgClientToGCDevResetEventActions* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCDevResetEventActions>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgClientToGCDevDeleteEventActions& from);
+  void CopyFrom(const CMsgClientToGCDevResetEventActions& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgClientToGCDevDeleteEventActions& from) {
-    CMsgClientToGCDevDeleteEventActions::MergeImpl(*this, from);
+  void MergeFrom( const CMsgClientToGCDevResetEventActions& from) {
+    CMsgClientToGCDevResetEventActions::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -3150,15 +3178,15 @@ class CMsgClientToGCDevDeleteEventActions final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgClientToGCDevDeleteEventActions* other);
+  void InternalSwap(CMsgClientToGCDevResetEventActions* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgClientToGCDevDeleteEventActions";
+    return "CMsgClientToGCDevResetEventActions";
   }
   protected:
-  explicit CMsgClientToGCDevDeleteEventActions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgClientToGCDevResetEventActions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -3229,7 +3257,7 @@ class CMsgClientToGCDevDeleteEventActions final :
   void _internal_set_remove_audit(bool value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgClientToGCDevDeleteEventActions)
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCDevResetEventActions)
  private:
   class _Internal;
 
@@ -3249,24 +3277,24 @@ class CMsgClientToGCDevDeleteEventActions final :
 };
 // -------------------------------------------------------------------
 
-class CMsgClientToGCDevDeleteEventActionsResponse final :
-    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCDevDeleteEventActionsResponse) */ {
+class CMsgClientToGCDevResetEventActionsResponse final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgClientToGCDevResetEventActionsResponse) */ {
  public:
-  inline CMsgClientToGCDevDeleteEventActionsResponse() : CMsgClientToGCDevDeleteEventActionsResponse(nullptr) {}
-  ~CMsgClientToGCDevDeleteEventActionsResponse() override;
-  explicit PROTOBUF_CONSTEXPR CMsgClientToGCDevDeleteEventActionsResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+  inline CMsgClientToGCDevResetEventActionsResponse() : CMsgClientToGCDevResetEventActionsResponse(nullptr) {}
+  ~CMsgClientToGCDevResetEventActionsResponse() override;
+  explicit PROTOBUF_CONSTEXPR CMsgClientToGCDevResetEventActionsResponse(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
 
-  CMsgClientToGCDevDeleteEventActionsResponse(const CMsgClientToGCDevDeleteEventActionsResponse& from);
-  CMsgClientToGCDevDeleteEventActionsResponse(CMsgClientToGCDevDeleteEventActionsResponse&& from) noexcept
-    : CMsgClientToGCDevDeleteEventActionsResponse() {
+  CMsgClientToGCDevResetEventActionsResponse(const CMsgClientToGCDevResetEventActionsResponse& from);
+  CMsgClientToGCDevResetEventActionsResponse(CMsgClientToGCDevResetEventActionsResponse&& from) noexcept
+    : CMsgClientToGCDevResetEventActionsResponse() {
     *this = ::std::move(from);
   }
 
-  inline CMsgClientToGCDevDeleteEventActionsResponse& operator=(const CMsgClientToGCDevDeleteEventActionsResponse& from) {
+  inline CMsgClientToGCDevResetEventActionsResponse& operator=(const CMsgClientToGCDevResetEventActionsResponse& from) {
     CopyFrom(from);
     return *this;
   }
-  inline CMsgClientToGCDevDeleteEventActionsResponse& operator=(CMsgClientToGCDevDeleteEventActionsResponse&& from) noexcept {
+  inline CMsgClientToGCDevResetEventActionsResponse& operator=(CMsgClientToGCDevResetEventActionsResponse&& from) noexcept {
     if (this == &from) return *this;
     if (GetOwningArena() == from.GetOwningArena()
   #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
@@ -3296,20 +3324,20 @@ class CMsgClientToGCDevDeleteEventActionsResponse final :
   static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
     return default_instance().GetMetadata().reflection;
   }
-  static const CMsgClientToGCDevDeleteEventActionsResponse& default_instance() {
+  static const CMsgClientToGCDevResetEventActionsResponse& default_instance() {
     return *internal_default_instance();
   }
-  static inline const CMsgClientToGCDevDeleteEventActionsResponse* internal_default_instance() {
-    return reinterpret_cast<const CMsgClientToGCDevDeleteEventActionsResponse*>(
-               &_CMsgClientToGCDevDeleteEventActionsResponse_default_instance_);
+  static inline const CMsgClientToGCDevResetEventActionsResponse* internal_default_instance() {
+    return reinterpret_cast<const CMsgClientToGCDevResetEventActionsResponse*>(
+               &_CMsgClientToGCDevResetEventActionsResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
     15;
 
-  friend void swap(CMsgClientToGCDevDeleteEventActionsResponse& a, CMsgClientToGCDevDeleteEventActionsResponse& b) {
+  friend void swap(CMsgClientToGCDevResetEventActionsResponse& a, CMsgClientToGCDevResetEventActionsResponse& b) {
     a.Swap(&b);
   }
-  inline void Swap(CMsgClientToGCDevDeleteEventActionsResponse* other) {
+  inline void Swap(CMsgClientToGCDevResetEventActionsResponse* other) {
     if (other == this) return;
   #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
     if (GetOwningArena() != nullptr &&
@@ -3322,7 +3350,7 @@ class CMsgClientToGCDevDeleteEventActionsResponse final :
       ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
     }
   }
-  void UnsafeArenaSwap(CMsgClientToGCDevDeleteEventActionsResponse* other) {
+  void UnsafeArenaSwap(CMsgClientToGCDevResetEventActionsResponse* other) {
     if (other == this) return;
     GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
     InternalSwap(other);
@@ -3330,14 +3358,14 @@ class CMsgClientToGCDevDeleteEventActionsResponse final :
 
   // implements Message ----------------------------------------------
 
-  CMsgClientToGCDevDeleteEventActionsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
-    return CreateMaybeMessage<CMsgClientToGCDevDeleteEventActionsResponse>(arena);
+  CMsgClientToGCDevResetEventActionsResponse* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgClientToGCDevResetEventActionsResponse>(arena);
   }
   using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
-  void CopyFrom(const CMsgClientToGCDevDeleteEventActionsResponse& from);
+  void CopyFrom(const CMsgClientToGCDevResetEventActionsResponse& from);
   using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
-  void MergeFrom( const CMsgClientToGCDevDeleteEventActionsResponse& from) {
-    CMsgClientToGCDevDeleteEventActionsResponse::MergeImpl(*this, from);
+  void MergeFrom( const CMsgClientToGCDevResetEventActionsResponse& from) {
+    CMsgClientToGCDevResetEventActionsResponse::MergeImpl(*this, from);
   }
   private:
   static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
@@ -3355,15 +3383,15 @@ class CMsgClientToGCDevDeleteEventActionsResponse final :
   void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
   void SharedDtor();
   void SetCachedSize(int size) const final;
-  void InternalSwap(CMsgClientToGCDevDeleteEventActionsResponse* other);
+  void InternalSwap(CMsgClientToGCDevResetEventActionsResponse* other);
 
   private:
   friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
   static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
-    return "CMsgClientToGCDevDeleteEventActionsResponse";
+    return "CMsgClientToGCDevResetEventActionsResponse";
   }
   protected:
-  explicit CMsgClientToGCDevDeleteEventActionsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+  explicit CMsgClientToGCDevResetEventActionsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                        bool is_message_owned = false);
   public:
 
@@ -3374,42 +3402,46 @@ class CMsgClientToGCDevDeleteEventActionsResponse final :
 
   // nested types ----------------------------------------------------
 
-  typedef CMsgClientToGCDevDeleteEventActionsResponse_EResponse EResponse;
+  typedef CMsgClientToGCDevResetEventActionsResponse_EResponse EResponse;
   static constexpr EResponse k_eInternalError =
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eInternalError;
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eInternalError;
   static constexpr EResponse k_eSuccess =
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eSuccess;
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eSuccess;
   static constexpr EResponse k_eTooBusy =
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eTooBusy;
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eTooBusy;
   static constexpr EResponse k_eDisabled =
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eDisabled;
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eDisabled;
   static constexpr EResponse k_eTimeout =
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eTimeout;
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eTimeout;
   static constexpr EResponse k_eNotAllowed =
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_k_eNotAllowed;
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eNotAllowed;
+  static constexpr EResponse k_eInvalidEvent =
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eInvalidEvent;
+  static constexpr EResponse k_eInvalidAccount =
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_k_eInvalidAccount;
   static inline bool EResponse_IsValid(int value) {
-    return CMsgClientToGCDevDeleteEventActionsResponse_EResponse_IsValid(value);
+    return CMsgClientToGCDevResetEventActionsResponse_EResponse_IsValid(value);
   }
   static constexpr EResponse EResponse_MIN =
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_EResponse_MIN;
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_EResponse_MIN;
   static constexpr EResponse EResponse_MAX =
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_EResponse_MAX;
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_EResponse_MAX;
   static constexpr int EResponse_ARRAYSIZE =
-    CMsgClientToGCDevDeleteEventActionsResponse_EResponse_EResponse_ARRAYSIZE;
+    CMsgClientToGCDevResetEventActionsResponse_EResponse_EResponse_ARRAYSIZE;
   static inline const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor*
   EResponse_descriptor() {
-    return CMsgClientToGCDevDeleteEventActionsResponse_EResponse_descriptor();
+    return CMsgClientToGCDevResetEventActionsResponse_EResponse_descriptor();
   }
   template<typename T>
   static inline const std::string& EResponse_Name(T enum_t_value) {
     static_assert(::std::is_same<T, EResponse>::value ||
       ::std::is_integral<T>::value,
       "Incorrect type passed to function EResponse_Name.");
-    return CMsgClientToGCDevDeleteEventActionsResponse_EResponse_Name(enum_t_value);
+    return CMsgClientToGCDevResetEventActionsResponse_EResponse_Name(enum_t_value);
   }
   static inline bool EResponse_Parse(::PROTOBUF_NAMESPACE_ID::ConstStringParam name,
       EResponse* value) {
-    return CMsgClientToGCDevDeleteEventActionsResponse_EResponse_Parse(name, value);
+    return CMsgClientToGCDevResetEventActionsResponse_EResponse_Parse(name, value);
   }
 
   // accessors -------------------------------------------------------
@@ -3417,20 +3449,20 @@ class CMsgClientToGCDevDeleteEventActionsResponse final :
   enum : int {
     kResultFieldNumber = 1,
   };
-  // optional .CMsgClientToGCDevDeleteEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
+  // optional .CMsgClientToGCDevResetEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
   bool has_result() const;
   private:
   bool _internal_has_result() const;
   public:
   void clear_result();
-  ::CMsgClientToGCDevDeleteEventActionsResponse_EResponse result() const;
-  void set_result(::CMsgClientToGCDevDeleteEventActionsResponse_EResponse value);
+  ::CMsgClientToGCDevResetEventActionsResponse_EResponse result() const;
+  void set_result(::CMsgClientToGCDevResetEventActionsResponse_EResponse value);
   private:
-  ::CMsgClientToGCDevDeleteEventActionsResponse_EResponse _internal_result() const;
-  void _internal_set_result(::CMsgClientToGCDevDeleteEventActionsResponse_EResponse value);
+  ::CMsgClientToGCDevResetEventActionsResponse_EResponse _internal_result() const;
+  void _internal_set_result(::CMsgClientToGCDevResetEventActionsResponse_EResponse value);
   public:
 
-  // @@protoc_insertion_point(class_scope:CMsgClientToGCDevDeleteEventActionsResponse)
+  // @@protoc_insertion_point(class_scope:CMsgClientToGCDevResetEventActionsResponse)
  private:
   class _Internal;
 
@@ -3702,6 +3734,174 @@ class CMsgClientToGCClaimEventAction final :
 };
 // -------------------------------------------------------------------
 
+class CMsgEventActionGrantLootListRewardData final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgEventActionGrantLootListRewardData) */ {
+ public:
+  inline CMsgEventActionGrantLootListRewardData() : CMsgEventActionGrantLootListRewardData(nullptr) {}
+  ~CMsgEventActionGrantLootListRewardData() override;
+  explicit PROTOBUF_CONSTEXPR CMsgEventActionGrantLootListRewardData(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CMsgEventActionGrantLootListRewardData(const CMsgEventActionGrantLootListRewardData& from);
+  CMsgEventActionGrantLootListRewardData(CMsgEventActionGrantLootListRewardData&& from) noexcept
+    : CMsgEventActionGrantLootListRewardData() {
+    *this = ::std::move(from);
+  }
+
+  inline CMsgEventActionGrantLootListRewardData& operator=(const CMsgEventActionGrantLootListRewardData& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CMsgEventActionGrantLootListRewardData& operator=(CMsgEventActionGrantLootListRewardData&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CMsgEventActionGrantLootListRewardData& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CMsgEventActionGrantLootListRewardData* internal_default_instance() {
+    return reinterpret_cast<const CMsgEventActionGrantLootListRewardData*>(
+               &_CMsgEventActionGrantLootListRewardData_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    17;
+
+  friend void swap(CMsgEventActionGrantLootListRewardData& a, CMsgEventActionGrantLootListRewardData& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CMsgEventActionGrantLootListRewardData* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CMsgEventActionGrantLootListRewardData* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CMsgEventActionGrantLootListRewardData* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CMsgEventActionGrantLootListRewardData>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CMsgEventActionGrantLootListRewardData& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CMsgEventActionGrantLootListRewardData& from) {
+    CMsgEventActionGrantLootListRewardData::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CMsgEventActionGrantLootListRewardData* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CMsgEventActionGrantLootListRewardData";
+  }
+  protected:
+  explicit CMsgEventActionGrantLootListRewardData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kItemDefFieldNumber = 1,
+  };
+  // repeated uint32 item_def = 1;
+  int item_def_size() const;
+  private:
+  int _internal_item_def_size() const;
+  public:
+  void clear_item_def();
+  private:
+  uint32_t _internal_item_def(int index) const;
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      _internal_item_def() const;
+  void _internal_add_item_def(uint32_t value);
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      _internal_mutable_item_def();
+  public:
+  uint32_t item_def(int index) const;
+  void set_item_def(int index, uint32_t value);
+  void add_item_def(uint32_t value);
+  const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+      item_def() const;
+  ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+      mutable_item_def();
+
+  // @@protoc_insertion_point(class_scope:CMsgEventActionGrantLootListRewardData)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t > item_def_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_event_5fgcmessages_5fclient_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CMsgEventActionGrantResult final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CMsgEventActionGrantResult) */ {
  public:
@@ -3757,7 +3957,7 @@ class CMsgEventActionGrantResult final :
                &_CMsgEventActionGrantResult_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(CMsgEventActionGrantResult& a, CMsgEventActionGrantResult& b) {
     a.Swap(&b);
@@ -3982,7 +4182,7 @@ class CMsgClientToGCClaimEventActionResponse final :
                &_CMsgClientToGCClaimEventActionResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(CMsgClientToGCClaimEventActionResponse& a, CMsgClientToGCClaimEventActionResponse& b) {
     a.Swap(&b);
@@ -4065,6 +4265,26 @@ class CMsgClientToGCClaimEventActionResponse final :
     CMsgClientToGCClaimEventActionResponse_EResponse_k_eTimeout;
   static constexpr EResponse k_eNotAllowed =
     CMsgClientToGCClaimEventActionResponse_EResponse_k_eNotAllowed;
+  static constexpr EResponse k_eInvalidAction =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eInvalidAction;
+  static constexpr EResponse k_eInvalidEvent =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eInvalidEvent;
+  static constexpr EResponse k_eEventNotActive =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eEventNotActive;
+  static constexpr EResponse k_eEventNotOwned =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eEventNotOwned;
+  static constexpr EResponse k_eInsufficientLevel =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eInsufficientLevel;
+  static constexpr EResponse k_eInsufficientPoints =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eInsufficientPoints;
+  static constexpr EResponse k_eAlreadyClaimed =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eAlreadyClaimed;
+  static constexpr EResponse k_eInvalidScoreMode =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eInvalidScoreMode;
+  static constexpr EResponse k_eRequiresSubscription =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eRequiresSubscription;
+  static constexpr EResponse k_eInvalidItem =
+    CMsgClientToGCClaimEventActionResponse_EResponse_k_eInvalidItem;
   static inline bool EResponse_IsValid(int value) {
     return CMsgClientToGCClaimEventActionResponse_EResponse_IsValid(value);
   }
@@ -5242,152 +5462,152 @@ inline void CMsgClientToGCDevGrantEventActionResponse::set_result(::CMsgClientTo
 
 // -------------------------------------------------------------------
 
-// CMsgClientToGCDevDeleteEventActions
+// CMsgClientToGCDevResetEventActions
 
 // optional .EEvent event_id = 1 [default = EVENT_ID_NONE];
-inline bool CMsgClientToGCDevDeleteEventActions::_internal_has_event_id() const {
+inline bool CMsgClientToGCDevResetEventActions::_internal_has_event_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgClientToGCDevDeleteEventActions::has_event_id() const {
+inline bool CMsgClientToGCDevResetEventActions::has_event_id() const {
   return _internal_has_event_id();
 }
-inline void CMsgClientToGCDevDeleteEventActions::clear_event_id() {
+inline void CMsgClientToGCDevResetEventActions::clear_event_id() {
   _impl_.event_id_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline ::EEvent CMsgClientToGCDevDeleteEventActions::_internal_event_id() const {
+inline ::EEvent CMsgClientToGCDevResetEventActions::_internal_event_id() const {
   return static_cast< ::EEvent >(_impl_.event_id_);
 }
-inline ::EEvent CMsgClientToGCDevDeleteEventActions::event_id() const {
-  // @@protoc_insertion_point(field_get:CMsgClientToGCDevDeleteEventActions.event_id)
+inline ::EEvent CMsgClientToGCDevResetEventActions::event_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCDevResetEventActions.event_id)
   return _internal_event_id();
 }
-inline void CMsgClientToGCDevDeleteEventActions::_internal_set_event_id(::EEvent value) {
+inline void CMsgClientToGCDevResetEventActions::_internal_set_event_id(::EEvent value) {
   assert(::EEvent_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.event_id_ = value;
 }
-inline void CMsgClientToGCDevDeleteEventActions::set_event_id(::EEvent value) {
+inline void CMsgClientToGCDevResetEventActions::set_event_id(::EEvent value) {
   _internal_set_event_id(value);
-  // @@protoc_insertion_point(field_set:CMsgClientToGCDevDeleteEventActions.event_id)
+  // @@protoc_insertion_point(field_set:CMsgClientToGCDevResetEventActions.event_id)
 }
 
 // optional uint32 start_action_id = 2;
-inline bool CMsgClientToGCDevDeleteEventActions::_internal_has_start_action_id() const {
+inline bool CMsgClientToGCDevResetEventActions::_internal_has_start_action_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
   return value;
 }
-inline bool CMsgClientToGCDevDeleteEventActions::has_start_action_id() const {
+inline bool CMsgClientToGCDevResetEventActions::has_start_action_id() const {
   return _internal_has_start_action_id();
 }
-inline void CMsgClientToGCDevDeleteEventActions::clear_start_action_id() {
+inline void CMsgClientToGCDevResetEventActions::clear_start_action_id() {
   _impl_.start_action_id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000002u;
 }
-inline uint32_t CMsgClientToGCDevDeleteEventActions::_internal_start_action_id() const {
+inline uint32_t CMsgClientToGCDevResetEventActions::_internal_start_action_id() const {
   return _impl_.start_action_id_;
 }
-inline uint32_t CMsgClientToGCDevDeleteEventActions::start_action_id() const {
-  // @@protoc_insertion_point(field_get:CMsgClientToGCDevDeleteEventActions.start_action_id)
+inline uint32_t CMsgClientToGCDevResetEventActions::start_action_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCDevResetEventActions.start_action_id)
   return _internal_start_action_id();
 }
-inline void CMsgClientToGCDevDeleteEventActions::_internal_set_start_action_id(uint32_t value) {
+inline void CMsgClientToGCDevResetEventActions::_internal_set_start_action_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000002u;
   _impl_.start_action_id_ = value;
 }
-inline void CMsgClientToGCDevDeleteEventActions::set_start_action_id(uint32_t value) {
+inline void CMsgClientToGCDevResetEventActions::set_start_action_id(uint32_t value) {
   _internal_set_start_action_id(value);
-  // @@protoc_insertion_point(field_set:CMsgClientToGCDevDeleteEventActions.start_action_id)
+  // @@protoc_insertion_point(field_set:CMsgClientToGCDevResetEventActions.start_action_id)
 }
 
 // optional uint32 end_action_id = 3;
-inline bool CMsgClientToGCDevDeleteEventActions::_internal_has_end_action_id() const {
+inline bool CMsgClientToGCDevResetEventActions::_internal_has_end_action_id() const {
   bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
   return value;
 }
-inline bool CMsgClientToGCDevDeleteEventActions::has_end_action_id() const {
+inline bool CMsgClientToGCDevResetEventActions::has_end_action_id() const {
   return _internal_has_end_action_id();
 }
-inline void CMsgClientToGCDevDeleteEventActions::clear_end_action_id() {
+inline void CMsgClientToGCDevResetEventActions::clear_end_action_id() {
   _impl_.end_action_id_ = 0u;
   _impl_._has_bits_[0] &= ~0x00000004u;
 }
-inline uint32_t CMsgClientToGCDevDeleteEventActions::_internal_end_action_id() const {
+inline uint32_t CMsgClientToGCDevResetEventActions::_internal_end_action_id() const {
   return _impl_.end_action_id_;
 }
-inline uint32_t CMsgClientToGCDevDeleteEventActions::end_action_id() const {
-  // @@protoc_insertion_point(field_get:CMsgClientToGCDevDeleteEventActions.end_action_id)
+inline uint32_t CMsgClientToGCDevResetEventActions::end_action_id() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCDevResetEventActions.end_action_id)
   return _internal_end_action_id();
 }
-inline void CMsgClientToGCDevDeleteEventActions::_internal_set_end_action_id(uint32_t value) {
+inline void CMsgClientToGCDevResetEventActions::_internal_set_end_action_id(uint32_t value) {
   _impl_._has_bits_[0] |= 0x00000004u;
   _impl_.end_action_id_ = value;
 }
-inline void CMsgClientToGCDevDeleteEventActions::set_end_action_id(uint32_t value) {
+inline void CMsgClientToGCDevResetEventActions::set_end_action_id(uint32_t value) {
   _internal_set_end_action_id(value);
-  // @@protoc_insertion_point(field_set:CMsgClientToGCDevDeleteEventActions.end_action_id)
+  // @@protoc_insertion_point(field_set:CMsgClientToGCDevResetEventActions.end_action_id)
 }
 
 // optional bool remove_audit = 4;
-inline bool CMsgClientToGCDevDeleteEventActions::_internal_has_remove_audit() const {
+inline bool CMsgClientToGCDevResetEventActions::_internal_has_remove_audit() const {
   bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
   return value;
 }
-inline bool CMsgClientToGCDevDeleteEventActions::has_remove_audit() const {
+inline bool CMsgClientToGCDevResetEventActions::has_remove_audit() const {
   return _internal_has_remove_audit();
 }
-inline void CMsgClientToGCDevDeleteEventActions::clear_remove_audit() {
+inline void CMsgClientToGCDevResetEventActions::clear_remove_audit() {
   _impl_.remove_audit_ = false;
   _impl_._has_bits_[0] &= ~0x00000008u;
 }
-inline bool CMsgClientToGCDevDeleteEventActions::_internal_remove_audit() const {
+inline bool CMsgClientToGCDevResetEventActions::_internal_remove_audit() const {
   return _impl_.remove_audit_;
 }
-inline bool CMsgClientToGCDevDeleteEventActions::remove_audit() const {
-  // @@protoc_insertion_point(field_get:CMsgClientToGCDevDeleteEventActions.remove_audit)
+inline bool CMsgClientToGCDevResetEventActions::remove_audit() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCDevResetEventActions.remove_audit)
   return _internal_remove_audit();
 }
-inline void CMsgClientToGCDevDeleteEventActions::_internal_set_remove_audit(bool value) {
+inline void CMsgClientToGCDevResetEventActions::_internal_set_remove_audit(bool value) {
   _impl_._has_bits_[0] |= 0x00000008u;
   _impl_.remove_audit_ = value;
 }
-inline void CMsgClientToGCDevDeleteEventActions::set_remove_audit(bool value) {
+inline void CMsgClientToGCDevResetEventActions::set_remove_audit(bool value) {
   _internal_set_remove_audit(value);
-  // @@protoc_insertion_point(field_set:CMsgClientToGCDevDeleteEventActions.remove_audit)
+  // @@protoc_insertion_point(field_set:CMsgClientToGCDevResetEventActions.remove_audit)
 }
 
 // -------------------------------------------------------------------
 
-// CMsgClientToGCDevDeleteEventActionsResponse
+// CMsgClientToGCDevResetEventActionsResponse
 
-// optional .CMsgClientToGCDevDeleteEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
-inline bool CMsgClientToGCDevDeleteEventActionsResponse::_internal_has_result() const {
+// optional .CMsgClientToGCDevResetEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
+inline bool CMsgClientToGCDevResetEventActionsResponse::_internal_has_result() const {
   bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
   return value;
 }
-inline bool CMsgClientToGCDevDeleteEventActionsResponse::has_result() const {
+inline bool CMsgClientToGCDevResetEventActionsResponse::has_result() const {
   return _internal_has_result();
 }
-inline void CMsgClientToGCDevDeleteEventActionsResponse::clear_result() {
+inline void CMsgClientToGCDevResetEventActionsResponse::clear_result() {
   _impl_.result_ = 0;
   _impl_._has_bits_[0] &= ~0x00000001u;
 }
-inline ::CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::_internal_result() const {
-  return static_cast< ::CMsgClientToGCDevDeleteEventActionsResponse_EResponse >(_impl_.result_);
+inline ::CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::_internal_result() const {
+  return static_cast< ::CMsgClientToGCDevResetEventActionsResponse_EResponse >(_impl_.result_);
 }
-inline ::CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::result() const {
-  // @@protoc_insertion_point(field_get:CMsgClientToGCDevDeleteEventActionsResponse.result)
+inline ::CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::result() const {
+  // @@protoc_insertion_point(field_get:CMsgClientToGCDevResetEventActionsResponse.result)
   return _internal_result();
 }
-inline void CMsgClientToGCDevDeleteEventActionsResponse::_internal_set_result(::CMsgClientToGCDevDeleteEventActionsResponse_EResponse value) {
-  assert(::CMsgClientToGCDevDeleteEventActionsResponse_EResponse_IsValid(value));
+inline void CMsgClientToGCDevResetEventActionsResponse::_internal_set_result(::CMsgClientToGCDevResetEventActionsResponse_EResponse value) {
+  assert(::CMsgClientToGCDevResetEventActionsResponse_EResponse_IsValid(value));
   _impl_._has_bits_[0] |= 0x00000001u;
   _impl_.result_ = value;
 }
-inline void CMsgClientToGCDevDeleteEventActionsResponse::set_result(::CMsgClientToGCDevDeleteEventActionsResponse_EResponse value) {
+inline void CMsgClientToGCDevResetEventActionsResponse::set_result(::CMsgClientToGCDevResetEventActionsResponse_EResponse value) {
   _internal_set_result(value);
-  // @@protoc_insertion_point(field_set:CMsgClientToGCDevDeleteEventActionsResponse.result)
+  // @@protoc_insertion_point(field_set:CMsgClientToGCDevResetEventActionsResponse.result)
 }
 
 // -------------------------------------------------------------------
@@ -5630,6 +5850,57 @@ inline void CMsgClientToGCClaimEventAction::_internal_set_consume_item_id(uint64
 inline void CMsgClientToGCClaimEventAction::set_consume_item_id(uint64_t value) {
   _internal_set_consume_item_id(value);
   // @@protoc_insertion_point(field_set:CMsgClientToGCClaimEventAction.consume_item_id)
+}
+
+// -------------------------------------------------------------------
+
+// CMsgEventActionGrantLootListRewardData
+
+// repeated uint32 item_def = 1;
+inline int CMsgEventActionGrantLootListRewardData::_internal_item_def_size() const {
+  return _impl_.item_def_.size();
+}
+inline int CMsgEventActionGrantLootListRewardData::item_def_size() const {
+  return _internal_item_def_size();
+}
+inline void CMsgEventActionGrantLootListRewardData::clear_item_def() {
+  _impl_.item_def_.Clear();
+}
+inline uint32_t CMsgEventActionGrantLootListRewardData::_internal_item_def(int index) const {
+  return _impl_.item_def_.Get(index);
+}
+inline uint32_t CMsgEventActionGrantLootListRewardData::item_def(int index) const {
+  // @@protoc_insertion_point(field_get:CMsgEventActionGrantLootListRewardData.item_def)
+  return _internal_item_def(index);
+}
+inline void CMsgEventActionGrantLootListRewardData::set_item_def(int index, uint32_t value) {
+  _impl_.item_def_.Set(index, value);
+  // @@protoc_insertion_point(field_set:CMsgEventActionGrantLootListRewardData.item_def)
+}
+inline void CMsgEventActionGrantLootListRewardData::_internal_add_item_def(uint32_t value) {
+  _impl_.item_def_.Add(value);
+}
+inline void CMsgEventActionGrantLootListRewardData::add_item_def(uint32_t value) {
+  _internal_add_item_def(value);
+  // @@protoc_insertion_point(field_add:CMsgEventActionGrantLootListRewardData.item_def)
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgEventActionGrantLootListRewardData::_internal_item_def() const {
+  return _impl_.item_def_;
+}
+inline const ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >&
+CMsgEventActionGrantLootListRewardData::item_def() const {
+  // @@protoc_insertion_point(field_list:CMsgEventActionGrantLootListRewardData.item_def)
+  return _internal_item_def();
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgEventActionGrantLootListRewardData::_internal_mutable_item_def() {
+  return &_impl_.item_def_;
+}
+inline ::PROTOBUF_NAMESPACE_ID::RepeatedField< uint32_t >*
+CMsgEventActionGrantLootListRewardData::mutable_item_def() {
+  // @@protoc_insertion_point(field_mutable_list:CMsgEventActionGrantLootListRewardData.item_def)
+  return _internal_mutable_item_def();
 }
 
 // -------------------------------------------------------------------
@@ -5928,6 +6199,8 @@ CMsgClientToGCClaimEventActionResponse::grant_results() const {
 
 // -------------------------------------------------------------------
 
+// -------------------------------------------------------------------
+
 
 // @@protoc_insertion_point(namespace_scope)
 
@@ -5964,10 +6237,10 @@ template <>
 inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCDevGrantEventActionResponse_EResponse>() {
   return ::CMsgClientToGCDevGrantEventActionResponse_EResponse_descriptor();
 }
-template <> struct is_proto_enum< ::CMsgClientToGCDevDeleteEventActionsResponse_EResponse> : ::std::true_type {};
+template <> struct is_proto_enum< ::CMsgClientToGCDevResetEventActionsResponse_EResponse> : ::std::true_type {};
 template <>
-inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCDevDeleteEventActionsResponse_EResponse>() {
-  return ::CMsgClientToGCDevDeleteEventActionsResponse_EResponse_descriptor();
+inline const EnumDescriptor* GetEnumDescriptor< ::CMsgClientToGCDevResetEventActionsResponse_EResponse>() {
+  return ::CMsgClientToGCDevResetEventActionsResponse_EResponse_descriptor();
 }
 template <> struct is_proto_enum< ::CMsgClientToGCClaimEventActionResponse_EResponse> : ::std::true_type {};
 template <>

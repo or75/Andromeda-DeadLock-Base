@@ -230,7 +230,7 @@ auto CVisual::OnRenderPlayerEsp( CCitadelPlayerController* pCCitadelPlayerContro
 
 				if ( W2SOrigin && W2SHead )
 				{
-					const auto BoxHeight = floor( HeadScreen.y - OriginScreen.y );
+					const auto BoxHeight = floor( OriginScreen.y - HeadScreen.y );
 					const auto BoxWidth = floor( BoxHeight / 2.f );
 
 					bBox.x = floor( HeadScreen.x - BoxWidth / 2.f );

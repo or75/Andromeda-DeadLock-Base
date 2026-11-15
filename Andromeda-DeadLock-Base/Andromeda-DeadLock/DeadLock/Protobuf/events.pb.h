@@ -48,11 +48,12 @@ PROTOBUF_NAMESPACE_CLOSE
 
 enum EEvent : int {
   EVENT_ID_NONE = 0,
-  EVENT_ID_NYC_CATALOG = 1
+  EVENT_ID_NYC_CATALOG = 1,
+  EVENT_ID_HALLOWEEN_2026 = 2
 };
 bool EEvent_IsValid(int value);
 constexpr EEvent EEvent_MIN = EVENT_ID_NONE;
-constexpr EEvent EEvent_MAX = EVENT_ID_NYC_CATALOG;
+constexpr EEvent EEvent_MAX = EVENT_ID_HALLOWEEN_2026;
 constexpr int EEvent_ARRAYSIZE = EEvent_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* EEvent_descriptor();

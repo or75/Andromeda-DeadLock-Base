@@ -5442,6 +5442,8 @@ class CSOAccountHeroInfo final :
     kWinsFieldNumber = 4,
     kHeroXpFieldNumber = 6,
     kBrawlWinsFieldNumber = 7,
+    kLossesFieldNumber = 8,
+    kBrawlLossesFieldNumber = 9,
   };
   // optional uint32 account_id = 1 [(.key_field) = true];
   bool has_account_id() const;
@@ -5521,6 +5523,32 @@ class CSOAccountHeroInfo final :
   void _internal_set_brawl_wins(uint32_t value);
   public:
 
+  // optional uint32 losses = 8;
+  bool has_losses() const;
+  private:
+  bool _internal_has_losses() const;
+  public:
+  void clear_losses();
+  uint32_t losses() const;
+  void set_losses(uint32_t value);
+  private:
+  uint32_t _internal_losses() const;
+  void _internal_set_losses(uint32_t value);
+  public:
+
+  // optional uint32 brawl_losses = 9;
+  bool has_brawl_losses() const;
+  private:
+  bool _internal_has_brawl_losses() const;
+  public:
+  void clear_brawl_losses();
+  uint32_t brawl_losses() const;
+  void set_brawl_losses(uint32_t value);
+  private:
+  uint32_t _internal_brawl_losses() const;
+  void _internal_set_brawl_losses(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSOAccountHeroInfo)
  private:
   class _Internal;
@@ -5537,6 +5565,8 @@ class CSOAccountHeroInfo final :
     uint32_t wins_;
     uint32_t hero_xp_;
     uint32_t brawl_wins_;
+    uint32_t losses_;
+    uint32_t brawl_losses_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fclient_2eproto;
@@ -46726,6 +46756,62 @@ inline void CSOAccountHeroInfo::_internal_set_brawl_wins(uint32_t value) {
 inline void CSOAccountHeroInfo::set_brawl_wins(uint32_t value) {
   _internal_set_brawl_wins(value);
   // @@protoc_insertion_point(field_set:CSOAccountHeroInfo.brawl_wins)
+}
+
+// optional uint32 losses = 8;
+inline bool CSOAccountHeroInfo::_internal_has_losses() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000040u) != 0;
+  return value;
+}
+inline bool CSOAccountHeroInfo::has_losses() const {
+  return _internal_has_losses();
+}
+inline void CSOAccountHeroInfo::clear_losses() {
+  _impl_.losses_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000040u;
+}
+inline uint32_t CSOAccountHeroInfo::_internal_losses() const {
+  return _impl_.losses_;
+}
+inline uint32_t CSOAccountHeroInfo::losses() const {
+  // @@protoc_insertion_point(field_get:CSOAccountHeroInfo.losses)
+  return _internal_losses();
+}
+inline void CSOAccountHeroInfo::_internal_set_losses(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000040u;
+  _impl_.losses_ = value;
+}
+inline void CSOAccountHeroInfo::set_losses(uint32_t value) {
+  _internal_set_losses(value);
+  // @@protoc_insertion_point(field_set:CSOAccountHeroInfo.losses)
+}
+
+// optional uint32 brawl_losses = 9;
+inline bool CSOAccountHeroInfo::_internal_has_brawl_losses() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CSOAccountHeroInfo::has_brawl_losses() const {
+  return _internal_has_brawl_losses();
+}
+inline void CSOAccountHeroInfo::clear_brawl_losses() {
+  _impl_.brawl_losses_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
+}
+inline uint32_t CSOAccountHeroInfo::_internal_brawl_losses() const {
+  return _impl_.brawl_losses_;
+}
+inline uint32_t CSOAccountHeroInfo::brawl_losses() const {
+  // @@protoc_insertion_point(field_get:CSOAccountHeroInfo.brawl_losses)
+  return _internal_brawl_losses();
+}
+inline void CSOAccountHeroInfo::_internal_set_brawl_losses(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_.brawl_losses_ = value;
+}
+inline void CSOAccountHeroInfo::set_brawl_losses(uint32_t value) {
+  _internal_set_brawl_losses(value);
+  // @@protoc_insertion_point(field_set:CSOAccountHeroInfo.brawl_losses)
 }
 
 // -------------------------------------------------------------------

@@ -27,7 +27,7 @@ auto CFont::InitFont( IFW1Factory* pFW1Factory , std::wstring Name , float FontS
 	createParams.VertexBufferSize = 0;
 
 	createParams.DefaultFontParams.pszFontFamily = Name.c_str();
-	createParams.DefaultFontParams.FontWeight = static_cast<DWRITE_FONT_WEIGHT>( FW_BOLD );
+	createParams.DefaultFontParams.FontWeight = static_cast<DWRITE_FONT_WEIGHT>( FW_MEDIUM );
 	createParams.DefaultFontParams.FontStyle = DWRITE_FONT_STYLE_NORMAL;
 	createParams.DefaultFontParams.FontStretch = DWRITE_FONT_STRETCH_NORMAL;
 	createParams.DefaultFontParams.pszLocale = L"";

@@ -27,12 +27,13 @@ static constexpr ::_pbi::MigrationSchema* schemas = nullptr;
 static constexpr ::_pb::Message* const* file_default_instances = nullptr;
 
 const char descriptor_table_protodef_events_2eproto[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) =
-  "\n\014events.proto*5\n\006EEvent\022\021\n\rEVENT_ID_NON"
-  "E\020\000\022\030\n\024EVENT_ID_NYC_CATALOG\020\001"
+  "\n\014events.proto*R\n\006EEvent\022\021\n\rEVENT_ID_NON"
+  "E\020\000\022\030\n\024EVENT_ID_NYC_CATALOG\020\001\022\033\n\027EVENT_I"
+  "D_HALLOWEEN_2026\020\002"
   ;
 static ::_pbi::once_flag descriptor_table_events_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_events_2eproto = {
-    false, false, 69, descriptor_table_protodef_events_2eproto,
+    false, false, 98, descriptor_table_protodef_events_2eproto,
     "events.proto",
     &descriptor_table_events_2eproto_once, nullptr, 0, 0,
     schemas, file_default_instances, TableStruct_events_2eproto::offsets,
@@ -53,6 +54,7 @@ bool EEvent_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
+    case 2:
       return true;
     default:
       return false;

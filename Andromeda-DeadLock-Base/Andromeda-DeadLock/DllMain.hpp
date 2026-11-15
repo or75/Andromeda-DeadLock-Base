@@ -8,7 +8,7 @@
 
 #ifdef RELEASE_BUILD
 
-#pragma comment(lib,"FW1FontWrapperRel")
+#pragma comment(lib,"FW1FontWrapper")
 #pragma comment(lib,"libprotobuf")
 
 #endif

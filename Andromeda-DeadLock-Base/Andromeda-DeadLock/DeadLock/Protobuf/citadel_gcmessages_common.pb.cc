@@ -70,7 +70,8 @@ PROTOBUF_CONSTEXPR CSOCitadelHideoutLobby_Member::CSOCitadelHideoutLobby_Member(
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.account_id_)*/0u
   , /*decltype(_impl_.hideout_holiday_award_2024_)*/false
-  , /*decltype(_impl_.hideout_holiday_award_2025_)*/false} {}
+  , /*decltype(_impl_.hideout_holiday_award_2025_)*/false
+  , /*decltype(_impl_.ranked_season_1_season_rank_)*/0u} {}
 struct CSOCitadelHideoutLobby_MemberDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSOCitadelHideoutLobby_MemberDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -336,7 +337,8 @@ PROTOBUF_CONSTEXPR CSOCitadelParty_RankedScores::CSOCitadelParty_RankedScores(
   , /*decltype(_impl_.rank_type_)*/0
   , /*decltype(_impl_.rank_interval_)*/0u
   , /*decltype(_impl_.rank_display_badge_)*/0u
-  , /*decltype(_impl_.in_calibration_)*/false} {}
+  , /*decltype(_impl_.in_calibration_)*/false
+  , /*decltype(_impl_.max_rank_display_badge_)*/0u} {}
 struct CSOCitadelParty_RankedScoresDefaultTypeInternal {
   PROTOBUF_CONSTEXPR CSOCitadelParty_RankedScoresDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
@@ -429,7 +431,6 @@ PROTOBUF_CONSTEXPR CSOCitadelParty::CSOCitadelParty(
   , /*decltype(_impl_.match_making_start_time_)*/0u
   , /*decltype(_impl_.chat_mode_)*/0
   , /*decltype(_impl_.region_mode_)*/0
-  , /*decltype(_impl_.is_high_skill_range_party_)*/false
   , /*decltype(_impl_.is_private_lobby_)*/false
   , /*decltype(_impl_.desires_laning_together_)*/false
   , /*decltype(_impl_.mm_preference_)*/0
@@ -1534,9 +1535,11 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fcommon_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::CSOCitadelHideoutLobby_Member, _impl_.account_id_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelHideoutLobby_Member, _impl_.hideout_holiday_award_2024_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelHideoutLobby_Member, _impl_.hideout_holiday_award_2025_),
+  PROTOBUF_FIELD_OFFSET(::CSOCitadelHideoutLobby_Member, _impl_.ranked_season_1_season_rank_),
   0,
   1,
   2,
+  3,
   PROTOBUF_FIELD_OFFSET(::CSOCitadelHideoutLobby, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelHideoutLobby, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1744,11 +1747,13 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fcommon_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty_RankedScores, _impl_.rank_display_badge_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty_RankedScores, _impl_.unlocked_heroes_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty_RankedScores, _impl_.in_calibration_),
+  PROTOBUF_FIELD_OFFSET(::CSOCitadelParty_RankedScores, _impl_.max_rank_display_badge_),
   0,
   1,
   2,
   ~0u,
   3,
+  4,
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty_Member, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty_Member, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -1826,7 +1831,6 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fcommon_2eproto::offsets[] PROT
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty, _impl_.game_mode_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty, _impl_.match_making_start_time_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty, _impl_.server_search_key_),
-  PROTOBUF_FIELD_OFFSET(::CSOCitadelParty, _impl_.is_high_skill_range_party_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty, _impl_.chat_mode_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty, _impl_.region_mode_),
   PROTOBUF_FIELD_OFFSET(::CSOCitadelParty, _impl_.is_private_lobby_),
@@ -1851,20 +1855,19 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fcommon_2eproto::offsets[] PROT
   8,
   9,
   1,
-  12,
   10,
   11,
-  13,
+  12,
   3,
+  13,
   14,
-  15,
   2,
   ~0u,
+  15,
   16,
   17,
   18,
   19,
-  20,
   PROTOBUF_FIELD_OFFSET(::CMsgMatchPlayerPathsData_Path, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgMatchPlayerPathsData_Path, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -2862,79 +2865,79 @@ const uint32_t TableStruct_citadel_5fgcmessages_5fcommon_2eproto::offsets[] PROT
 static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protodesc_cold) = {
   { 0, 9, -1, sizeof(::CMsgHeroXPGrant)},
   { 12, 33, -1, sizeof(::CSOCitadelLobby)},
-  { 48, 57, -1, sizeof(::CSOCitadelHideoutLobby_Member)},
-  { 60, 78, -1, sizeof(::CSOCitadelHideoutLobby)},
-  { 90, 98, -1, sizeof(::CLobbyData_PostMatchSurvey_PlayerSurvey)},
-  { 100, -1, -1, sizeof(::CLobbyData_PostMatchSurvey)},
-  { 107, 115, -1, sizeof(::CMsgHeroSelectionMatchInfo_Hero)},
-  { 117, -1, -1, sizeof(::CMsgHeroSelectionMatchInfo)},
-  { 125, 139, -1, sizeof(::CMsgStartFindingMatchInfo)},
-  { 147, 161, -1, sizeof(::CMsgAnyToGCReportAsserts_TrackedAssert)},
-  { 169, 178, -1, sizeof(::CMsgAnyToGCReportAsserts)},
-  { 181, 188, -1, sizeof(::CMsgAnyToGCReportAssertsResponse)},
-  { 189, -1, -1, sizeof(::CMsgRegionPingTimesClient)},
-  { 197, -1, -1, sizeof(::CMsgEquippedItemList)},
-  { 204, 212, -1, sizeof(::CMsgPlayerHeroData)},
-  { 214, 222, -1, sizeof(::CSOCitadelParty_PrivateLobbySlot)},
-  { 224, 231, -1, sizeof(::CSOCitadelParty_ServerRegion)},
-  { 232, 247, -1, sizeof(::CSOCitadelParty_PrivateLobbySettings)},
-  { 256, 267, -1, sizeof(::CSOCitadelParty_RankedScores)},
-  { 272, 293, -1, sizeof(::CSOCitadelParty_Member)},
-  { 308, 317, -1, sizeof(::CSOCitadelParty_LeftMember)},
-  { 320, 329, -1, sizeof(::CSOCitadelParty_Invite)},
-  { 332, 363, -1, sizeof(::CSOCitadelParty)},
-  { 388, 404, -1, sizeof(::CMsgMatchPlayerPathsData_Path)},
-  { 414, 425, -1, sizeof(::CMsgMatchPlayerPathsData)},
-  { 430, 438, -1, sizeof(::CMsgMatchPlayerDamageMatrix_DamageToPlayer)},
-  { 440, 448, -1, sizeof(::CMsgMatchPlayerDamageMatrix_DamageSource)},
-  { 450, 458, -1, sizeof(::CMsgMatchPlayerDamageMatrix_DamageDealer)},
-  { 460, -1, -1, sizeof(::CMsgMatchPlayerDamageMatrix_SourceDetails)},
-  { 468, 477, -1, sizeof(::CMsgMatchPlayerDamageMatrix)},
-  { 480, 494, -1, sizeof(::CMsgMatchPlayerRankData)},
-  { 502, 511, -1, sizeof(::CMsgMatchMetaDataContents_Position)},
-  { 514, 526, -1, sizeof(::CMsgMatchMetaDataContents_Deaths)},
-  { 532, 545, -1, sizeof(::CMsgMatchMetaDataContents_Items)},
-  { 552, 561, -1, sizeof(::CMsgMatchMetaDataContents_Ping)},
-  { 564, 575, -1, sizeof(::CMsgMatchMetaDataContents_GoldSource)},
-  { 580, 588, -1, sizeof(::CMsgMatchMetaDataContents_CustomUserStatInfo)},
-  { 590, 598, -1, sizeof(::CMsgMatchMetaDataContents_CustomUserStat)},
-  { 600, 611, -1, sizeof(::CMsgMatchMetaDataContents_PowerUpBuff)},
-  { 616, 673, -1, sizeof(::CMsgMatchMetaDataContents_PlayerStats)},
-  { 724, 732, -1, sizeof(::CMsgMatchMetaDataContents_AbilityStat)},
-  { 734, 743, -1, sizeof(::CMsgMatchMetaDataContents_BookReward)},
-  { 746, 753, -1, sizeof(::CMsgMatchMetaDataContents_HeroXPReward)},
-  { 754, 763, -1, sizeof(::CMsgMatchMetaDataContents_PlayerAccolade)},
-  { 766, 803, -1, sizeof(::CMsgMatchMetaDataContents_Players)},
-  { 834, 842, -1, sizeof(::CMsgMatchMetaDataContents_Teams)},
-  { 844, 860, -1, sizeof(::CMsgMatchMetaDataContents_Objective)},
-  { 870, 879, -1, sizeof(::CMsgMatchMetaDataContents_MidBoss)},
-  { 882, 891, -1, sizeof(::CMsgMatchMetaDataContents_Pause)},
-  { 894, 902, -1, sizeof(::CMsgMatchMetaDataContents_WatchedDeathReplay)},
-  { 904, 912, -1, sizeof(::CMsgMatchMetaDataContents_StreetBrawlRound)},
-  { 914, 955, -1, sizeof(::CMsgMatchMetaDataContents_MatchInfo)},
-  { 990, 997, -1, sizeof(::CMsgMatchMetaDataContents)},
-  { 998, 1007, -1, sizeof(::CMsgMatchMetaData)},
-  { 1010, 1019, -1, sizeof(::CMsgMapLine)},
-  { 1022, 1034, -1, sizeof(::CMsgAccountHeroStats)},
-  { 1040, 1049, -1, sizeof(::CMsgAccountBookStats)},
-  { 1052, 1060, -1, sizeof(::CMsgAccountStats)},
-  { 1062, 1070, -1, sizeof(::CMsgTrackedStat)},
-  { 1072, 1081, -1, sizeof(::CMsgGCAccountData)},
-  { 1084, 1095, -1, sizeof(::CMsgHeroBuild_BuildModEntry)},
-  { 1100, 1112, -1, sizeof(::CMsgHeroBuild_BuildModCategory)},
-  { 1118, 1128, -1, sizeof(::CMsgHeroBuild_CurrencyChange)},
-  { 1132, -1, -1, sizeof(::CMsgHeroBuild_AbilityOrder)},
-  { 1139, 1147, -1, sizeof(::CMsgHeroBuild_Details_V0)},
-  { 1149, 1168, -1, sizeof(::CMsgHeroBuild)},
-  { 1181, 1190, -1, sizeof(::CMsgHeroBuildPreference)},
-  { 1193, 1255, -1, sizeof(::CMsgCitadelCombatLogEntry)},
-  { 1311, 1319, -1, sizeof(::CSerializedCombatLog_Dictionary_DictString)},
-  { 1321, -1, -1, sizeof(::CSerializedCombatLog_Dictionary)},
-  { 1328, 1337, -1, sizeof(::CSerializedCombatLog)},
-  { 1340, 1349, -1, sizeof(::CMsgHeroReleaseVoteTally)},
-  { 1352, 1361, -1, sizeof(::CMsgMatchHeroReleaseVotes_HeroVote)},
-  { 1364, 1372, -1, sizeof(::CMsgMatchHeroReleaseVotes_Category)},
-  { 1374, -1, -1, sizeof(::CMsgMatchHeroReleaseVotes)},
+  { 48, 58, -1, sizeof(::CSOCitadelHideoutLobby_Member)},
+  { 62, 80, -1, sizeof(::CSOCitadelHideoutLobby)},
+  { 92, 100, -1, sizeof(::CLobbyData_PostMatchSurvey_PlayerSurvey)},
+  { 102, -1, -1, sizeof(::CLobbyData_PostMatchSurvey)},
+  { 109, 117, -1, sizeof(::CMsgHeroSelectionMatchInfo_Hero)},
+  { 119, -1, -1, sizeof(::CMsgHeroSelectionMatchInfo)},
+  { 127, 141, -1, sizeof(::CMsgStartFindingMatchInfo)},
+  { 149, 163, -1, sizeof(::CMsgAnyToGCReportAsserts_TrackedAssert)},
+  { 171, 180, -1, sizeof(::CMsgAnyToGCReportAsserts)},
+  { 183, 190, -1, sizeof(::CMsgAnyToGCReportAssertsResponse)},
+  { 191, -1, -1, sizeof(::CMsgRegionPingTimesClient)},
+  { 199, -1, -1, sizeof(::CMsgEquippedItemList)},
+  { 206, 214, -1, sizeof(::CMsgPlayerHeroData)},
+  { 216, 224, -1, sizeof(::CSOCitadelParty_PrivateLobbySlot)},
+  { 226, 233, -1, sizeof(::CSOCitadelParty_ServerRegion)},
+  { 234, 249, -1, sizeof(::CSOCitadelParty_PrivateLobbySettings)},
+  { 258, 270, -1, sizeof(::CSOCitadelParty_RankedScores)},
+  { 276, 297, -1, sizeof(::CSOCitadelParty_Member)},
+  { 312, 321, -1, sizeof(::CSOCitadelParty_LeftMember)},
+  { 324, 333, -1, sizeof(::CSOCitadelParty_Invite)},
+  { 336, 366, -1, sizeof(::CSOCitadelParty)},
+  { 390, 406, -1, sizeof(::CMsgMatchPlayerPathsData_Path)},
+  { 416, 427, -1, sizeof(::CMsgMatchPlayerPathsData)},
+  { 432, 440, -1, sizeof(::CMsgMatchPlayerDamageMatrix_DamageToPlayer)},
+  { 442, 450, -1, sizeof(::CMsgMatchPlayerDamageMatrix_DamageSource)},
+  { 452, 460, -1, sizeof(::CMsgMatchPlayerDamageMatrix_DamageDealer)},
+  { 462, -1, -1, sizeof(::CMsgMatchPlayerDamageMatrix_SourceDetails)},
+  { 470, 479, -1, sizeof(::CMsgMatchPlayerDamageMatrix)},
+  { 482, 496, -1, sizeof(::CMsgMatchPlayerRankData)},
+  { 504, 513, -1, sizeof(::CMsgMatchMetaDataContents_Position)},
+  { 516, 528, -1, sizeof(::CMsgMatchMetaDataContents_Deaths)},
+  { 534, 547, -1, sizeof(::CMsgMatchMetaDataContents_Items)},
+  { 554, 563, -1, sizeof(::CMsgMatchMetaDataContents_Ping)},
+  { 566, 577, -1, sizeof(::CMsgMatchMetaDataContents_GoldSource)},
+  { 582, 590, -1, sizeof(::CMsgMatchMetaDataContents_CustomUserStatInfo)},
+  { 592, 600, -1, sizeof(::CMsgMatchMetaDataContents_CustomUserStat)},
+  { 602, 613, -1, sizeof(::CMsgMatchMetaDataContents_PowerUpBuff)},
+  { 618, 675, -1, sizeof(::CMsgMatchMetaDataContents_PlayerStats)},
+  { 726, 734, -1, sizeof(::CMsgMatchMetaDataContents_AbilityStat)},
+  { 736, 745, -1, sizeof(::CMsgMatchMetaDataContents_BookReward)},
+  { 748, 755, -1, sizeof(::CMsgMatchMetaDataContents_HeroXPReward)},
+  { 756, 765, -1, sizeof(::CMsgMatchMetaDataContents_PlayerAccolade)},
+  { 768, 805, -1, sizeof(::CMsgMatchMetaDataContents_Players)},
+  { 836, 844, -1, sizeof(::CMsgMatchMetaDataContents_Teams)},
+  { 846, 862, -1, sizeof(::CMsgMatchMetaDataContents_Objective)},
+  { 872, 881, -1, sizeof(::CMsgMatchMetaDataContents_MidBoss)},
+  { 884, 893, -1, sizeof(::CMsgMatchMetaDataContents_Pause)},
+  { 896, 904, -1, sizeof(::CMsgMatchMetaDataContents_WatchedDeathReplay)},
+  { 906, 914, -1, sizeof(::CMsgMatchMetaDataContents_StreetBrawlRound)},
+  { 916, 957, -1, sizeof(::CMsgMatchMetaDataContents_MatchInfo)},
+  { 992, 999, -1, sizeof(::CMsgMatchMetaDataContents)},
+  { 1000, 1009, -1, sizeof(::CMsgMatchMetaData)},
+  { 1012, 1021, -1, sizeof(::CMsgMapLine)},
+  { 1024, 1036, -1, sizeof(::CMsgAccountHeroStats)},
+  { 1042, 1051, -1, sizeof(::CMsgAccountBookStats)},
+  { 1054, 1062, -1, sizeof(::CMsgAccountStats)},
+  { 1064, 1072, -1, sizeof(::CMsgTrackedStat)},
+  { 1074, 1083, -1, sizeof(::CMsgGCAccountData)},
+  { 1086, 1097, -1, sizeof(::CMsgHeroBuild_BuildModEntry)},
+  { 1102, 1114, -1, sizeof(::CMsgHeroBuild_BuildModCategory)},
+  { 1120, 1130, -1, sizeof(::CMsgHeroBuild_CurrencyChange)},
+  { 1134, -1, -1, sizeof(::CMsgHeroBuild_AbilityOrder)},
+  { 1141, 1149, -1, sizeof(::CMsgHeroBuild_Details_V0)},
+  { 1151, 1170, -1, sizeof(::CMsgHeroBuild)},
+  { 1183, 1192, -1, sizeof(::CMsgHeroBuildPreference)},
+  { 1195, 1257, -1, sizeof(::CMsgCitadelCombatLogEntry)},
+  { 1313, 1321, -1, sizeof(::CSerializedCombatLog_Dictionary_DictString)},
+  { 1323, -1, -1, sizeof(::CSerializedCombatLog_Dictionary)},
+  { 1330, 1339, -1, sizeof(::CSerializedCombatLog)},
+  { 1342, 1351, -1, sizeof(::CMsgHeroReleaseVoteTally)},
+  { 1354, 1363, -1, sizeof(::CMsgMatchHeroReleaseVotes_HeroVote)},
+  { 1366, 1374, -1, sizeof(::CMsgMatchHeroReleaseVotes_Category)},
+  { 1376, -1, -1, sizeof(::CMsgMatchHeroReleaseVotes)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -3035,7 +3038,7 @@ const char descriptor_table_protodef_citadel_5fgcmessages_5fcommon_2eproto[] PRO
   "dp_connect_port\030\n \001(\r\022\023\n\013sdr_address\030\014 \001"
   "(\014\022\026\n\016server_version\030\r \001(\r\022\027\n\017safe_to_ab"
   "andon\030\016 \001(\010\022\037\n\027match_punishes_abandons\030\017"
-  " \001(\010\022\031\n\021game_mode_version\030\020 \001(\r\"\366\004\n\026CSOC"
+  " \001(\010\022\031\n\021game_mode_version\030\020 \001(\r\"\234\005\n\026CSOC"
   "itadelHideoutLobby\022\030\n\020hideout_lobby_id\030\001"
   " \001(\004\022\020\n\010party_id\030\002 \001(\004\022\027\n\017server_steam_i"
   "d\030\003 \001(\006\022\026\n\016udp_connect_ip\030\004 \001(\r\022\030\n\020udp_c"
@@ -3046,586 +3049,589 @@ const char descriptor_table_protodef_citadel_5fgcmessages_5fcommon_2eproto[] PRO
   "t\030\n \001(\r\022\'\n\016extra_messages\030\013 \003(\0132\017.CExtra"
   "MsgBlock\022I\n\rserver_status\030\014 \001(\0162%.CSOCit"
   "adelHideoutLobby.EServerStatus:\013k_eNoSer"
-  "ver\032d\n\006Member\022\022\n\naccount_id\030\001 \001(\r\022\"\n\032hid"
-  "eout_holiday_award_2024\030\036 \001(\010\022\"\n\032hideout"
-  "_holiday_award_2025\030  \001(\010\"u\n\rEServerStat"
-  "us\022\017\n\013k_eNoServer\020\000\022\025\n\021k_eServerAssigned"
-  "\020\001\022\024\n\020k_eTooFewPlayers\020\002\022\025\n\021k_ePlayersIn"
-  "Match\020\003\022\017\n\013k_eDisabled\020\004\"\220\001\n\032CLobbyData_"
-  "PostMatchSurvey\0229\n\007surveys\030\001 \003(\0132(.CLobb"
-  "yData_PostMatchSurvey.PlayerSurvey\0327\n\014Pl"
-  "ayerSurvey\022\022\n\naccount_id\030\001 \001(\r\022\023\n\013questi"
-  "on_id\030\002 \001(\r\"\231\001\n\032CMsgHeroSelectionMatchIn"
-  "fo\0229\n\017hero_selections\030\001 \003(\0132 .CMsgHeroSe"
-  "lectionMatchInfo.Hero\022\025\n\rbanned_heroes\030\002"
-  " \003(\r\032)\n\004Hero\022\017\n\007hero_id\030\001 \001(\r\022\020\n\010priorit"
-  "y\030\002 \001(\r\"\326\003\n\031CMsgStartFindingMatchInfo\022\031\n"
-  "\021server_search_key\030\001 \001(\t\022\035\n\025server_comma"
-  "nd_string\030\002 \001(\t\022C\n\nmatch_mode\030\003 \001(\0162\022.EC"
-  "itadelMatchMode:\033k_ECitadelMatchMode_Inv"
-  "alid\022@\n\tgame_mode\030\005 \001(\0162\021.ECitadelGameMo"
-  "de:\032k_ECitadelGameMode_Invalid\022L\n\016bot_di"
-  "fficulty\030\007 \001(\0162\026.ECitadelBotDifficulty:\034"
-  "k_ECitadelBotDifficulty_None\022B\n\013region_m"
-  "ode\030\010 \001(\0162\023.ECitadelRegionMode:\030k_ECitad"
-  "elRegionMode_ROW\022\030\n\020prefer_solo_only\030\t \001"
-  "(\010\022L\n\rmm_preference\030\n \001(\0162\025.ECitadelMMPr"
-  "eference:\036k_ECitadelMMPreference_Invalid"
-  "\"\264\002\n\030CMsgAnyToGCReportAsserts\022\017\n\007version"
-  "\030\001 \001(\r\0228\n\007asserts\030\002 \003(\0132\'.CMsgAnyToGCRep"
-  "ortAsserts.TrackedAssert\022\020\n\010match_id\030\003 \001"
-  "(\004\032\272\001\n\rTrackedAssert\022\020\n\010filename\030\001 \001(\t\022\023"
-  "\n\013line_number\030\002 \001(\r\022\022\n\nsample_msg\030\003 \001(\t\022"
-  "\024\n\014sample_stack\030\004 \001(\t\022\023\n\013times_fired\030\005 \001"
-  "(\r\022\025\n\rfunction_name\030\006 \001(\t\022\021\n\tcondition\030\007"
-  " \001(\t\022\031\n\021total_times_fired\030\010 \001(\r\"3\n CMsgA"
-  "nyToGCReportAssertsResponse\022\017\n\007success\030\001"
-  " \001(\010\"R\n\031CMsgRegionPingTimesClient\022\035\n\021dat"
-  "a_center_codes\030\001 \003(\007B\002\020\001\022\026\n\nping_times\030\002"
-  " \003(\rB\002\020\001\"3\n\024CMsgEquippedItemList\022\033\n\005item"
-  "s\030\001 \003(\0132\014.CSOEconItem\"Q\n\022CMsgPlayerHeroD"
-  "ata\022\017\n\007hero_xp\030\001 \001(\r\022*\n\013hero_equips\030\002 \001("
-  "\0132\025.CMsgEquippedItemList\"\250\025\n\017CSOCitadelP"
-  "arty\022\020\n\010party_id\030\001 \001(\004\022(\n\007members\030\002 \003(\0132"
-  "\027.CSOCitadelParty.Member\022(\n\007invites\030\003 \003("
-  "\0132\027.CSOCitadelParty.Invite\022\032\n\022dev_server"
-  "_command\030\004 \001(\t\0221\n\014left_members\030\005 \003(\0132\033.C"
-  "SOCitadelParty.LeftMember\022\021\n\tjoin_code\030\006"
-  " \001(\004\022L\n\016bot_difficulty\030\007 \001(\0162\026.ECitadelB"
+  "ver\032\211\001\n\006Member\022\022\n\naccount_id\030\001 \001(\r\022\"\n\032hi"
+  "deout_holiday_award_2024\030\036 \001(\010\022\"\n\032hideou"
+  "t_holiday_award_2025\030  \001(\010\022#\n\033ranked_sea"
+  "son_1_season_rank\030! \001(\r\"u\n\rEServerStatus"
+  "\022\017\n\013k_eNoServer\020\000\022\025\n\021k_eServerAssigned\020\001"
+  "\022\024\n\020k_eTooFewPlayers\020\002\022\025\n\021k_ePlayersInMa"
+  "tch\020\003\022\017\n\013k_eDisabled\020\004\"\220\001\n\032CLobbyData_Po"
+  "stMatchSurvey\0229\n\007surveys\030\001 \003(\0132(.CLobbyD"
+  "ata_PostMatchSurvey.PlayerSurvey\0327\n\014Play"
+  "erSurvey\022\022\n\naccount_id\030\001 \001(\r\022\023\n\013question"
+  "_id\030\002 \001(\r\"\231\001\n\032CMsgHeroSelectionMatchInfo"
+  "\0229\n\017hero_selections\030\001 \003(\0132 .CMsgHeroSele"
+  "ctionMatchInfo.Hero\022\025\n\rbanned_heroes\030\002 \003"
+  "(\r\032)\n\004Hero\022\017\n\007hero_id\030\001 \001(\r\022\020\n\010priority\030"
+  "\002 \001(\r\"\326\003\n\031CMsgStartFindingMatchInfo\022\031\n\021s"
+  "erver_search_key\030\001 \001(\t\022\035\n\025server_command"
+  "_string\030\002 \001(\t\022C\n\nmatch_mode\030\003 \001(\0162\022.ECit"
+  "adelMatchMode:\033k_ECitadelMatchMode_Inval"
+  "id\022@\n\tgame_mode\030\005 \001(\0162\021.ECitadelGameMode"
+  ":\032k_ECitadelGameMode_Invalid\022L\n\016bot_diff"
+  "iculty\030\007 \001(\0162\026.ECitadelBotDifficulty:\034k_"
+  "ECitadelBotDifficulty_None\022B\n\013region_mod"
+  "e\030\010 \001(\0162\023.ECitadelRegionMode:\030k_ECitadel"
+  "RegionMode_ROW\022\030\n\020prefer_solo_only\030\t \001(\010"
+  "\022L\n\rmm_preference\030\n \001(\0162\025.ECitadelMMPref"
+  "erence:\036k_ECitadelMMPreference_Invalid\"\264"
+  "\002\n\030CMsgAnyToGCReportAsserts\022\017\n\007version\030\001"
+  " \001(\r\0228\n\007asserts\030\002 \003(\0132\'.CMsgAnyToGCRepor"
+  "tAsserts.TrackedAssert\022\020\n\010match_id\030\003 \001(\004"
+  "\032\272\001\n\rTrackedAssert\022\020\n\010filename\030\001 \001(\t\022\023\n\013"
+  "line_number\030\002 \001(\r\022\022\n\nsample_msg\030\003 \001(\t\022\024\n"
+  "\014sample_stack\030\004 \001(\t\022\023\n\013times_fired\030\005 \001(\r"
+  "\022\025\n\rfunction_name\030\006 \001(\t\022\021\n\tcondition\030\007 \001"
+  "(\t\022\031\n\021total_times_fired\030\010 \001(\r\"3\n CMsgAny"
+  "ToGCReportAssertsResponse\022\017\n\007success\030\001 \001"
+  "(\010\"R\n\031CMsgRegionPingTimesClient\022\035\n\021data_"
+  "center_codes\030\001 \003(\007B\002\020\001\022\026\n\nping_times\030\002 \003"
+  "(\rB\002\020\001\"3\n\024CMsgEquippedItemList\022\033\n\005items\030"
+  "\001 \003(\0132\014.CSOEconItem\"Q\n\022CMsgPlayerHeroDat"
+  "a\022\017\n\007hero_xp\030\001 \001(\r\022*\n\013hero_equips\030\002 \001(\0132"
+  "\025.CMsgEquippedItemList\"\245\025\n\017CSOCitadelPar"
+  "ty\022\020\n\010party_id\030\001 \001(\004\022(\n\007members\030\002 \003(\0132\027."
+  "CSOCitadelParty.Member\022(\n\007invites\030\003 \003(\0132"
+  "\027.CSOCitadelParty.Invite\022\032\n\022dev_server_c"
+  "ommand\030\004 \001(\t\0221\n\014left_members\030\005 \003(\0132\033.CSO"
+  "CitadelParty.LeftMember\022\021\n\tjoin_code\030\006 \001"
+  "(\004\022L\n\016bot_difficulty\030\007 \001(\0162\026.ECitadelBot"
+  "Difficulty:\034k_ECitadelBotDifficulty_None"
+  "\022C\n\nmatch_mode\030\t \001(\0162\022.ECitadelMatchMode"
+  ":\033k_ECitadelMatchMode_Invalid\022@\n\tgame_mo"
+  "de\030\n \001(\0162\021.ECitadelGameMode:\032k_ECitadelG"
+  "ameMode_Invalid\022\037\n\027match_making_start_ti"
+  "me\030\013 \001(\r\022\031\n\021server_search_key\030\014 \001(\t\0226\n\tc"
+  "hat_mode\030\016 \001(\0162\032.CSOCitadelParty.EChatMo"
+  "de:\007k_eNone\022B\n\013region_mode\030\017 \001(\0162\023.ECita"
+  "delRegionMode:\030k_ECitadelRegionMode_ROW\022"
+  "\030\n\020is_private_lobby\030\020 \001(\010\022E\n\026private_lob"
+  "by_settings\030\021 \001(\0132%.CSOCitadelParty.Priv"
+  "ateLobbySettings\022\037\n\027desires_laning_toget"
+  "her\030\022 \001(\010\022L\n\rmm_preference\030\023 \001(\0162\025.ECita"
+  "delMMPreference:\036k_ECitadelMMPreference_"
+  "Invalid\022\032\n\022hideout_search_key\030\025 \001(\t\022\034\n\020c"
+  "andidate_cabals\030\026 \003(\004B\002\020\001\022\024\n\014active_caba"
+  "l\030\027 \001(\004\022J\n\024party_min_cabal_tier\030\030 \001(\0162\024."
+  "ECitadelCabalMMTier:\026k_eCabalMMTier_Inva"
+  "lid\022M\n\027party_active_cabal_tier\030\031 \001(\0162\024.E"
+  "CitadelCabalMMTier:\026k_eCabalMMTier_Inval"
+  "id\022F\n\013ranked_type\030\032 \001(\0162\023.ECitadelRanked"
+  "Type:\034k_eCitadelRankedType_Invalid\022\025\n\rra"
+  "nk_interval\030\033 \001(\r\032>\n\020PrivateLobbySlot\022\017\n"
+  "\007slot_id\030\001 \001(\r\022\031\n\021player_account_id\030\002 \001("
+  "\r\032!\n\014ServerRegion\022\021\n\tregion_id\030\001 \001(\r\032\323\002\n"
+  "\024PrivateLobbySettings\022\027\n\017min_roster_size"
+  "\030\001 \001(\r\0226\n\013match_slots\030\002 \003(\0132!.CSOCitadel"
+  "Party.PrivateLobbySlot\022\027\n\017randomize_lane"
+  "s\030\003 \001(\010\022\025\n\rserver_region\030\004 \001(\r\022\033\n\023is_pub"
+  "licly_visible\030\006 \001(\010\022\026\n\016cheats_enabled\030\007 "
+  "\001(\010\0228\n\021available_regions\030\010 \003(\0132\035.CSOCita"
+  "delParty.ServerRegion\022 \n\030duplicate_heroe"
+  "s_enabled\030\t \001(\010\022)\n!corrupted_item_shop_s"
+  "pawn_minutes\030\n \001(\r\032\330\001\n\014RankedScores\022D\n\tr"
+  "ank_type\030\001 \001(\0162\023.ECitadelRankedType:\034k_e"
+  "CitadelRankedType_Invalid\022\025\n\rrank_interv"
+  "al\030\002 \001(\r\022\032\n\022rank_display_badge\030\003 \001(\r\022\027\n\017"
+  "unlocked_heroes\030\005 \003(\r\022\026\n\016in_calibration\030"
+  "\006 \001(\010\022\036\n\026max_rank_display_badge\030\007 \001(\r\032\371\003"
+  "\n\006Member\022\022\n\naccount_id\030\001 \001(\r\022\024\n\014persona_"
+  "name\030\002 \001(\t\022\024\n\014rights_flags\030\003 \001(\r\022\020\n\010is_r"
+  "eady\030\004 \001(\010\022G\n\013player_type\030\005 \001(\0162\034.CSOCit"
+  "adelParty.EPlayerType:\024k_ePlayerType_Pla"
+  "yer\022\035\n\025compatibility_version\030\006 \001(\r\0222\n\010pl"
+  "atform\030\007 \001(\0162\014.EGCPlatform:\022k_eGCPlatfor"
+  "m_None\022\014\n\004team\030\010 \001(\r\0220\n\013hero_roster\030\t \001("
+  "\0132\033.CMsgHeroSelectionMatchInfo\022\023\n\013permis"
+  "sions\030\n \001(\004\022\033\n\023new_player_progress\030\013 \001(\004"
+  "\022\030\n\014owned_heroes\030\014 \003(\rB\002\020\001\022$\n\034low_priori"
+  "ty_games_remaining\030\r \001(\r\0224\n\rranked_score"
+  "s\030\016 \003(\0132\035.CSOCitadelParty.RankedScores\022\031"
+  "\n\rplayer_cabals\030\017 \003(\004B\002\020\001\032\177\n\nLeftMember\022"
+  "\022\n\naccount_id\030\001 \001(\r\022\024\n\014rights_flags\030\002 \001("
+  "\r\022G\n\013player_type\030\003 \001(\0162\034.CSOCitadelParty"
+  ".EPlayerType:\024k_ePlayerType_Player\032F\n\006In"
+  "vite\022\022\n\naccount_id\030\001 \001(\r\022\024\n\014persona_name"
+  "\030\002 \001(\t\022\022\n\ninvited_by\030\003 \001(\r\"G\n\rEMemberRig"
+  "hts\022\031\n\025k_eMemberRights_Admin\020\001\022\033\n\027k_eMem"
+  "berRights_Creator\020\002\"D\n\013EPlayerType\022\030\n\024k_"
+  "ePlayerType_Player\020\000\022\033\n\027k_ePlayerType_Sp"
+  "ectator\020\001\";\n\tEChatMode\022\013\n\007k_eNone\020\000\022\020\n\014k"
+  "_ePartyChat\020\001\022\017\n\013k_eTeamChat\020\002\"\233\006\n\030CMsgM"
+  "atchPlayerPathsData\022\017\n\007version\030\001 \001(\r\022\022\n\n"
+  "interval_s\030\002 \001(\002\022\024\n\014x_resolution\030\003 \001(\r\022\024"
+  "\n\014y_resolution\030\004 \001(\r\022-\n\005paths\030\005 \003(\0132\036.CM"
+  "sgMatchPlayerPathsData.Path\032\215\002\n\004Path\022\023\n\013"
+  "player_slot\030\001 \001(\r\022\r\n\005x_min\030\002 \001(\002\022\r\n\005y_mi"
+  "n\030\003 \001(\002\022\r\n\005x_max\030\004 \001(\002\022\r\n\005y_max\030\005 \001(\002\022\021\n"
+  "\005x_pos\030\006 \003(\rB\002\020\001\022\021\n\005y_pos\030\007 \003(\rB\002\020\001\022\022\n\006h"
+  "ealth\030\t \003(\rB\002\020\001\022>\n\013combat_type\030\n \003(\0162%.C"
+  "MsgMatchPlayerPathsData.ECombatTypeB\002\020\001\022"
+  ":\n\tmove_type\030\013 \003(\0162#.CMsgMatchPlayerPath"
+  "sData.EMoveTypeB\002\020\001\"u\n\013ECombatType\022\025\n\021k_"
+  "eCombatType_Out\020\000\022\030\n\024k_eCombatType_Playe"
+  "r\020\001\022\032\n\026k_eCombatType_EnemyNPC\020\002\022\031\n\025k_eCo"
+  "mbatType_Neutral\020\003\"\367\001\n\tEMoveType\022\026\n\022k_eM"
+  "oveType_Normal\020\000\022\027\n\023k_eMoveType_Ability\020"
+  "\001\022\035\n\031k_eMoveType_AbilityDebuff\020\002\022\032\n\026k_eM"
+  "oveType_GroundDash\020\003\022\025\n\021k_eMoveType_Slid"
+  "e\020\004\022\034\n\030k_eMoveType_RopeClimbing\020\005\022\031\n\025k_e"
+  "MoveType_Ziplining\020\006\022\025\n\021k_eMoveType_InAi"
+  "r\020\007\022\027\n\023k_eMoveType_AirDash\020\010\"\232\006\n\033CMsgMat"
+  "chPlayerDamageMatrix\022A\n\016damage_dealers\030\001"
+  " \003(\0132).CMsgMatchPlayerDamageMatrix.Damag"
+  "eDealer\022\031\n\rsample_time_s\030\002 \003(\rB\002\020\001\022B\n\016so"
+  "urce_details\030\003 \001(\0132*.CMsgMatchPlayerDama"
+  "geMatrix.SourceDetails\032@\n\016DamageToPlayer"
+  "\022\032\n\022target_player_slot\030\001 \001(\r\022\022\n\006damage\030\002"
+  " \003(\rB\002\020\001\032t\n\014DamageSource\022F\n\021damage_to_pl"
+  "ayers\030\002 \003(\0132+.CMsgMatchPlayerDamageMatri"
+  "x.DamageToPlayer\022\034\n\024source_details_index"
+  "\030\004 \001(\r\032m\n\014DamageDealer\022\032\n\022dealer_player_"
+  "slot\030\001 \001(\r\022A\n\016damage_sources\030\002 \003(\0132).CMs"
+  "gMatchPlayerDamageMatrix.DamageSource\032c\n"
+  "\rSourceDetails\022=\n\tstat_type\030\001 \003(\0162&.CMsg"
+  "MatchPlayerDamageMatrix.EStatTypeB\002\020\001\022\023\n"
+  "\013source_name\030\002 \003(\t\"\314\001\n\tEStatType\022\022\n\016k_eT"
+  "ype_Damage\020\000\022\023\n\017k_eType_Healing\020\001\022\031\n\025k_e"
+  "Type_HealPrevented\020\002\022\025\n\021k_eType_Mitigate"
+  "d\020\003\022\030\n\024k_eType_LethalDamage\020\004\022\021\n\rk_eType"
+  "_Regen\020\005\022\030\n\024k_eType_CrowdControl\020\006\022\035\n\031k_"
+  "eType_MitigatedBySource\020\007\"\244\002\n\027CMsgMatchP"
+  "layerRankData\022\034\n\024initial_display_rank\030\001 "
+  "\001(\r\022\035\n\025initial_flat_progress\030\002 \001(\r\022\033\n\023fi"
+  "nal_flat_progress\030\003 \001(\r\022\037\n\027desired_progr"
+  "ess_change\030\004 \001(\005\022!\n\031initial_calibration_"
+  "games\030\006 \001(\r\022)\n!initial_demotion_protecti"
+  "on_games\030\007 \001(\r\022$\n\034consumed_demotion_prot"
+  "ection\030\010 \001(\010\022\032\n\022initial_win_streak\030\t \001(\r"
+  "\"\3123\n\031CMsgMatchMetaDataContents\0228\n\nmatch_"
+  "info\030\002 \001(\0132$.CMsgMatchMetaDataContents.M"
+  "atchInfo\032+\n\010Position\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001"
+  "(\002\022\t\n\001z\030\003 \001(\002\032\334\001\n\006Deaths\022\023\n\013game_time_s\030"
+  "\001 \001(\r\022\026\n\016time_to_kill_s\030\002 \001(\002\022\032\n\022killer_"
+  "player_slot\030\t \001(\r\0226\n\tdeath_pos\030\n \001(\0132#.C"
+  "MsgMatchMetaDataContents.Position\0227\n\nkil"
+  "ler_pos\030\013 \001(\0132#.CMsgMatchMetaDataContent"
+  "s.Position\022\030\n\020death_duration_s\030\014 \001(\r\032\226\001\n"
+  "\005Items\022\023\n\013game_time_s\030\001 \001(\r\022\017\n\007item_id\030\002"
+  " \001(\r\022\022\n\nupgrade_id\030\003 \001(\r\022\023\n\013sold_time_s\030"
+  "\004 \001(\r\022\r\n\005flags\030\005 \001(\r\022\031\n\021imbued_ability_i"
+  "d\030\006 \001(\r\022\024\n\014upgrade_info\030\007 \001(\r\032A\n\004Ping\022\021\n"
+  "\tping_type\030\001 \001(\r\022\021\n\tping_data\030\002 \001(\r\022\023\n\013g"
+  "ame_time_s\030\003 \001(\r\032\220\001\n\nGoldSource\022B\n\006sourc"
+  "e\030\001 \001(\0162&.CMsgMatchMetaDataContents.EGol"
+  "dSource:\nk_ePlayers\022\r\n\005kills\030\002 \001(\r\022\016\n\006da"
+  "mage\030\003 \001(\r\022\014\n\004gold\030\004 \001(\r\022\021\n\tgold_orbs\030\005 "
+  "\001(\r\032.\n\022CustomUserStatInfo\022\014\n\004name\030\001 \001(\t\022"
+  "\n\n\002id\030\002 \001(\r\032+\n\016CustomUserStat\022\r\n\005value\030\002"
+  " \001(\r\022\n\n\002id\030\003 \001(\r\032|\n\013PowerUpBuff\022\014\n\004type\030"
+  "\001 \001(\t\022\r\n\005value\030\002 \001(\r\022\024\n\014is_permanent\030\003 \001"
+  "(\010\022\032\n\016pickup_times_s\030\004 \003(\rB\002\020\001\022\036\n\022pickup"
+  "_stat_values\030\005 \003(\002B\002\020\001\032\370\t\n\013PlayerStats\022\024"
+  "\n\014time_stamp_s\030\001 \001(\r\022\021\n\tnet_worth\030\002 \001(\r\022"
+  "\023\n\013gold_player\030\003 \001(\r\022\030\n\020gold_player_orbs"
+  "\030\004 \001(\r\022\034\n\024gold_lane_creep_orbs\030\005 \001(\r\022\037\n\027"
+  "gold_neutral_creep_orbs\030\006 \001(\r\022\021\n\tgold_bo"
+  "ss\030\007 \001(\r\022\025\n\rgold_boss_orb\030\010 \001(\r\022\025\n\rgold_"
+  "treasure\030\t \001(\r\022\023\n\013gold_denied\030\n \001(\r\022\027\n\017g"
+  "old_death_loss\030\013 \001(\r\022\027\n\017gold_lane_creep\030"
+  "\014 \001(\r\022\032\n\022gold_neutral_creep\030\r \001(\r\022\r\n\005kil"
+  "ls\030\016 \001(\r\022\016\n\006deaths\030\017 \001(\r\022\017\n\007assists\030\020 \001("
+  "\r\022\023\n\013creep_kills\030\021 \001(\r\022\025\n\rneutral_kills\030"
+  "\022 \001(\r\022\027\n\017possible_creeps\030\023 \001(\r\022\024\n\014creep_"
+  "damage\030\024 \001(\r\022\025\n\rplayer_damage\030\025 \001(\r\022\026\n\016n"
+  "eutral_damage\030\026 \001(\r\022\023\n\013boss_damage\030\027 \001(\r"
+  "\022\016\n\006denies\030\030 \001(\r\022\026\n\016player_healing\030\031 \001(\r"
+  "\022\026\n\016ability_points\030\032 \001(\r\022\024\n\014self_healing"
+  "\030\033 \001(\r\022\033\n\023player_damage_taken\030\034 \001(\r\022\022\n\nm"
+  "ax_health\030\035 \001(\r\022\024\n\014weapon_power\030\036 \001(\r\022\022\n"
+  "\ntech_power\030\037 \001(\r\022\021\n\tshots_hit\030  \001(\r\022\024\n\014"
+  "shots_missed\030! \001(\r\022\027\n\017damage_absorbed\030\" "
+  "\001(\r\022\033\n\023absorption_provided\030# \001(\r\022\030\n\020hero"
+  "_bullets_hit\030$ \001(\r\022\035\n\025hero_bullets_hit_c"
+  "rit\030% \001(\r\022\026\n\016heal_prevented\030& \001(\r\022\021\n\thea"
+  "l_lost\030\' \001(\r\022;\n\014gold_sources\030( \003(\0132%.CMs"
+  "gMatchMetaDataContents.GoldSource\022D\n\021cus"
+  "tom_user_stats\030) \003(\0132).CMsgMatchMetaData"
+  "Contents.CustomUserStat\022\030\n\020damage_mitiga"
+  "ted\030* \001(\r\022\r\n\005level\030+ \001(\r\022\031\n\021player_barri"
+  "ering\030, \001(\r\022\030\n\020teammate_healing\030- \001(\r\022\033\n"
+  "\023teammate_barriering\030. \001(\r\022\023\n\013self_damag"
+  "e\030/ \001(\r\022\024\n\014bullet_kills\0300 \001(\r\022\023\n\013melee_k"
+  "ills\0301 \001(\r\022\025\n\rability_kills\0302 \001(\r\022\026\n\016hea"
+  "dshot_kills\0303 \001(\r\0328\n\013AbilityStat\022\022\n\nabil"
+  "ity_id\030\001 \001(\r\022\025\n\rability_value\030\002 \001(\r\032E\n\nB"
+  "ookReward\022\017\n\007book_id\030\001 \001(\r\022\021\n\txp_amount\030"
+  "\002 \001(\r\022\023\n\013starting_xp\030\003 \001(\r\0322\n\014HeroXPRewa"
+  "rd\022\"\n\010xp_grant\030\001 \001(\0132\020.CMsgHeroXPGrant\032g"
+  "\n\016PlayerAccolade\022\023\n\013accolade_id\030\001 \001(\r\022\033\n"
+  "\023accolade_stat_value\030\002 \001(\005\022#\n\033accolade_t"
+  "hreshold_achieved\030\003 \001(\005\032\233\t\n\007Players\022\022\n\na"
+  "ccount_id\030\001 \001(\r\022\023\n\013player_slot\030\002 \001(\r\0228\n\r"
+  "death_details\030\003 \003(\0132!.CMsgMatchMetaDataC"
+  "ontents.Deaths\022/\n\005items\030\004 \003(\0132 .CMsgMatc"
+  "hMetaDataContents.Items\0225\n\005stats\030\005 \003(\0132&"
+  ".CMsgMatchMetaDataContents.PlayerStats\022;"
+  "\n\004team\030\006 \001(\0162\022.ECitadelLobbyTeam:\031k_ECit"
+  "adelLobbyTeam_Team0\022\r\n\005kills\030\010 \001(\r\022\016\n\006de"
+  "aths\030\t \001(\r\022\017\n\007assists\030\n \001(\r\022\021\n\tnet_worth"
+  "\030\013 \001(\r\022\017\n\007hero_id\030\014 \001(\r\022\021\n\tlast_hits\030\r \001"
+  "(\r\022\016\n\006denies\030\016 \001(\r\022\026\n\016ability_points\030\017 \001"
+  "(\r\022\025\n\rassigned_lane\030\021 \001(\r\022\r\n\005level\030\022 \001(\r"
+  "\022.\n\005pings\030\023 \003(\0132\037.CMsgMatchMetaDataConte"
+  "nts.Ping\022=\n\rability_stats\030\024 \003(\0132&.CMsgMa"
+  "tchMetaDataContents.AbilityStat\022\033\n\017stats"
+  "_type_stat\030\025 \003(\002B\002\020\001\022;\n\014book_rewards\030\026 \003"
+  "(\0132%.CMsgMatchMetaDataContents.BookRewar"
+  "d\022\034\n\024abandon_match_time_s\030\027 \001(\r\022&\n\thero_"
+  "data\030\031 \001(\0132\023.CMsgPlayerHeroData\022\030\n\020rewar"
+  "ds_eligible\030\032 \001(\010\022.\n\024player_tracked_stat"
+  "s\0300 \003(\0132\020.CMsgTrackedStat\022<\n\taccolades\030\033"
+  " \003(\0132).CMsgMatchMetaDataContents.PlayerA"
+  "ccolade\022\020\n\010mvp_rank\030\034 \001(\r\022!\n\031earned_holi"
+  "day_award_2025\030\035 \001(\010\022>\n\016power_up_buffs\030\036"
+  " \003(\0132&.CMsgMatchMetaDataContents.PowerUp"
+  "Buff\022@\n\017hero_xp_rewards\030\037 \003(\0132\'.CMsgMatc"
+  "hMetaDataContents.HeroXPReward\0222\n\020player"
+  "_rank_data\030  \001(\0132\030.CMsgMatchPlayerRankDa"
+  "ta\022Q\n\024player_match_outcome\030! \001(\0162\024.EPlay"
+  "erMatchOutcome:\035k_EPlayerMatchOutcome_In"
+  "valid\032r\n\005Teams\022;\n\004team\030\001 \001(\0162\022.ECitadelL"
+  "obbyTeam:\031k_ECitadelLobbyTeam_Team0\022,\n\022t"
+  "eam_tracked_stats\030\002 \003(\0132\020.CMsgTrackedSta"
+  "t\032\255\003\n\tObjective\022O\n\023legacy_objective_id\030\001"
+  " \001(\0162\022.ECitadelObjective:\036k_eCitadelObje"
+  "ctive_Team0_Core\022\030\n\020destroyed_time_s\030\002 \001"
+  "(\r\022\024\n\014creep_damage\030\004 \001(\r\022\036\n\026creep_damage"
+  "_mitigated\030\005 \001(\r\022\025\n\rplayer_damage\030\006 \001(\r\022"
+  "\037\n\027player_damage_mitigated\030\007 \001(\r\022\033\n\023firs"
+  "t_damage_time_s\030\010 \001(\r\022O\n\021team_objective_"
+  "id\030\t \001(\0162\026.ECitadelTeamObjective:\034k_eCit"
+  "adelTeamObjective_Core\022;\n\004team\030\n \001(\0162\022.E"
+  "CitadelLobbyTeam:\031k_ECitadelLobbyTeam_Te"
+  "am0\022\034\n\024player_spirit_damage\030\013 \001(\r\032\254\001\n\007Mi"
+  "dBoss\022B\n\013team_killed\030\001 \001(\0162\022.ECitadelLob"
+  "byTeam:\031k_ECitadelLobbyTeam_Team0\022C\n\014tea"
+  "m_claimed\030\002 \001(\0162\022.ECitadelLobbyTeam:\031k_E"
+  "CitadelLobbyTeam_Team0\022\030\n\020destroyed_time"
+  "_s\030\003 \001(\r\032K\n\005Pause\022\023\n\013game_time_s\030\001 \001(\r\022\030"
+  "\n\020pause_duration_s\030\002 \001(\r\022\023\n\013player_slot\030"
+  "\003 \001(\r\032>\n\022WatchedDeathReplay\022\023\n\013game_time"
+  "_s\030\001 \001(\r\022\023\n\013player_slot\030\002 \001(\r\032q\n\020StreetB"
+  "rawlRound\022\030\n\020round_duration_s\030\001 \001(\r\022C\n\014w"
+  "inning_team\030\002 \001(\0162\022.ECitadelLobbyTeam:\031k"
+  "_ECitadelLobbyTeam_Team0\032\251\014\n\tMatchInfo\022\022"
+  "\n\nduration_s\030\001 \001(\r\022S\n\rmatch_outcome\030\002 \001("
+  "\0162(.CMsgMatchMetaDataContents.EMatchOutc"
+  "ome:\022k_eOutcome_TeamWin\022C\n\014winning_team\030"
+  "\003 \001(\0162\022.ECitadelLobbyTeam:\031k_ECitadelLob"
+  "byTeam_Team0\0223\n\007players\030\004 \003(\0132\".CMsgMatc"
+  "hMetaDataContents.Players\022\022\n\nstart_time\030"
+  "\005 \001(\r\022\020\n\010match_id\030\006 \001(\004\022\036\n\026legacy_object"
+  "ives_mask\030\010 \001(\r\022@\n\tgame_mode\030\t \001(\0162\021.ECi"
+  "tadelGameMode:\032k_ECitadelGameMode_Invali"
+  "d\022C\n\nmatch_mode\030\n \001(\0162\022.ECitadelMatchMod"
+  "e:\033k_ECitadelMatchMode_Invalid\0228\n\nobject"
+  "ives\030\013 \003(\0132$.CMsgMatchMetaDataContents.O"
+  "bjective\022.\n\013match_paths\030\014 \001(\0132\031.CMsgMatc"
+  "hPlayerPathsData\0223\n\rdamage_matrix\030\r \001(\0132"
+  "\034.CMsgMatchPlayerDamageMatrix\0226\n\014match_p"
+  "auses\030\016 \003(\0132 .CMsgMatchMetaDataContents."
+  "Pause\022H\n\021custom_user_stats\030\017 \003(\0132-.CMsgM"
+  "atchMetaDataContents.CustomUserStatInfo\022"
+  "L\n\025watched_death_replays\030\020 \003(\0132-.CMsgMat"
+  "chMetaDataContents.WatchedDeathReplay\022\035\n"
+  "\025objectives_mask_team0\030\021 \001(\004\022\035\n\025objectiv"
+  "es_mask_team1\030\022 \001(\004\0224\n\010mid_boss\030\023 \003(\0132\"."
+  "CMsgMatchMetaDataContents.MidBoss\022#\n\033is_"
+  "high_skill_range_parties\030\024 \001(\010\022\024\n\014low_pr"
+  "i_pool\030\025 \001(\010\022\027\n\017new_player_pool\030\026 \001(\010\022\033\n"
+  "\023average_badge_team0\030\027 \001(\r\022\033\n\023average_ba"
+  "dge_team1\030\030 \001(\r\022\031\n\021game_mode_version\030\031 \001"
+  "(\r\022\030\n\020rewards_eligible\030\032 \001(\010\022\022\n\nnot_scor"
+  "ed\030\033 \001(\010\022\022\n\nteam_score\030\034 \003(\r\022-\n\023match_tr"
+  "acked_stats\030\035 \003(\0132\020.CMsgTrackedStat\022/\n\005t"
+  "eams\030\036 \003(\0132 .CMsgMatchMetaDataContents.T"
+  "eams\022L\n\016bot_difficulty\030  \001(\0162\026.ECitadelB"
   "otDifficulty:\034k_ECitadelBotDifficulty_No"
-  "ne\022C\n\nmatch_mode\030\t \001(\0162\022.ECitadelMatchMo"
-  "de:\033k_ECitadelMatchMode_Invalid\022@\n\tgame_"
-  "mode\030\n \001(\0162\021.ECitadelGameMode:\032k_ECitade"
-  "lGameMode_Invalid\022\037\n\027match_making_start_"
-  "time\030\013 \001(\r\022\031\n\021server_search_key\030\014 \001(\t\022!\n"
-  "\031is_high_skill_range_party\030\r \001(\010\0226\n\tchat"
-  "_mode\030\016 \001(\0162\032.CSOCitadelParty.EChatMode:"
-  "\007k_eNone\022B\n\013region_mode\030\017 \001(\0162\023.ECitadel"
-  "RegionMode:\030k_ECitadelRegionMode_ROW\022\030\n\020"
-  "is_private_lobby\030\020 \001(\010\022E\n\026private_lobby_"
-  "settings\030\021 \001(\0132%.CSOCitadelParty.Private"
-  "LobbySettings\022\037\n\027desires_laning_together"
-  "\030\022 \001(\010\022L\n\rmm_preference\030\023 \001(\0162\025.ECitadel"
-  "MMPreference:\036k_ECitadelMMPreference_Inv"
-  "alid\022\032\n\022hideout_search_key\030\025 \001(\t\022\034\n\020cand"
-  "idate_cabals\030\026 \003(\004B\002\020\001\022\024\n\014active_cabal\030\027"
-  " \001(\004\022J\n\024party_min_cabal_tier\030\030 \001(\0162\024.ECi"
-  "tadelCabalMMTier:\026k_eCabalMMTier_Invalid"
-  "\022M\n\027party_active_cabal_tier\030\031 \001(\0162\024.ECit"
-  "adelCabalMMTier:\026k_eCabalMMTier_Invalid\022"
-  "F\n\013ranked_type\030\032 \001(\0162\023.ECitadelRankedTyp"
-  "e:\034k_eCitadelRankedType_Invalid\022\025\n\rrank_"
-  "interval\030\033 \001(\r\032>\n\020PrivateLobbySlot\022\017\n\007sl"
-  "ot_id\030\001 \001(\r\022\031\n\021player_account_id\030\002 \001(\r\032!"
-  "\n\014ServerRegion\022\021\n\tregion_id\030\001 \001(\r\032\323\002\n\024Pr"
-  "ivateLobbySettings\022\027\n\017min_roster_size\030\001 "
-  "\001(\r\0226\n\013match_slots\030\002 \003(\0132!.CSOCitadelPar"
-  "ty.PrivateLobbySlot\022\027\n\017randomize_lanes\030\003"
-  " \001(\010\022\025\n\rserver_region\030\004 \001(\r\022\033\n\023is_public"
-  "ly_visible\030\006 \001(\010\022\026\n\016cheats_enabled\030\007 \001(\010"
-  "\0228\n\021available_regions\030\010 \003(\0132\035.CSOCitadel"
-  "Party.ServerRegion\022 \n\030duplicate_heroes_e"
-  "nabled\030\t \001(\010\022)\n!corrupted_item_shop_spaw"
-  "n_minutes\030\n \001(\r\032\270\001\n\014RankedScores\022D\n\trank"
-  "_type\030\001 \001(\0162\023.ECitadelRankedType:\034k_eCit"
-  "adelRankedType_Invalid\022\025\n\rrank_interval\030"
-  "\002 \001(\r\022\032\n\022rank_display_badge\030\003 \001(\r\022\027\n\017unl"
-  "ocked_heroes\030\005 \003(\r\022\026\n\016in_calibration\030\006 \001"
-  "(\010\032\371\003\n\006Member\022\022\n\naccount_id\030\001 \001(\r\022\024\n\014per"
-  "sona_name\030\002 \001(\t\022\024\n\014rights_flags\030\003 \001(\r\022\020\n"
-  "\010is_ready\030\004 \001(\010\022G\n\013player_type\030\005 \001(\0162\034.C"
-  "SOCitadelParty.EPlayerType:\024k_ePlayerTyp"
-  "e_Player\022\035\n\025compatibility_version\030\006 \001(\r\022"
-  "2\n\010platform\030\007 \001(\0162\014.EGCPlatform:\022k_eGCPl"
-  "atform_None\022\014\n\004team\030\010 \001(\r\0220\n\013hero_roster"
-  "\030\t \001(\0132\033.CMsgHeroSelectionMatchInfo\022\023\n\013p"
-  "ermissions\030\n \001(\004\022\033\n\023new_player_progress\030"
-  "\013 \001(\004\022\030\n\014owned_heroes\030\014 \003(\rB\002\020\001\022$\n\034low_p"
-  "riority_games_remaining\030\r \001(\r\0224\n\rranked_"
-  "scores\030\016 \003(\0132\035.CSOCitadelParty.RankedSco"
-  "res\022\031\n\rplayer_cabals\030\017 \003(\004B\002\020\001\032\177\n\nLeftMe"
-  "mber\022\022\n\naccount_id\030\001 \001(\r\022\024\n\014rights_flags"
-  "\030\002 \001(\r\022G\n\013player_type\030\003 \001(\0162\034.CSOCitadel"
-  "Party.EPlayerType:\024k_ePlayerType_Player\032"
-  "F\n\006Invite\022\022\n\naccount_id\030\001 \001(\r\022\024\n\014persona"
-  "_name\030\002 \001(\t\022\022\n\ninvited_by\030\003 \001(\r\"G\n\rEMemb"
-  "erRights\022\031\n\025k_eMemberRights_Admin\020\001\022\033\n\027k"
-  "_eMemberRights_Creator\020\002\"D\n\013EPlayerType\022"
-  "\030\n\024k_ePlayerType_Player\020\000\022\033\n\027k_ePlayerTy"
-  "pe_Spectator\020\001\";\n\tEChatMode\022\013\n\007k_eNone\020\000"
-  "\022\020\n\014k_ePartyChat\020\001\022\017\n\013k_eTeamChat\020\002\"\233\006\n\030"
-  "CMsgMatchPlayerPathsData\022\017\n\007version\030\001 \001("
-  "\r\022\022\n\ninterval_s\030\002 \001(\002\022\024\n\014x_resolution\030\003 "
-  "\001(\r\022\024\n\014y_resolution\030\004 \001(\r\022-\n\005paths\030\005 \003(\013"
-  "2\036.CMsgMatchPlayerPathsData.Path\032\215\002\n\004Pat"
-  "h\022\023\n\013player_slot\030\001 \001(\r\022\r\n\005x_min\030\002 \001(\002\022\r\n"
-  "\005y_min\030\003 \001(\002\022\r\n\005x_max\030\004 \001(\002\022\r\n\005y_max\030\005 \001"
-  "(\002\022\021\n\005x_pos\030\006 \003(\rB\002\020\001\022\021\n\005y_pos\030\007 \003(\rB\002\020\001"
-  "\022\022\n\006health\030\t \003(\rB\002\020\001\022>\n\013combat_type\030\n \003("
-  "\0162%.CMsgMatchPlayerPathsData.ECombatType"
-  "B\002\020\001\022:\n\tmove_type\030\013 \003(\0162#.CMsgMatchPlaye"
-  "rPathsData.EMoveTypeB\002\020\001\"u\n\013ECombatType\022"
-  "\025\n\021k_eCombatType_Out\020\000\022\030\n\024k_eCombatType_"
-  "Player\020\001\022\032\n\026k_eCombatType_EnemyNPC\020\002\022\031\n\025"
-  "k_eCombatType_Neutral\020\003\"\367\001\n\tEMoveType\022\026\n"
-  "\022k_eMoveType_Normal\020\000\022\027\n\023k_eMoveType_Abi"
-  "lity\020\001\022\035\n\031k_eMoveType_AbilityDebuff\020\002\022\032\n"
-  "\026k_eMoveType_GroundDash\020\003\022\025\n\021k_eMoveType"
-  "_Slide\020\004\022\034\n\030k_eMoveType_RopeClimbing\020\005\022\031"
-  "\n\025k_eMoveType_Ziplining\020\006\022\025\n\021k_eMoveType"
-  "_InAir\020\007\022\027\n\023k_eMoveType_AirDash\020\010\"\341\005\n\033CM"
-  "sgMatchPlayerDamageMatrix\022A\n\016damage_deal"
-  "ers\030\001 \003(\0132).CMsgMatchPlayerDamageMatrix."
-  "DamageDealer\022\031\n\rsample_time_s\030\002 \003(\rB\002\020\001\022"
-  "B\n\016source_details\030\003 \001(\0132*.CMsgMatchPlaye"
-  "rDamageMatrix.SourceDetails\032@\n\016DamageToP"
-  "layer\022\032\n\022target_player_slot\030\001 \001(\r\022\022\n\006dam"
-  "age\030\002 \003(\rB\002\020\001\032t\n\014DamageSource\022F\n\021damage_"
-  "to_players\030\002 \003(\0132+.CMsgMatchPlayerDamage"
-  "Matrix.DamageToPlayer\022\034\n\024source_details_"
-  "index\030\004 \001(\r\032m\n\014DamageDealer\022\032\n\022dealer_pl"
-  "ayer_slot\030\001 \001(\r\022A\n\016damage_sources\030\002 \003(\0132"
-  ").CMsgMatchPlayerDamageMatrix.DamageSour"
-  "ce\032c\n\rSourceDetails\022=\n\tstat_type\030\001 \003(\0162&"
-  ".CMsgMatchPlayerDamageMatrix.EStatTypeB\002"
-  "\020\001\022\023\n\013source_name\030\002 \003(\t\"\223\001\n\tEStatType\022\022\n"
-  "\016k_eType_Damage\020\000\022\023\n\017k_eType_Healing\020\001\022\031"
-  "\n\025k_eType_HealPrevented\020\002\022\025\n\021k_eType_Mit"
-  "igated\020\003\022\030\n\024k_eType_LethalDamage\020\004\022\021\n\rk_"
-  "eType_Regen\020\005\"\244\002\n\027CMsgMatchPlayerRankDat"
-  "a\022\034\n\024initial_display_rank\030\001 \001(\r\022\035\n\025initi"
-  "al_flat_progress\030\002 \001(\r\022\033\n\023final_flat_pro"
-  "gress\030\003 \001(\r\022\037\n\027desired_progress_change\030\004"
-  " \001(\005\022!\n\031initial_calibration_games\030\006 \001(\r\022"
-  ")\n!initial_demotion_protection_games\030\007 \001"
-  "(\r\022$\n\034consumed_demotion_protection\030\010 \001(\010"
-  "\022\032\n\022initial_win_streak\030\t \001(\r\"\3123\n\031CMsgMat"
-  "chMetaDataContents\0228\n\nmatch_info\030\002 \001(\0132$"
-  ".CMsgMatchMetaDataContents.MatchInfo\032+\n\010"
-  "Position\022\t\n\001x\030\001 \001(\002\022\t\n\001y\030\002 \001(\002\022\t\n\001z\030\003 \001("
-  "\002\032\334\001\n\006Deaths\022\023\n\013game_time_s\030\001 \001(\r\022\026\n\016tim"
-  "e_to_kill_s\030\002 \001(\002\022\032\n\022killer_player_slot\030"
-  "\t \001(\r\0226\n\tdeath_pos\030\n \001(\0132#.CMsgMatchMeta"
-  "DataContents.Position\0227\n\nkiller_pos\030\013 \001("
-  "\0132#.CMsgMatchMetaDataContents.Position\022\030"
-  "\n\020death_duration_s\030\014 \001(\r\032\226\001\n\005Items\022\023\n\013ga"
-  "me_time_s\030\001 \001(\r\022\017\n\007item_id\030\002 \001(\r\022\022\n\nupgr"
-  "ade_id\030\003 \001(\r\022\023\n\013sold_time_s\030\004 \001(\r\022\r\n\005fla"
-  "gs\030\005 \001(\r\022\031\n\021imbued_ability_id\030\006 \001(\r\022\024\n\014u"
-  "pgrade_info\030\007 \001(\r\032A\n\004Ping\022\021\n\tping_type\030\001"
-  " \001(\r\022\021\n\tping_data\030\002 \001(\r\022\023\n\013game_time_s\030\003"
-  " \001(\r\032\220\001\n\nGoldSource\022B\n\006source\030\001 \001(\0162&.CM"
-  "sgMatchMetaDataContents.EGoldSource:\nk_e"
-  "Players\022\r\n\005kills\030\002 \001(\r\022\016\n\006damage\030\003 \001(\r\022\014"
-  "\n\004gold\030\004 \001(\r\022\021\n\tgold_orbs\030\005 \001(\r\032.\n\022Custo"
-  "mUserStatInfo\022\014\n\004name\030\001 \001(\t\022\n\n\002id\030\002 \001(\r\032"
-  "+\n\016CustomUserStat\022\r\n\005value\030\002 \001(\r\022\n\n\002id\030\003"
-  " \001(\r\032|\n\013PowerUpBuff\022\014\n\004type\030\001 \001(\t\022\r\n\005val"
-  "ue\030\002 \001(\r\022\024\n\014is_permanent\030\003 \001(\010\022\032\n\016pickup"
-  "_times_s\030\004 \003(\rB\002\020\001\022\036\n\022pickup_stat_values"
-  "\030\005 \003(\002B\002\020\001\032\370\t\n\013PlayerStats\022\024\n\014time_stamp"
-  "_s\030\001 \001(\r\022\021\n\tnet_worth\030\002 \001(\r\022\023\n\013gold_play"
-  "er\030\003 \001(\r\022\030\n\020gold_player_orbs\030\004 \001(\r\022\034\n\024go"
-  "ld_lane_creep_orbs\030\005 \001(\r\022\037\n\027gold_neutral"
-  "_creep_orbs\030\006 \001(\r\022\021\n\tgold_boss\030\007 \001(\r\022\025\n\r"
-  "gold_boss_orb\030\010 \001(\r\022\025\n\rgold_treasure\030\t \001"
-  "(\r\022\023\n\013gold_denied\030\n \001(\r\022\027\n\017gold_death_lo"
-  "ss\030\013 \001(\r\022\027\n\017gold_lane_creep\030\014 \001(\r\022\032\n\022gol"
-  "d_neutral_creep\030\r \001(\r\022\r\n\005kills\030\016 \001(\r\022\016\n\006"
-  "deaths\030\017 \001(\r\022\017\n\007assists\030\020 \001(\r\022\023\n\013creep_k"
-  "ills\030\021 \001(\r\022\025\n\rneutral_kills\030\022 \001(\r\022\027\n\017pos"
-  "sible_creeps\030\023 \001(\r\022\024\n\014creep_damage\030\024 \001(\r"
-  "\022\025\n\rplayer_damage\030\025 \001(\r\022\026\n\016neutral_damag"
-  "e\030\026 \001(\r\022\023\n\013boss_damage\030\027 \001(\r\022\016\n\006denies\030\030"
-  " \001(\r\022\026\n\016player_healing\030\031 \001(\r\022\026\n\016ability_"
-  "points\030\032 \001(\r\022\024\n\014self_healing\030\033 \001(\r\022\033\n\023pl"
-  "ayer_damage_taken\030\034 \001(\r\022\022\n\nmax_health\030\035 "
-  "\001(\r\022\024\n\014weapon_power\030\036 \001(\r\022\022\n\ntech_power\030"
-  "\037 \001(\r\022\021\n\tshots_hit\030  \001(\r\022\024\n\014shots_missed"
-  "\030! \001(\r\022\027\n\017damage_absorbed\030\" \001(\r\022\033\n\023absor"
-  "ption_provided\030# \001(\r\022\030\n\020hero_bullets_hit"
-  "\030$ \001(\r\022\035\n\025hero_bullets_hit_crit\030% \001(\r\022\026\n"
-  "\016heal_prevented\030& \001(\r\022\021\n\theal_lost\030\' \001(\r"
-  "\022;\n\014gold_sources\030( \003(\0132%.CMsgMatchMetaDa"
-  "taContents.GoldSource\022D\n\021custom_user_sta"
-  "ts\030) \003(\0132).CMsgMatchMetaDataContents.Cus"
-  "tomUserStat\022\030\n\020damage_mitigated\030* \001(\r\022\r\n"
-  "\005level\030+ \001(\r\022\031\n\021player_barriering\030, \001(\r\022"
-  "\030\n\020teammate_healing\030- \001(\r\022\033\n\023teammate_ba"
-  "rriering\030. \001(\r\022\023\n\013self_damage\030/ \001(\r\022\024\n\014b"
-  "ullet_kills\0300 \001(\r\022\023\n\013melee_kills\0301 \001(\r\022\025"
-  "\n\rability_kills\0302 \001(\r\022\026\n\016headshot_kills\030"
-  "3 \001(\r\0328\n\013AbilityStat\022\022\n\nability_id\030\001 \001(\r"
-  "\022\025\n\rability_value\030\002 \001(\r\032E\n\nBookReward\022\017\n"
-  "\007book_id\030\001 \001(\r\022\021\n\txp_amount\030\002 \001(\r\022\023\n\013sta"
-  "rting_xp\030\003 \001(\r\0322\n\014HeroXPReward\022\"\n\010xp_gra"
-  "nt\030\001 \001(\0132\020.CMsgHeroXPGrant\032g\n\016PlayerAcco"
-  "lade\022\023\n\013accolade_id\030\001 \001(\r\022\033\n\023accolade_st"
-  "at_value\030\002 \001(\005\022#\n\033accolade_threshold_ach"
-  "ieved\030\003 \001(\005\032\233\t\n\007Players\022\022\n\naccount_id\030\001 "
-  "\001(\r\022\023\n\013player_slot\030\002 \001(\r\0228\n\rdeath_detail"
-  "s\030\003 \003(\0132!.CMsgMatchMetaDataContents.Deat"
-  "hs\022/\n\005items\030\004 \003(\0132 .CMsgMatchMetaDataCon"
-  "tents.Items\0225\n\005stats\030\005 \003(\0132&.CMsgMatchMe"
-  "taDataContents.PlayerStats\022;\n\004team\030\006 \001(\016"
-  "2\022.ECitadelLobbyTeam:\031k_ECitadelLobbyTea"
-  "m_Team0\022\r\n\005kills\030\010 \001(\r\022\016\n\006deaths\030\t \001(\r\022\017"
-  "\n\007assists\030\n \001(\r\022\021\n\tnet_worth\030\013 \001(\r\022\017\n\007he"
-  "ro_id\030\014 \001(\r\022\021\n\tlast_hits\030\r \001(\r\022\016\n\006denies"
-  "\030\016 \001(\r\022\026\n\016ability_points\030\017 \001(\r\022\025\n\rassign"
-  "ed_lane\030\021 \001(\r\022\r\n\005level\030\022 \001(\r\022.\n\005pings\030\023 "
-  "\003(\0132\037.CMsgMatchMetaDataContents.Ping\022=\n\r"
-  "ability_stats\030\024 \003(\0132&.CMsgMatchMetaDataC"
-  "ontents.AbilityStat\022\033\n\017stats_type_stat\030\025"
-  " \003(\002B\002\020\001\022;\n\014book_rewards\030\026 \003(\0132%.CMsgMat"
-  "chMetaDataContents.BookReward\022\034\n\024abandon"
-  "_match_time_s\030\027 \001(\r\022&\n\thero_data\030\031 \001(\0132\023"
-  ".CMsgPlayerHeroData\022\030\n\020rewards_eligible\030"
-  "\032 \001(\010\022.\n\024player_tracked_stats\0300 \003(\0132\020.CM"
-  "sgTrackedStat\022<\n\taccolades\030\033 \003(\0132).CMsgM"
-  "atchMetaDataContents.PlayerAccolade\022\020\n\010m"
-  "vp_rank\030\034 \001(\r\022!\n\031earned_holiday_award_20"
-  "25\030\035 \001(\010\022>\n\016power_up_buffs\030\036 \003(\0132&.CMsgM"
-  "atchMetaDataContents.PowerUpBuff\022@\n\017hero"
-  "_xp_rewards\030\037 \003(\0132\'.CMsgMatchMetaDataCon"
-  "tents.HeroXPReward\0222\n\020player_rank_data\030 "
-  " \001(\0132\030.CMsgMatchPlayerRankData\022Q\n\024player"
-  "_match_outcome\030! \001(\0162\024.EPlayerMatchOutco"
-  "me:\035k_EPlayerMatchOutcome_Invalid\032r\n\005Tea"
-  "ms\022;\n\004team\030\001 \001(\0162\022.ECitadelLobbyTeam:\031k_"
-  "ECitadelLobbyTeam_Team0\022,\n\022team_tracked_"
-  "stats\030\002 \003(\0132\020.CMsgTrackedStat\032\255\003\n\tObject"
-  "ive\022O\n\023legacy_objective_id\030\001 \001(\0162\022.ECita"
-  "delObjective:\036k_eCitadelObjective_Team0_"
-  "Core\022\030\n\020destroyed_time_s\030\002 \001(\r\022\024\n\014creep_"
-  "damage\030\004 \001(\r\022\036\n\026creep_damage_mitigated\030\005"
-  " \001(\r\022\025\n\rplayer_damage\030\006 \001(\r\022\037\n\027player_da"
-  "mage_mitigated\030\007 \001(\r\022\033\n\023first_damage_tim"
-  "e_s\030\010 \001(\r\022O\n\021team_objective_id\030\t \001(\0162\026.E"
-  "CitadelTeamObjective:\034k_eCitadelTeamObje"
-  "ctive_Core\022;\n\004team\030\n \001(\0162\022.ECitadelLobby"
-  "Team:\031k_ECitadelLobbyTeam_Team0\022\034\n\024playe"
-  "r_spirit_damage\030\013 \001(\r\032\254\001\n\007MidBoss\022B\n\013tea"
-  "m_killed\030\001 \001(\0162\022.ECitadelLobbyTeam:\031k_EC"
-  "itadelLobbyTeam_Team0\022C\n\014team_claimed\030\002 "
-  "\001(\0162\022.ECitadelLobbyTeam:\031k_ECitadelLobby"
-  "Team_Team0\022\030\n\020destroyed_time_s\030\003 \001(\r\032K\n\005"
-  "Pause\022\023\n\013game_time_s\030\001 \001(\r\022\030\n\020pause_dura"
-  "tion_s\030\002 \001(\r\022\023\n\013player_slot\030\003 \001(\r\032>\n\022Wat"
-  "chedDeathReplay\022\023\n\013game_time_s\030\001 \001(\r\022\023\n\013"
-  "player_slot\030\002 \001(\r\032q\n\020StreetBrawlRound\022\030\n"
-  "\020round_duration_s\030\001 \001(\r\022C\n\014winning_team\030"
-  "\002 \001(\0162\022.ECitadelLobbyTeam:\031k_ECitadelLob"
-  "byTeam_Team0\032\251\014\n\tMatchInfo\022\022\n\nduration_s"
-  "\030\001 \001(\r\022S\n\rmatch_outcome\030\002 \001(\0162(.CMsgMatc"
-  "hMetaDataContents.EMatchOutcome:\022k_eOutc"
-  "ome_TeamWin\022C\n\014winning_team\030\003 \001(\0162\022.ECit"
-  "adelLobbyTeam:\031k_ECitadelLobbyTeam_Team0"
-  "\0223\n\007players\030\004 \003(\0132\".CMsgMatchMetaDataCon"
-  "tents.Players\022\022\n\nstart_time\030\005 \001(\r\022\020\n\010mat"
-  "ch_id\030\006 \001(\004\022\036\n\026legacy_objectives_mask\030\010 "
-  "\001(\r\022@\n\tgame_mode\030\t \001(\0162\021.ECitadelGameMod"
-  "e:\032k_ECitadelGameMode_Invalid\022C\n\nmatch_m"
-  "ode\030\n \001(\0162\022.ECitadelMatchMode:\033k_ECitade"
-  "lMatchMode_Invalid\0228\n\nobjectives\030\013 \003(\0132$"
-  ".CMsgMatchMetaDataContents.Objective\022.\n\013"
-  "match_paths\030\014 \001(\0132\031.CMsgMatchPlayerPaths"
-  "Data\0223\n\rdamage_matrix\030\r \001(\0132\034.CMsgMatchP"
-  "layerDamageMatrix\0226\n\014match_pauses\030\016 \003(\0132"
-  " .CMsgMatchMetaDataContents.Pause\022H\n\021cus"
-  "tom_user_stats\030\017 \003(\0132-.CMsgMatchMetaData"
-  "Contents.CustomUserStatInfo\022L\n\025watched_d"
-  "eath_replays\030\020 \003(\0132-.CMsgMatchMetaDataCo"
-  "ntents.WatchedDeathReplay\022\035\n\025objectives_"
-  "mask_team0\030\021 \001(\004\022\035\n\025objectives_mask_team"
-  "1\030\022 \001(\004\0224\n\010mid_boss\030\023 \003(\0132\".CMsgMatchMet"
-  "aDataContents.MidBoss\022#\n\033is_high_skill_r"
-  "ange_parties\030\024 \001(\010\022\024\n\014low_pri_pool\030\025 \001(\010"
-  "\022\027\n\017new_player_pool\030\026 \001(\010\022\033\n\023average_bad"
-  "ge_team0\030\027 \001(\r\022\033\n\023average_badge_team1\030\030 "
-  "\001(\r\022\031\n\021game_mode_version\030\031 \001(\r\022\030\n\020reward"
-  "s_eligible\030\032 \001(\010\022\022\n\nnot_scored\030\033 \001(\010\022\022\n\n"
-  "team_score\030\034 \003(\r\022-\n\023match_tracked_stats\030"
-  "\035 \003(\0132\020.CMsgTrackedStat\022/\n\005teams\030\036 \003(\0132 "
-  ".CMsgMatchMetaDataContents.Teams\022L\n\016bot_"
-  "difficulty\030  \001(\0162\026.ECitadelBotDifficulty"
-  ":\034k_ECitadelBotDifficulty_None\022H\n\023street"
-  "_brawl_rounds\030! \003(\0132+.CMsgMatchMetaDataC"
-  "ontents.StreetBrawlRound\022F\n\013ranked_type\030"
-  "\" \001(\0162\023.ECitadelRankedType:\034k_eCitadelRa"
-  "nkedType_Invalid\022\025\n\rrank_interval\030# \001(\r\022"
-  "\036\n\026corrupted_penalty_seed\030$ \001(\r\022\'\n\016extra"
-  "_messages\030% \003(\0132\017.CExtraMsgBlock\"W\n\rEMat"
-  "chOutcome\022\026\n\022k_eOutcome_TeamWin\020\000\022\024\n\020k_e"
-  "Outcome_Error\020\001\022\030\n\024k_eOutcome_MatchDraw\020"
-  "\002\"\215\002\n\013EGoldSource\022\016\n\nk_ePlayers\020\001\022\021\n\rk_e"
-  "LaneCreeps\020\002\022\017\n\013k_eNeutrals\020\003\022\r\n\tk_eBoss"
-  "es\020\004\022\017\n\013k_eTreasure\020\005\022\016\n\nk_eAssists\020\006\022\r\n"
-  "\tk_eDenies\020\007\022\020\n\014k_eTeamBonus\020\010\022\031\n\025k_eAbi"
-  "lityAssassinate\020\t\022\032\n\026k_eItemTrophyCollec"
-  "tor\020\n\022\033\n\027k_eItemCultistSacrifice\020\013\022\020\n\014k_"
-  "eBreakable\020\014\022\023\n\017k_eItemGooseEgg\020\r\"M\n\021CMs"
-  "gMatchMetaData\022\017\n\007version\030\001 \001(\r\022\025\n\rmatch"
-  "_details\030\002 \001(\014\022\020\n\010match_id\030\003 \001(\004\"4\n\013CMsg"
-  "MapLine\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001(\005\022\017\n\007initial"
-  "\030\003 \001(\010\"\220\001\n\024CMsgAccountHeroStats\022\017\n\007hero_"
-  "id\030\001 \001(\r\022\017\n\007stat_id\030\002 \003(\r\022\023\n\013total_value"
-  "\030\003 \003(\004\022\025\n\rmedals_bronze\030\004 \003(\r\022\025\n\rmedals_"
-  "silver\030\005 \003(\r\022\023\n\013medals_gold\030\006 \003(\r\"M\n\024CMs"
-  "gAccountBookStats\022\017\n\007book_id\030\001 \001(\r\022\017\n\007bo"
-  "ok_xp\030\002 \001(\r\022\023\n\013book_max_xp\030\003 \001(\r\"L\n\020CMsg"
-  "AccountStats\022\022\n\naccount_id\030\001 \001(\r\022$\n\005stat"
-  "s\030\002 \003(\0132\025.CMsgAccountHeroStats\"F\n\017CMsgTr"
-  "ackedStat\022\027\n\017tracked_stat_id\030\001 \001(\r\022\032\n\022tr"
-  "acked_stat_value\030\002 \001(\005\"`\n\021CMsgGCAccountD"
-  "ata\022\022\n\naccount_id\030\001 \001(\r\022\034\n\024cheater_repor"
-  "t_score\030\002 \001(\002\022\031\n\021num_comms_reports\030\003 \001(\r"
-  "\"\220\007\n\rCMsgHeroBuild\022\025\n\rhero_build_id\030\001 \001("
-  "\r\022\017\n\007hero_id\030\002 \001(\r\022\031\n\021author_account_id\030"
-  "\003 \001(\r\022\036\n\026last_updated_timestamp\030\004 \001(\r\022\014\n"
-  "\004name\030\005 \001(\t\022\023\n\013description\030\006 \001(\t\022\020\n\010lang"
-  "uage\030\007 \001(\r\022\017\n\007version\030\010 \001(\r\022\027\n\017origin_bu"
-  "ild_id\030\t \001(\r\022*\n\007details\030\n \001(\0132\031.CMsgHero"
-  "Build.Details_V0\022\014\n\004tags\030\013 \003(\r\022\031\n\021develo"
-  "pment_build\030\014 \001(\010\022\031\n\021publish_timestamp\030\r"
-  " \001(\r\032\214\001\n\rBuildModEntry\022\022\n\nability_id\030\001 \001"
-  "(\r\022\022\n\nannotation\030\002 \001(\t\022\033\n\023required_flex_"
-  "slots\030\003 \001(\r\022\025\n\rsell_priority\030\004 \001(\r\022\037\n\027im"
-  "bue_target_ability_id\030\005 \001(\r\032\222\001\n\020BuildMod"
-  "Category\022*\n\004mods\030\001 \003(\0132\034.CMsgHeroBuild.B"
-  "uildModEntry\022\014\n\004name\030\002 \001(\t\022\023\n\013descriptio"
-  "n\030\003 \001(\t\022\r\n\005width\030\004 \001(\002\022\016\n\006height\030\005 \001(\002\022\020"
-  "\n\010optional\030\006 \001(\010\032^\n\016CurrencyChange\022\022\n\nab"
-  "ility_id\030\001 \001(\r\022\025\n\rcurrency_type\030\002 \001(\005\022\r\n"
-  "\005delta\030\003 \001(\005\022\022\n\nannotation\030\004 \001(\t\032G\n\014Abil"
-  "ityOrder\0227\n\020currency_changes\030\001 \003(\0132\035.CMs"
-  "gHeroBuild.CurrencyChange\032y\n\nDetails_V0\022"
-  "7\n\016mod_categories\030\001 \003(\0132\037.CMsgHeroBuild."
-  "BuildModCategory\0222\n\rability_order\030\002 \001(\0132"
-  "\033.CMsgHeroBuild.AbilityOrder:\005\200\265\030\200}\"O\n\027C"
-  "MsgHeroBuildPreference\022\021\n\tfavorited\030\001 \001("
-  "\010\022\017\n\007ignored\030\002 \001(\010\022\020\n\010reported\030\003 \001(\010\"\314\013\n"
-  "\031CMsgCitadelCombatLogEntry\022B\n\004type\030\001 \001(\016"
-  "2\027.ECitadelCombatLogTypes:\033k_eCitadelCom"
-  "batLog_Invalid\022\023\n\013target_name\030\002 \001(\r\022\032\n\022t"
-  "arget_source_name\030\003 \001(\r\022\025\n\rattacker_name"
-  "\030\004 \001(\r\022\032\n\022damage_source_name\030\005 \001(\r\022\026\n\016in"
-  "flictor_name\030\006 \001(\r\022\030\n\020is_attacker_hero\030\007"
-  " \001(\010\022\026\n\016is_target_hero\030\010 \001(\010\022\033\n\023is_visib"
-  "le_sapphire\030\t \001(\010\022\030\n\020is_visible_amber\030\n "
-  "\001(\010\022\r\n\005value\030\013 \001(\r\022\016\n\006health\030\014 \001(\005\022\021\n\tti"
-  "mestamp\030\r \001(\002\022\025\n\rtimestamp_raw\030\016 \001(\002\022\025\n\r"
-  "attacker_team\030\021 \001(\r\022\023\n\013target_team\030\022 \001(\r"
-  "\022\034\n\024is_ability_toggle_on\030\023 \001(\010\022\035\n\025is_abi"
-  "lity_toggle_off\030\024 \001(\010\022\023\n\013damage_type\030\025 \001"
-  "(\r\022\020\n\010networth\030\026 \001(\r\022\025\n\rcurrency_type\030\030 "
-  "\001(\r\022\027\n\017currency_source\030- \001(\r\022\022\n\nlocation"
-  "_x\030\031 \001(\002\022\022\n\nlocation_y\030\032 \001(\002\022\034\n\024ability_"
-  "upgrade_bits\030\033 \001(\005\022\031\n\021modifier_duration\030"
-  "\034 \001(\002\022\026\n\016assist_players\030\035 \003(\005\022\033\n\023target_"
-  "objective_id\030\027 \001(\r\022\026\n\016target_is_self\030\037 \001"
-  "(\010\022\024\n\014target_class\0306 \001(\005\022\033\n\023is_ultimate_"
-  "ability\030  \001(\010\022\024\n\014uses_charges\030! \001(\010\022#\n\033i"
-  "nflictor_is_stolen_ability\030\" \001(\010\022\036\n\026spel"
-  "l_generated_attack\030# \001(\010\022\033\n\023heal_from_li"
-  "festeal\030$ \001(\010\022\032\n\022regenerated_health\030% \001("
-  "\002\022\030\n\020will_reincarnate\030& \001(\010\022\030\n\020modifier_"
-  "ability\030\' \001(\r\022\027\n\017modifier_hidden\030( \001(\010\022!"
-  "\n\031modifier_elapsed_duration\030) \001(\002\022\027\n\017hid"
-  "den_modifier\030* \001(\010\022\030\n\020silence_modifier\030+"
-  " \001(\010\022\027\n\017modifier_purged\030, \001(\010\022\027\n\017long_ra"
-  "nge_kill\030. \001(\010\022\025\n\raura_modifier\030/ \001(\010\022\033\n"
-  "\023immobilize_modifier\0300 \001(\010\022\032\n\022modifier_p"
-  "urge_npc\0301 \001(\005\022\036\n\026modifier_purge_ability"
-  "\0302 \001(\005\022 \n\030modifier_purged_duration\0303 \001(\002"
-  "\022!\n\031movement_control_modifier\0304 \001(\010\022\024\n\014p"
-  "owerup_type\0305 \001(\005\022\031\n\021is_primary_weapon\0307"
-  " \001(\010\022\023\n\013is_headshot\0308 \001(\010\022\024\n\014ability_nam"
-  "e\0309 \001(\005\022\024\n\014full_refresh\030; \001(\005\022\014\n\004hits\030< "
-  "\001(\005\"\377\001\n\024CSerializedCombatLog\022\017\n\007version\030"
-  "\001 \001(\r\0224\n\ndictionary\030\002 \001(\0132 .CSerializedC"
-  "ombatLog.Dictionary\022+\n\007entries\030\003 \003(\0132\032.C"
-  "MsgCitadelCombatLogEntry\032s\n\nDictionary\022<"
-  "\n\007strings\030\001 \003(\0132+.CSerializedCombatLog.D"
-  "ictionary.DictString\032\'\n\nDictString\022\n\n\002id"
-  "\030\001 \001(\r\022\r\n\005value\030\002 \001(\t\"l\n\030CMsgHeroRelease"
-  "VoteTally\022\027\n\017remaining_votes\030\001 \001(\r\022\026\n\nvo"
-  "tes_cast\030\002 \003(\rB\002\020\001\022\037\n\027daily_reward_time_"
-  "stamp\030\003 \001(\r\"\243\003\n\031CMsgMatchHeroReleaseVote"
-  "s\0227\n\ncategories\030\001 \003(\0132#.CMsgMatchHeroRel"
-  "easeVotes.Category\032Q\n\010HeroVote\022\030\n\020vote_p"
-  "layer_slot\030\001 \001(\r\022\024\n\014vote_hero_id\030\002 \001(\r\022\025"
-  "\n\nvote_count\030\003 \001(\r:\0011\032\242\001\n\010Category\022]\n\rvo"
-  "te_category\030\001 \001(\01623.CMsgMatchHeroRelease"
-  "Votes.EHeroReleaseVoteCategory:\021k_eMatch"
-  "Completed\0227\n\nhero_votes\030\002 \003(\0132#.CMsgMatc"
-  "hHeroReleaseVotes.HeroVote\"U\n\030EHeroRelea"
-  "seVoteCategory\022\025\n\021k_eMatchCompleted\020\000\022\017\n"
-  "\013k_eMatchWon\020\001\022\021\n\rk_eDailyBonus\020\002*\274\001\n\rCM"
-  "sgLaneColor\022!\n\024k_ELaneColor_Invalid\020\000\032\007\302"
-  ">\004None\022\"\n\023k_ELaneColor_Yellow\020\001\032\t\302>\006Yell"
-  "ow\022 \n\022k_ELaneColor_Green\020\003\032\010\302>\005Green\022\036\n\021"
-  "k_ELaneColor_Blue\020\004\032\007\302>\004Blue\022\"\n\023k_ELaneC"
-  "olor_Purple\020\006\032\t\302>\006Purple*d\n\030EGCCitadelCo"
-  "mmonMessages\022\037\n\032k_EMsgAnyToGCReportAsser"
-  "ts\020\3306\022\'\n\"k_EMsgAnyToGCReportAssertsRespo"
-  "nse\020\3316*\321\002\n\021ECitadelMatchMode\022\037\n\033k_ECitad"
-  "elMatchMode_Invalid\020\000\022 \n\034k_ECitadelMatch"
-  "Mode_Unranked\020\001\022$\n k_ECitadelMatchMode_P"
-  "rivateLobby\020\002\022\037\n\033k_ECitadelMatchMode_Coo"
-  "pBot\020\003\022\036\n\032k_ECitadelMatchMode_Ranked\020\004\022\""
-  "\n\036k_ECitadelMatchMode_ServerTest\020\005\022 \n\034k_"
-  "ECitadelMatchMode_Tutorial\020\006\022 \n\034k_ECitad"
-  "elMatchMode_HeroLabs\020\007\022*\n&k_ECitadelMatc"
-  "hMode_NewPlayerPlacement\020\010*t\n\021ECitadelLo"
-  "bbyTeam\022\035\n\031k_ECitadelLobbyTeam_Team0\020\000\022\035"
-  "\n\031k_ECitadelLobbyTeam_Team1\020\001\022!\n\035k_ECita"
-  "delLobbyTeam_Spectator\020\020*R\n\030ECitadelAcco"
-  "untStatMedal\022\013\n\007k_eNone\020\000\022\r\n\tk_eBronze\020\001"
-  "\022\r\n\tk_eSilver\020\002\022\013\n\007k_eGold\020\003*W\n\022ECitadel"
-  "RankedType\022 \n\034k_eCitadelRankedType_Inval"
-  "id\020\000\022\037\n\033k_eCitadelRankedType_Normal\020\001*\201\001"
-  "\n\024ECitadelMMPreference\022\"\n\036k_ECitadelMMPr"
-  "eference_Invalid\020\000\022!\n\035k_ECitadelMMPrefer"
-  "ence_Casual\020\001\022\"\n\036k_ECitadelMMPreference_"
-  "Serious\020\002*\235\001\n\023ECitadelCabalMMTier\022\032\n\026k_e"
-  "CabalMMTier_Invalid\020\000\022\031\n\025k_eCabalMMTier_"
-  "Bronze\020\001\022\031\n\025k_eCabalMMTier_Silver\020\002\022\027\n\023k"
-  "_eCabalMMTier_Gold\020\003\022\033\n\027k_eCabalMMTier_P"
-  "latinum\020\004*\332\013\n\021ECitadelObjective\022\"\n\036k_eCi"
-  "tadelObjective_Team0_Core\020\000\022)\n%k_eCitade"
-  "lObjective_Team0_Tier1_Lane1\020\001\022)\n%k_eCit"
-  "adelObjective_Team0_Tier1_Lane2\020\002\022)\n%k_e"
-  "CitadelObjective_Team0_Tier1_Lane3\020\003\022)\n%"
-  "k_eCitadelObjective_Team0_Tier1_Lane4\020\004\022"
-  ")\n%k_eCitadelObjective_Team0_Tier2_Lane1"
-  "\020\005\022)\n%k_eCitadelObjective_Team0_Tier2_La"
-  "ne2\020\006\022)\n%k_eCitadelObjective_Team0_Tier2"
-  "_Lane3\020\007\022)\n%k_eCitadelObjective_Team0_Ti"
-  "er2_Lane4\020\010\022#\n\037k_eCitadelObjective_Team0"
-  "_Titan\020\t\0224\n0k_eCitadelObjective_Team0_Ti"
-  "tanShieldGenerator_1\020\n\0224\n0k_eCitadelObje"
-  "ctive_Team0_TitanShieldGenerator_2\020\013\022/\n+"
-  "k_eCitadelObjective_Team0_BarrackBoss_La"
-  "ne1\020\014\022/\n+k_eCitadelObjective_Team0_Barra"
-  "ckBoss_Lane2\020\r\022/\n+k_eCitadelObjective_Te"
-  "am0_BarrackBoss_Lane3\020\016\022/\n+k_eCitadelObj"
-  "ective_Team0_BarrackBoss_Lane4\020\017\022\"\n\036k_eC"
-  "itadelObjective_Team1_Core\020\020\022)\n%k_eCitad"
-  "elObjective_Team1_Tier1_Lane1\020\021\022)\n%k_eCi"
-  "tadelObjective_Team1_Tier1_Lane2\020\022\022)\n%k_"
-  "eCitadelObjective_Team1_Tier1_Lane3\020\023\022)\n"
-  "%k_eCitadelObjective_Team1_Tier1_Lane4\020\024"
-  "\022)\n%k_eCitadelObjective_Team1_Tier2_Lane"
-  "1\020\025\022)\n%k_eCitadelObjective_Team1_Tier2_L"
-  "ane2\020\026\022)\n%k_eCitadelObjective_Team1_Tier"
-  "2_Lane3\020\027\022)\n%k_eCitadelObjective_Team1_T"
-  "ier2_Lane4\020\030\022#\n\037k_eCitadelObjective_Team"
-  "1_Titan\020\031\0224\n0k_eCitadelObjective_Team1_T"
-  "itanShieldGenerator_1\020\032\0224\n0k_eCitadelObj"
-  "ective_Team1_TitanShieldGenerator_2\020\033\022/\n"
-  "+k_eCitadelObjective_Team1_BarrackBoss_L"
-  "ane1\020\034\022/\n+k_eCitadelObjective_Team1_Barr"
-  "ackBoss_Lane2\020\035\022/\n+k_eCitadelObjective_T"
-  "eam1_BarrackBoss_Lane3\020\036\022/\n+k_eCitadelOb"
-  "jective_Team1_BarrackBoss_Lane4\020\037\022#\n\037k_e"
-  "CitadelObjective_Neutral_Mid\020 *\310\005\n\025ECita"
-  "delTeamObjective\022 \n\034k_eCitadelTeamObject"
-  "ive_Core\020\000\022\'\n#k_eCitadelTeamObjective_Ti"
-  "er1_Lane1\020\001\022\'\n#k_eCitadelTeamObjective_T"
-  "ier1_Lane2\020\002\022\'\n#k_eCitadelTeamObjective_"
-  "Tier1_Lane3\020\003\022\'\n#k_eCitadelTeamObjective"
-  "_Tier1_Lane4\020\004\022\'\n#k_eCitadelTeamObjectiv"
-  "e_Tier2_Lane1\020\005\022\'\n#k_eCitadelTeamObjecti"
-  "ve_Tier2_Lane2\020\006\022\'\n#k_eCitadelTeamObject"
-  "ive_Tier2_Lane3\020\007\022\'\n#k_eCitadelTeamObjec"
-  "tive_Tier2_Lane4\020\010\022!\n\035k_eCitadelTeamObje"
-  "ctive_Titan\020\t\0222\n.k_eCitadelTeamObjective"
-  "_TitanShieldGenerator_1\020\n\0222\n.k_eCitadelT"
-  "eamObjective_TitanShieldGenerator_2\020\013\022-\n"
-  ")k_eCitadelTeamObjective_BarrackBoss_Lan"
-  "e1\020\014\022-\n)k_eCitadelTeamObjective_BarrackB"
-  "oss_Lane2\020\r\022-\n)k_eCitadelTeamObjective_B"
-  "arrackBoss_Lane3\020\016\022-\n)k_eCitadelTeamObje"
-  "ctive_BarrackBoss_Lane4\020\017*\354\001\n\025ECitadelBo"
-  "tDifficulty\022 \n\034k_ECitadelBotDifficulty_N"
-  "one\020\000\022 \n\034k_ECitadelBotDifficulty_Easy\020\001\022"
-  "\"\n\036k_ECitadelBotDifficulty_Medium\020\002\022 \n\034k"
-  "_ECitadelBotDifficulty_Hard\020\003\022%\n!k_ECita"
-  "delBotDifficulty_Nightmare\020\004\022\"\n\036k_ECitad"
-  "elBotDifficulty_Guided\020\005*\332\001\n\022ECitadelReg"
-  "ionMode\022\034\n\030k_ECitadelRegionMode_ROW\020\000\022\037\n"
-  "\033k_ECitadelRegionMode_Europe\020\001\022\037\n\033k_ECit"
-  "adelRegionMode_SEAsia\020\002\022!\n\035k_ECitadelReg"
-  "ionMode_SAmerica\020\003\022\037\n\033k_ECitadelRegionMo"
-  "de_Russia\020\004\022 \n\034k_ECitadelRegionMode_Ocea"
-  "nia\020\005*\214\002\n\031ECitadelLeaderboardRegion\022$\n k"
-  "_ECitadelLeaderboardRegion_None\020\000\022&\n\"k_E"
-  "CitadelLeaderboardRegion_Europe\020\001\022$\n k_E"
-  "CitadelLeaderboardRegion_Asia\020\002\022(\n$k_ECi"
-  "tadelLeaderboardRegion_NAmerica\020\003\022(\n$k_E"
-  "CitadelLeaderboardRegion_SAmerica\020\004\022\'\n#k"
-  "_ECitadelLeaderboardRegion_Oceania\020\005*\371\001\n"
-  "\020ECitadelGameMode\022\036\n\032k_ECitadelGameMode_"
-  "Invalid\020\000\022\035\n\031k_ECitadelGameMode_Normal\020\001"
-  "\022\036\n\032k_ECitadelGameMode_1v1Test\020\002\022\036\n\032k_EC"
-  "itadelGameMode_Sandbox\020\003\022\"\n\036k_ECitadelGa"
-  "meMode_StreetBrawl\020\004\022!\n\035k_ECitadelGameMo"
-  "de_ExploreNYC\020\005\022\037\n\033k_ECitadelGameMode_In"
-  "ternal\020\006*\274\001\n\021ELobbyServerState\022\036\n\032k_eLob"
-  "byServerState_Assign\020\000\022\036\n\032k_eLobbyServer"
-  "State_InGame\020\001\022!\n\035k_eLobbyServerState_Po"
-  "stMatch\020\002\022!\n\035k_eLobbyServerState_SignedO"
-  "ut\020\003\022!\n\035k_eLobbyServerState_Abandoned\020\004*"
-  "\251\001\n\016EBannedFeature\022\034\n\030k_eBannedFeature_I"
-  "nvalid\020\000\022+\n\'k_eBannedFeature_LowPriority"
-  "Matchmaking\020\001\022$\n k_eBannedFeature_CommsR"
-  "estricted\020\002\022&\n\"k_eBannedFeature_Reportin"
-  "gDisabled\020\003*\203\002\n\021EFeatureBanReason\022\037\n\033k_e"
-  "FeatureBanReason_Invalid\020\000\022\"\n\036k_eFeature"
-  "BanReason_DevCommand\020\001\022.\n*k_eFeatureBanR"
-  "eason_ReportedByOtherPlayers\020\002\022%\n!k_eFea"
-  "tureBanReason_MatchAbandons\020\003\022/\n+k_eFeat"
-  "ureBanReason_TooManyReportsSubmitted\020\004\022!"
-  "\n\035k_eFeatureBanReason_ToxicChat\020\005*M\n\022EHe"
-  "roXPGrantReason\022\020\n\014k_eGrant_Win\020\000\022\021\n\rk_e"
-  "Grant_Loss\020\001\022\022\n\016k_eGrant_Award\020\002*\353\001\n\023EPl"
-  "ayerMatchOutcome\022!\n\035k_EPlayerMatchOutcom"
-  "e_Invalid\020\000\022\035\n\031k_EPlayerMatchOutcome_Win"
-  "\020\001\022\036\n\032k_EPlayerMatchOutcome_Loss\020\002\022#\n\037k_"
-  "EPlayerMatchOutcome_Penalized\020\003\022(\n$k_EPl"
-  "ayerMatchOutcome_PenalizedParty\020\004\022#\n\037k_E"
-  "PlayerMatchOutcome_NotScored\020\005*O\n\032EMatch"
-  "MetadataExtraMessage\0221\n-k_EMatchMetadata"
-  "ExtraMessage_HeroReleaseVotes\020\002*\320\010\n\026ECit"
-  "adelCombatLogTypes\022(\n\033k_eCitadelCombatLo"
-  "g_Invalid\020\377\377\377\377\377\377\377\377\377\001\022\036\n\032k_eCitadelCombat"
-  "Log_Damage\020\000\022\034\n\030k_eCitadelCombatLog_Heal"
-  "\020\001\022#\n\037k_eCitadelCombatLog_ModifierAdd\020\002\022"
-  "&\n\"k_eCitadelCombatLog_ModifierRemove\020\003\022"
-  "\035\n\031k_eCitadelCombatLog_Death\020\004\022\"\n\036k_eCit"
-  "adelCombatLog_AbilityUse\020\005\022&\n\"k_eCitadel"
-  "CombatLog_AbilityTrigger\020*\022\037\n\033k_eCitadel"
-  "CombatLog_ItemUse\020\006\022 \n\034k_eCitadelCombatL"
-  "og_Location\020\007\022&\n\"k_eCitadelCombatLog_Cur"
-  "rencyChange\020\010\022$\n k_eCitadelCombatLog_Ite"
-  "mPurchase\020\013\022\"\n\036k_eCitadelCombatLog_SoulS"
-  "ecure\020\n\022!\n\035k_eCitadelCombatLog_Multikill"
-  "\020\017\022\"\n\036k_eCitadelCombatLog_Killstreak\020\020\022%"
-  "\n!k_eCitadelCombatLog_ObjectiveKill\020\021\022\"\n"
-  "\036k_eCitadelCombatLog_FirstBlood\020\022\022*\n&k_e"
-  "CitadelCombatLog_ModifierStackEvent\020\023\022\'\n"
-  "#k_eCitadelCombatLog_ActivatePowerup\020\025\022!"
-  "\n\035k_eCitadelCombatLog_HeroSaved\020\027\022#\n\037k_e"
-  "CitadelCombatLog_HeroLevelup\020\031\022(\n$k_eCit"
-  "adelCombatLog_InterruptChannel\020\034\022\"\n\036k_eC"
-  "itadelCombatLog_AlliedGold\020\035\022\"\n\036k_eCitad"
-  "elCombatLog_RejuvTaken\020\036\022$\n k_eCitadelCo"
-  "mbatLog_UnitSummoned\020!\022%\n!k_eCitadelComb"
-  "atLog_EndKillstreak\020%\022&\n\"k_eCitadelComba"
-  "tLog_CriticalDamage\020\'\022#\n\037k_eCitadelComba"
-  "tLog_SpellAbsorb\020(\022&\n\"k_eCitadelCombatLo"
-  "g_UnitTeleported\020)"
+  "ne\022H\n\023street_brawl_rounds\030! \003(\0132+.CMsgMa"
+  "tchMetaDataContents.StreetBrawlRound\022F\n\013"
+  "ranked_type\030\" \001(\0162\023.ECitadelRankedType:\034"
+  "k_eCitadelRankedType_Invalid\022\025\n\rrank_int"
+  "erval\030# \001(\r\022\036\n\026corrupted_penalty_seed\030$ "
+  "\001(\r\022\'\n\016extra_messages\030% \003(\0132\017.CExtraMsgB"
+  "lock\"W\n\rEMatchOutcome\022\026\n\022k_eOutcome_Team"
+  "Win\020\000\022\024\n\020k_eOutcome_Error\020\001\022\030\n\024k_eOutcom"
+  "e_MatchDraw\020\002\"\215\002\n\013EGoldSource\022\016\n\nk_ePlay"
+  "ers\020\001\022\021\n\rk_eLaneCreeps\020\002\022\017\n\013k_eNeutrals\020"
+  "\003\022\r\n\tk_eBosses\020\004\022\017\n\013k_eTreasure\020\005\022\016\n\nk_e"
+  "Assists\020\006\022\r\n\tk_eDenies\020\007\022\020\n\014k_eTeamBonus"
+  "\020\010\022\031\n\025k_eAbilityAssassinate\020\t\022\032\n\026k_eItem"
+  "TrophyCollector\020\n\022\033\n\027k_eItemCultistSacri"
+  "fice\020\013\022\020\n\014k_eBreakable\020\014\022\023\n\017k_eItemGoose"
+  "Egg\020\r\"M\n\021CMsgMatchMetaData\022\017\n\007version\030\001 "
+  "\001(\r\022\025\n\rmatch_details\030\002 \001(\014\022\020\n\010match_id\030\003"
+  " \001(\004\"4\n\013CMsgMapLine\022\t\n\001x\030\001 \001(\005\022\t\n\001y\030\002 \001("
+  "\005\022\017\n\007initial\030\003 \001(\010\"\220\001\n\024CMsgAccountHeroSt"
+  "ats\022\017\n\007hero_id\030\001 \001(\r\022\017\n\007stat_id\030\002 \003(\r\022\023\n"
+  "\013total_value\030\003 \003(\004\022\025\n\rmedals_bronze\030\004 \003("
+  "\r\022\025\n\rmedals_silver\030\005 \003(\r\022\023\n\013medals_gold\030"
+  "\006 \003(\r\"M\n\024CMsgAccountBookStats\022\017\n\007book_id"
+  "\030\001 \001(\r\022\017\n\007book_xp\030\002 \001(\r\022\023\n\013book_max_xp\030\003"
+  " \001(\r\"L\n\020CMsgAccountStats\022\022\n\naccount_id\030\001"
+  " \001(\r\022$\n\005stats\030\002 \003(\0132\025.CMsgAccountHeroSta"
+  "ts\"F\n\017CMsgTrackedStat\022\027\n\017tracked_stat_id"
+  "\030\001 \001(\r\022\032\n\022tracked_stat_value\030\002 \001(\005\"`\n\021CM"
+  "sgGCAccountData\022\022\n\naccount_id\030\001 \001(\r\022\034\n\024c"
+  "heater_report_score\030\002 \001(\002\022\031\n\021num_comms_r"
+  "eports\030\003 \001(\r\"\220\007\n\rCMsgHeroBuild\022\025\n\rhero_b"
+  "uild_id\030\001 \001(\r\022\017\n\007hero_id\030\002 \001(\r\022\031\n\021author"
+  "_account_id\030\003 \001(\r\022\036\n\026last_updated_timest"
+  "amp\030\004 \001(\r\022\014\n\004name\030\005 \001(\t\022\023\n\013description\030\006"
+  " \001(\t\022\020\n\010language\030\007 \001(\r\022\017\n\007version\030\010 \001(\r\022"
+  "\027\n\017origin_build_id\030\t \001(\r\022*\n\007details\030\n \001("
+  "\0132\031.CMsgHeroBuild.Details_V0\022\014\n\004tags\030\013 \003"
+  "(\r\022\031\n\021development_build\030\014 \001(\010\022\031\n\021publish"
+  "_timestamp\030\r \001(\r\032\214\001\n\rBuildModEntry\022\022\n\nab"
+  "ility_id\030\001 \001(\r\022\022\n\nannotation\030\002 \001(\t\022\033\n\023re"
+  "quired_flex_slots\030\003 \001(\r\022\025\n\rsell_priority"
+  "\030\004 \001(\r\022\037\n\027imbue_target_ability_id\030\005 \001(\r\032"
+  "\222\001\n\020BuildModCategory\022*\n\004mods\030\001 \003(\0132\034.CMs"
+  "gHeroBuild.BuildModEntry\022\014\n\004name\030\002 \001(\t\022\023"
+  "\n\013description\030\003 \001(\t\022\r\n\005width\030\004 \001(\002\022\016\n\006he"
+  "ight\030\005 \001(\002\022\020\n\010optional\030\006 \001(\010\032^\n\016Currency"
+  "Change\022\022\n\nability_id\030\001 \001(\r\022\025\n\rcurrency_t"
+  "ype\030\002 \001(\005\022\r\n\005delta\030\003 \001(\005\022\022\n\nannotation\030\004"
+  " \001(\t\032G\n\014AbilityOrder\0227\n\020currency_changes"
+  "\030\001 \003(\0132\035.CMsgHeroBuild.CurrencyChange\032y\n"
+  "\nDetails_V0\0227\n\016mod_categories\030\001 \003(\0132\037.CM"
+  "sgHeroBuild.BuildModCategory\0222\n\rability_"
+  "order\030\002 \001(\0132\033.CMsgHeroBuild.AbilityOrder"
+  ":\005\200\265\030\200}\"O\n\027CMsgHeroBuildPreference\022\021\n\tfa"
+  "vorited\030\001 \001(\010\022\017\n\007ignored\030\002 \001(\010\022\020\n\010report"
+  "ed\030\003 \001(\010\"\314\013\n\031CMsgCitadelCombatLogEntry\022B"
+  "\n\004type\030\001 \001(\0162\027.ECitadelCombatLogTypes:\033k"
+  "_eCitadelCombatLog_Invalid\022\023\n\013target_nam"
+  "e\030\002 \001(\r\022\032\n\022target_source_name\030\003 \001(\r\022\025\n\ra"
+  "ttacker_name\030\004 \001(\r\022\032\n\022damage_source_name"
+  "\030\005 \001(\r\022\026\n\016inflictor_name\030\006 \001(\r\022\030\n\020is_att"
+  "acker_hero\030\007 \001(\010\022\026\n\016is_target_hero\030\010 \001(\010"
+  "\022\033\n\023is_visible_sapphire\030\t \001(\010\022\030\n\020is_visi"
+  "ble_amber\030\n \001(\010\022\r\n\005value\030\013 \001(\r\022\016\n\006health"
+  "\030\014 \001(\005\022\021\n\ttimestamp\030\r \001(\002\022\025\n\rtimestamp_r"
+  "aw\030\016 \001(\002\022\025\n\rattacker_team\030\021 \001(\r\022\023\n\013targe"
+  "t_team\030\022 \001(\r\022\034\n\024is_ability_toggle_on\030\023 \001"
+  "(\010\022\035\n\025is_ability_toggle_off\030\024 \001(\010\022\023\n\013dam"
+  "age_type\030\025 \001(\r\022\020\n\010networth\030\026 \001(\r\022\025\n\rcurr"
+  "ency_type\030\030 \001(\r\022\027\n\017currency_source\030- \001(\r"
+  "\022\022\n\nlocation_x\030\031 \001(\002\022\022\n\nlocation_y\030\032 \001(\002"
+  "\022\034\n\024ability_upgrade_bits\030\033 \001(\005\022\031\n\021modifi"
+  "er_duration\030\034 \001(\002\022\026\n\016assist_players\030\035 \003("
+  "\005\022\033\n\023target_objective_id\030\027 \001(\r\022\026\n\016target"
+  "_is_self\030\037 \001(\010\022\024\n\014target_class\0306 \001(\005\022\033\n\023"
+  "is_ultimate_ability\030  \001(\010\022\024\n\014uses_charge"
+  "s\030! \001(\010\022#\n\033inflictor_is_stolen_ability\030\""
+  " \001(\010\022\036\n\026spell_generated_attack\030# \001(\010\022\033\n\023"
+  "heal_from_lifesteal\030$ \001(\010\022\032\n\022regenerated"
+  "_health\030% \001(\002\022\030\n\020will_reincarnate\030& \001(\010\022"
+  "\030\n\020modifier_ability\030\' \001(\r\022\027\n\017modifier_hi"
+  "dden\030( \001(\010\022!\n\031modifier_elapsed_duration\030"
+  ") \001(\002\022\027\n\017hidden_modifier\030* \001(\010\022\030\n\020silenc"
+  "e_modifier\030+ \001(\010\022\027\n\017modifier_purged\030, \001("
+  "\010\022\027\n\017long_range_kill\030. \001(\010\022\025\n\raura_modif"
+  "ier\030/ \001(\010\022\033\n\023immobilize_modifier\0300 \001(\010\022\032"
+  "\n\022modifier_purge_npc\0301 \001(\005\022\036\n\026modifier_p"
+  "urge_ability\0302 \001(\005\022 \n\030modifier_purged_du"
+  "ration\0303 \001(\002\022!\n\031movement_control_modifie"
+  "r\0304 \001(\010\022\024\n\014powerup_type\0305 \001(\005\022\031\n\021is_prim"
+  "ary_weapon\0307 \001(\010\022\023\n\013is_headshot\0308 \001(\010\022\024\n"
+  "\014ability_name\0309 \001(\005\022\024\n\014full_refresh\030; \001("
+  "\005\022\014\n\004hits\030< \001(\005\"\377\001\n\024CSerializedCombatLog"
+  "\022\017\n\007version\030\001 \001(\r\0224\n\ndictionary\030\002 \001(\0132 ."
+  "CSerializedCombatLog.Dictionary\022+\n\007entri"
+  "es\030\003 \003(\0132\032.CMsgCitadelCombatLogEntry\032s\n\n"
+  "Dictionary\022<\n\007strings\030\001 \003(\0132+.CSerialize"
+  "dCombatLog.Dictionary.DictString\032\'\n\nDict"
+  "String\022\n\n\002id\030\001 \001(\r\022\r\n\005value\030\002 \001(\t\"l\n\030CMs"
+  "gHeroReleaseVoteTally\022\027\n\017remaining_votes"
+  "\030\001 \001(\r\022\026\n\nvotes_cast\030\002 \003(\rB\002\020\001\022\037\n\027daily_"
+  "reward_time_stamp\030\003 \001(\r\"\243\003\n\031CMsgMatchHer"
+  "oReleaseVotes\0227\n\ncategories\030\001 \003(\0132#.CMsg"
+  "MatchHeroReleaseVotes.Category\032Q\n\010HeroVo"
+  "te\022\030\n\020vote_player_slot\030\001 \001(\r\022\024\n\014vote_her"
+  "o_id\030\002 \001(\r\022\025\n\nvote_count\030\003 \001(\r:\0011\032\242\001\n\010Ca"
+  "tegory\022]\n\rvote_category\030\001 \001(\01623.CMsgMatc"
+  "hHeroReleaseVotes.EHeroReleaseVoteCatego"
+  "ry:\021k_eMatchCompleted\0227\n\nhero_votes\030\002 \003("
+  "\0132#.CMsgMatchHeroReleaseVotes.HeroVote\"U"
+  "\n\030EHeroReleaseVoteCategory\022\025\n\021k_eMatchCo"
+  "mpleted\020\000\022\017\n\013k_eMatchWon\020\001\022\021\n\rk_eDailyBo"
+  "nus\020\002*\274\001\n\rCMsgLaneColor\022!\n\024k_ELaneColor_"
+  "Invalid\020\000\032\007\302>\004None\022\"\n\023k_ELaneColor_Yello"
+  "w\020\001\032\t\302>\006Yellow\022 \n\022k_ELaneColor_Green\020\003\032\010"
+  "\302>\005Green\022\036\n\021k_ELaneColor_Blue\020\004\032\007\302>\004Blue"
+  "\022\"\n\023k_ELaneColor_Purple\020\006\032\t\302>\006Purple*d\n\030"
+  "EGCCitadelCommonMessages\022\037\n\032k_EMsgAnyToG"
+  "CReportAsserts\020\3306\022\'\n\"k_EMsgAnyToGCReport"
+  "AssertsResponse\020\3316*\321\002\n\021ECitadelMatchMode"
+  "\022\037\n\033k_ECitadelMatchMode_Invalid\020\000\022 \n\034k_E"
+  "CitadelMatchMode_Unranked\020\001\022$\n k_ECitade"
+  "lMatchMode_PrivateLobby\020\002\022\037\n\033k_ECitadelM"
+  "atchMode_CoopBot\020\003\022\036\n\032k_ECitadelMatchMod"
+  "e_Ranked\020\004\022\"\n\036k_ECitadelMatchMode_Server"
+  "Test\020\005\022 \n\034k_ECitadelMatchMode_Tutorial\020\006"
+  "\022 \n\034k_ECitadelMatchMode_HeroLabs\020\007\022*\n&k_"
+  "ECitadelMatchMode_NewPlayerPlacement\020\010*t"
+  "\n\021ECitadelLobbyTeam\022\035\n\031k_ECitadelLobbyTe"
+  "am_Team0\020\000\022\035\n\031k_ECitadelLobbyTeam_Team1\020"
+  "\001\022!\n\035k_ECitadelLobbyTeam_Spectator\020\020*R\n\030"
+  "ECitadelAccountStatMedal\022\013\n\007k_eNone\020\000\022\r\n"
+  "\tk_eBronze\020\001\022\r\n\tk_eSilver\020\002\022\013\n\007k_eGold\020\003"
+  "*W\n\022ECitadelRankedType\022 \n\034k_eCitadelRank"
+  "edType_Invalid\020\000\022\037\n\033k_eCitadelRankedType"
+  "_Normal\020\001*\201\001\n\024ECitadelMMPreference\022\"\n\036k_"
+  "ECitadelMMPreference_Invalid\020\000\022!\n\035k_ECit"
+  "adelMMPreference_Casual\020\001\022\"\n\036k_ECitadelM"
+  "MPreference_Serious\020\002*\235\001\n\023ECitadelCabalM"
+  "MTier\022\032\n\026k_eCabalMMTier_Invalid\020\000\022\031\n\025k_e"
+  "CabalMMTier_Bronze\020\001\022\031\n\025k_eCabalMMTier_S"
+  "ilver\020\002\022\027\n\023k_eCabalMMTier_Gold\020\003\022\033\n\027k_eC"
+  "abalMMTier_Platinum\020\004*\332\013\n\021ECitadelObject"
+  "ive\022\"\n\036k_eCitadelObjective_Team0_Core\020\000\022"
+  ")\n%k_eCitadelObjective_Team0_Tier1_Lane1"
+  "\020\001\022)\n%k_eCitadelObjective_Team0_Tier1_La"
+  "ne2\020\002\022)\n%k_eCitadelObjective_Team0_Tier1"
+  "_Lane3\020\003\022)\n%k_eCitadelObjective_Team0_Ti"
+  "er1_Lane4\020\004\022)\n%k_eCitadelObjective_Team0"
+  "_Tier2_Lane1\020\005\022)\n%k_eCitadelObjective_Te"
+  "am0_Tier2_Lane2\020\006\022)\n%k_eCitadelObjective"
+  "_Team0_Tier2_Lane3\020\007\022)\n%k_eCitadelObject"
+  "ive_Team0_Tier2_Lane4\020\010\022#\n\037k_eCitadelObj"
+  "ective_Team0_Titan\020\t\0224\n0k_eCitadelObject"
+  "ive_Team0_TitanShieldGenerator_1\020\n\0224\n0k_"
+  "eCitadelObjective_Team0_TitanShieldGener"
+  "ator_2\020\013\022/\n+k_eCitadelObjective_Team0_Ba"
+  "rrackBoss_Lane1\020\014\022/\n+k_eCitadelObjective"
+  "_Team0_BarrackBoss_Lane2\020\r\022/\n+k_eCitadel"
+  "Objective_Team0_BarrackBoss_Lane3\020\016\022/\n+k"
+  "_eCitadelObjective_Team0_BarrackBoss_Lan"
+  "e4\020\017\022\"\n\036k_eCitadelObjective_Team1_Core\020\020"
+  "\022)\n%k_eCitadelObjective_Team1_Tier1_Lane"
+  "1\020\021\022)\n%k_eCitadelObjective_Team1_Tier1_L"
+  "ane2\020\022\022)\n%k_eCitadelObjective_Team1_Tier"
+  "1_Lane3\020\023\022)\n%k_eCitadelObjective_Team1_T"
+  "ier1_Lane4\020\024\022)\n%k_eCitadelObjective_Team"
+  "1_Tier2_Lane1\020\025\022)\n%k_eCitadelObjective_T"
+  "eam1_Tier2_Lane2\020\026\022)\n%k_eCitadelObjectiv"
+  "e_Team1_Tier2_Lane3\020\027\022)\n%k_eCitadelObjec"
+  "tive_Team1_Tier2_Lane4\020\030\022#\n\037k_eCitadelOb"
+  "jective_Team1_Titan\020\031\0224\n0k_eCitadelObjec"
+  "tive_Team1_TitanShieldGenerator_1\020\032\0224\n0k"
+  "_eCitadelObjective_Team1_TitanShieldGene"
+  "rator_2\020\033\022/\n+k_eCitadelObjective_Team1_B"
+  "arrackBoss_Lane1\020\034\022/\n+k_eCitadelObjectiv"
+  "e_Team1_BarrackBoss_Lane2\020\035\022/\n+k_eCitade"
+  "lObjective_Team1_BarrackBoss_Lane3\020\036\022/\n+"
+  "k_eCitadelObjective_Team1_BarrackBoss_La"
+  "ne4\020\037\022#\n\037k_eCitadelObjective_Neutral_Mid"
+  "\020 *\310\005\n\025ECitadelTeamObjective\022 \n\034k_eCitad"
+  "elTeamObjective_Core\020\000\022\'\n#k_eCitadelTeam"
+  "Objective_Tier1_Lane1\020\001\022\'\n#k_eCitadelTea"
+  "mObjective_Tier1_Lane2\020\002\022\'\n#k_eCitadelTe"
+  "amObjective_Tier1_Lane3\020\003\022\'\n#k_eCitadelT"
+  "eamObjective_Tier1_Lane4\020\004\022\'\n#k_eCitadel"
+  "TeamObjective_Tier2_Lane1\020\005\022\'\n#k_eCitade"
+  "lTeamObjective_Tier2_Lane2\020\006\022\'\n#k_eCitad"
+  "elTeamObjective_Tier2_Lane3\020\007\022\'\n#k_eCita"
+  "delTeamObjective_Tier2_Lane4\020\010\022!\n\035k_eCit"
+  "adelTeamObjective_Titan\020\t\0222\n.k_eCitadelT"
+  "eamObjective_TitanShieldGenerator_1\020\n\0222\n"
+  ".k_eCitadelTeamObjective_TitanShieldGene"
+  "rator_2\020\013\022-\n)k_eCitadelTeamObjective_Bar"
+  "rackBoss_Lane1\020\014\022-\n)k_eCitadelTeamObject"
+  "ive_BarrackBoss_Lane2\020\r\022-\n)k_eCitadelTea"
+  "mObjective_BarrackBoss_Lane3\020\016\022-\n)k_eCit"
+  "adelTeamObjective_BarrackBoss_Lane4\020\017*\354\001"
+  "\n\025ECitadelBotDifficulty\022 \n\034k_ECitadelBot"
+  "Difficulty_None\020\000\022 \n\034k_ECitadelBotDiffic"
+  "ulty_Easy\020\001\022\"\n\036k_ECitadelBotDifficulty_M"
+  "edium\020\002\022 \n\034k_ECitadelBotDifficulty_Hard\020"
+  "\003\022%\n!k_ECitadelBotDifficulty_Nightmare\020\004"
+  "\022\"\n\036k_ECitadelBotDifficulty_Guided\020\005*\332\001\n"
+  "\022ECitadelRegionMode\022\034\n\030k_ECitadelRegionM"
+  "ode_ROW\020\000\022\037\n\033k_ECitadelRegionMode_Europe"
+  "\020\001\022\037\n\033k_ECitadelRegionMode_SEAsia\020\002\022!\n\035k"
+  "_ECitadelRegionMode_SAmerica\020\003\022\037\n\033k_ECit"
+  "adelRegionMode_Russia\020\004\022 \n\034k_ECitadelReg"
+  "ionMode_Oceania\020\005*\214\002\n\031ECitadelLeaderboar"
+  "dRegion\022$\n k_ECitadelLeaderboardRegion_N"
+  "one\020\000\022&\n\"k_ECitadelLeaderboardRegion_Eur"
+  "ope\020\001\022$\n k_ECitadelLeaderboardRegion_Asi"
+  "a\020\002\022(\n$k_ECitadelLeaderboardRegion_NAmer"
+  "ica\020\003\022(\n$k_ECitadelLeaderboardRegion_SAm"
+  "erica\020\004\022\'\n#k_ECitadelLeaderboardRegion_O"
+  "ceania\020\005*\234\002\n\020ECitadelGameMode\022\036\n\032k_ECita"
+  "delGameMode_Invalid\020\000\022\035\n\031k_ECitadelGameM"
+  "ode_Normal\020\001\022\036\n\032k_ECitadelGameMode_1v1Te"
+  "st\020\002\022\036\n\032k_ECitadelGameMode_Sandbox\020\003\022\"\n\036"
+  "k_ECitadelGameMode_StreetBrawl\020\004\022!\n\035k_EC"
+  "itadelGameMode_ExploreNYC\020\005\022\037\n\033k_ECitade"
+  "lGameMode_Internal\020\006\022!\n\035k_ECitadelGameMo"
+  "de_Internal02\020\007*\274\001\n\021ELobbyServerState\022\036\n"
+  "\032k_eLobbyServerState_Assign\020\000\022\036\n\032k_eLobb"
+  "yServerState_InGame\020\001\022!\n\035k_eLobbyServerS"
+  "tate_PostMatch\020\002\022!\n\035k_eLobbyServerState_"
+  "SignedOut\020\003\022!\n\035k_eLobbyServerState_Aband"
+  "oned\020\004*\251\001\n\016EBannedFeature\022\034\n\030k_eBannedFe"
+  "ature_Invalid\020\000\022+\n\'k_eBannedFeature_LowP"
+  "riorityMatchmaking\020\001\022$\n k_eBannedFeature"
+  "_CommsRestricted\020\002\022&\n\"k_eBannedFeature_R"
+  "eportingDisabled\020\003*\203\002\n\021EFeatureBanReason"
+  "\022\037\n\033k_eFeatureBanReason_Invalid\020\000\022\"\n\036k_e"
+  "FeatureBanReason_DevCommand\020\001\022.\n*k_eFeat"
+  "ureBanReason_ReportedByOtherPlayers\020\002\022%\n"
+  "!k_eFeatureBanReason_MatchAbandons\020\003\022/\n+"
+  "k_eFeatureBanReason_TooManyReportsSubmit"
+  "ted\020\004\022!\n\035k_eFeatureBanReason_ToxicChat\020\005"
+  "*M\n\022EHeroXPGrantReason\022\020\n\014k_eGrant_Win\020\000"
+  "\022\021\n\rk_eGrant_Loss\020\001\022\022\n\016k_eGrant_Award\020\002*"
+  "\353\001\n\023EPlayerMatchOutcome\022!\n\035k_EPlayerMatc"
+  "hOutcome_Invalid\020\000\022\035\n\031k_EPlayerMatchOutc"
+  "ome_Win\020\001\022\036\n\032k_EPlayerMatchOutcome_Loss\020"
+  "\002\022#\n\037k_EPlayerMatchOutcome_Penalized\020\003\022("
+  "\n$k_EPlayerMatchOutcome_PenalizedParty\020\004"
+  "\022#\n\037k_EPlayerMatchOutcome_NotScored\020\005*O\n"
+  "\032EMatchMetadataExtraMessage\0221\n-k_EMatchM"
+  "etadataExtraMessage_HeroReleaseVotes\020\002*\320"
+  "\010\n\026ECitadelCombatLogTypes\022(\n\033k_eCitadelC"
+  "ombatLog_Invalid\020\377\377\377\377\377\377\377\377\377\001\022\036\n\032k_eCitade"
+  "lCombatLog_Damage\020\000\022\034\n\030k_eCitadelCombatL"
+  "og_Heal\020\001\022#\n\037k_eCitadelCombatLog_Modifie"
+  "rAdd\020\002\022&\n\"k_eCitadelCombatLog_ModifierRe"
+  "move\020\003\022\035\n\031k_eCitadelCombatLog_Death\020\004\022\"\n"
+  "\036k_eCitadelCombatLog_AbilityUse\020\005\022&\n\"k_e"
+  "CitadelCombatLog_AbilityTrigger\020*\022\037\n\033k_e"
+  "CitadelCombatLog_ItemUse\020\006\022 \n\034k_eCitadel"
+  "CombatLog_Location\020\007\022&\n\"k_eCitadelCombat"
+  "Log_CurrencyChange\020\010\022$\n k_eCitadelCombat"
+  "Log_ItemPurchase\020\013\022\"\n\036k_eCitadelCombatLo"
+  "g_SoulSecure\020\n\022!\n\035k_eCitadelCombatLog_Mu"
+  "ltikill\020\017\022\"\n\036k_eCitadelCombatLog_Killstr"
+  "eak\020\020\022%\n!k_eCitadelCombatLog_ObjectiveKi"
+  "ll\020\021\022\"\n\036k_eCitadelCombatLog_FirstBlood\020\022"
+  "\022*\n&k_eCitadelCombatLog_ModifierStackEve"
+  "nt\020\023\022\'\n#k_eCitadelCombatLog_ActivatePowe"
+  "rup\020\025\022!\n\035k_eCitadelCombatLog_HeroSaved\020\027"
+  "\022#\n\037k_eCitadelCombatLog_HeroLevelup\020\031\022(\n"
+  "$k_eCitadelCombatLog_InterruptChannel\020\034\022"
+  "\"\n\036k_eCitadelCombatLog_AlliedGold\020\035\022\"\n\036k"
+  "_eCitadelCombatLog_RejuvTaken\020\036\022$\n k_eCi"
+  "tadelCombatLog_UnitSummoned\020!\022%\n!k_eCita"
+  "delCombatLog_EndKillstreak\020%\022&\n\"k_eCitad"
+  "elCombatLog_CriticalDamage\020\'\022#\n\037k_eCitad"
+  "elCombatLog_SpellAbsorb\020(\022&\n\"k_eCitadelC"
+  "ombatLog_UnitTeleported\020)"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fgcmessages_5fcommon_2eproto_deps[5] = {
   &::descriptor_table_base_5fgcmessages_2eproto,
@@ -3636,7 +3642,7 @@ static const ::_pbi::DescriptorTable* const descriptor_table_citadel_5fgcmessage
 };
 static ::_pbi::once_flag descriptor_table_citadel_5fgcmessages_5fcommon_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_citadel_5fgcmessages_5fcommon_2eproto = {
-    false, false, 24378, descriptor_table_protodef_citadel_5fgcmessages_5fcommon_2eproto,
+    false, false, 24505, descriptor_table_protodef_citadel_5fgcmessages_5fcommon_2eproto,
     "citadel_gcmessages_common.proto",
     &descriptor_table_citadel_5fgcmessages_5fcommon_2eproto_once, descriptor_table_citadel_5fgcmessages_5fcommon_2eproto_deps, 5, 75,
     schemas, file_default_instances, TableStruct_citadel_5fgcmessages_5fcommon_2eproto::offsets,
@@ -3813,6 +3819,8 @@ bool CMsgMatchPlayerDamageMatrix_EStatType_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
+    case 7:
       return true;
     default:
       return false;
@@ -3826,6 +3834,8 @@ constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix::k_e
 constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix::k_eType_Mitigated;
 constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix::k_eType_LethalDamage;
 constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix::k_eType_Regen;
+constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix::k_eType_CrowdControl;
+constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix::k_eType_MitigatedBySource;
 constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix::EStatType_MIN;
 constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix::EStatType_MAX;
 constexpr int CMsgMatchPlayerDamageMatrix::EStatType_ARRAYSIZE;
@@ -4188,6 +4198,7 @@ bool ECitadelGameMode_IsValid(int value) {
     case 4:
     case 5:
     case 6:
+    case 7:
       return true;
     default:
       return false;
@@ -5282,6 +5293,9 @@ class CSOCitadelHideoutLobby_Member::_Internal {
   static void set_has_hideout_holiday_award_2025(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
+  static void set_has_ranked_season_1_season_rank(HasBits* has_bits) {
+    (*has_bits)[0] |= 8u;
+  }
 };
 
 CSOCitadelHideoutLobby_Member::CSOCitadelHideoutLobby_Member(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -5298,12 +5312,13 @@ CSOCitadelHideoutLobby_Member::CSOCitadelHideoutLobby_Member(const CSOCitadelHid
     , /*decltype(_impl_._cached_size_)*/{}
     , decltype(_impl_.account_id_){}
     , decltype(_impl_.hideout_holiday_award_2024_){}
-    , decltype(_impl_.hideout_holiday_award_2025_){}};
+    , decltype(_impl_.hideout_holiday_award_2025_){}
+    , decltype(_impl_.ranked_season_1_season_rank_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.account_id_, &from._impl_.account_id_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.hideout_holiday_award_2025_) -
-    reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.hideout_holiday_award_2025_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.ranked_season_1_season_rank_) -
+    reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.ranked_season_1_season_rank_));
   // @@protoc_insertion_point(copy_constructor:CSOCitadelHideoutLobby.Member)
 }
 
@@ -5317,6 +5332,7 @@ inline void CSOCitadelHideoutLobby_Member::SharedCtor(
     , decltype(_impl_.account_id_){0u}
     , decltype(_impl_.hideout_holiday_award_2024_){false}
     , decltype(_impl_.hideout_holiday_award_2025_){false}
+    , decltype(_impl_.ranked_season_1_season_rank_){0u}
   };
 }
 
@@ -5344,10 +5360,10 @@ void CSOCitadelHideoutLobby_Member::Clear() {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     ::memset(&_impl_.account_id_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.hideout_holiday_award_2025_) -
-        reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.hideout_holiday_award_2025_));
+        reinterpret_cast<char*>(&_impl_.ranked_season_1_season_rank_) -
+        reinterpret_cast<char*>(&_impl_.account_id_)) + sizeof(_impl_.ranked_season_1_season_rank_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -5383,6 +5399,15 @@ const char* CSOCitadelHideoutLobby_Member::_InternalParse(const char* ptr, ::_pb
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 0)) {
           _Internal::set_has_hideout_holiday_award_2025(&has_bits);
           _impl_.hideout_holiday_award_2025_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      // optional uint32 ranked_season_1_season_rank = 33;
+      case 33:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          _Internal::set_has_ranked_season_1_season_rank(&has_bits);
+          _impl_.ranked_season_1_season_rank_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
           CHK_(ptr);
         } else
           goto handle_unusual;
@@ -5436,6 +5461,12 @@ uint8_t* CSOCitadelHideoutLobby_Member::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(32, this->_internal_hideout_holiday_award_2025(), target);
   }
 
+  // optional uint32 ranked_season_1_season_rank = 33;
+  if (cached_has_bits & 0x00000008u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(33, this->_internal_ranked_season_1_season_rank(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -5453,7 +5484,7 @@ size_t CSOCitadelHideoutLobby_Member::ByteSizeLong() const {
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     // optional uint32 account_id = 1;
     if (cached_has_bits & 0x00000001u) {
       total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_account_id());
@@ -5467,6 +5498,13 @@ size_t CSOCitadelHideoutLobby_Member::ByteSizeLong() const {
     // optional bool hideout_holiday_award_2025 = 32;
     if (cached_has_bits & 0x00000004u) {
       total_size += 2 + 1;
+    }
+
+    // optional uint32 ranked_season_1_season_rank = 33;
+    if (cached_has_bits & 0x00000008u) {
+      total_size += 2 +
+        ::_pbi::WireFormatLite::UInt32Size(
+          this->_internal_ranked_season_1_season_rank());
     }
 
   }
@@ -5489,7 +5527,7 @@ void CSOCitadelHideoutLobby_Member::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
   (void) cached_has_bits;
 
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x00000007u) {
+  if (cached_has_bits & 0x0000000fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.account_id_ = from._impl_.account_id_;
     }
@@ -5498,6 +5536,9 @@ void CSOCitadelHideoutLobby_Member::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& 
     }
     if (cached_has_bits & 0x00000004u) {
       _this->_impl_.hideout_holiday_award_2025_ = from._impl_.hideout_holiday_award_2025_;
+    }
+    if (cached_has_bits & 0x00000008u) {
+      _this->_impl_.ranked_season_1_season_rank_ = from._impl_.ranked_season_1_season_rank_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -5520,8 +5561,8 @@ void CSOCitadelHideoutLobby_Member::InternalSwap(CSOCitadelHideoutLobby_Member* 
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSOCitadelHideoutLobby_Member, _impl_.hideout_holiday_award_2025_)
-      + sizeof(CSOCitadelHideoutLobby_Member::_impl_.hideout_holiday_award_2025_)
+      PROTOBUF_FIELD_OFFSET(CSOCitadelHideoutLobby_Member, _impl_.ranked_season_1_season_rank_)
+      + sizeof(CSOCitadelHideoutLobby_Member::_impl_.ranked_season_1_season_rank_)
       - PROTOBUF_FIELD_OFFSET(CSOCitadelHideoutLobby_Member, _impl_.account_id_)>(
           reinterpret_cast<char*>(&_impl_.account_id_),
           reinterpret_cast<char*>(&other->_impl_.account_id_));
@@ -10050,6 +10091,9 @@ class CSOCitadelParty_RankedScores::_Internal {
   static void set_has_in_calibration(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
+  static void set_has_max_rank_display_badge(HasBits* has_bits) {
+    (*has_bits)[0] |= 16u;
+  }
 };
 
 CSOCitadelParty_RankedScores::CSOCitadelParty_RankedScores(::PROTOBUF_NAMESPACE_ID::Arena* arena,
@@ -10068,12 +10112,13 @@ CSOCitadelParty_RankedScores::CSOCitadelParty_RankedScores(const CSOCitadelParty
     , decltype(_impl_.rank_type_){}
     , decltype(_impl_.rank_interval_){}
     , decltype(_impl_.rank_display_badge_){}
-    , decltype(_impl_.in_calibration_){}};
+    , decltype(_impl_.in_calibration_){}
+    , decltype(_impl_.max_rank_display_badge_){}};
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   ::memcpy(&_impl_.rank_type_, &from._impl_.rank_type_,
-    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.in_calibration_) -
-    reinterpret_cast<char*>(&_impl_.rank_type_)) + sizeof(_impl_.in_calibration_));
+    static_cast<size_t>(reinterpret_cast<char*>(&_impl_.max_rank_display_badge_) -
+    reinterpret_cast<char*>(&_impl_.rank_type_)) + sizeof(_impl_.max_rank_display_badge_));
   // @@protoc_insertion_point(copy_constructor:CSOCitadelParty.RankedScores)
 }
 
@@ -10089,6 +10134,7 @@ inline void CSOCitadelParty_RankedScores::SharedCtor(
     , decltype(_impl_.rank_interval_){0u}
     , decltype(_impl_.rank_display_badge_){0u}
     , decltype(_impl_.in_calibration_){false}
+    , decltype(_impl_.max_rank_display_badge_){0u}
   };
 }
 
@@ -10118,10 +10164,10 @@ void CSOCitadelParty_RankedScores::Clear() {
 
   _impl_.unlocked_heroes_.Clear();
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     ::memset(&_impl_.rank_type_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.in_calibration_) -
-        reinterpret_cast<char*>(&_impl_.rank_type_)) + sizeof(_impl_.in_calibration_));
+        reinterpret_cast<char*>(&_impl_.max_rank_display_badge_) -
+        reinterpret_cast<char*>(&_impl_.rank_type_)) + sizeof(_impl_.max_rank_display_badge_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -10190,6 +10236,15 @@ const char* CSOCitadelParty_RankedScores::_InternalParse(const char* ptr, ::_pbi
         } else
           goto handle_unusual;
         continue;
+      // optional uint32 max_rank_display_badge = 7;
+      case 7:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 56)) {
+          _Internal::set_has_max_rank_display_badge(&has_bits);
+          _impl_.max_rank_display_badge_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
       default:
         goto handle_unusual;
     }  // switch
@@ -10252,6 +10307,12 @@ uint8_t* CSOCitadelParty_RankedScores::_InternalSerialize(
     target = ::_pbi::WireFormatLite::WriteBoolToArray(6, this->_internal_in_calibration(), target);
   }
 
+  // optional uint32 max_rank_display_badge = 7;
+  if (cached_has_bits & 0x00000010u) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(7, this->_internal_max_rank_display_badge(), target);
+  }
+
   if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
@@ -10278,7 +10339,7 @@ size_t CSOCitadelParty_RankedScores::ByteSizeLong() const {
   }
 
   cached_has_bits = _impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     // optional .ECitadelRankedType rank_type = 1 [default = k_eCitadelRankedType_Invalid];
     if (cached_has_bits & 0x00000001u) {
       total_size += 1 +
@@ -10298,6 +10359,11 @@ size_t CSOCitadelParty_RankedScores::ByteSizeLong() const {
     // optional bool in_calibration = 6;
     if (cached_has_bits & 0x00000008u) {
       total_size += 1 + 1;
+    }
+
+    // optional uint32 max_rank_display_badge = 7;
+    if (cached_has_bits & 0x00000010u) {
+      total_size += ::_pbi::WireFormatLite::UInt32SizePlusOne(this->_internal_max_rank_display_badge());
     }
 
   }
@@ -10321,7 +10387,7 @@ void CSOCitadelParty_RankedScores::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
 
   _this->_impl_.unlocked_heroes_.MergeFrom(from._impl_.unlocked_heroes_);
   cached_has_bits = from._impl_._has_bits_[0];
-  if (cached_has_bits & 0x0000000fu) {
+  if (cached_has_bits & 0x0000001fu) {
     if (cached_has_bits & 0x00000001u) {
       _this->_impl_.rank_type_ = from._impl_.rank_type_;
     }
@@ -10333,6 +10399,9 @@ void CSOCitadelParty_RankedScores::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& t
     }
     if (cached_has_bits & 0x00000008u) {
       _this->_impl_.in_calibration_ = from._impl_.in_calibration_;
+    }
+    if (cached_has_bits & 0x00000010u) {
+      _this->_impl_.max_rank_display_badge_ = from._impl_.max_rank_display_badge_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
@@ -10356,8 +10425,8 @@ void CSOCitadelParty_RankedScores::InternalSwap(CSOCitadelParty_RankedScores* ot
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   _impl_.unlocked_heroes_.InternalSwap(&other->_impl_.unlocked_heroes_);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CSOCitadelParty_RankedScores, _impl_.in_calibration_)
-      + sizeof(CSOCitadelParty_RankedScores::_impl_.in_calibration_)
+      PROTOBUF_FIELD_OFFSET(CSOCitadelParty_RankedScores, _impl_.max_rank_display_badge_)
+      + sizeof(CSOCitadelParty_RankedScores::_impl_.max_rank_display_badge_)
       - PROTOBUF_FIELD_OFFSET(CSOCitadelParty_RankedScores, _impl_.rank_type_)>(
           reinterpret_cast<char*>(&_impl_.rank_type_),
           reinterpret_cast<char*>(&other->_impl_.rank_type_));
@@ -11671,9 +11740,6 @@ class CSOCitadelParty::_Internal {
   static void set_has_server_search_key(HasBits* has_bits) {
     (*has_bits)[0] |= 2u;
   }
-  static void set_has_is_high_skill_range_party(HasBits* has_bits) {
-    (*has_bits)[0] |= 4096u;
-  }
   static void set_has_chat_mode(HasBits* has_bits) {
     (*has_bits)[0] |= 1024u;
   }
@@ -11681,35 +11747,35 @@ class CSOCitadelParty::_Internal {
     (*has_bits)[0] |= 2048u;
   }
   static void set_has_is_private_lobby(HasBits* has_bits) {
-    (*has_bits)[0] |= 8192u;
+    (*has_bits)[0] |= 4096u;
   }
   static const ::CSOCitadelParty_PrivateLobbySettings& private_lobby_settings(const CSOCitadelParty* msg);
   static void set_has_private_lobby_settings(HasBits* has_bits) {
     (*has_bits)[0] |= 8u;
   }
   static void set_has_desires_laning_together(HasBits* has_bits) {
-    (*has_bits)[0] |= 16384u;
+    (*has_bits)[0] |= 8192u;
   }
   static void set_has_mm_preference(HasBits* has_bits) {
-    (*has_bits)[0] |= 32768u;
+    (*has_bits)[0] |= 16384u;
   }
   static void set_has_hideout_search_key(HasBits* has_bits) {
     (*has_bits)[0] |= 4u;
   }
   static void set_has_active_cabal(HasBits* has_bits) {
-    (*has_bits)[0] |= 65536u;
+    (*has_bits)[0] |= 32768u;
   }
   static void set_has_party_min_cabal_tier(HasBits* has_bits) {
-    (*has_bits)[0] |= 131072u;
+    (*has_bits)[0] |= 65536u;
   }
   static void set_has_party_active_cabal_tier(HasBits* has_bits) {
-    (*has_bits)[0] |= 262144u;
+    (*has_bits)[0] |= 131072u;
   }
   static void set_has_ranked_type(HasBits* has_bits) {
-    (*has_bits)[0] |= 524288u;
+    (*has_bits)[0] |= 262144u;
   }
   static void set_has_rank_interval(HasBits* has_bits) {
-    (*has_bits)[0] |= 1048576u;
+    (*has_bits)[0] |= 524288u;
   }
 };
 
@@ -11746,7 +11812,6 @@ CSOCitadelParty::CSOCitadelParty(const CSOCitadelParty& from)
     , decltype(_impl_.match_making_start_time_){}
     , decltype(_impl_.chat_mode_){}
     , decltype(_impl_.region_mode_){}
-    , decltype(_impl_.is_high_skill_range_party_){}
     , decltype(_impl_.is_private_lobby_){}
     , decltype(_impl_.desires_laning_together_){}
     , decltype(_impl_.mm_preference_){}
@@ -11814,7 +11879,6 @@ inline void CSOCitadelParty::SharedCtor(
     , decltype(_impl_.match_making_start_time_){0u}
     , decltype(_impl_.chat_mode_){0}
     , decltype(_impl_.region_mode_){0}
-    , decltype(_impl_.is_high_skill_range_party_){false}
     , decltype(_impl_.is_private_lobby_){false}
     , decltype(_impl_.desires_laning_together_){false}
     , decltype(_impl_.mm_preference_){0}
@@ -11896,13 +11960,13 @@ void CSOCitadelParty::Clear() {
   }
   if (cached_has_bits & 0x0000ff00u) {
     ::memset(&_impl_.game_mode_, 0, static_cast<size_t>(
-        reinterpret_cast<char*>(&_impl_.mm_preference_) -
-        reinterpret_cast<char*>(&_impl_.game_mode_)) + sizeof(_impl_.mm_preference_));
+        reinterpret_cast<char*>(&_impl_.active_cabal_) -
+        reinterpret_cast<char*>(&_impl_.game_mode_)) + sizeof(_impl_.active_cabal_));
   }
-  if (cached_has_bits & 0x001f0000u) {
-    ::memset(&_impl_.active_cabal_, 0, static_cast<size_t>(
+  if (cached_has_bits & 0x000f0000u) {
+    ::memset(&_impl_.party_min_cabal_tier_, 0, static_cast<size_t>(
         reinterpret_cast<char*>(&_impl_.rank_interval_) -
-        reinterpret_cast<char*>(&_impl_.active_cabal_)) + sizeof(_impl_.rank_interval_));
+        reinterpret_cast<char*>(&_impl_.party_min_cabal_tier_)) + sizeof(_impl_.rank_interval_));
   }
   _impl_._has_bits_.Clear();
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
@@ -12041,15 +12105,6 @@ const char* CSOCitadelParty::_InternalParse(const char* ptr, ::_pbi::ParseContex
           #ifndef NDEBUG
           ::_pbi::VerifyUTF8(str, "CSOCitadelParty.server_search_key");
           #endif  // !NDEBUG
-        } else
-          goto handle_unusual;
-        continue;
-      // optional bool is_high_skill_range_party = 13;
-      case 13:
-        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 104)) {
-          _Internal::set_has_is_high_skill_range_party(&has_bits);
-          _impl_.is_high_skill_range_party_ = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
-          CHK_(ptr);
         } else
           goto handle_unusual;
         continue;
@@ -12312,12 +12367,6 @@ uint8_t* CSOCitadelParty::_InternalSerialize(
         12, this->_internal_server_search_key(), target);
   }
 
-  // optional bool is_high_skill_range_party = 13;
-  if (cached_has_bits & 0x00001000u) {
-    target = stream->EnsureSpace(target);
-    target = ::_pbi::WireFormatLite::WriteBoolToArray(13, this->_internal_is_high_skill_range_party(), target);
-  }
-
   // optional .CSOCitadelParty.EChatMode chat_mode = 14 [default = k_eNone];
   if (cached_has_bits & 0x00000400u) {
     target = stream->EnsureSpace(target);
@@ -12333,7 +12382,7 @@ uint8_t* CSOCitadelParty::_InternalSerialize(
   }
 
   // optional bool is_private_lobby = 16;
-  if (cached_has_bits & 0x00002000u) {
+  if (cached_has_bits & 0x00001000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(16, this->_internal_is_private_lobby(), target);
   }
@@ -12346,13 +12395,13 @@ uint8_t* CSOCitadelParty::_InternalSerialize(
   }
 
   // optional bool desires_laning_together = 18;
-  if (cached_has_bits & 0x00004000u) {
+  if (cached_has_bits & 0x00002000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteBoolToArray(18, this->_internal_desires_laning_together(), target);
   }
 
   // optional .ECitadelMMPreference mm_preference = 19 [default = k_ECitadelMMPreference_Invalid];
-  if (cached_has_bits & 0x00008000u) {
+  if (cached_has_bits & 0x00004000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       19, this->_internal_mm_preference(), target);
@@ -12378,34 +12427,34 @@ uint8_t* CSOCitadelParty::_InternalSerialize(
   }
 
   // optional uint64 active_cabal = 23;
-  if (cached_has_bits & 0x00010000u) {
+  if (cached_has_bits & 0x00008000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt64ToArray(23, this->_internal_active_cabal(), target);
   }
 
   // optional .ECitadelCabalMMTier party_min_cabal_tier = 24 [default = k_eCabalMMTier_Invalid];
-  if (cached_has_bits & 0x00020000u) {
+  if (cached_has_bits & 0x00010000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       24, this->_internal_party_min_cabal_tier(), target);
   }
 
   // optional .ECitadelCabalMMTier party_active_cabal_tier = 25 [default = k_eCabalMMTier_Invalid];
-  if (cached_has_bits & 0x00040000u) {
+  if (cached_has_bits & 0x00020000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       25, this->_internal_party_active_cabal_tier(), target);
   }
 
   // optional .ECitadelRankedType ranked_type = 26 [default = k_eCitadelRankedType_Invalid];
-  if (cached_has_bits & 0x00080000u) {
+  if (cached_has_bits & 0x00040000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
       26, this->_internal_ranked_type(), target);
   }
 
   // optional uint32 rank_interval = 27;
-  if (cached_has_bits & 0x00100000u) {
+  if (cached_has_bits & 0x00080000u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteUInt32ToArray(27, this->_internal_rank_interval(), target);
   }
@@ -12538,56 +12587,51 @@ size_t CSOCitadelParty::ByteSizeLong() const {
         ::_pbi::WireFormatLite::EnumSize(this->_internal_region_mode());
     }
 
-    // optional bool is_high_skill_range_party = 13;
-    if (cached_has_bits & 0x00001000u) {
-      total_size += 1 + 1;
-    }
-
     // optional bool is_private_lobby = 16;
-    if (cached_has_bits & 0x00002000u) {
+    if (cached_has_bits & 0x00001000u) {
       total_size += 2 + 1;
     }
 
     // optional bool desires_laning_together = 18;
-    if (cached_has_bits & 0x00004000u) {
+    if (cached_has_bits & 0x00002000u) {
       total_size += 2 + 1;
     }
 
     // optional .ECitadelMMPreference mm_preference = 19 [default = k_ECitadelMMPreference_Invalid];
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00004000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_mm_preference());
     }
 
-  }
-  if (cached_has_bits & 0x001f0000u) {
     // optional uint64 active_cabal = 23;
-    if (cached_has_bits & 0x00010000u) {
+    if (cached_has_bits & 0x00008000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt64Size(
           this->_internal_active_cabal());
     }
 
+  }
+  if (cached_has_bits & 0x000f0000u) {
     // optional .ECitadelCabalMMTier party_min_cabal_tier = 24 [default = k_eCabalMMTier_Invalid];
-    if (cached_has_bits & 0x00020000u) {
+    if (cached_has_bits & 0x00010000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_party_min_cabal_tier());
     }
 
     // optional .ECitadelCabalMMTier party_active_cabal_tier = 25 [default = k_eCabalMMTier_Invalid];
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00020000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_party_active_cabal_tier());
     }
 
     // optional .ECitadelRankedType ranked_type = 26 [default = k_eCitadelRankedType_Invalid];
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00040000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::EnumSize(this->_internal_ranked_type());
     }
 
     // optional uint32 rank_interval = 27;
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00080000u) {
       total_size += 2 +
         ::_pbi::WireFormatLite::UInt32Size(
           this->_internal_rank_interval());
@@ -12659,33 +12703,30 @@ void CSOCitadelParty::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const 
       _this->_impl_.region_mode_ = from._impl_.region_mode_;
     }
     if (cached_has_bits & 0x00001000u) {
-      _this->_impl_.is_high_skill_range_party_ = from._impl_.is_high_skill_range_party_;
-    }
-    if (cached_has_bits & 0x00002000u) {
       _this->_impl_.is_private_lobby_ = from._impl_.is_private_lobby_;
     }
-    if (cached_has_bits & 0x00004000u) {
+    if (cached_has_bits & 0x00002000u) {
       _this->_impl_.desires_laning_together_ = from._impl_.desires_laning_together_;
     }
-    if (cached_has_bits & 0x00008000u) {
+    if (cached_has_bits & 0x00004000u) {
       _this->_impl_.mm_preference_ = from._impl_.mm_preference_;
+    }
+    if (cached_has_bits & 0x00008000u) {
+      _this->_impl_.active_cabal_ = from._impl_.active_cabal_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;
   }
-  if (cached_has_bits & 0x001f0000u) {
+  if (cached_has_bits & 0x000f0000u) {
     if (cached_has_bits & 0x00010000u) {
-      _this->_impl_.active_cabal_ = from._impl_.active_cabal_;
-    }
-    if (cached_has_bits & 0x00020000u) {
       _this->_impl_.party_min_cabal_tier_ = from._impl_.party_min_cabal_tier_;
     }
-    if (cached_has_bits & 0x00040000u) {
+    if (cached_has_bits & 0x00020000u) {
       _this->_impl_.party_active_cabal_tier_ = from._impl_.party_active_cabal_tier_;
     }
-    if (cached_has_bits & 0x00080000u) {
+    if (cached_has_bits & 0x00040000u) {
       _this->_impl_.ranked_type_ = from._impl_.ranked_type_;
     }
-    if (cached_has_bits & 0x00100000u) {
+    if (cached_has_bits & 0x00080000u) {
       _this->_impl_.rank_interval_ = from._impl_.rank_interval_;
     }
     _this->_impl_._has_bits_[0] |= cached_has_bits;

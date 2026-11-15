@@ -4,6 +4,8 @@
 #include <d3d11.h>
 
 #include <ImGui/imgui.h>
+#include <ImGui/imgui_internal.h>
+
 #include <ImGui/Misc/freetype/imgui_freetype.h>
 
 class IAndromedaGUI

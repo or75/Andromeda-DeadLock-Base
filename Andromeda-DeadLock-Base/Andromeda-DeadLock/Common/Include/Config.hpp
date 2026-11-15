@@ -7,7 +7,7 @@
 #define CONFIG_FILE					"config.json"
 
 #define CHEAT_NAME					"Andromeda DeadLock Base"
-#define CHEAT_VERSION				"1.2.1"
+#define CHEAT_VERSION				"1.2.2"
 
 // Project Buid Config:
 

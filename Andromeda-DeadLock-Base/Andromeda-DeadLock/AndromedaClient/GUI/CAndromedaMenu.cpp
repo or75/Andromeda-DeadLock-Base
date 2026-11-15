@@ -10,19 +10,21 @@
 
 static CAndromedaMenu g_CAndromedaMenu{};
 
-static auto ÑolorsGroupItemListGetter = []( void* vec , int idx , const char** out_text )
+static auto ÑolorsGroupItemListGetter = []( void* vec , int idx )
 {
 	auto pColorList = static_cast<CAndromedaMenu::ColorItemsList_t*>( vec );
-	if ( idx < 0 || idx >= static_cast<int>( pColorList->size() ) ) { return false; }
-	*out_text = pColorList->at( idx ).Name.c_str();
-	return true;
+
+	if ( idx < 0 || idx >= static_cast<int>( pColorList->size() ) )
+		return "";
+
+	return pColorList->at( idx ).Name.c_str();
 };
 
-static auto ÑolorsGroupListGetter = []( void* vec , int idx , const char** out_text )
+static auto ÑolorsGroupListGetter = []( void* vec , int idx )
 {
 	auto& pSelected = GetAndromedaMenu()->GetColorGroupNameFromSelectIndex( idx );
-	*out_text = pSelected.c_str();
-	return true;
+
+	return pSelected.c_str();
 };
 
 auto CAndromedaMenu::InitColors() -> void

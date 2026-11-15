@@ -218,7 +218,6 @@ auto CAndromedaGUI::InitIndigoStyle() -> void
 	colors[ImGuiCol_NavWindowingDimBg] = ImVec4( 0.80f , 0.80f , 0.80f , 0.20f );
 
 	colors[ImGuiCol_ModalWindowDimBg] = ImVec4( 0.80f , 0.80f , 0.80f , 0.35f );
-	colors[ImGuiCol_WindowShadow] = ImVec4( 0.f , 0.f , 1.f , 1.f );
 }
 
 auto CAndromedaGUI::InitVermillionStyle() -> void
@@ -315,7 +314,6 @@ auto CAndromedaGUI::InitVermillionStyle() -> void
 	colors[ImGuiCol_NavWindowingDimBg] = ImVec4( 0.80f , 0.80f , 0.80f , 0.20f );
 
 	colors[ImGuiCol_ModalWindowDimBg] = ImVec4( 0.80f , 0.80f , 0.80f , 0.35f );
-	colors[ImGuiCol_WindowShadow] = ImVec4( 1.f , 0.f , 0.f , 1.f );
 }
 
 auto CAndromedaGUI::InitClassicSteamStyle() -> void
@@ -348,7 +346,6 @@ auto CAndromedaGUI::InitClassicSteamStyle() -> void
 	style.GrabRounding = 0.0f;
 	style.TabRounding = 0.0f;
 	style.TabBorderSize = 0.0f;
-	style.TabMinWidthForCloseButton = 0.0f;
 	style.ColorButtonPosition = ImGuiDir_Right;
 	style.ButtonTextAlign = ImVec2( 0.5f , 0.5f );
 	style.SelectableTextAlign = ImVec2( 0.0f , 0.0f );
@@ -406,7 +403,6 @@ auto CAndromedaGUI::InitClassicSteamStyle() -> void
 	style.Colors[ImGuiCol_NavWindowingHighlight] = ImVec4( 1.0f , 1.0f , 1.0f , 0.699999988079071f );
 	style.Colors[ImGuiCol_NavWindowingDimBg] = ImVec4( 0.800000011920929f , 0.800000011920929f , 0.800000011920929f , 0.2000000029802322f );
 	style.Colors[ImGuiCol_ModalWindowDimBg] = ImVec4( 0.800000011920929f , 0.800000011920929f , 0.800000011920929f , 0.3499999940395355f );
-	style.Colors[ImGuiCol_WindowShadow] = ImVec4( 1.f , 1.f , 0.f , 1.f );
 }
 
 auto CAndromedaGUI::UpdateStyle() -> void
@@ -538,20 +534,31 @@ auto CAndromedaGUI::FreeTypeBuild::PreNewFrame() -> bool
 	if ( !WantRebuild )
 		return false;
 
-	ImFontAtlas* atlas = ImGui::GetIO().Fonts;
+	auto* atlas = ImGui::GetIO().Fonts;
 
-	for ( int n = 0; n < atlas->ConfigData.Size; n++ )
-		( (ImFontConfig*)&atlas->ConfigData[n] )->RasterizerMultiply = RasterizerMultiply;
+	// Apply per-source settings (these are read at glyph bake time).
+	for ( auto n = 0; n < atlas->Sources.Size; n++ )
+		atlas->Sources[n].RasterizerMultiply = RasterizerMultiply;
+
+	// IMPORTANT: With the 1.92 dynamic atlas we must NOT call atlas->Clear()/Build()
+	// to re-apply loader settings - Clear() destroys all fonts and their sources,
+	// which leaves the atlas empty and makes ImGui fall back to the default font.
+	// Instead, refresh the loader output in place (same sequence as the ImGui demo):
+	// destroy the baked output, swap the loader flags, then re-init the output.
+	for ( auto* font : atlas->Fonts )
+		ImFontAtlasFontDestroyOutput( atlas , font );
 
 #ifdef IMGUI_ENABLE_FREETYPE
 	if ( BuildMode == FontBuildMode::FreeType )
-	{
-		atlas->FontBuilderIO = ImGuiFreeType::GetBuilderForFreeType();
-		atlas->FontBuilderFlags = FreeTypeBuilderFlags;
-	}
+		atlas->SetFontLoader( ImGuiFreeType::GetFontLoader() );
 #endif
 
-	atlas->Build();
+	atlas->FontLoaderFlags = FreeTypeBuilderFlags;
+
+	for ( auto* font : atlas->Fonts )
+		ImFontAtlasFontInitOutput( atlas , font );
+
+	WantRebuild = false;
 	WantRebuild = false;
 
 	return true;

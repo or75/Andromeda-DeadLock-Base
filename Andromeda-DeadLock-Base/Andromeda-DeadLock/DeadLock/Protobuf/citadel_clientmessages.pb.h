@@ -108,6 +108,9 @@ extern CCitadelClientMsg_MapLineDefaultTypeInternal _CCitadelClientMsg_MapLine_d
 class CCitadelClientMsg_MapPing;
 struct CCitadelClientMsg_MapPingDefaultTypeInternal;
 extern CCitadelClientMsg_MapPingDefaultTypeInternal _CCitadelClientMsg_MapPing_default_instance_;
+class CCitadelClientMsg_MapTargetingCursor;
+struct CCitadelClientMsg_MapTargetingCursorDefaultTypeInternal;
+extern CCitadelClientMsg_MapTargetingCursorDefaultTypeInternal _CCitadelClientMsg_MapTargetingCursor_default_instance_;
 class CCitadelClientMsg_MutePlayers;
 struct CCitadelClientMsg_MutePlayersDefaultTypeInternal;
 extern CCitadelClientMsg_MutePlayersDefaultTypeInternal _CCitadelClientMsg_MutePlayers_default_instance_;
@@ -156,6 +159,7 @@ template<> ::CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTall
 template<> ::CCitadelClientMsg_HitMismatch* Arena::CreateMaybeMessage<::CCitadelClientMsg_HitMismatch>(Arena*);
 template<> ::CCitadelClientMsg_MapLine* Arena::CreateMaybeMessage<::CCitadelClientMsg_MapLine>(Arena*);
 template<> ::CCitadelClientMsg_MapPing* Arena::CreateMaybeMessage<::CCitadelClientMsg_MapPing>(Arena*);
+template<> ::CCitadelClientMsg_MapTargetingCursor* Arena::CreateMaybeMessage<::CCitadelClientMsg_MapTargetingCursor>(Arena*);
 template<> ::CCitadelClientMsg_MutePlayers* Arena::CreateMaybeMessage<::CCitadelClientMsg_MutePlayers>(Arena*);
 template<> ::CCitadelClientMsg_Pause* Arena::CreateMaybeMessage<::CCitadelClientMsg_Pause>(Arena*);
 template<> ::CCitadelClientMsg_PerfReport* Arena::CreateMaybeMessage<::CCitadelClientMsg_PerfReport>(Arena*);
@@ -194,11 +198,12 @@ enum ECitadelClientMessages : int {
   CITADEL_CM_RequestBulkCombatLog = 1025,
   CITADEL_CM_PlayerTyping = 1026,
   CITADEL_CM_HideoutInteract = 1027,
-  CITADEL_CM_HeroReleaseVote = 1028
+  CITADEL_CM_HeroReleaseVote = 1028,
+  CITADEL_CM_MapTargetingCursor = 1029
 };
 bool ECitadelClientMessages_IsValid(int value);
 constexpr ECitadelClientMessages ECitadelClientMessages_MIN = CITADEL_CM_MapPing;
-constexpr ECitadelClientMessages ECitadelClientMessages_MAX = CITADEL_CM_HeroReleaseVote;
+constexpr ECitadelClientMessages ECitadelClientMessages_MAX = CITADEL_CM_MapTargetingCursor;
 constexpr int ECitadelClientMessages_ARRAYSIZE = ECitadelClientMessages_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECitadelClientMessages_descriptor();
@@ -1282,6 +1287,196 @@ class CCitadelClientMsg_MapLine final :
 };
 // -------------------------------------------------------------------
 
+class CCitadelClientMsg_MapTargetingCursor final :
+    public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCitadelClientMsg_MapTargetingCursor) */ {
+ public:
+  inline CCitadelClientMsg_MapTargetingCursor() : CCitadelClientMsg_MapTargetingCursor(nullptr) {}
+  ~CCitadelClientMsg_MapTargetingCursor() override;
+  explicit PROTOBUF_CONSTEXPR CCitadelClientMsg_MapTargetingCursor(::PROTOBUF_NAMESPACE_ID::internal::ConstantInitialized);
+
+  CCitadelClientMsg_MapTargetingCursor(const CCitadelClientMsg_MapTargetingCursor& from);
+  CCitadelClientMsg_MapTargetingCursor(CCitadelClientMsg_MapTargetingCursor&& from) noexcept
+    : CCitadelClientMsg_MapTargetingCursor() {
+    *this = ::std::move(from);
+  }
+
+  inline CCitadelClientMsg_MapTargetingCursor& operator=(const CCitadelClientMsg_MapTargetingCursor& from) {
+    CopyFrom(from);
+    return *this;
+  }
+  inline CCitadelClientMsg_MapTargetingCursor& operator=(CCitadelClientMsg_MapTargetingCursor&& from) noexcept {
+    if (this == &from) return *this;
+    if (GetOwningArena() == from.GetOwningArena()
+  #ifdef PROTOBUF_FORCE_COPY_IN_MOVE
+        && GetOwningArena() != nullptr
+  #endif  // !PROTOBUF_FORCE_COPY_IN_MOVE
+    ) {
+      InternalSwap(&from);
+    } else {
+      CopyFrom(from);
+    }
+    return *this;
+  }
+
+  inline const ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet& unknown_fields() const {
+    return _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance);
+  }
+  inline ::PROTOBUF_NAMESPACE_ID::UnknownFieldSet* mutable_unknown_fields() {
+    return _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+  }
+
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* descriptor() {
+    return GetDescriptor();
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Descriptor* GetDescriptor() {
+    return default_instance().GetMetadata().descriptor;
+  }
+  static const ::PROTOBUF_NAMESPACE_ID::Reflection* GetReflection() {
+    return default_instance().GetMetadata().reflection;
+  }
+  static const CCitadelClientMsg_MapTargetingCursor& default_instance() {
+    return *internal_default_instance();
+  }
+  static inline const CCitadelClientMsg_MapTargetingCursor* internal_default_instance() {
+    return reinterpret_cast<const CCitadelClientMsg_MapTargetingCursor*>(
+               &_CCitadelClientMsg_MapTargetingCursor_default_instance_);
+  }
+  static constexpr int kIndexInFileMessages =
+    5;
+
+  friend void swap(CCitadelClientMsg_MapTargetingCursor& a, CCitadelClientMsg_MapTargetingCursor& b) {
+    a.Swap(&b);
+  }
+  inline void Swap(CCitadelClientMsg_MapTargetingCursor* other) {
+    if (other == this) return;
+  #ifdef PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() != nullptr &&
+        GetOwningArena() == other->GetOwningArena()) {
+   #else  // PROTOBUF_FORCE_COPY_IN_SWAP
+    if (GetOwningArena() == other->GetOwningArena()) {
+  #endif  // !PROTOBUF_FORCE_COPY_IN_SWAP
+      InternalSwap(other);
+    } else {
+      ::PROTOBUF_NAMESPACE_ID::internal::GenericSwap(this, other);
+    }
+  }
+  void UnsafeArenaSwap(CCitadelClientMsg_MapTargetingCursor* other) {
+    if (other == this) return;
+    GOOGLE_DCHECK(GetOwningArena() == other->GetOwningArena());
+    InternalSwap(other);
+  }
+
+  // implements Message ----------------------------------------------
+
+  CCitadelClientMsg_MapTargetingCursor* New(::PROTOBUF_NAMESPACE_ID::Arena* arena = nullptr) const final {
+    return CreateMaybeMessage<CCitadelClientMsg_MapTargetingCursor>(arena);
+  }
+  using ::PROTOBUF_NAMESPACE_ID::Message::CopyFrom;
+  void CopyFrom(const CCitadelClientMsg_MapTargetingCursor& from);
+  using ::PROTOBUF_NAMESPACE_ID::Message::MergeFrom;
+  void MergeFrom( const CCitadelClientMsg_MapTargetingCursor& from) {
+    CCitadelClientMsg_MapTargetingCursor::MergeImpl(*this, from);
+  }
+  private:
+  static void MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg);
+  public:
+  PROTOBUF_ATTRIBUTE_REINITIALIZES void Clear() final;
+  bool IsInitialized() const final;
+
+  size_t ByteSizeLong() const final;
+  const char* _InternalParse(const char* ptr, ::PROTOBUF_NAMESPACE_ID::internal::ParseContext* ctx) final;
+  uint8_t* _InternalSerialize(
+      uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const final;
+  int GetCachedSize() const final { return _impl_._cached_size_.Get(); }
+
+  private:
+  void SharedCtor(::PROTOBUF_NAMESPACE_ID::Arena* arena, bool is_message_owned);
+  void SharedDtor();
+  void SetCachedSize(int size) const final;
+  void InternalSwap(CCitadelClientMsg_MapTargetingCursor* other);
+
+  private:
+  friend class ::PROTOBUF_NAMESPACE_ID::internal::AnyMetadata;
+  static ::PROTOBUF_NAMESPACE_ID::StringPiece FullMessageName() {
+    return "CCitadelClientMsg_MapTargetingCursor";
+  }
+  protected:
+  explicit CCitadelClientMsg_MapTargetingCursor(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                       bool is_message_owned = false);
+  public:
+
+  static const ClassData _class_data_;
+  const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*GetClassData() const final;
+
+  ::PROTOBUF_NAMESPACE_ID::Metadata GetMetadata() const final;
+
+  // nested types ----------------------------------------------------
+
+  // accessors -------------------------------------------------------
+
+  enum : int {
+    kXFieldNumber = 1,
+    kYFieldNumber = 2,
+    kActiveFieldNumber = 3,
+  };
+  // optional int32 x = 1;
+  bool has_x() const;
+  private:
+  bool _internal_has_x() const;
+  public:
+  void clear_x();
+  int32_t x() const;
+  void set_x(int32_t value);
+  private:
+  int32_t _internal_x() const;
+  void _internal_set_x(int32_t value);
+  public:
+
+  // optional int32 y = 2;
+  bool has_y() const;
+  private:
+  bool _internal_has_y() const;
+  public:
+  void clear_y();
+  int32_t y() const;
+  void set_y(int32_t value);
+  private:
+  int32_t _internal_y() const;
+  void _internal_set_y(int32_t value);
+  public:
+
+  // optional bool active = 3;
+  bool has_active() const;
+  private:
+  bool _internal_has_active() const;
+  public:
+  void clear_active();
+  bool active() const;
+  void set_active(bool value);
+  private:
+  bool _internal_active() const;
+  void _internal_set_active(bool value);
+  public:
+
+  // @@protoc_insertion_point(class_scope:CCitadelClientMsg_MapTargetingCursor)
+ private:
+  class _Internal;
+
+  template <typename T> friend class ::PROTOBUF_NAMESPACE_ID::Arena::InternalHelper;
+  typedef void InternalArenaConstructable_;
+  typedef void DestructorSkippable_;
+  struct Impl_ {
+    ::PROTOBUF_NAMESPACE_ID::internal::HasBits<1> _has_bits_;
+    mutable ::PROTOBUF_NAMESPACE_ID::internal::CachedSize _cached_size_;
+    int32_t x_;
+    int32_t y_;
+    bool active_;
+  };
+  union { Impl_ _impl_; };
+  friend struct ::TableStruct_citadel_5fclientmessages_2eproto;
+};
+// -------------------------------------------------------------------
+
 class CCitadelClientMsg_QuickResponse final :
     public ::PROTOBUF_NAMESPACE_ID::Message /* @@protoc_insertion_point(class_definition:CCitadelClientMsg_QuickResponse) */ {
  public:
@@ -1337,7 +1532,7 @@ class CCitadelClientMsg_QuickResponse final :
                &_CCitadelClientMsg_QuickResponse_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    5;
+    6;
 
   friend void swap(CCitadelClientMsg_QuickResponse& a, CCitadelClientMsg_QuickResponse& b) {
     a.Swap(&b);
@@ -1527,7 +1722,7 @@ class CCitadelClientMsg_PerformanceStats final :
                &_CCitadelClientMsg_PerformanceStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    6;
+    7;
 
   friend void swap(CCitadelClientMsg_PerformanceStats& a, CCitadelClientMsg_PerformanceStats& b) {
     a.Swap(&b);
@@ -1732,7 +1927,7 @@ class CCitadelClientMsg_ChatMsg final :
                &_CCitadelClientMsg_ChatMsg_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    7;
+    8;
 
   friend void swap(CCitadelClientMsg_ChatMsg& a, CCitadelClientMsg_ChatMsg& b) {
     a.Swap(&b);
@@ -1927,7 +2122,7 @@ class CCitadelClientMsg_PerfReport final :
                &_CCitadelClientMsg_PerfReport_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    8;
+    9;
 
   friend void swap(CCitadelClientMsg_PerfReport& a, CCitadelClientMsg_PerfReport& b) {
     a.Swap(&b);
@@ -2372,7 +2567,7 @@ class CCitadelClientMsg_GetDamageStats final :
                &_CCitadelClientMsg_GetDamageStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    9;
+    10;
 
   friend void swap(CCitadelClientMsg_GetDamageStats& a, CCitadelClientMsg_GetDamageStats& b) {
     a.Swap(&b);
@@ -2552,7 +2747,7 @@ class CCitadelClientCachedPlayerStats_Stat final :
                &_CCitadelClientCachedPlayerStats_Stat_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    10;
+    11;
 
   friend void swap(CCitadelClientCachedPlayerStats_Stat& a, CCitadelClientCachedPlayerStats_Stat& b) {
     a.Swap(&b);
@@ -2762,7 +2957,7 @@ class CCitadelClientCachedPlayerStats final :
                &_CCitadelClientCachedPlayerStats_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    11;
+    12;
 
   friend void swap(CCitadelClientCachedPlayerStats& a, CCitadelClientCachedPlayerStats& b) {
     a.Swap(&b);
@@ -2944,7 +3139,7 @@ class CCitadelClientMsg_ExecuteMapUnitAbility final :
                &_CCitadelClientMsg_ExecuteMapUnitAbility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    12;
+    13;
 
   friend void swap(CCitadelClientMsg_ExecuteMapUnitAbility& a, CCitadelClientMsg_ExecuteMapUnitAbility& b) {
     a.Swap(&b);
@@ -3119,7 +3314,7 @@ class CCitadelClientMsg_CheaterVote final :
                &_CCitadelClientMsg_CheaterVote_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    13;
+    14;
 
   friend void swap(CCitadelClientMsg_CheaterVote& a, CCitadelClientMsg_CheaterVote& b) {
     a.Swap(&b);
@@ -3279,7 +3474,7 @@ class CCitadelClientMsg_MutePlayers final :
                &_CCitadelClientMsg_MutePlayers_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    14;
+    15;
 
   friend void swap(CCitadelClientMsg_MutePlayers& a, CCitadelClientMsg_MutePlayers& b) {
     a.Swap(&b);
@@ -3463,7 +3658,7 @@ class CCitadelClientMsg_HitMismatch final :
                &_CCitadelClientMsg_HitMismatch_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    15;
+    16;
 
   friend void swap(CCitadelClientMsg_HitMismatch& a, CCitadelClientMsg_HitMismatch& b) {
     a.Swap(&b);
@@ -3638,7 +3833,7 @@ class CCitadelClientMsg_HideoutStart final :
                &_CCitadelClientMsg_HideoutStart_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    16;
+    17;
 
   friend void swap(CCitadelClientMsg_HideoutStart& a, CCitadelClientMsg_HideoutStart& b) {
     a.Swap(&b);
@@ -3803,7 +3998,7 @@ class CCitadelClientMsg_HeroBuild final :
                &_CCitadelClientMsg_HeroBuild_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    17;
+    18;
 
   friend void swap(CCitadelClientMsg_HeroBuild& a, CCitadelClientMsg_HeroBuild& b) {
     a.Swap(&b);
@@ -3983,7 +4178,7 @@ class CCitadelClientMsg_HideoutSpawn final :
                &_CCitadelClientMsg_HideoutSpawn_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    18;
+    19;
 
   friend void swap(CCitadelClientMsg_HideoutSpawn& a, CCitadelClientMsg_HideoutSpawn& b) {
     a.Swap(&b);
@@ -4158,7 +4353,7 @@ class CCitadelClientMsg_HideoutMatchmakingState final :
                &_CCitadelClientMsg_HideoutMatchmakingState_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    19;
+    20;
 
   friend void swap(CCitadelClientMsg_HideoutMatchmakingState& a, CCitadelClientMsg_HideoutMatchmakingState& b) {
     a.Swap(&b);
@@ -4347,7 +4542,7 @@ class CCitadelClientMsg_PlayerStatsUpdated final :
                &_CCitadelClientMsg_PlayerStatsUpdated_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    20;
+    21;
 
   friend void swap(CCitadelClientMsg_PlayerStatsUpdated& a, CCitadelClientMsg_PlayerStatsUpdated& b) {
     a.Swap(&b);
@@ -4473,7 +4668,7 @@ class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry 
                &_CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    21;
+    22;
 
   friend void swap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& a, CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_VoteRoundToTallyEntry& b) {
     a.Swap(&b);
@@ -4653,7 +4848,7 @@ class CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally final :
                &_CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    22;
+    23;
 
   friend void swap(CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& a, CCitadelClientMsg_HideoutUpdateHeroReleaseVoteTally& b) {
     a.Swap(&b);
@@ -4819,7 +5014,7 @@ class CCitadelClientMsg_ExecuteMapPositionAbility final :
                &_CCitadelClientMsg_ExecuteMapPositionAbility_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    23;
+    24;
 
   friend void swap(CCitadelClientMsg_ExecuteMapPositionAbility& a, CCitadelClientMsg_ExecuteMapPositionAbility& b) {
     a.Swap(&b);
@@ -5024,7 +5219,7 @@ class CCitadelClientMsg_HeroEconChanged final :
                &_CCitadelClientMsg_HeroEconChanged_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    24;
+    25;
 
   friend void swap(CCitadelClientMsg_HeroEconChanged& a, CCitadelClientMsg_HeroEconChanged& b) {
     a.Swap(&b);
@@ -5184,7 +5379,7 @@ class CCitadelClientMsg_RequestBulkCombatLog final :
                &_CCitadelClientMsg_RequestBulkCombatLog_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    25;
+    26;
 
   friend void swap(CCitadelClientMsg_RequestBulkCombatLog& a, CCitadelClientMsg_RequestBulkCombatLog& b) {
     a.Swap(&b);
@@ -5389,7 +5584,7 @@ class CCitadelClientMsg_PlayerTyping final :
                &_CCitadelClientMsg_PlayerTyping_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    26;
+    27;
 
   friend void swap(CCitadelClientMsg_PlayerTyping& a, CCitadelClientMsg_PlayerTyping& b) {
     a.Swap(&b);
@@ -5579,7 +5774,7 @@ class CCitadelClientMsg_HideoutInteract final :
                &_CCitadelClientMsg_HideoutInteract_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    27;
+    28;
 
   friend void swap(CCitadelClientMsg_HideoutInteract& a, CCitadelClientMsg_HideoutInteract& b) {
     a.Swap(&b);
@@ -5739,7 +5934,7 @@ class CCitadelClientMsg_HeroReleaseVote final :
                &_CCitadelClientMsg_HeroReleaseVote_default_instance_);
   }
   static constexpr int kIndexInFileMessages =
-    28;
+    29;
 
   friend void swap(CCitadelClientMsg_HeroReleaseVote& a, CCitadelClientMsg_HeroReleaseVote& b) {
     a.Swap(&b);
@@ -6688,6 +6883,94 @@ inline void CCitadelClientMsg_MapLine::set_allocated_mapline(::CMsgMapLine* mapl
   }
   _impl_.mapline_ = mapline;
   // @@protoc_insertion_point(field_set_allocated:CCitadelClientMsg_MapLine.mapline)
+}
+
+// -------------------------------------------------------------------
+
+// CCitadelClientMsg_MapTargetingCursor
+
+// optional int32 x = 1;
+inline bool CCitadelClientMsg_MapTargetingCursor::_internal_has_x() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000001u) != 0;
+  return value;
+}
+inline bool CCitadelClientMsg_MapTargetingCursor::has_x() const {
+  return _internal_has_x();
+}
+inline void CCitadelClientMsg_MapTargetingCursor::clear_x() {
+  _impl_.x_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000001u;
+}
+inline int32_t CCitadelClientMsg_MapTargetingCursor::_internal_x() const {
+  return _impl_.x_;
+}
+inline int32_t CCitadelClientMsg_MapTargetingCursor::x() const {
+  // @@protoc_insertion_point(field_get:CCitadelClientMsg_MapTargetingCursor.x)
+  return _internal_x();
+}
+inline void CCitadelClientMsg_MapTargetingCursor::_internal_set_x(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000001u;
+  _impl_.x_ = value;
+}
+inline void CCitadelClientMsg_MapTargetingCursor::set_x(int32_t value) {
+  _internal_set_x(value);
+  // @@protoc_insertion_point(field_set:CCitadelClientMsg_MapTargetingCursor.x)
+}
+
+// optional int32 y = 2;
+inline bool CCitadelClientMsg_MapTargetingCursor::_internal_has_y() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000002u) != 0;
+  return value;
+}
+inline bool CCitadelClientMsg_MapTargetingCursor::has_y() const {
+  return _internal_has_y();
+}
+inline void CCitadelClientMsg_MapTargetingCursor::clear_y() {
+  _impl_.y_ = 0;
+  _impl_._has_bits_[0] &= ~0x00000002u;
+}
+inline int32_t CCitadelClientMsg_MapTargetingCursor::_internal_y() const {
+  return _impl_.y_;
+}
+inline int32_t CCitadelClientMsg_MapTargetingCursor::y() const {
+  // @@protoc_insertion_point(field_get:CCitadelClientMsg_MapTargetingCursor.y)
+  return _internal_y();
+}
+inline void CCitadelClientMsg_MapTargetingCursor::_internal_set_y(int32_t value) {
+  _impl_._has_bits_[0] |= 0x00000002u;
+  _impl_.y_ = value;
+}
+inline void CCitadelClientMsg_MapTargetingCursor::set_y(int32_t value) {
+  _internal_set_y(value);
+  // @@protoc_insertion_point(field_set:CCitadelClientMsg_MapTargetingCursor.y)
+}
+
+// optional bool active = 3;
+inline bool CCitadelClientMsg_MapTargetingCursor::_internal_has_active() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000004u) != 0;
+  return value;
+}
+inline bool CCitadelClientMsg_MapTargetingCursor::has_active() const {
+  return _internal_has_active();
+}
+inline void CCitadelClientMsg_MapTargetingCursor::clear_active() {
+  _impl_.active_ = false;
+  _impl_._has_bits_[0] &= ~0x00000004u;
+}
+inline bool CCitadelClientMsg_MapTargetingCursor::_internal_active() const {
+  return _impl_.active_;
+}
+inline bool CCitadelClientMsg_MapTargetingCursor::active() const {
+  // @@protoc_insertion_point(field_get:CCitadelClientMsg_MapTargetingCursor.active)
+  return _internal_active();
+}
+inline void CCitadelClientMsg_MapTargetingCursor::_internal_set_active(bool value) {
+  _impl_._has_bits_[0] |= 0x00000004u;
+  _impl_.active_ = value;
+}
+inline void CCitadelClientMsg_MapTargetingCursor::set_active(bool value) {
+  _internal_set_active(value);
+  // @@protoc_insertion_point(field_set:CCitadelClientMsg_MapTargetingCursor.active)
 }
 
 // -------------------------------------------------------------------
@@ -9092,6 +9375,8 @@ inline void CCitadelClientMsg_HeroReleaseVote::set_voted_hero_id(uint32_t value)
 #ifdef __GNUC__
   #pragma GCC diagnostic pop
 #endif  // __GNUC__
+// -------------------------------------------------------------------
+
 // -------------------------------------------------------------------
 
 // -------------------------------------------------------------------

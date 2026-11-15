@@ -17334,6 +17334,7 @@ class CMsgMatchData_PlayerItem final :
     kFlagsFieldNumber = 5,
     kImbuedAbilityIdFieldNumber = 6,
     kUpgradeInfoFieldNumber = 7,
+    kPurchaseSourceFieldNumber = 8,
   };
   // optional uint32 item_id = 1;
   bool has_item_id() const;
@@ -17426,6 +17427,19 @@ class CMsgMatchData_PlayerItem final :
   void _internal_set_upgrade_info(uint32_t value);
   public:
 
+  // optional uint32 purchase_source = 8;
+  bool has_purchase_source() const;
+  private:
+  bool _internal_has_purchase_source() const;
+  public:
+  void clear_purchase_source();
+  uint32_t purchase_source() const;
+  void set_purchase_source(uint32_t value);
+  private:
+  uint32_t _internal_purchase_source() const;
+  void _internal_set_purchase_source(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CMsgMatchData.PlayerItem)
  private:
   class _Internal;
@@ -17443,6 +17457,7 @@ class CMsgMatchData_PlayerItem final :
     uint32_t flags_;
     uint32_t imbued_ability_id_;
     uint32_t upgrade_info_;
+    uint32_t purchase_source_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fserver_2eproto;
@@ -38976,6 +38991,34 @@ inline void CMsgMatchData_PlayerItem::_internal_set_upgrade_info(uint32_t value)
 inline void CMsgMatchData_PlayerItem::set_upgrade_info(uint32_t value) {
   _internal_set_upgrade_info(value);
   // @@protoc_insertion_point(field_set:CMsgMatchData.PlayerItem.upgrade_info)
+}
+
+// optional uint32 purchase_source = 8;
+inline bool CMsgMatchData_PlayerItem::_internal_has_purchase_source() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000080u) != 0;
+  return value;
+}
+inline bool CMsgMatchData_PlayerItem::has_purchase_source() const {
+  return _internal_has_purchase_source();
+}
+inline void CMsgMatchData_PlayerItem::clear_purchase_source() {
+  _impl_.purchase_source_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000080u;
+}
+inline uint32_t CMsgMatchData_PlayerItem::_internal_purchase_source() const {
+  return _impl_.purchase_source_;
+}
+inline uint32_t CMsgMatchData_PlayerItem::purchase_source() const {
+  // @@protoc_insertion_point(field_get:CMsgMatchData.PlayerItem.purchase_source)
+  return _internal_purchase_source();
+}
+inline void CMsgMatchData_PlayerItem::_internal_set_purchase_source(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000080u;
+  _impl_.purchase_source_ = value;
+}
+inline void CMsgMatchData_PlayerItem::set_purchase_source(uint32_t value) {
+  _internal_set_purchase_source(value);
+  // @@protoc_insertion_point(field_set:CMsgMatchData.PlayerItem.purchase_source)
 }
 
 // -------------------------------------------------------------------

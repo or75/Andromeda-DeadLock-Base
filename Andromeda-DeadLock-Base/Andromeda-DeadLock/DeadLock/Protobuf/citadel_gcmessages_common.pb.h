@@ -510,11 +510,13 @@ enum CMsgMatchPlayerDamageMatrix_EStatType : int {
   CMsgMatchPlayerDamageMatrix_EStatType_k_eType_HealPrevented = 2,
   CMsgMatchPlayerDamageMatrix_EStatType_k_eType_Mitigated = 3,
   CMsgMatchPlayerDamageMatrix_EStatType_k_eType_LethalDamage = 4,
-  CMsgMatchPlayerDamageMatrix_EStatType_k_eType_Regen = 5
+  CMsgMatchPlayerDamageMatrix_EStatType_k_eType_Regen = 5,
+  CMsgMatchPlayerDamageMatrix_EStatType_k_eType_CrowdControl = 6,
+  CMsgMatchPlayerDamageMatrix_EStatType_k_eType_MitigatedBySource = 7
 };
 bool CMsgMatchPlayerDamageMatrix_EStatType_IsValid(int value);
 constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix_EStatType_EStatType_MIN = CMsgMatchPlayerDamageMatrix_EStatType_k_eType_Damage;
-constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix_EStatType_EStatType_MAX = CMsgMatchPlayerDamageMatrix_EStatType_k_eType_Regen;
+constexpr CMsgMatchPlayerDamageMatrix_EStatType CMsgMatchPlayerDamageMatrix_EStatType_EStatType_MAX = CMsgMatchPlayerDamageMatrix_EStatType_k_eType_MitigatedBySource;
 constexpr int CMsgMatchPlayerDamageMatrix_EStatType_EStatType_ARRAYSIZE = CMsgMatchPlayerDamageMatrix_EStatType_EStatType_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgMatchPlayerDamageMatrix_EStatType_descriptor();
@@ -993,11 +995,12 @@ enum ECitadelGameMode : int {
   k_ECitadelGameMode_Sandbox = 3,
   k_ECitadelGameMode_StreetBrawl = 4,
   k_ECitadelGameMode_ExploreNYC = 5,
-  k_ECitadelGameMode_Internal = 6
+  k_ECitadelGameMode_Internal = 6,
+  k_ECitadelGameMode_Internal02 = 7
 };
 bool ECitadelGameMode_IsValid(int value);
 constexpr ECitadelGameMode ECitadelGameMode_MIN = k_ECitadelGameMode_Invalid;
-constexpr ECitadelGameMode ECitadelGameMode_MAX = k_ECitadelGameMode_Internal;
+constexpr ECitadelGameMode ECitadelGameMode_MAX = k_ECitadelGameMode_Internal02;
 constexpr int ECitadelGameMode_ARRAYSIZE = ECitadelGameMode_MAX + 1;
 
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* ECitadelGameMode_descriptor();
@@ -1918,6 +1921,7 @@ class CSOCitadelHideoutLobby_Member final :
     kAccountIdFieldNumber = 1,
     kHideoutHolidayAward2024FieldNumber = 30,
     kHideoutHolidayAward2025FieldNumber = 32,
+    kRankedSeason1SeasonRankFieldNumber = 33,
   };
   // optional uint32 account_id = 1;
   bool has_account_id() const;
@@ -1958,6 +1962,19 @@ class CSOCitadelHideoutLobby_Member final :
   void _internal_set_hideout_holiday_award_2025(bool value);
   public:
 
+  // optional uint32 ranked_season_1_season_rank = 33;
+  bool has_ranked_season_1_season_rank() const;
+  private:
+  bool _internal_has_ranked_season_1_season_rank() const;
+  public:
+  void clear_ranked_season_1_season_rank();
+  uint32_t ranked_season_1_season_rank() const;
+  void set_ranked_season_1_season_rank(uint32_t value);
+  private:
+  uint32_t _internal_ranked_season_1_season_rank() const;
+  void _internal_set_ranked_season_1_season_rank(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSOCitadelHideoutLobby.Member)
  private:
   class _Internal;
@@ -1971,6 +1988,7 @@ class CSOCitadelHideoutLobby_Member final :
     uint32_t account_id_;
     bool hideout_holiday_award_2024_;
     bool hideout_holiday_award_2025_;
+    uint32_t ranked_season_1_season_rank_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fcommon_2eproto;
@@ -5278,6 +5296,7 @@ class CSOCitadelParty_RankedScores final :
     kRankIntervalFieldNumber = 2,
     kRankDisplayBadgeFieldNumber = 3,
     kInCalibrationFieldNumber = 6,
+    kMaxRankDisplayBadgeFieldNumber = 7,
   };
   // repeated uint32 unlocked_heroes = 5;
   int unlocked_heroes_size() const;
@@ -5353,6 +5372,19 @@ class CSOCitadelParty_RankedScores final :
   void _internal_set_in_calibration(bool value);
   public:
 
+  // optional uint32 max_rank_display_badge = 7;
+  bool has_max_rank_display_badge() const;
+  private:
+  bool _internal_has_max_rank_display_badge() const;
+  public:
+  void clear_max_rank_display_badge();
+  uint32_t max_rank_display_badge() const;
+  void set_max_rank_display_badge(uint32_t value);
+  private:
+  uint32_t _internal_max_rank_display_badge() const;
+  void _internal_set_max_rank_display_badge(uint32_t value);
+  public:
+
   // @@protoc_insertion_point(class_scope:CSOCitadelParty.RankedScores)
  private:
   class _Internal;
@@ -5368,6 +5400,7 @@ class CSOCitadelParty_RankedScores final :
     uint32_t rank_interval_;
     uint32_t rank_display_badge_;
     bool in_calibration_;
+    uint32_t max_rank_display_badge_;
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_citadel_5fgcmessages_5fcommon_2eproto;
@@ -6408,7 +6441,6 @@ class CSOCitadelParty final :
     kMatchMakingStartTimeFieldNumber = 11,
     kChatModeFieldNumber = 14,
     kRegionModeFieldNumber = 15,
-    kIsHighSkillRangePartyFieldNumber = 13,
     kIsPrivateLobbyFieldNumber = 16,
     kDesiresLaningTogetherFieldNumber = 18,
     kMmPreferenceFieldNumber = 19,
@@ -6670,19 +6702,6 @@ class CSOCitadelParty final :
   void _internal_set_region_mode(::ECitadelRegionMode value);
   public:
 
-  // optional bool is_high_skill_range_party = 13;
-  bool has_is_high_skill_range_party() const;
-  private:
-  bool _internal_has_is_high_skill_range_party() const;
-  public:
-  void clear_is_high_skill_range_party();
-  bool is_high_skill_range_party() const;
-  void set_is_high_skill_range_party(bool value);
-  private:
-  bool _internal_is_high_skill_range_party() const;
-  void _internal_set_is_high_skill_range_party(bool value);
-  public:
-
   // optional bool is_private_lobby = 16;
   bool has_is_private_lobby() const;
   private:
@@ -6814,7 +6833,6 @@ class CSOCitadelParty final :
     uint32_t match_making_start_time_;
     int chat_mode_;
     int region_mode_;
-    bool is_high_skill_range_party_;
     bool is_private_lobby_;
     bool desires_laning_together_;
     int mm_preference_;
@@ -8347,6 +8365,10 @@ class CMsgMatchPlayerDamageMatrix final :
     CMsgMatchPlayerDamageMatrix_EStatType_k_eType_LethalDamage;
   static constexpr EStatType k_eType_Regen =
     CMsgMatchPlayerDamageMatrix_EStatType_k_eType_Regen;
+  static constexpr EStatType k_eType_CrowdControl =
+    CMsgMatchPlayerDamageMatrix_EStatType_k_eType_CrowdControl;
+  static constexpr EStatType k_eType_MitigatedBySource =
+    CMsgMatchPlayerDamageMatrix_EStatType_k_eType_MitigatedBySource;
   static inline bool EStatType_IsValid(int value) {
     return CMsgMatchPlayerDamageMatrix_EStatType_IsValid(value);
   }
@@ -20913,6 +20935,34 @@ inline void CSOCitadelHideoutLobby_Member::set_hideout_holiday_award_2025(bool v
   // @@protoc_insertion_point(field_set:CSOCitadelHideoutLobby.Member.hideout_holiday_award_2025)
 }
 
+// optional uint32 ranked_season_1_season_rank = 33;
+inline bool CSOCitadelHideoutLobby_Member::_internal_has_ranked_season_1_season_rank() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000008u) != 0;
+  return value;
+}
+inline bool CSOCitadelHideoutLobby_Member::has_ranked_season_1_season_rank() const {
+  return _internal_has_ranked_season_1_season_rank();
+}
+inline void CSOCitadelHideoutLobby_Member::clear_ranked_season_1_season_rank() {
+  _impl_.ranked_season_1_season_rank_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000008u;
+}
+inline uint32_t CSOCitadelHideoutLobby_Member::_internal_ranked_season_1_season_rank() const {
+  return _impl_.ranked_season_1_season_rank_;
+}
+inline uint32_t CSOCitadelHideoutLobby_Member::ranked_season_1_season_rank() const {
+  // @@protoc_insertion_point(field_get:CSOCitadelHideoutLobby.Member.ranked_season_1_season_rank)
+  return _internal_ranked_season_1_season_rank();
+}
+inline void CSOCitadelHideoutLobby_Member::_internal_set_ranked_season_1_season_rank(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000008u;
+  _impl_.ranked_season_1_season_rank_ = value;
+}
+inline void CSOCitadelHideoutLobby_Member::set_ranked_season_1_season_rank(uint32_t value) {
+  _internal_set_ranked_season_1_season_rank(value);
+  // @@protoc_insertion_point(field_set:CSOCitadelHideoutLobby.Member.ranked_season_1_season_rank)
+}
+
 // -------------------------------------------------------------------
 
 // CSOCitadelHideoutLobby
@@ -23240,6 +23290,34 @@ inline void CSOCitadelParty_RankedScores::set_in_calibration(bool value) {
   // @@protoc_insertion_point(field_set:CSOCitadelParty.RankedScores.in_calibration)
 }
 
+// optional uint32 max_rank_display_badge = 7;
+inline bool CSOCitadelParty_RankedScores::_internal_has_max_rank_display_badge() const {
+  bool value = (_impl_._has_bits_[0] & 0x00000010u) != 0;
+  return value;
+}
+inline bool CSOCitadelParty_RankedScores::has_max_rank_display_badge() const {
+  return _internal_has_max_rank_display_badge();
+}
+inline void CSOCitadelParty_RankedScores::clear_max_rank_display_badge() {
+  _impl_.max_rank_display_badge_ = 0u;
+  _impl_._has_bits_[0] &= ~0x00000010u;
+}
+inline uint32_t CSOCitadelParty_RankedScores::_internal_max_rank_display_badge() const {
+  return _impl_.max_rank_display_badge_;
+}
+inline uint32_t CSOCitadelParty_RankedScores::max_rank_display_badge() const {
+  // @@protoc_insertion_point(field_get:CSOCitadelParty.RankedScores.max_rank_display_badge)
+  return _internal_max_rank_display_badge();
+}
+inline void CSOCitadelParty_RankedScores::_internal_set_max_rank_display_badge(uint32_t value) {
+  _impl_._has_bits_[0] |= 0x00000010u;
+  _impl_.max_rank_display_badge_ = value;
+}
+inline void CSOCitadelParty_RankedScores::set_max_rank_display_badge(uint32_t value) {
+  _internal_set_max_rank_display_badge(value);
+  // @@protoc_insertion_point(field_set:CSOCitadelParty.RankedScores.max_rank_display_badge)
+}
+
 // -------------------------------------------------------------------
 
 // CSOCitadelParty_Member
@@ -24466,34 +24544,6 @@ inline void CSOCitadelParty::set_allocated_server_search_key(std::string* server
   // @@protoc_insertion_point(field_set_allocated:CSOCitadelParty.server_search_key)
 }
 
-// optional bool is_high_skill_range_party = 13;
-inline bool CSOCitadelParty::_internal_has_is_high_skill_range_party() const {
-  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
-  return value;
-}
-inline bool CSOCitadelParty::has_is_high_skill_range_party() const {
-  return _internal_has_is_high_skill_range_party();
-}
-inline void CSOCitadelParty::clear_is_high_skill_range_party() {
-  _impl_.is_high_skill_range_party_ = false;
-  _impl_._has_bits_[0] &= ~0x00001000u;
-}
-inline bool CSOCitadelParty::_internal_is_high_skill_range_party() const {
-  return _impl_.is_high_skill_range_party_;
-}
-inline bool CSOCitadelParty::is_high_skill_range_party() const {
-  // @@protoc_insertion_point(field_get:CSOCitadelParty.is_high_skill_range_party)
-  return _internal_is_high_skill_range_party();
-}
-inline void CSOCitadelParty::_internal_set_is_high_skill_range_party(bool value) {
-  _impl_._has_bits_[0] |= 0x00001000u;
-  _impl_.is_high_skill_range_party_ = value;
-}
-inline void CSOCitadelParty::set_is_high_skill_range_party(bool value) {
-  _internal_set_is_high_skill_range_party(value);
-  // @@protoc_insertion_point(field_set:CSOCitadelParty.is_high_skill_range_party)
-}
-
 // optional .CSOCitadelParty.EChatMode chat_mode = 14 [default = k_eNone];
 inline bool CSOCitadelParty::_internal_has_chat_mode() const {
   bool value = (_impl_._has_bits_[0] & 0x00000400u) != 0;
@@ -24554,7 +24604,7 @@ inline void CSOCitadelParty::set_region_mode(::ECitadelRegionMode value) {
 
 // optional bool is_private_lobby = 16;
 inline bool CSOCitadelParty::_internal_has_is_private_lobby() const {
-  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00001000u) != 0;
   return value;
 }
 inline bool CSOCitadelParty::has_is_private_lobby() const {
@@ -24562,7 +24612,7 @@ inline bool CSOCitadelParty::has_is_private_lobby() const {
 }
 inline void CSOCitadelParty::clear_is_private_lobby() {
   _impl_.is_private_lobby_ = false;
-  _impl_._has_bits_[0] &= ~0x00002000u;
+  _impl_._has_bits_[0] &= ~0x00001000u;
 }
 inline bool CSOCitadelParty::_internal_is_private_lobby() const {
   return _impl_.is_private_lobby_;
@@ -24572,7 +24622,7 @@ inline bool CSOCitadelParty::is_private_lobby() const {
   return _internal_is_private_lobby();
 }
 inline void CSOCitadelParty::_internal_set_is_private_lobby(bool value) {
-  _impl_._has_bits_[0] |= 0x00002000u;
+  _impl_._has_bits_[0] |= 0x00001000u;
   _impl_.is_private_lobby_ = value;
 }
 inline void CSOCitadelParty::set_is_private_lobby(bool value) {
@@ -24672,7 +24722,7 @@ inline void CSOCitadelParty::set_allocated_private_lobby_settings(::CSOCitadelPa
 
 // optional bool desires_laning_together = 18;
 inline bool CSOCitadelParty::_internal_has_desires_laning_together() const {
-  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00002000u) != 0;
   return value;
 }
 inline bool CSOCitadelParty::has_desires_laning_together() const {
@@ -24680,7 +24730,7 @@ inline bool CSOCitadelParty::has_desires_laning_together() const {
 }
 inline void CSOCitadelParty::clear_desires_laning_together() {
   _impl_.desires_laning_together_ = false;
-  _impl_._has_bits_[0] &= ~0x00004000u;
+  _impl_._has_bits_[0] &= ~0x00002000u;
 }
 inline bool CSOCitadelParty::_internal_desires_laning_together() const {
   return _impl_.desires_laning_together_;
@@ -24690,7 +24740,7 @@ inline bool CSOCitadelParty::desires_laning_together() const {
   return _internal_desires_laning_together();
 }
 inline void CSOCitadelParty::_internal_set_desires_laning_together(bool value) {
-  _impl_._has_bits_[0] |= 0x00004000u;
+  _impl_._has_bits_[0] |= 0x00002000u;
   _impl_.desires_laning_together_ = value;
 }
 inline void CSOCitadelParty::set_desires_laning_together(bool value) {
@@ -24700,7 +24750,7 @@ inline void CSOCitadelParty::set_desires_laning_together(bool value) {
 
 // optional .ECitadelMMPreference mm_preference = 19 [default = k_ECitadelMMPreference_Invalid];
 inline bool CSOCitadelParty::_internal_has_mm_preference() const {
-  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00004000u) != 0;
   return value;
 }
 inline bool CSOCitadelParty::has_mm_preference() const {
@@ -24708,7 +24758,7 @@ inline bool CSOCitadelParty::has_mm_preference() const {
 }
 inline void CSOCitadelParty::clear_mm_preference() {
   _impl_.mm_preference_ = 0;
-  _impl_._has_bits_[0] &= ~0x00008000u;
+  _impl_._has_bits_[0] &= ~0x00004000u;
 }
 inline ::ECitadelMMPreference CSOCitadelParty::_internal_mm_preference() const {
   return static_cast< ::ECitadelMMPreference >(_impl_.mm_preference_);
@@ -24719,7 +24769,7 @@ inline ::ECitadelMMPreference CSOCitadelParty::mm_preference() const {
 }
 inline void CSOCitadelParty::_internal_set_mm_preference(::ECitadelMMPreference value) {
   assert(::ECitadelMMPreference_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00008000u;
+  _impl_._has_bits_[0] |= 0x00004000u;
   _impl_.mm_preference_ = value;
 }
 inline void CSOCitadelParty::set_mm_preference(::ECitadelMMPreference value) {
@@ -24844,7 +24894,7 @@ CSOCitadelParty::mutable_candidate_cabals() {
 
 // optional uint64 active_cabal = 23;
 inline bool CSOCitadelParty::_internal_has_active_cabal() const {
-  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00008000u) != 0;
   return value;
 }
 inline bool CSOCitadelParty::has_active_cabal() const {
@@ -24852,7 +24902,7 @@ inline bool CSOCitadelParty::has_active_cabal() const {
 }
 inline void CSOCitadelParty::clear_active_cabal() {
   _impl_.active_cabal_ = uint64_t{0u};
-  _impl_._has_bits_[0] &= ~0x00010000u;
+  _impl_._has_bits_[0] &= ~0x00008000u;
 }
 inline uint64_t CSOCitadelParty::_internal_active_cabal() const {
   return _impl_.active_cabal_;
@@ -24862,7 +24912,7 @@ inline uint64_t CSOCitadelParty::active_cabal() const {
   return _internal_active_cabal();
 }
 inline void CSOCitadelParty::_internal_set_active_cabal(uint64_t value) {
-  _impl_._has_bits_[0] |= 0x00010000u;
+  _impl_._has_bits_[0] |= 0x00008000u;
   _impl_.active_cabal_ = value;
 }
 inline void CSOCitadelParty::set_active_cabal(uint64_t value) {
@@ -24872,7 +24922,7 @@ inline void CSOCitadelParty::set_active_cabal(uint64_t value) {
 
 // optional .ECitadelCabalMMTier party_min_cabal_tier = 24 [default = k_eCabalMMTier_Invalid];
 inline bool CSOCitadelParty::_internal_has_party_min_cabal_tier() const {
-  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00010000u) != 0;
   return value;
 }
 inline bool CSOCitadelParty::has_party_min_cabal_tier() const {
@@ -24880,7 +24930,7 @@ inline bool CSOCitadelParty::has_party_min_cabal_tier() const {
 }
 inline void CSOCitadelParty::clear_party_min_cabal_tier() {
   _impl_.party_min_cabal_tier_ = 0;
-  _impl_._has_bits_[0] &= ~0x00020000u;
+  _impl_._has_bits_[0] &= ~0x00010000u;
 }
 inline ::ECitadelCabalMMTier CSOCitadelParty::_internal_party_min_cabal_tier() const {
   return static_cast< ::ECitadelCabalMMTier >(_impl_.party_min_cabal_tier_);
@@ -24891,7 +24941,7 @@ inline ::ECitadelCabalMMTier CSOCitadelParty::party_min_cabal_tier() const {
 }
 inline void CSOCitadelParty::_internal_set_party_min_cabal_tier(::ECitadelCabalMMTier value) {
   assert(::ECitadelCabalMMTier_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00020000u;
+  _impl_._has_bits_[0] |= 0x00010000u;
   _impl_.party_min_cabal_tier_ = value;
 }
 inline void CSOCitadelParty::set_party_min_cabal_tier(::ECitadelCabalMMTier value) {
@@ -24901,7 +24951,7 @@ inline void CSOCitadelParty::set_party_min_cabal_tier(::ECitadelCabalMMTier valu
 
 // optional .ECitadelCabalMMTier party_active_cabal_tier = 25 [default = k_eCabalMMTier_Invalid];
 inline bool CSOCitadelParty::_internal_has_party_active_cabal_tier() const {
-  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00020000u) != 0;
   return value;
 }
 inline bool CSOCitadelParty::has_party_active_cabal_tier() const {
@@ -24909,7 +24959,7 @@ inline bool CSOCitadelParty::has_party_active_cabal_tier() const {
 }
 inline void CSOCitadelParty::clear_party_active_cabal_tier() {
   _impl_.party_active_cabal_tier_ = 0;
-  _impl_._has_bits_[0] &= ~0x00040000u;
+  _impl_._has_bits_[0] &= ~0x00020000u;
 }
 inline ::ECitadelCabalMMTier CSOCitadelParty::_internal_party_active_cabal_tier() const {
   return static_cast< ::ECitadelCabalMMTier >(_impl_.party_active_cabal_tier_);
@@ -24920,7 +24970,7 @@ inline ::ECitadelCabalMMTier CSOCitadelParty::party_active_cabal_tier() const {
 }
 inline void CSOCitadelParty::_internal_set_party_active_cabal_tier(::ECitadelCabalMMTier value) {
   assert(::ECitadelCabalMMTier_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00040000u;
+  _impl_._has_bits_[0] |= 0x00020000u;
   _impl_.party_active_cabal_tier_ = value;
 }
 inline void CSOCitadelParty::set_party_active_cabal_tier(::ECitadelCabalMMTier value) {
@@ -24930,7 +24980,7 @@ inline void CSOCitadelParty::set_party_active_cabal_tier(::ECitadelCabalMMTier v
 
 // optional .ECitadelRankedType ranked_type = 26 [default = k_eCitadelRankedType_Invalid];
 inline bool CSOCitadelParty::_internal_has_ranked_type() const {
-  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00040000u) != 0;
   return value;
 }
 inline bool CSOCitadelParty::has_ranked_type() const {
@@ -24938,7 +24988,7 @@ inline bool CSOCitadelParty::has_ranked_type() const {
 }
 inline void CSOCitadelParty::clear_ranked_type() {
   _impl_.ranked_type_ = 0;
-  _impl_._has_bits_[0] &= ~0x00080000u;
+  _impl_._has_bits_[0] &= ~0x00040000u;
 }
 inline ::ECitadelRankedType CSOCitadelParty::_internal_ranked_type() const {
   return static_cast< ::ECitadelRankedType >(_impl_.ranked_type_);
@@ -24949,7 +24999,7 @@ inline ::ECitadelRankedType CSOCitadelParty::ranked_type() const {
 }
 inline void CSOCitadelParty::_internal_set_ranked_type(::ECitadelRankedType value) {
   assert(::ECitadelRankedType_IsValid(value));
-  _impl_._has_bits_[0] |= 0x00080000u;
+  _impl_._has_bits_[0] |= 0x00040000u;
   _impl_.ranked_type_ = value;
 }
 inline void CSOCitadelParty::set_ranked_type(::ECitadelRankedType value) {
@@ -24959,7 +25009,7 @@ inline void CSOCitadelParty::set_ranked_type(::ECitadelRankedType value) {
 
 // optional uint32 rank_interval = 27;
 inline bool CSOCitadelParty::_internal_has_rank_interval() const {
-  bool value = (_impl_._has_bits_[0] & 0x00100000u) != 0;
+  bool value = (_impl_._has_bits_[0] & 0x00080000u) != 0;
   return value;
 }
 inline bool CSOCitadelParty::has_rank_interval() const {
@@ -24967,7 +25017,7 @@ inline bool CSOCitadelParty::has_rank_interval() const {
 }
 inline void CSOCitadelParty::clear_rank_interval() {
   _impl_.rank_interval_ = 0u;
-  _impl_._has_bits_[0] &= ~0x00100000u;
+  _impl_._has_bits_[0] &= ~0x00080000u;
 }
 inline uint32_t CSOCitadelParty::_internal_rank_interval() const {
   return _impl_.rank_interval_;
@@ -24977,7 +25027,7 @@ inline uint32_t CSOCitadelParty::rank_interval() const {
   return _internal_rank_interval();
 }
 inline void CSOCitadelParty::_internal_set_rank_interval(uint32_t value) {
-  _impl_._has_bits_[0] |= 0x00100000u;
+  _impl_._has_bits_[0] |= 0x00080000u;
   _impl_.rank_interval_ = value;
 }
 inline void CSOCitadelParty::set_rank_interval(uint32_t value) {

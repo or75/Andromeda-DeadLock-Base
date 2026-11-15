@@ -226,7 +226,7 @@ struct CMsgClientToGCDevGrantEventActionResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCDevGrantEventActionResponseDefaultTypeInternal _CMsgClientToGCDevGrantEventActionResponse_default_instance_;
-PROTOBUF_CONSTEXPR CMsgClientToGCDevDeleteEventActions::CMsgClientToGCDevDeleteEventActions(
+PROTOBUF_CONSTEXPR CMsgClientToGCDevResetEventActions::CMsgClientToGCDevResetEventActions(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
@@ -234,29 +234,29 @@ PROTOBUF_CONSTEXPR CMsgClientToGCDevDeleteEventActions::CMsgClientToGCDevDeleteE
   , /*decltype(_impl_.start_action_id_)*/0u
   , /*decltype(_impl_.end_action_id_)*/0u
   , /*decltype(_impl_.remove_audit_)*/false} {}
-struct CMsgClientToGCDevDeleteEventActionsDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CMsgClientToGCDevDeleteEventActionsDefaultTypeInternal()
+struct CMsgClientToGCDevResetEventActionsDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCDevResetEventActionsDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CMsgClientToGCDevDeleteEventActionsDefaultTypeInternal() {}
+  ~CMsgClientToGCDevResetEventActionsDefaultTypeInternal() {}
   union {
-    CMsgClientToGCDevDeleteEventActions _instance;
+    CMsgClientToGCDevResetEventActions _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCDevDeleteEventActionsDefaultTypeInternal _CMsgClientToGCDevDeleteEventActions_default_instance_;
-PROTOBUF_CONSTEXPR CMsgClientToGCDevDeleteEventActionsResponse::CMsgClientToGCDevDeleteEventActionsResponse(
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCDevResetEventActionsDefaultTypeInternal _CMsgClientToGCDevResetEventActions_default_instance_;
+PROTOBUF_CONSTEXPR CMsgClientToGCDevResetEventActionsResponse::CMsgClientToGCDevResetEventActionsResponse(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
   , /*decltype(_impl_._cached_size_)*/{}
   , /*decltype(_impl_.result_)*/0} {}
-struct CMsgClientToGCDevDeleteEventActionsResponseDefaultTypeInternal {
-  PROTOBUF_CONSTEXPR CMsgClientToGCDevDeleteEventActionsResponseDefaultTypeInternal()
+struct CMsgClientToGCDevResetEventActionsResponseDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgClientToGCDevResetEventActionsResponseDefaultTypeInternal()
       : _instance(::_pbi::ConstantInitialized{}) {}
-  ~CMsgClientToGCDevDeleteEventActionsResponseDefaultTypeInternal() {}
+  ~CMsgClientToGCDevResetEventActionsResponseDefaultTypeInternal() {}
   union {
-    CMsgClientToGCDevDeleteEventActionsResponse _instance;
+    CMsgClientToGCDevResetEventActionsResponse _instance;
   };
 };
-PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCDevDeleteEventActionsResponseDefaultTypeInternal _CMsgClientToGCDevDeleteEventActionsResponse_default_instance_;
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCDevResetEventActionsResponseDefaultTypeInternal _CMsgClientToGCDevResetEventActionsResponse_default_instance_;
 PROTOBUF_CONSTEXPR CMsgClientToGCClaimEventAction::CMsgClientToGCClaimEventAction(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -277,6 +277,19 @@ struct CMsgClientToGCClaimEventActionDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCClaimEventActionDefaultTypeInternal _CMsgClientToGCClaimEventAction_default_instance_;
+PROTOBUF_CONSTEXPR CMsgEventActionGrantLootListRewardData::CMsgEventActionGrantLootListRewardData(
+    ::_pbi::ConstantInitialized): _impl_{
+    /*decltype(_impl_.item_def_)*/{}
+  , /*decltype(_impl_._cached_size_)*/{}} {}
+struct CMsgEventActionGrantLootListRewardDataDefaultTypeInternal {
+  PROTOBUF_CONSTEXPR CMsgEventActionGrantLootListRewardDataDefaultTypeInternal()
+      : _instance(::_pbi::ConstantInitialized{}) {}
+  ~CMsgEventActionGrantLootListRewardDataDefaultTypeInternal() {}
+  union {
+    CMsgEventActionGrantLootListRewardData _instance;
+  };
+};
+PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgEventActionGrantLootListRewardDataDefaultTypeInternal _CMsgEventActionGrantLootListRewardData_default_instance_;
 PROTOBUF_CONSTEXPR CMsgEventActionGrantResult::CMsgEventActionGrantResult(
     ::_pbi::ConstantInitialized): _impl_{
     /*decltype(_impl_._has_bits_)*/{}
@@ -310,7 +323,7 @@ struct CMsgClientToGCClaimEventActionResponseDefaultTypeInternal {
   };
 };
 PROTOBUF_ATTRIBUTE_NO_DESTROY PROTOBUF_CONSTINIT PROTOBUF_ATTRIBUTE_INIT_PRIORITY1 CMsgClientToGCClaimEventActionResponseDefaultTypeInternal _CMsgClientToGCClaimEventActionResponse_default_instance_;
-static ::_pb::Metadata file_level_metadata_event_5fgcmessages_5fclient_2eproto[19];
+static ::_pb::Metadata file_level_metadata_event_5fgcmessages_5fclient_2eproto[20];
 static const ::_pb::EnumDescriptor* file_level_enum_descriptors_event_5fgcmessages_5fclient_2eproto[9];
 static constexpr ::_pb::ServiceDescriptor const** file_level_service_descriptors_event_5fgcmessages_5fclient_2eproto = nullptr;
 
@@ -451,27 +464,27 @@ const uint32_t TableStruct_event_5fgcmessages_5fclient_2eproto::offsets[] PROTOB
   ~0u,  // no _inlined_string_donated_
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevGrantEventActionResponse, _impl_.result_),
   0,
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevDeleteEventActions, _impl_._has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevDeleteEventActions, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevResetEventActions, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevResetEventActions, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevDeleteEventActions, _impl_.event_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevDeleteEventActions, _impl_.start_action_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevDeleteEventActions, _impl_.end_action_id_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevDeleteEventActions, _impl_.remove_audit_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevResetEventActions, _impl_.event_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevResetEventActions, _impl_.start_action_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevResetEventActions, _impl_.end_action_id_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevResetEventActions, _impl_.remove_audit_),
   0,
   1,
   2,
   3,
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevDeleteEventActionsResponse, _impl_._has_bits_),
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevDeleteEventActionsResponse, _internal_metadata_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevResetEventActionsResponse, _impl_._has_bits_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevResetEventActionsResponse, _internal_metadata_),
   ~0u,  // no _extensions_
   ~0u,  // no _oneof_case_
   ~0u,  // no _weak_field_map_
   ~0u,  // no _inlined_string_donated_
-  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevDeleteEventActionsResponse, _impl_.result_),
+  PROTOBUF_FIELD_OFFSET(::CMsgClientToGCDevResetEventActionsResponse, _impl_.result_),
   0,
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCClaimEventAction, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgClientToGCClaimEventAction, _internal_metadata_),
@@ -493,6 +506,13 @@ const uint32_t TableStruct_event_5fgcmessages_5fclient_2eproto::offsets[] PROTOB
   6,
   0,
   5,
+  ~0u,  // no _has_bits_
+  PROTOBUF_FIELD_OFFSET(::CMsgEventActionGrantLootListRewardData, _internal_metadata_),
+  ~0u,  // no _extensions_
+  ~0u,  // no _oneof_case_
+  ~0u,  // no _weak_field_map_
+  ~0u,  // no _inlined_string_donated_
+  PROTOBUF_FIELD_OFFSET(::CMsgEventActionGrantLootListRewardData, _impl_.item_def_),
   PROTOBUF_FIELD_OFFSET(::CMsgEventActionGrantResult, _impl_._has_bits_),
   PROTOBUF_FIELD_OFFSET(::CMsgEventActionGrantResult, _internal_metadata_),
   ~0u,  // no _extensions_
@@ -535,11 +555,12 @@ static const ::_pbi::MigrationSchema schemas[] PROTOBUF_SECTION_VARIABLE(protode
   { 108, 115, -1, sizeof(::CMsgClientToGCDevResetEventStateResponse)},
   { 116, 125, -1, sizeof(::CMsgClientToGCDevGrantEventAction)},
   { 128, 135, -1, sizeof(::CMsgClientToGCDevGrantEventActionResponse)},
-  { 136, 146, -1, sizeof(::CMsgClientToGCDevDeleteEventActions)},
-  { 150, 157, -1, sizeof(::CMsgClientToGCDevDeleteEventActionsResponse)},
+  { 136, 146, -1, sizeof(::CMsgClientToGCDevResetEventActions)},
+  { 150, 157, -1, sizeof(::CMsgClientToGCDevResetEventActionsResponse)},
   { 158, 171, -1, sizeof(::CMsgClientToGCClaimEventAction)},
-  { 178, 189, -1, sizeof(::CMsgEventActionGrantResult)},
-  { 194, 202, -1, sizeof(::CMsgClientToGCClaimEventActionResponse)},
+  { 178, -1, -1, sizeof(::CMsgEventActionGrantLootListRewardData)},
+  { 185, 196, -1, sizeof(::CMsgEventActionGrantResult)},
+  { 201, 209, -1, sizeof(::CMsgClientToGCClaimEventActionResponse)},
 };
 
 static const ::_pb::Message* const file_default_instances[] = {
@@ -557,9 +578,10 @@ static const ::_pb::Message* const file_default_instances[] = {
   &::_CMsgClientToGCDevResetEventStateResponse_default_instance_._instance,
   &::_CMsgClientToGCDevGrantEventAction_default_instance_._instance,
   &::_CMsgClientToGCDevGrantEventActionResponse_default_instance_._instance,
-  &::_CMsgClientToGCDevDeleteEventActions_default_instance_._instance,
-  &::_CMsgClientToGCDevDeleteEventActionsResponse_default_instance_._instance,
+  &::_CMsgClientToGCDevResetEventActions_default_instance_._instance,
+  &::_CMsgClientToGCDevResetEventActionsResponse_default_instance_._instance,
   &::_CMsgClientToGCClaimEventAction_default_instance_._instance,
+  &::_CMsgEventActionGrantLootListRewardData_default_instance_._instance,
   &::_CMsgEventActionGrantResult_default_instance_._instance,
   &::_CMsgClientToGCClaimEventActionResponse_default_instance_._instance,
 };
@@ -624,62 +646,73 @@ const char descriptor_table_protodef_event_5fgcmessages_5fclient_2eproto[] PROTO
   "\nk_eTimeout\020\004\022\021\n\rk_eNotAllowed\020\005\"v\n!CMsg"
   "ClientToGCDevGrantEventAction\022(\n\010event_i"
   "d\030\001 \001(\0162\007.EEvent:\rEVENT_ID_NONE\022\021\n\tactio"
-  "n_id\030\002 \001(\r\022\024\n\014action_score\030\003 \001(\r\"\372\001\n)CMs"
+  "n_id\030\002 \001(\r\022\024\n\014action_score\030\003 \001(\r\"\316\002\n)CMs"
   "gClientToGCDevGrantEventActionResponse\022V"
   "\n\006result\030\001 \001(\01624.CMsgClientToGCDevGrantE"
   "ventActionResponse.EResponse:\020k_eInterna"
-  "lError\"u\n\tEResponse\022\024\n\020k_eInternalError\020"
-  "\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_e"
-  "Disabled\020\003\022\016\n\nk_eTimeout\020\004\022\021\n\rk_eNotAllo"
-  "wed\020\005\"\225\001\n#CMsgClientToGCDevDeleteEventAc"
-  "tions\022(\n\010event_id\030\001 \001(\0162\007.EEvent:\rEVENT_"
-  "ID_NONE\022\027\n\017start_action_id\030\002 \001(\r\022\025\n\rend_"
-  "action_id\030\003 \001(\r\022\024\n\014remove_audit\030\004 \001(\010\"\376\001"
-  "\n+CMsgClientToGCDevDeleteEventActionsRes"
-  "ponse\022X\n\006result\030\001 \001(\01626.CMsgClientToGCDe"
-  "vDeleteEventActionsResponse.EResponse:\020k"
-  "_eInternalError\"u\n\tEResponse\022\024\n\020k_eInter"
-  "nalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy"
-  "\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\021\n\rk"
-  "_eNotAllowed\020\005\"\377\001\n\036CMsgClientToGCClaimEv"
-  "entAction\022(\n\010event_id\030\001 \001(\0162\007.EEvent:\rEV"
-  "ENT_ID_NONE\022\021\n\taction_id\030\002 \001(\r\022\020\n\010quanti"
-  "ty\030\003 \001(\r\022G\n\nscore_mode\030\004 \001(\0162\026.EEventAct"
-  "ionScoreMode:\033k_eEventActionScoreMode_Ad"
-  "d\022\030\n\020suppress_rewards\030\005 \001(\010\022\022\n\nclaim_dat"
-  "a\030\006 \001(\014\022\027\n\017consume_item_id\030\007 \001(\004\"\203\001\n\032CMs"
-  "gEventActionGrantResult\022\021\n\taction_id\030\001 \001"
-  "(\r\022\023\n\013grant_index\030\002 \001(\r\022\023\n\013score_index\030\003"
-  " \001(\r\022\024\n\014reward_index\030\004 \001(\r\022\022\n\ngrant_data"
-  "\030\005 \001(\014\"\250\002\n&CMsgClientToGCClaimEventActio"
-  "nResponse\022S\n\006result\030\001 \001(\01621.CMsgClientTo"
-  "GCClaimEventActionResponse.EResponse:\020k_"
-  "eInternalError\0222\n\rgrant_results\030\002 \003(\0132\033."
-  "CMsgEventActionGrantResult\"u\n\tEResponse\022"
-  "\024\n\020k_eInternalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n"
-  "\nk_eTooBusy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTim"
-  "eout\020\004\022\021\n\rk_eNotAllowed\020\005*\303\006\n\026EGCEventCl"
-  "ientMessages\022#\n\036k_EMsgClientToGCGetEvent"
-  "Points\020\230u\022+\n&k_EMsgClientToGCGetEventPoi"
-  "ntsResponse\020\231u\022\'\n\"k_EMsgGCToClientEventP"
-  "ointsUpdated\020\232u\022(\n#k_EMsgClientToGCDevGr"
-  "antEventPoints\020\233u\0220\n+k_EMsgClientToGCDev"
-  "GrantEventPointsResponse\020\234u\022)\n$k_EMsgCli"
-  "entToGCDevReloadEventSchema\020\235u\0221\n,k_EMsg"
-  "ClientToGCDevReloadEventSchemaResponse\020\236"
-  "u\022\'\n\"k_EMsgClientToGCDevResetEventState\020"
-  "\237u\022/\n*k_EMsgClientToGCDevResetEventState"
-  "Response\020\240u\022(\n#k_EMsgClientToGCDevGrantE"
-  "ventAction\020\241u\0220\n+k_EMsgClientToGCDevGran"
-  "tEventActionResponse\020\242u\022*\n%k_EMsgClientT"
-  "oGCDevDeleteEventActions\020\243u\0222\n-k_EMsgCli"
-  "entToGCDevDeleteEventActionsResponse\020\244u\022"
-  "%\n k_EMsgClientToGCClaimEventAction\020\254u\022-"
-  "\n(k_EMsgClientToGCClaimEventActionRespon"
-  "se\020\255u\022(\n#k_EMsgClientToGCGetPeriodicReso"
-  "urce\020\374u\0220\n+k_EMsgClientToGCGetPeriodicRe"
-  "sourceResponse\020\375u\022,\n\'k_EMsgGCToClientPer"
-  "iodicResourceUpdated\020\376u"
+  "lError\"\310\001\n\tEResponse\022\024\n\020k_eInternalError"
+  "\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002\022\017\n\013k_"
+  "eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\021\n\rk_eNotAll"
+  "owed\020\005\022\023\n\017k_eInvalidEvent\020\006\022\025\n\021k_eInvali"
+  "dAccount\020\007\022\022\n\016k_eGrantFailed\020\010\022\021\n\rk_eNot"
+  "Granted\020\t\"\224\001\n\"CMsgClientToGCDevResetEven"
+  "tActions\022(\n\010event_id\030\001 \001(\0162\007.EEvent:\rEVE"
+  "NT_ID_NONE\022\027\n\017start_action_id\030\002 \001(\r\022\025\n\re"
+  "nd_action_id\030\003 \001(\r\022\024\n\014remove_audit\030\004 \001(\010"
+  "\"\251\002\n*CMsgClientToGCDevResetEventActionsR"
+  "esponse\022W\n\006result\030\001 \001(\01625.CMsgClientToGC"
+  "DevResetEventActionsResponse.EResponse:\020"
+  "k_eInternalError\"\241\001\n\tEResponse\022\024\n\020k_eInt"
+  "ernalError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBu"
+  "sy\020\002\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\021\n"
+  "\rk_eNotAllowed\020\005\022\023\n\017k_eInvalidEvent\020\006\022\025\n"
+  "\021k_eInvalidAccount\020\007\"\377\001\n\036CMsgClientToGCC"
+  "laimEventAction\022(\n\010event_id\030\001 \001(\0162\007.EEve"
+  "nt:\rEVENT_ID_NONE\022\021\n\taction_id\030\002 \001(\r\022\020\n\010"
+  "quantity\030\003 \001(\r\022G\n\nscore_mode\030\004 \001(\0162\026.EEv"
+  "entActionScoreMode:\033k_eEventActionScoreM"
+  "ode_Add\022\030\n\020suppress_rewards\030\005 \001(\010\022\022\n\ncla"
+  "im_data\030\006 \001(\014\022\027\n\017consume_item_id\030\007 \001(\004\":"
+  "\n&CMsgEventActionGrantLootListRewardData"
+  "\022\020\n\010item_def\030\001 \003(\r\"\203\001\n\032CMsgEventActionGr"
+  "antResult\022\021\n\taction_id\030\001 \001(\r\022\023\n\013grant_in"
+  "dex\030\002 \001(\r\022\023\n\013score_index\030\003 \001(\r\022\024\n\014reward"
+  "_index\030\004 \001(\r\022\022\n\ngrant_data\030\005 \001(\014\"\227\004\n&CMs"
+  "gClientToGCClaimEventActionResponse\022S\n\006r"
+  "esult\030\001 \001(\01621.CMsgClientToGCClaimEventAc"
+  "tionResponse.EResponse:\020k_eInternalError"
+  "\0222\n\rgrant_results\030\002 \003(\0132\033.CMsgEventActio"
+  "nGrantResult\"\343\002\n\tEResponse\022\024\n\020k_eInterna"
+  "lError\020\000\022\016\n\nk_eSuccess\020\001\022\016\n\nk_eTooBusy\020\002"
+  "\022\017\n\013k_eDisabled\020\003\022\016\n\nk_eTimeout\020\004\022\021\n\rk_e"
+  "NotAllowed\020\005\022\024\n\020k_eInvalidAction\020\006\022\023\n\017k_"
+  "eInvalidEvent\020\007\022\025\n\021k_eEventNotActive\020\010\022\024"
+  "\n\020k_eEventNotOwned\020\t\022\030\n\024k_eInsufficientL"
+  "evel\020\n\022\031\n\025k_eInsufficientPoints\020\013\022\025\n\021k_e"
+  "AlreadyClaimed\020\014\022\027\n\023k_eInvalidScoreMode\020"
+  "\r\022\033\n\027k_eRequiresSubscription\020\016\022\022\n\016k_eInv"
+  "alidItem\020\017*\301\006\n\026EGCEventClientMessages\022#\n"
+  "\036k_EMsgClientToGCGetEventPoints\020\230u\022+\n&k_"
+  "EMsgClientToGCGetEventPointsResponse\020\231u\022"
+  "\'\n\"k_EMsgGCToClientEventPointsUpdated\020\232u"
+  "\022(\n#k_EMsgClientToGCDevGrantEventPoints\020"
+  "\233u\0220\n+k_EMsgClientToGCDevGrantEventPoint"
+  "sResponse\020\234u\022)\n$k_EMsgClientToGCDevReloa"
+  "dEventSchema\020\235u\0221\n,k_EMsgClientToGCDevRe"
+  "loadEventSchemaResponse\020\236u\022\'\n\"k_EMsgClie"
+  "ntToGCDevResetEventState\020\237u\022/\n*k_EMsgCli"
+  "entToGCDevResetEventStateResponse\020\240u\022(\n#"
+  "k_EMsgClientToGCDevGrantEventAction\020\241u\0220"
+  "\n+k_EMsgClientToGCDevGrantEventActionRes"
+  "ponse\020\242u\022)\n$k_EMsgClientToGCDevResetEven"
+  "tActions\020\243u\0221\n,k_EMsgClientToGCDevResetE"
+  "ventActionsResponse\020\244u\022%\n k_EMsgClientTo"
+  "GCClaimEventAction\020\254u\022-\n(k_EMsgClientToG"
+  "CClaimEventActionResponse\020\255u\022(\n#k_EMsgCl"
+  "ientToGCGetPeriodicResource\020\374u\0220\n+k_EMsg"
+  "ClientToGCGetPeriodicResourceResponse\020\375u"
+  "\022,\n\'k_EMsgGCToClientPeriodicResourceUpda"
+  "ted\020\376u"
   ;
 static const ::_pbi::DescriptorTable* const descriptor_table_event_5fgcmessages_5fclient_2eproto_deps[3] = {
   &::descriptor_table_event_5fgcmessages_5fcommon_2eproto,
@@ -688,9 +721,9 @@ static const ::_pbi::DescriptorTable* const descriptor_table_event_5fgcmessages_
 };
 static ::_pbi::once_flag descriptor_table_event_5fgcmessages_5fclient_2eproto_once;
 const ::_pbi::DescriptorTable descriptor_table_event_5fgcmessages_5fclient_2eproto = {
-    false, false, 4583, descriptor_table_protodef_event_5fgcmessages_5fclient_2eproto,
+    false, false, 5006, descriptor_table_protodef_event_5fgcmessages_5fclient_2eproto,
     "event_gcmessages_client.proto",
-    &descriptor_table_event_5fgcmessages_5fclient_2eproto_once, descriptor_table_event_5fgcmessages_5fclient_2eproto_deps, 3, 19,
+    &descriptor_table_event_5fgcmessages_5fclient_2eproto_once, descriptor_table_event_5fgcmessages_5fclient_2eproto_deps, 3, 20,
     schemas, file_default_instances, TableStruct_event_5fgcmessages_5fclient_2eproto::offsets,
     file_level_metadata_event_5fgcmessages_5fclient_2eproto, file_level_enum_descriptors_event_5fgcmessages_5fclient_2eproto,
     file_level_service_descriptors_event_5fgcmessages_5fclient_2eproto,
@@ -862,6 +895,10 @@ bool CMsgClientToGCDevGrantEventActionResponse_EResponse_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
       return true;
     default:
       return false;
@@ -875,15 +912,19 @@ constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevG
 constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse::k_eDisabled;
 constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse::k_eTimeout;
 constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse::k_eNotAllowed;
+constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse::k_eInvalidEvent;
+constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse::k_eInvalidAccount;
+constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse::k_eGrantFailed;
+constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse::k_eNotGranted;
 constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse::EResponse_MIN;
 constexpr CMsgClientToGCDevGrantEventActionResponse_EResponse CMsgClientToGCDevGrantEventActionResponse::EResponse_MAX;
 constexpr int CMsgClientToGCDevGrantEventActionResponse::EResponse_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCDevDeleteEventActionsResponse_EResponse_descriptor() {
+const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCDevResetEventActionsResponse_EResponse_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_event_5fgcmessages_5fclient_2eproto);
   return file_level_enum_descriptors_event_5fgcmessages_5fclient_2eproto[6];
 }
-bool CMsgClientToGCDevDeleteEventActionsResponse_EResponse_IsValid(int value) {
+bool CMsgClientToGCDevResetEventActionsResponse_EResponse_IsValid(int value) {
   switch (value) {
     case 0:
     case 1:
@@ -891,6 +932,8 @@ bool CMsgClientToGCDevDeleteEventActionsResponse_EResponse_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
+    case 7:
       return true;
     default:
       return false;
@@ -898,15 +941,17 @@ bool CMsgClientToGCDevDeleteEventActionsResponse_EResponse_IsValid(int value) {
 }
 
 #if (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::k_eInternalError;
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::k_eSuccess;
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::k_eTooBusy;
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::k_eDisabled;
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::k_eTimeout;
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::k_eNotAllowed;
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::EResponse_MIN;
-constexpr CMsgClientToGCDevDeleteEventActionsResponse_EResponse CMsgClientToGCDevDeleteEventActionsResponse::EResponse_MAX;
-constexpr int CMsgClientToGCDevDeleteEventActionsResponse::EResponse_ARRAYSIZE;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::k_eInternalError;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::k_eSuccess;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::k_eTooBusy;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::k_eDisabled;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::k_eTimeout;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::k_eNotAllowed;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::k_eInvalidEvent;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::k_eInvalidAccount;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::EResponse_MIN;
+constexpr CMsgClientToGCDevResetEventActionsResponse_EResponse CMsgClientToGCDevResetEventActionsResponse::EResponse_MAX;
+constexpr int CMsgClientToGCDevResetEventActionsResponse::EResponse_ARRAYSIZE;
 #endif  // (__cplusplus < 201703) && (!defined(_MSC_VER) || (_MSC_VER >= 1900 && _MSC_VER < 1912))
 const ::PROTOBUF_NAMESPACE_ID::EnumDescriptor* CMsgClientToGCClaimEventActionResponse_EResponse_descriptor() {
   ::PROTOBUF_NAMESPACE_ID::internal::AssignDescriptors(&descriptor_table_event_5fgcmessages_5fclient_2eproto);
@@ -920,6 +965,16 @@ bool CMsgClientToGCClaimEventActionResponse_EResponse_IsValid(int value) {
     case 3:
     case 4:
     case 5:
+    case 6:
+    case 7:
+    case 8:
+    case 9:
+    case 10:
+    case 11:
+    case 12:
+    case 13:
+    case 14:
+    case 15:
       return true;
     default:
       return false;
@@ -933,6 +988,16 @@ constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEv
 constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eDisabled;
 constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eTimeout;
 constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eNotAllowed;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eInvalidAction;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eInvalidEvent;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eEventNotActive;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eEventNotOwned;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eInsufficientLevel;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eInsufficientPoints;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eAlreadyClaimed;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eInvalidScoreMode;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eRequiresSubscription;
+constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::k_eInvalidItem;
 constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::EResponse_MIN;
 constexpr CMsgClientToGCClaimEventActionResponse_EResponse CMsgClientToGCClaimEventActionResponse::EResponse_MAX;
 constexpr int CMsgClientToGCClaimEventActionResponse::EResponse_ARRAYSIZE;
@@ -4166,9 +4231,9 @@ void CMsgClientToGCDevGrantEventActionResponse::InternalSwap(CMsgClientToGCDevGr
 
 // ===================================================================
 
-class CMsgClientToGCDevDeleteEventActions::_Internal {
+class CMsgClientToGCDevResetEventActions::_Internal {
  public:
-  using HasBits = decltype(std::declval<CMsgClientToGCDevDeleteEventActions>()._impl_._has_bits_);
+  using HasBits = decltype(std::declval<CMsgClientToGCDevResetEventActions>()._impl_._has_bits_);
   static void set_has_event_id(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
@@ -4183,15 +4248,15 @@ class CMsgClientToGCDevDeleteEventActions::_Internal {
   }
 };
 
-CMsgClientToGCDevDeleteEventActions::CMsgClientToGCDevDeleteEventActions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+CMsgClientToGCDevResetEventActions::CMsgClientToGCDevResetEventActions(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCDevDeleteEventActions)
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCDevResetEventActions)
 }
-CMsgClientToGCDevDeleteEventActions::CMsgClientToGCDevDeleteEventActions(const CMsgClientToGCDevDeleteEventActions& from)
+CMsgClientToGCDevResetEventActions::CMsgClientToGCDevResetEventActions(const CMsgClientToGCDevResetEventActions& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CMsgClientToGCDevDeleteEventActions* const _this = this; (void)_this;
+  CMsgClientToGCDevResetEventActions* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -4204,10 +4269,10 @@ CMsgClientToGCDevDeleteEventActions::CMsgClientToGCDevDeleteEventActions(const C
   ::memcpy(&_impl_.event_id_, &from._impl_.event_id_,
     static_cast<size_t>(reinterpret_cast<char*>(&_impl_.remove_audit_) -
     reinterpret_cast<char*>(&_impl_.event_id_)) + sizeof(_impl_.remove_audit_));
-  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCDevDeleteEventActions)
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCDevResetEventActions)
 }
 
-inline void CMsgClientToGCDevDeleteEventActions::SharedCtor(
+inline void CMsgClientToGCDevResetEventActions::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -4221,8 +4286,8 @@ inline void CMsgClientToGCDevDeleteEventActions::SharedCtor(
   };
 }
 
-CMsgClientToGCDevDeleteEventActions::~CMsgClientToGCDevDeleteEventActions() {
-  // @@protoc_insertion_point(destructor:CMsgClientToGCDevDeleteEventActions)
+CMsgClientToGCDevResetEventActions::~CMsgClientToGCDevResetEventActions() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCDevResetEventActions)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -4230,16 +4295,16 @@ CMsgClientToGCDevDeleteEventActions::~CMsgClientToGCDevDeleteEventActions() {
   SharedDtor();
 }
 
-inline void CMsgClientToGCDevDeleteEventActions::SharedDtor() {
+inline void CMsgClientToGCDevResetEventActions::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void CMsgClientToGCDevDeleteEventActions::SetCachedSize(int size) const {
+void CMsgClientToGCDevResetEventActions::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void CMsgClientToGCDevDeleteEventActions::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgClientToGCDevDeleteEventActions)
+void CMsgClientToGCDevResetEventActions::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCDevResetEventActions)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -4254,7 +4319,7 @@ void CMsgClientToGCDevDeleteEventActions::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CMsgClientToGCDevDeleteEventActions::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* CMsgClientToGCDevResetEventActions::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
@@ -4325,9 +4390,9 @@ failure:
 #undef CHK_
 }
 
-uint8_t* CMsgClientToGCDevDeleteEventActions::_InternalSerialize(
+uint8_t* CMsgClientToGCDevResetEventActions::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCDevDeleteEventActions)
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCDevResetEventActions)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
@@ -4361,12 +4426,12 @@ uint8_t* CMsgClientToGCDevDeleteEventActions::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCDevDeleteEventActions)
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCDevResetEventActions)
   return target;
 }
 
-size_t CMsgClientToGCDevDeleteEventActions::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCDevDeleteEventActions)
+size_t CMsgClientToGCDevResetEventActions::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCDevResetEventActions)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
@@ -4400,17 +4465,17 @@ size_t CMsgClientToGCDevDeleteEventActions::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCDevDeleteEventActions::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCDevResetEventActions::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CMsgClientToGCDevDeleteEventActions::MergeImpl
+    CMsgClientToGCDevResetEventActions::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCDevDeleteEventActions::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCDevResetEventActions::GetClassData() const { return &_class_data_; }
 
 
-void CMsgClientToGCDevDeleteEventActions::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CMsgClientToGCDevDeleteEventActions*>(&to_msg);
-  auto& from = static_cast<const CMsgClientToGCDevDeleteEventActions&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCDevDeleteEventActions)
+void CMsgClientToGCDevResetEventActions::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCDevResetEventActions*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCDevResetEventActions&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCDevResetEventActions)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -4434,30 +4499,30 @@ void CMsgClientToGCDevDeleteEventActions::MergeImpl(::PROTOBUF_NAMESPACE_ID::Mes
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void CMsgClientToGCDevDeleteEventActions::CopyFrom(const CMsgClientToGCDevDeleteEventActions& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCDevDeleteEventActions)
+void CMsgClientToGCDevResetEventActions::CopyFrom(const CMsgClientToGCDevResetEventActions& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCDevResetEventActions)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CMsgClientToGCDevDeleteEventActions::IsInitialized() const {
+bool CMsgClientToGCDevResetEventActions::IsInitialized() const {
   return true;
 }
 
-void CMsgClientToGCDevDeleteEventActions::InternalSwap(CMsgClientToGCDevDeleteEventActions* other) {
+void CMsgClientToGCDevResetEventActions::InternalSwap(CMsgClientToGCDevResetEventActions* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   ::PROTOBUF_NAMESPACE_ID::internal::memswap<
-      PROTOBUF_FIELD_OFFSET(CMsgClientToGCDevDeleteEventActions, _impl_.remove_audit_)
-      + sizeof(CMsgClientToGCDevDeleteEventActions::_impl_.remove_audit_)
-      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCDevDeleteEventActions, _impl_.event_id_)>(
+      PROTOBUF_FIELD_OFFSET(CMsgClientToGCDevResetEventActions, _impl_.remove_audit_)
+      + sizeof(CMsgClientToGCDevResetEventActions::_impl_.remove_audit_)
+      - PROTOBUF_FIELD_OFFSET(CMsgClientToGCDevResetEventActions, _impl_.event_id_)>(
           reinterpret_cast<char*>(&_impl_.event_id_),
           reinterpret_cast<char*>(&other->_impl_.event_id_));
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCDevDeleteEventActions::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCDevResetEventActions::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_event_5fgcmessages_5fclient_2eproto_getter, &descriptor_table_event_5fgcmessages_5fclient_2eproto_once,
       file_level_metadata_event_5fgcmessages_5fclient_2eproto[14]);
@@ -4465,23 +4530,23 @@ void CMsgClientToGCDevDeleteEventActions::InternalSwap(CMsgClientToGCDevDeleteEv
 
 // ===================================================================
 
-class CMsgClientToGCDevDeleteEventActionsResponse::_Internal {
+class CMsgClientToGCDevResetEventActionsResponse::_Internal {
  public:
-  using HasBits = decltype(std::declval<CMsgClientToGCDevDeleteEventActionsResponse>()._impl_._has_bits_);
+  using HasBits = decltype(std::declval<CMsgClientToGCDevResetEventActionsResponse>()._impl_._has_bits_);
   static void set_has_result(HasBits* has_bits) {
     (*has_bits)[0] |= 1u;
   }
 };
 
-CMsgClientToGCDevDeleteEventActionsResponse::CMsgClientToGCDevDeleteEventActionsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+CMsgClientToGCDevResetEventActionsResponse::CMsgClientToGCDevResetEventActionsResponse(::PROTOBUF_NAMESPACE_ID::Arena* arena,
                          bool is_message_owned)
   : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
   SharedCtor(arena, is_message_owned);
-  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCDevDeleteEventActionsResponse)
+  // @@protoc_insertion_point(arena_constructor:CMsgClientToGCDevResetEventActionsResponse)
 }
-CMsgClientToGCDevDeleteEventActionsResponse::CMsgClientToGCDevDeleteEventActionsResponse(const CMsgClientToGCDevDeleteEventActionsResponse& from)
+CMsgClientToGCDevResetEventActionsResponse::CMsgClientToGCDevResetEventActionsResponse(const CMsgClientToGCDevResetEventActionsResponse& from)
   : ::PROTOBUF_NAMESPACE_ID::Message() {
-  CMsgClientToGCDevDeleteEventActionsResponse* const _this = this; (void)_this;
+  CMsgClientToGCDevResetEventActionsResponse* const _this = this; (void)_this;
   new (&_impl_) Impl_{
       decltype(_impl_._has_bits_){from._impl_._has_bits_}
     , /*decltype(_impl_._cached_size_)*/{}
@@ -4489,10 +4554,10 @@ CMsgClientToGCDevDeleteEventActionsResponse::CMsgClientToGCDevDeleteEventActions
 
   _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
   _this->_impl_.result_ = from._impl_.result_;
-  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCDevDeleteEventActionsResponse)
+  // @@protoc_insertion_point(copy_constructor:CMsgClientToGCDevResetEventActionsResponse)
 }
 
-inline void CMsgClientToGCDevDeleteEventActionsResponse::SharedCtor(
+inline void CMsgClientToGCDevResetEventActionsResponse::SharedCtor(
     ::_pb::Arena* arena, bool is_message_owned) {
   (void)arena;
   (void)is_message_owned;
@@ -4503,8 +4568,8 @@ inline void CMsgClientToGCDevDeleteEventActionsResponse::SharedCtor(
   };
 }
 
-CMsgClientToGCDevDeleteEventActionsResponse::~CMsgClientToGCDevDeleteEventActionsResponse() {
-  // @@protoc_insertion_point(destructor:CMsgClientToGCDevDeleteEventActionsResponse)
+CMsgClientToGCDevResetEventActionsResponse::~CMsgClientToGCDevResetEventActionsResponse() {
+  // @@protoc_insertion_point(destructor:CMsgClientToGCDevResetEventActionsResponse)
   if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
   (void)arena;
     return;
@@ -4512,16 +4577,16 @@ CMsgClientToGCDevDeleteEventActionsResponse::~CMsgClientToGCDevDeleteEventAction
   SharedDtor();
 }
 
-inline void CMsgClientToGCDevDeleteEventActionsResponse::SharedDtor() {
+inline void CMsgClientToGCDevResetEventActionsResponse::SharedDtor() {
   GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
 }
 
-void CMsgClientToGCDevDeleteEventActionsResponse::SetCachedSize(int size) const {
+void CMsgClientToGCDevResetEventActionsResponse::SetCachedSize(int size) const {
   _impl_._cached_size_.Set(size);
 }
 
-void CMsgClientToGCDevDeleteEventActionsResponse::Clear() {
-// @@protoc_insertion_point(message_clear_start:CMsgClientToGCDevDeleteEventActionsResponse)
+void CMsgClientToGCDevResetEventActionsResponse::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgClientToGCDevResetEventActionsResponse)
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
@@ -4531,20 +4596,20 @@ void CMsgClientToGCDevDeleteEventActionsResponse::Clear() {
   _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
 }
 
-const char* CMsgClientToGCDevDeleteEventActionsResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+const char* CMsgClientToGCDevResetEventActionsResponse::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
 #define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
   _Internal::HasBits has_bits{};
   while (!ctx->Done(&ptr)) {
     uint32_t tag;
     ptr = ::_pbi::ReadTag(ptr, &tag);
     switch (tag >> 3) {
-      // optional .CMsgClientToGCDevDeleteEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
+      // optional .CMsgClientToGCDevResetEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
       case 1:
         if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
           uint64_t val = ::PROTOBUF_NAMESPACE_ID::internal::ReadVarint64(&ptr);
           CHK_(ptr);
-          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCDevDeleteEventActionsResponse_EResponse_IsValid(val))) {
-            _internal_set_result(static_cast<::CMsgClientToGCDevDeleteEventActionsResponse_EResponse>(val));
+          if (PROTOBUF_PREDICT_TRUE(::CMsgClientToGCDevResetEventActionsResponse_EResponse_IsValid(val))) {
+            _internal_set_result(static_cast<::CMsgClientToGCDevResetEventActionsResponse_EResponse>(val));
           } else {
             ::PROTOBUF_NAMESPACE_ID::internal::WriteVarint(1, val, mutable_unknown_fields());
           }
@@ -4575,14 +4640,14 @@ failure:
 #undef CHK_
 }
 
-uint8_t* CMsgClientToGCDevDeleteEventActionsResponse::_InternalSerialize(
+uint8_t* CMsgClientToGCDevResetEventActionsResponse::_InternalSerialize(
     uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
-  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCDevDeleteEventActionsResponse)
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgClientToGCDevResetEventActionsResponse)
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
 
   cached_has_bits = _impl_._has_bits_[0];
-  // optional .CMsgClientToGCDevDeleteEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
+  // optional .CMsgClientToGCDevResetEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
   if (cached_has_bits & 0x00000001u) {
     target = stream->EnsureSpace(target);
     target = ::_pbi::WireFormatLite::WriteEnumToArray(
@@ -4593,19 +4658,19 @@ uint8_t* CMsgClientToGCDevDeleteEventActionsResponse::_InternalSerialize(
     target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
         _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
   }
-  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCDevDeleteEventActionsResponse)
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgClientToGCDevResetEventActionsResponse)
   return target;
 }
 
-size_t CMsgClientToGCDevDeleteEventActionsResponse::ByteSizeLong() const {
-// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCDevDeleteEventActionsResponse)
+size_t CMsgClientToGCDevResetEventActionsResponse::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgClientToGCDevResetEventActionsResponse)
   size_t total_size = 0;
 
   uint32_t cached_has_bits = 0;
   // Prevent compiler warnings about cached_has_bits being unused
   (void) cached_has_bits;
 
-  // optional .CMsgClientToGCDevDeleteEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
+  // optional .CMsgClientToGCDevResetEventActionsResponse.EResponse result = 1 [default = k_eInternalError];
   cached_has_bits = _impl_._has_bits_[0];
   if (cached_has_bits & 0x00000001u) {
     total_size += 1 +
@@ -4615,17 +4680,17 @@ size_t CMsgClientToGCDevDeleteEventActionsResponse::ByteSizeLong() const {
   return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
 }
 
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCDevDeleteEventActionsResponse::_class_data_ = {
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgClientToGCDevResetEventActionsResponse::_class_data_ = {
     ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
-    CMsgClientToGCDevDeleteEventActionsResponse::MergeImpl
+    CMsgClientToGCDevResetEventActionsResponse::MergeImpl
 };
-const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCDevDeleteEventActionsResponse::GetClassData() const { return &_class_data_; }
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgClientToGCDevResetEventActionsResponse::GetClassData() const { return &_class_data_; }
 
 
-void CMsgClientToGCDevDeleteEventActionsResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
-  auto* const _this = static_cast<CMsgClientToGCDevDeleteEventActionsResponse*>(&to_msg);
-  auto& from = static_cast<const CMsgClientToGCDevDeleteEventActionsResponse&>(from_msg);
-  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCDevDeleteEventActionsResponse)
+void CMsgClientToGCDevResetEventActionsResponse::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgClientToGCDevResetEventActionsResponse*>(&to_msg);
+  auto& from = static_cast<const CMsgClientToGCDevResetEventActionsResponse&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgClientToGCDevResetEventActionsResponse)
   GOOGLE_DCHECK_NE(&from, _this);
   uint32_t cached_has_bits = 0;
   (void) cached_has_bits;
@@ -4636,25 +4701,25 @@ void CMsgClientToGCDevDeleteEventActionsResponse::MergeImpl(::PROTOBUF_NAMESPACE
   _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
 }
 
-void CMsgClientToGCDevDeleteEventActionsResponse::CopyFrom(const CMsgClientToGCDevDeleteEventActionsResponse& from) {
-// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCDevDeleteEventActionsResponse)
+void CMsgClientToGCDevResetEventActionsResponse::CopyFrom(const CMsgClientToGCDevResetEventActionsResponse& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgClientToGCDevResetEventActionsResponse)
   if (&from == this) return;
   Clear();
   MergeFrom(from);
 }
 
-bool CMsgClientToGCDevDeleteEventActionsResponse::IsInitialized() const {
+bool CMsgClientToGCDevResetEventActionsResponse::IsInitialized() const {
   return true;
 }
 
-void CMsgClientToGCDevDeleteEventActionsResponse::InternalSwap(CMsgClientToGCDevDeleteEventActionsResponse* other) {
+void CMsgClientToGCDevResetEventActionsResponse::InternalSwap(CMsgClientToGCDevResetEventActionsResponse* other) {
   using std::swap;
   _internal_metadata_.InternalSwap(&other->_internal_metadata_);
   swap(_impl_._has_bits_[0], other->_impl_._has_bits_[0]);
   swap(_impl_.result_, other->_impl_.result_);
 }
 
-::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCDevDeleteEventActionsResponse::GetMetadata() const {
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCDevResetEventActionsResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_event_5fgcmessages_5fclient_2eproto_getter, &descriptor_table_event_5fgcmessages_5fclient_2eproto_once,
       file_level_metadata_event_5fgcmessages_5fclient_2eproto[15]);
@@ -5075,6 +5140,194 @@ void CMsgClientToGCClaimEventAction::InternalSwap(CMsgClientToGCClaimEventAction
 
 // ===================================================================
 
+class CMsgEventActionGrantLootListRewardData::_Internal {
+ public:
+};
+
+CMsgEventActionGrantLootListRewardData::CMsgEventActionGrantLootListRewardData(::PROTOBUF_NAMESPACE_ID::Arena* arena,
+                         bool is_message_owned)
+  : ::PROTOBUF_NAMESPACE_ID::Message(arena, is_message_owned) {
+  SharedCtor(arena, is_message_owned);
+  // @@protoc_insertion_point(arena_constructor:CMsgEventActionGrantLootListRewardData)
+}
+CMsgEventActionGrantLootListRewardData::CMsgEventActionGrantLootListRewardData(const CMsgEventActionGrantLootListRewardData& from)
+  : ::PROTOBUF_NAMESPACE_ID::Message() {
+  CMsgEventActionGrantLootListRewardData* const _this = this; (void)_this;
+  new (&_impl_) Impl_{
+      decltype(_impl_.item_def_){from._impl_.item_def_}
+    , /*decltype(_impl_._cached_size_)*/{}};
+
+  _internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+  // @@protoc_insertion_point(copy_constructor:CMsgEventActionGrantLootListRewardData)
+}
+
+inline void CMsgEventActionGrantLootListRewardData::SharedCtor(
+    ::_pb::Arena* arena, bool is_message_owned) {
+  (void)arena;
+  (void)is_message_owned;
+  new (&_impl_) Impl_{
+      decltype(_impl_.item_def_){arena}
+    , /*decltype(_impl_._cached_size_)*/{}
+  };
+}
+
+CMsgEventActionGrantLootListRewardData::~CMsgEventActionGrantLootListRewardData() {
+  // @@protoc_insertion_point(destructor:CMsgEventActionGrantLootListRewardData)
+  if (auto *arena = _internal_metadata_.DeleteReturnArena<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>()) {
+  (void)arena;
+    return;
+  }
+  SharedDtor();
+}
+
+inline void CMsgEventActionGrantLootListRewardData::SharedDtor() {
+  GOOGLE_DCHECK(GetArenaForAllocation() == nullptr);
+  _impl_.item_def_.~RepeatedField();
+}
+
+void CMsgEventActionGrantLootListRewardData::SetCachedSize(int size) const {
+  _impl_._cached_size_.Set(size);
+}
+
+void CMsgEventActionGrantLootListRewardData::Clear() {
+// @@protoc_insertion_point(message_clear_start:CMsgEventActionGrantLootListRewardData)
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  _impl_.item_def_.Clear();
+  _internal_metadata_.Clear<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>();
+}
+
+const char* CMsgEventActionGrantLootListRewardData::_InternalParse(const char* ptr, ::_pbi::ParseContext* ctx) {
+#define CHK_(x) if (PROTOBUF_PREDICT_FALSE(!(x))) goto failure
+  while (!ctx->Done(&ptr)) {
+    uint32_t tag;
+    ptr = ::_pbi::ReadTag(ptr, &tag);
+    switch (tag >> 3) {
+      // repeated uint32 item_def = 1;
+      case 1:
+        if (PROTOBUF_PREDICT_TRUE(static_cast<uint8_t>(tag) == 8)) {
+          ptr -= 1;
+          do {
+            ptr += 1;
+            _internal_add_item_def(::PROTOBUF_NAMESPACE_ID::internal::ReadVarint32(&ptr));
+            CHK_(ptr);
+            if (!ctx->DataAvailable(ptr)) break;
+          } while (::PROTOBUF_NAMESPACE_ID::internal::ExpectTag<8>(ptr));
+        } else if (static_cast<uint8_t>(tag) == 10) {
+          ptr = ::PROTOBUF_NAMESPACE_ID::internal::PackedUInt32Parser(_internal_mutable_item_def(), ptr, ctx);
+          CHK_(ptr);
+        } else
+          goto handle_unusual;
+        continue;
+      default:
+        goto handle_unusual;
+    }  // switch
+  handle_unusual:
+    if ((tag == 0) || ((tag & 7) == 4)) {
+      CHK_(ptr);
+      ctx->SetLastTag(tag);
+      goto message_done;
+    }
+    ptr = UnknownFieldParse(
+        tag,
+        _internal_metadata_.mutable_unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(),
+        ptr, ctx);
+    CHK_(ptr != nullptr);
+  }  // while
+message_done:
+  return ptr;
+failure:
+  ptr = nullptr;
+  goto message_done;
+#undef CHK_
+}
+
+uint8_t* CMsgEventActionGrantLootListRewardData::_InternalSerialize(
+    uint8_t* target, ::PROTOBUF_NAMESPACE_ID::io::EpsCopyOutputStream* stream) const {
+  // @@protoc_insertion_point(serialize_to_array_start:CMsgEventActionGrantLootListRewardData)
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  // repeated uint32 item_def = 1;
+  for (int i = 0, n = this->_internal_item_def_size(); i < n; i++) {
+    target = stream->EnsureSpace(target);
+    target = ::_pbi::WireFormatLite::WriteUInt32ToArray(1, this->_internal_item_def(i), target);
+  }
+
+  if (PROTOBUF_PREDICT_FALSE(_internal_metadata_.have_unknown_fields())) {
+    target = ::_pbi::WireFormat::InternalSerializeUnknownFieldsToArray(
+        _internal_metadata_.unknown_fields<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(::PROTOBUF_NAMESPACE_ID::UnknownFieldSet::default_instance), target, stream);
+  }
+  // @@protoc_insertion_point(serialize_to_array_end:CMsgEventActionGrantLootListRewardData)
+  return target;
+}
+
+size_t CMsgEventActionGrantLootListRewardData::ByteSizeLong() const {
+// @@protoc_insertion_point(message_byte_size_start:CMsgEventActionGrantLootListRewardData)
+  size_t total_size = 0;
+
+  uint32_t cached_has_bits = 0;
+  // Prevent compiler warnings about cached_has_bits being unused
+  (void) cached_has_bits;
+
+  // repeated uint32 item_def = 1;
+  {
+    size_t data_size = ::_pbi::WireFormatLite::
+      UInt32Size(this->_impl_.item_def_);
+    total_size += 1 *
+                  ::_pbi::FromIntSize(this->_internal_item_def_size());
+    total_size += data_size;
+  }
+
+  return MaybeComputeUnknownFieldsSize(total_size, &_impl_._cached_size_);
+}
+
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData CMsgEventActionGrantLootListRewardData::_class_data_ = {
+    ::PROTOBUF_NAMESPACE_ID::Message::CopyWithSourceCheck,
+    CMsgEventActionGrantLootListRewardData::MergeImpl
+};
+const ::PROTOBUF_NAMESPACE_ID::Message::ClassData*CMsgEventActionGrantLootListRewardData::GetClassData() const { return &_class_data_; }
+
+
+void CMsgEventActionGrantLootListRewardData::MergeImpl(::PROTOBUF_NAMESPACE_ID::Message& to_msg, const ::PROTOBUF_NAMESPACE_ID::Message& from_msg) {
+  auto* const _this = static_cast<CMsgEventActionGrantLootListRewardData*>(&to_msg);
+  auto& from = static_cast<const CMsgEventActionGrantLootListRewardData&>(from_msg);
+  // @@protoc_insertion_point(class_specific_merge_from_start:CMsgEventActionGrantLootListRewardData)
+  GOOGLE_DCHECK_NE(&from, _this);
+  uint32_t cached_has_bits = 0;
+  (void) cached_has_bits;
+
+  _this->_impl_.item_def_.MergeFrom(from._impl_.item_def_);
+  _this->_internal_metadata_.MergeFrom<::PROTOBUF_NAMESPACE_ID::UnknownFieldSet>(from._internal_metadata_);
+}
+
+void CMsgEventActionGrantLootListRewardData::CopyFrom(const CMsgEventActionGrantLootListRewardData& from) {
+// @@protoc_insertion_point(class_specific_copy_from_start:CMsgEventActionGrantLootListRewardData)
+  if (&from == this) return;
+  Clear();
+  MergeFrom(from);
+}
+
+bool CMsgEventActionGrantLootListRewardData::IsInitialized() const {
+  return true;
+}
+
+void CMsgEventActionGrantLootListRewardData::InternalSwap(CMsgEventActionGrantLootListRewardData* other) {
+  using std::swap;
+  _internal_metadata_.InternalSwap(&other->_internal_metadata_);
+  _impl_.item_def_.InternalSwap(&other->_impl_.item_def_);
+}
+
+::PROTOBUF_NAMESPACE_ID::Metadata CMsgEventActionGrantLootListRewardData::GetMetadata() const {
+  return ::_pbi::AssignDescriptors(
+      &descriptor_table_event_5fgcmessages_5fclient_2eproto_getter, &descriptor_table_event_5fgcmessages_5fclient_2eproto_once,
+      file_level_metadata_event_5fgcmessages_5fclient_2eproto[17]);
+}
+
+// ===================================================================
+
 class CMsgEventActionGrantResult::_Internal {
  public:
   using HasBits = decltype(std::declval<CMsgEventActionGrantResult>()._impl_._has_bits_);
@@ -5415,7 +5668,7 @@ void CMsgEventActionGrantResult::InternalSwap(CMsgEventActionGrantResult* other)
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgEventActionGrantResult::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_event_5fgcmessages_5fclient_2eproto_getter, &descriptor_table_event_5fgcmessages_5fclient_2eproto_once,
-      file_level_metadata_event_5fgcmessages_5fclient_2eproto[17]);
+      file_level_metadata_event_5fgcmessages_5fclient_2eproto[18]);
 }
 
 // ===================================================================
@@ -5646,7 +5899,7 @@ void CMsgClientToGCClaimEventActionResponse::InternalSwap(CMsgClientToGCClaimEve
 ::PROTOBUF_NAMESPACE_ID::Metadata CMsgClientToGCClaimEventActionResponse::GetMetadata() const {
   return ::_pbi::AssignDescriptors(
       &descriptor_table_event_5fgcmessages_5fclient_2eproto_getter, &descriptor_table_event_5fgcmessages_5fclient_2eproto_once,
-      file_level_metadata_event_5fgcmessages_5fclient_2eproto[18]);
+      file_level_metadata_event_5fgcmessages_5fclient_2eproto[19]);
 }
 
 // @@protoc_insertion_point(namespace_scope)
@@ -5707,17 +5960,21 @@ template<> PROTOBUF_NOINLINE ::CMsgClientToGCDevGrantEventActionResponse*
 Arena::CreateMaybeMessage< ::CMsgClientToGCDevGrantEventActionResponse >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientToGCDevGrantEventActionResponse >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CMsgClientToGCDevDeleteEventActions*
-Arena::CreateMaybeMessage< ::CMsgClientToGCDevDeleteEventActions >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgClientToGCDevDeleteEventActions >(arena);
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCDevResetEventActions*
+Arena::CreateMaybeMessage< ::CMsgClientToGCDevResetEventActions >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCDevResetEventActions >(arena);
 }
-template<> PROTOBUF_NOINLINE ::CMsgClientToGCDevDeleteEventActionsResponse*
-Arena::CreateMaybeMessage< ::CMsgClientToGCDevDeleteEventActionsResponse >(Arena* arena) {
-  return Arena::CreateMessageInternal< ::CMsgClientToGCDevDeleteEventActionsResponse >(arena);
+template<> PROTOBUF_NOINLINE ::CMsgClientToGCDevResetEventActionsResponse*
+Arena::CreateMaybeMessage< ::CMsgClientToGCDevResetEventActionsResponse >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgClientToGCDevResetEventActionsResponse >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgClientToGCClaimEventAction*
 Arena::CreateMaybeMessage< ::CMsgClientToGCClaimEventAction >(Arena* arena) {
   return Arena::CreateMessageInternal< ::CMsgClientToGCClaimEventAction >(arena);
+}
+template<> PROTOBUF_NOINLINE ::CMsgEventActionGrantLootListRewardData*
+Arena::CreateMaybeMessage< ::CMsgEventActionGrantLootListRewardData >(Arena* arena) {
+  return Arena::CreateMessageInternal< ::CMsgEventActionGrantLootListRewardData >(arena);
 }
 template<> PROTOBUF_NOINLINE ::CMsgEventActionGrantResult*
 Arena::CreateMaybeMessage< ::CMsgEventActionGrantResult >(Arena* arena) {

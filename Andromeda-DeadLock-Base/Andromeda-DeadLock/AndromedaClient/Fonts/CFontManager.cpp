@@ -15,7 +15,7 @@ auto CFontManager::FirstInitFonts() -> void
 			return;
 		}
 
-		m_VerdanaFont.InitFont( m_pFW1Factory , L"Verdana" , 9.f );
+		m_VerdanaFont.InitFont( m_pFW1Factory , L"Verdana" , 11.f );
 
 		float screenWidth = ImGui::GetIO().DisplaySize.x;
 		float screenHeight = ImGui::GetIO().DisplaySize.y;
